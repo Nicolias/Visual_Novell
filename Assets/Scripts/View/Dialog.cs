@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Text;
 using TMPro;
@@ -16,105 +15,68 @@ public class Dialog : MonoBehaviour
 {
     [SerializeField] private Button _changeTextButton;
 
-    [SerializeField] private Dialogs _dialogs;
-    [SerializeField] private TMP_Text _speakerName, _speechText;
-    [SerializeField] private float _timeBetweenShowNewCharInDialog;
-    [SerializeField] public Choise _choise;
-
-    private SpeachTextStatus _currentShowStatus;
-
+    [SerializeField] private SpeechWriter _speechWriter;
+    [SerializeField] private ChoiceServise _choiseServise;
+    [SerializeField] private DialogData _dialogs;
+    
     private Speech _currentSpeech;
 
     private void OnEnable()
     {
         if (_dialogs != null)
-            PlayNextSpeech();
+        {
+            _currentSpeech = (Speech)_dialogs.nodes[0];
+            _speechWriter.DisplaySpeechSmooth(_currentSpeech);
+        }
 
         _changeTextButton.onClick.AddListener(() =>
         {
-            if (_choise.Canvas.enabled == true)
+            if (_choiseServise.Canvas.enabled == true)
                 return;
 
-            if (_currentShowStatus == SpeachTextStatus.Complete)
-            {
-                PlayNextSpeech();
-            }
+            if (_speechWriter.ShowStatus == SpeachTextStatus.Complete)
+                TryDisplayNextSpeech();
             else
-            {
-                StopAllCoroutines();
-                _speechText.text = _currentSpeech.Text;
-                _currentShowStatus = SpeachTextStatus.Complete;
-
-                if(_currentSpeech.Choise.Length != 0)
-                    CreateChoise(_currentSpeech);
-            }
+                _speechWriter.DisplaySpeech(_currentSpeech);
+           
+            if (_currentSpeech.Choise.Length != 0)
+                CreateChoise(_currentSpeech);            
         });
+
+        _choiseServise.OnChoiceMade += DisplayChoiseText;
     }
 
     private void OnDisable()
     {
         _changeTextButton.onClick.RemoveAllListeners();
+        _choiseServise.OnChoiceMade -= DisplayChoiseText;
     }
 
-    public void Choise(ChoiseButton choiseButton)
+    private void TryDisplayNextSpeech()
     {
-        _currentSpeech = (Speech)choiseButton.Node;
-        choiseButton.Hide();
-        _choise.Hide();
+        NodePort nodePort = _currentSpeech.GetPort("_outPut").Connection;
 
-        PlayNextSpeech();
-    }
-
-    private void PlayNextSpeech()
-    {
-        if (_dialogs == null)
-            return;
-
-        _currentSpeech ??= (Speech)_dialogs.nodes[0];
-
-        _speakerName.text = _currentSpeech.SpeakerName;
-        StartCoroutine(ShowingSpeech(_currentSpeech.Text));
-
-        if (_currentSpeech.Choise.Length == 0)
+        if (nodePort != null)
         {
-            NodePort nodePort = _currentSpeech.GetPort("_outPut").Connection;
+            _currentSpeech = (Speech)nodePort.node;
 
-            if (nodePort != null) 
-                _currentSpeech = (Speech)nodePort.node;
+            _speechWriter.DisplaySpeechSmooth(_currentSpeech);
         }
-        else
-        {
-            CreateChoise(_currentSpeech);
-        }
-    }
-
-    private IEnumerator ShowingSpeech(string speechText)
-    {
-        StringBuilder stringBuilder = new();
-
-        _currentShowStatus = SpeachTextStatus.Showing;
-
-        foreach (char charInDialog in speechText)
-        {
-            yield return new WaitForSeconds(_timeBetweenShowNewCharInDialog);
-            stringBuilder.Append(charInDialog);
-
-            _speechText.text = stringBuilder.ToString();
-        }
-
-        _currentShowStatus = SpeachTextStatus.Complete;
     }
 
     private void CreateChoise(Speech speech)
     {
-        _choise.Show();
-
         for (int i = 0; i < speech.Choise.Length; i++)
         {
-            ChoiseElement choiseElement = new();
-            choiseElement.Text = speech.Choise[i];
-            choiseElement.Node = speech.GetPort($"_choise {i}").Connection.node;
-            _choise.Add(choiseElement, this);
-        }
+            ChoiseElement choiseElement = new(speech.Choise[i], speech.GetPort($"_choise {i}").Connection.node);
+            _choiseServise.CreateChoiseButton(choiseElement, this);
+        }        
+    }
+
+    private void DisplayChoiseText(Speech speech)
+    {
+        _currentSpeech = speech;
+
+        _speechWriter.DisplaySpeechSmooth(speech);
     }
 }

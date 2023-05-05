@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [CreateAssetMenu]
-public class Dialogs : NodeGraph 
+public class DialogData : NodeGraph 
 { 
 	
 }
