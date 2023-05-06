@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using XNode;
 
@@ -9,6 +10,7 @@ public class ChoiceView : MonoBehaviour, IChoiceView
     [SerializeField] private Canvas _selfCanvas;
     [SerializeField] private Transform _container;
     [SerializeField] private ChoiceButton _choiseButtonTemplate;
+    [SerializeField] private TMP_Text _questionText;
 
     public Canvas Canvas => _selfCanvas;
 
@@ -17,9 +19,11 @@ public class ChoiceView : MonoBehaviour, IChoiceView
         HideCanvas();
     }
 
-    public void Show(string[] texts, Node[] nodes)
+    public void Show(string[] texts, Node[] nodes, string questionText)
     {
         ShowCanvas();
+
+        _questionText.text = questionText;
 
         for (int i = 0; i < nodes.Length; i++)
         {

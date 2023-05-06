@@ -17,7 +17,7 @@ public class ChoicesPresentar : IChoicePresentar
     public void Execute()
     {
         _view.OnChoiceMade += OnCallBackView;
-        _view.Show(_model.Choices, _model.Nodes);
+        _view.Show(_model.Choices, _model.Nodes, _model.QuestionText);
     }
 
     public void OnCallBackView(Node node)

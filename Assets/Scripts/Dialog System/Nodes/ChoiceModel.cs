@@ -3,14 +3,16 @@ using XNode;
 
 public class ChoiceModel : XnodeModel, IChoiceModel
 {
+    [SerializeField] private string _questeText;
+
     [SerializeField]
     [Output(dynamicPortList = true)]
     [TextArea(1, 2)]
     private string[] _textChoices;
 
     public string[] Choices => _textChoices;
-
     public Node[] Nodes => GetNodes();
+    public string QuestionText => _questeText;
 
     public void SetEndPort(Node node)
     {
