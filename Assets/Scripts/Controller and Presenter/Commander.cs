@@ -7,7 +7,7 @@ public class Commander : MonoBehaviour
     [SerializeField] private SpeechView _speechView;
     //[SerializeField] private BackgroundView _backgroundView;
     [SerializeField] private ChoiceView _choicesView;
-    //[SerializeField] private PortraitView _portraitView;
+    [SerializeField] private CharacterPortraitView _portraitView;
 
     private (ICommand Command, Node Node) _curent;
 
@@ -34,7 +34,7 @@ public class Commander : MonoBehaviour
             ISpeechModel speech => new SpeechPresentar(speech, _speechView),
             //IModelBackground background => new BackgroundController(background, _backgroundView),
             IChoiceModel choice => new ChoicesPresentar(choice, _choicesView),
-            //IModelPortrait portrait => new PortraitController(portrait, _portraitView),
+            ICharacterPortraitModel portrait => new CharacterPortraitController(portrait, _portraitView),
             _ => null
         };
 

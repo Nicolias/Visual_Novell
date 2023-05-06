@@ -29,62 +29,13 @@ public class SpeechView : MonoBehaviour, ISpeechView
 
     private void OnEnable()
     {
-        //if (_dialogs != null)
-        //{
-        //    _currentSpeech = (SpeechModel)_dialogs.nodes[0];
-        //    //_speechWriter.DisplaySpeechSmooth(_currentSpeech);
-        //}
-
         _changeTextButton.onClick.AddListener(OnCallBack);
-
-            //if (_choiseServise.Canvas.enabled == true)
-            //    return;
-
-            //if (_speechWriter.ShowStatus == SpeachTextStatus.Complete)
-            //    TryDisplayNextSpeech();
-            //else
-            //    _speechWriter.DisplaySpeech(_currentSpeech);
-           
-            //if (_currentSpeech.Choise.Length != 0)
-            //    CreateChoise(_currentSpeech);            
-       // });
-
-        //_choiseServise.OnChoiceMade += DisplayChoiseText;
     }
 
     private void OnDisable()
     {
         _changeTextButton.onClick.RemoveAllListeners();
-       // _choiseServise.OnChoiceMade -= DisplayChoiseText;
     }
-
-    //private void TryDisplayNextSpeech()
-    //{
-    //    NodePort nodePort = _currentSpeech.GetPort("_outPut").Connection;
-
-    //    if (nodePort != null)
-    //    {
-    //        _currentSpeech = (SpeechModel)nodePort.node;
-
-    //        _speechWriter.DisplaySpeechSmooth(_currentSpeech);
-    //    }
-    //}
-
-    //private void CreateChoise(SpeechModel speech)
-    //{
-    //    for (int i = 0; i < speech.Choise.Length; i++)
-    //    {
-    //        ChoiseElement choiseElement = new(speech.Choise[i], speech.GetPort($"_choise {i}").Connection.node);
-    //        _choiseServise.CreateChoiseButton(choiseElement, this);
-    //    }        
-    //}
-
-    //private void DisplayChoiseText(SpeechModel speech)
-    //{
-    //    _currentSpeech = speech;
-
-    //    _speechWriter.DisplaySpeechSmooth(speech);
-    //}
 
     public void Show(string speakerName, string speechText)
     {
@@ -107,14 +58,14 @@ public class SpeechView : MonoBehaviour, ISpeechView
         _selfCanvas.gameObject.SetActive(true);
     }
 
-    public void OnCallBack()
-    {
-        OnClick?.Invoke();
-    }
-
     public void Hide()
     {
         _selfCanvas.gameObject.SetActive(false);
+    }
+
+    private void OnCallBack()
+    {
+        OnClick?.Invoke();
     }
 
     private IEnumerator ShowingSpeechSmooth(string speechText)
