@@ -9,7 +9,7 @@ public class ChoiceButton : MonoBehaviour
     [SerializeField] private Button _selfButton;
 
 
-    public Dialog Dialog { get; private set; }
+    public SpeechView Dialog { get; private set; }
     public Node Node { get; private set; }
     public Button Button => _selfButton;
 
@@ -18,7 +18,7 @@ public class ChoiceButton : MonoBehaviour
         _selfButton.onClick.RemoveAllListeners();
     }
 
-    public void Initialized(Dialog dialog, ChoiseElement choiseElement)
+    public void Initialized(SpeechView dialog, ChoiseElement choiseElement)
     {
         Dialog = dialog;
         Node = choiseElement.Node;

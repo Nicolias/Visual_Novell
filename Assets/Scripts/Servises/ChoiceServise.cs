@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ChoiceServise : MonoBehaviour
 {
-    public event Action<Speech> OnChoiceMade;
+    public event Action<SpeechModel> OnChoiceMade;
 
     [SerializeField] private Canvas _selfCanvas;
     [SerializeField] private Transform _container;
@@ -16,7 +16,7 @@ public class ChoiceServise : MonoBehaviour
         _selfCanvas.enabled = false;   
     }
 
-    public void CreateChoiseButton(ChoiseElement choiseElement, Dialog currentDialog)
+    public void CreateChoiseButton(ChoiseElement choiseElement, SpeechView currentDialog)
     {
         ShowCanvas();
        
@@ -25,7 +25,7 @@ public class ChoiceServise : MonoBehaviour
 
         choiceButton.Button.onClick.AddListener(() =>
         {
-            OnChoiceMade?.Invoke((Speech)choiceButton.Node);
+            OnChoiceMade?.Invoke((SpeechModel)choiceButton.Node);
             HideCanvas();
         });
     }
