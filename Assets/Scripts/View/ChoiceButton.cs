@@ -8,8 +8,6 @@ public class ChoiceButton : MonoBehaviour
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Button _selfButton;
 
-
-    public SpeechView Dialog { get; private set; }
     public Node Node { get; private set; }
     public Button Button => _selfButton;
 
@@ -18,9 +16,8 @@ public class ChoiceButton : MonoBehaviour
         _selfButton.onClick.RemoveAllListeners();
     }
 
-    public void Initialized(SpeechView dialog, ChoiseElement choiseElement)
+    public void Initialized(ChoiseElement choiseElement)
     {
-        Dialog = dialog;
         Node = choiseElement.Node;
         _text.text = choiseElement.Text;
     }

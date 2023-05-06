@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7300829366642544857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468e675d9a7da0b4c928b2dffae20479, type: 3}
+  m_Name: Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: 232}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -7300829366642544857}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 1
+        node: {fileID: 5776070944634305828}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -7300829366642544857}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _speakerName: "\u041A\u043E\u043B\u044F"
+  _speechText: "\u041F\u043E\u043A\u0430"
 --- !u!114 &-5009431635957034494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,10 +115,10 @@ MonoBehaviour:
   position: {x: 152, y: 56}
   ports:
     keys:
-    - _input
+    - _inPut
     - _outPut
     values:
-    - _fieldName: _input
+    - _fieldName: _inPut
       _node: {fileID: -2157099624247315718}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -91,14 +135,14 @@ MonoBehaviour:
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: _input
+      - fieldName: _inPut
         node: {fileID: -2071984664752913189}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _input: 0
+  _inPut: 0
   _outPut: 0
   _speakerName: "\u041C\u0430\u0440\u0442\u0430"
   _speechText: "\u041F\u0440\u0438\u0432\u0435\u0442. \u041A\u0430\u043A \u0434\u0435\u043B\u0430?"
@@ -118,10 +162,10 @@ MonoBehaviour:
   position: {x: 376, y: 56}
   ports:
     keys:
-    - _input
+    - _inPut
     - _outPut
     values:
-    - _fieldName: _input
+    - _fieldName: _inPut
       _node: {fileID: -2071984664752913189}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -138,14 +182,14 @@ MonoBehaviour:
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: _input
+      - fieldName: _inPut
         node: {fileID: 8936622465151825728}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _input: 0
+  _inPut: 0
   _outPut: 0
   _speakerName: "\u041A\u043E\u043B\u044F"
   _speechText: "\u0425\u043E\u0440\u043E\u0448\u043E \u043A\u0430\u043A \u0443 \u0442\u0435\u0431\u044F?\u0425\u043E\u0440\u043E\u0448\u043E
@@ -273,6 +317,50 @@ MonoBehaviour:
   _speakerName: "\u042D\u043B\u0435\u043E\u043D\u043E\u0440\u0430"
   _speechText: "\u0422\u043E\u0433\u0434\u0430 \u043F\u043E\u043A\u0430"
   _choise: []
+--- !u!114 &-230804042011396374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468e675d9a7da0b4c928b2dffae20479, type: 3}
+  m_Name: Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: -24}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -230804042011396374}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 0
+        node: {fileID: 5776070944634305828}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -230804042011396374}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _speakerName: "\u041C\u0430\u0440\u0442\u0430"
+  _speechText: "\u041F\u043E\u0448\u043B\u0438"
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +378,9 @@ MonoBehaviour:
   - {fileID: -2157099624247315718}
   - {fileID: -2071984664752913189}
   - {fileID: 8936622465151825728}
+  - {fileID: -230804042011396374}
+  - {fileID: -7300829366642544857}
+  - {fileID: 5776070944634305828}
 --- !u!114 &2050813398502009373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,10 +471,10 @@ MonoBehaviour:
   position: {x: -104, y: 56}
   ports:
     keys:
-    - _input
+    - _inPut
     - _outPut
     values:
-    - _fieldName: _input
+    - _fieldName: _inPut
       _node: {fileID: 4839508337532552258}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -397,14 +488,14 @@ MonoBehaviour:
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: _input
+      - fieldName: _inPut
         node: {fileID: -2157099624247315718}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _input: 0
+  _inPut: 0
   _outPut: 0
   _speakerName: "\u041A\u043E\u043B\u044F"
   _speechText: "\u041F\u0440\u0438\u0432\u0435\u0442"
@@ -466,6 +557,87 @@ MonoBehaviour:
   _speakerName: "\u041D\u0438\u043A\u043E\u043B\u0430\u0439"
   _speechText: "\u0425\u043E\u0440\u043E\u0448\u043E"
   _choise: []
+--- !u!114 &5776070944634305828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d052624211813094888f165a32cdb2e8, type: 3}
+  m_Name: Choice Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 840, y: 72}
+  ports:
+    keys:
+    - _textChoices
+    - _inPut
+    - _outPut
+    - _textChoices 0
+    - _textChoices 1
+    values:
+    - _fieldName: _textChoices
+      _node: {fileID: 5776070944634305828}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _inPut
+      _node: {fileID: 5776070944634305828}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 8936622465151825728}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 5776070944634305828}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _textChoices 0
+      _node: {fileID: 5776070944634305828}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -230804042011396374}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: _textChoices 1
+      _node: {fileID: 5776070944634305828}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -7300829366642544857}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  _inPut: 0
+  _outPut: 0
+  _textChoices:
+  - "\u0414\u0430"
+  - "\u041D\u0435\u0442"
 --- !u!114 &7570658110151151876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,10 +737,10 @@ MonoBehaviour:
   position: {x: 600, y: 56}
   ports:
     keys:
-    - _input
+    - _inPut
     - _outPut
     values:
-    - _fieldName: _input
+    - _fieldName: _inPut
       _node: {fileID: 8936622465151825728}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -584,12 +756,15 @@ MonoBehaviour:
       _node: {fileID: 8936622465151825728}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 5776070944634305828}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _input: 0
+  _inPut: 0
   _outPut: 0
   _speakerName: "\u041C\u0430\u0440\u0442\u0430"
-  _speechText: "\u041D\u043E\u0440\u043C\u0430\u043B\u044C\u043D\u043E"
+  _speechText: "\u0421\u044B\u0433\u0440\u0430\u0435\u043C"

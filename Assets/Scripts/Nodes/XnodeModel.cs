@@ -8,6 +8,6 @@ using XNode;
 
 public class XnodeModel : Node
 {
-    [Input, SerializeField] private bool _input;
+    [Input, SerializeField] private bool _inPut;
     [Output, SerializeField] private bool _outPut;
 }

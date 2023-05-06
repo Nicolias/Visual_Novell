@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using static XNode.Node;
 
 public class SpeechModel : XnodeModel, ISpeechModel
 {

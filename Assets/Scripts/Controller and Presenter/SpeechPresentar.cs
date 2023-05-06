@@ -1,13 +1,13 @@
 ﻿using System;
 
-public class SpeechPresenter : IPresentar
+public class SpeechPresentar : IPresentar
 {
     public event Action OnComplete;
 
     private ISpeechModel _model;
     private ISpeechView _view;
 
-    public SpeechPresenter(ISpeechModel model, ISpeechView view)
+    public SpeechPresentar(ISpeechModel model, ISpeechView view)
     {
         _model = model;
         _view = view;
