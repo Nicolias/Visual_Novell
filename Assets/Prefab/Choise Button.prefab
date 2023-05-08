@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4773391966514713592}
   - component: {fileID: 7613180779077901128}
   - component: {fileID: 4690482637266801100}
-  - component: {fileID: 689576339355555442}
+  - component: {fileID: 9022798495253317689}
   m_Layer: 5
   m_Name: Choise Button
   m_TagString: Untagged
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &689576339355555442
+--- !u!114 &9022798495253317689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5203415989289360425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd051560456616c4cad64e7a974b500e, type: 3}
+  m_Script: {fileID: 11500000, guid: b710e10b6636efb438a1049915db9319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 4889980141513060890}
