@@ -6,30 +6,24 @@ using UnityEngine.UI;
 
 public class NameInputView : MonoBehaviour, ITextInputView
 {
-    public event Action<Node> OnChoiceMade;
     public event Action<string> OnTextInput;
 
     [SerializeField] private Canvas _selfCanvas;
 
     [SerializeField] private TMP_InputField _nameInputField;
 
-    [SerializeField] private Button _completeNicknameButton, _unCompleteNicknameButton;
-    [SerializeField] private Node _completeNode, _unCompleteNode;
-
-    public Canvas Canvas => _selfCanvas;
+    [SerializeField] private Button _completeNicknameButton;
 
     private void OnDisable()
     {
         _completeNicknameButton.onClick.RemoveAllListeners();
-        _unCompleteNicknameButton.onClick.RemoveAllListeners();
     }
 
     public void Show()
     {
         ShowCanvas();
 
-        _completeNicknameButton.onClick.AddListener(ComplteNickname);
-        _unCompleteNicknameButton.onClick.AddListener(UnComplteNickname);        
+        _completeNicknameButton.onClick.AddListener(ComplteNickname);     
     }
 
     private void ComplteNickname()
@@ -41,18 +35,9 @@ public class NameInputView : MonoBehaviour, ITextInputView
             return;
 
         OnTextInput?.Invoke(_nameInputField.text);
-        OnChoiceMade?.Invoke(_completeNode);
 
         HideCanvas();
-    }
-
-    private void UnComplteNickname()
-    {
-        OnTextInput?.Invoke("Везунчик");
-        OnChoiceMade?.Invoke(_unCompleteNode);
-
-        HideCanvas();
-    }
+    }    
 
     private void ShowCanvas() => _selfCanvas.gameObject.SetActive(true);
 

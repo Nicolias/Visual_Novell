@@ -1,6 +1,4 @@
-﻿using TMPro;
-
-public interface INicknameInputModel : ISelectionActModel
+﻿
+public interface INicknameInputModel 
 {
-    public TMP_InputField InputNickname { get; }
 }

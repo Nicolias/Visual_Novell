@@ -34,7 +34,7 @@ public class Commander : MonoBehaviour
         result.command = node switch
         {
             ISpeechModel speech => new SpeechPresentar(speech, _speechView),
-            INicknameInputModel nicknameInput => new NameInputPresenter(_nameInputView, nicknameInput, _staticData),
+            INicknameInputModel => new NameInputPresenter(_nameInputView, _staticData),
             IChoiceModel choice => new ChoicesPresentar(choice, _choicesView),
             ICharacterPortraitModel portrait => new CharacterPortraitController(portrait, _portraitView),
             _ => null

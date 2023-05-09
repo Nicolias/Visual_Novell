@@ -11,13 +11,13 @@ public class SpeechView : MonoBehaviour, ISpeechView
     public event Action OnClick;
 
     [SerializeField] private Canvas _selfCanvas;
-    [SerializeField] private Button _changeTextButton;
+    [SerializeField] private ClickerZone _clickerZone;
 
     [SerializeField] private float _timeBetweenShowNewCharInDialog;
     [SerializeField] private TMP_Text _speechText, _speakerName;
     [SerializeField] private Image _speakerAvatar;
 
-    [SerializeField] private StaticData _staticData;
+    private StaticData _staticData;
 
     private ShowTextStatus _showStatus;
     private WaitForSeconds _waitForSeconds;
@@ -25,27 +25,26 @@ public class SpeechView : MonoBehaviour, ISpeechView
 
     public ShowTextStatus ShowStatus => _showStatus;
 
-
     [Inject]
     public void Construct(StaticData staticData)
     {
         _staticData = staticData;
     }
 
-    private void Awake()
-    {
-        _waitForSeconds = new(_timeBetweenShowNewCharInDialog);
-        _stringBuilder = new();
-    }
-
     private void OnEnable()
     {
-        _changeTextButton.onClick.AddListener(OnCallBack);
+        _clickerZone.OnClick += OnCallBack;
     }
 
     private void OnDisable()
     {
-        _changeTextButton.onClick.RemoveAllListeners();
+        _clickerZone.OnClick -= OnCallBack;
+    }
+
+    private void Awake()
+    {
+        _waitForSeconds = new(_timeBetweenShowNewCharInDialog);
+        _stringBuilder = new();
     }
 
     public void Show(string speakerName, string speechText, Sprite speakerAvatar)
