@@ -6,7 +6,7 @@ public interface ISpeechView
     public event Action OnClick;
 
     public ShowTextStatus ShowStatus { get; }
-    public void ShowSmooth(string name, string text, Sprite speakerAvatar);
-    public void Show(string name, string text, Sprite speakerAvatar);
+    public void ShowSmooth(ISpeechModel speechModel);
+    public void Show(ISpeechModel speechModel);
     public void Hide();
 }

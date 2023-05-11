@@ -1,12 +1,10 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using Zenject;
 
-public class SpeechView : MonoBehaviour, ISpeechView
+public abstract class SpeechView : MonoBehaviour, ISpeechView
 {
     public event Action OnClick;
 
@@ -14,22 +12,13 @@ public class SpeechView : MonoBehaviour, ISpeechView
     [SerializeField] private ClickerZone _clickerZone;
 
     [SerializeField] private float _timeBetweenShowNewCharInDialog;
-    [SerializeField] private TMP_Text _speechText, _speakerName;
-    [SerializeField] private Image _speakerAvatar;
-
-    private StaticData _staticData;
+    [SerializeField] private TMP_Text _speechText;
 
     private ShowTextStatus _showStatus;
     private WaitForSeconds _waitForSeconds;
     private StringBuilder _stringBuilder;
 
     public ShowTextStatus ShowStatus => _showStatus;
-
-    [Inject]
-    public void Construct(StaticData staticData)
-    {
-        _staticData = staticData;
-    }
 
     private void OnEnable()
     {
@@ -47,46 +36,23 @@ public class SpeechView : MonoBehaviour, ISpeechView
         _stringBuilder = new();
     }
 
-    public void Show(string speakerName, string speechText, Sprite speakerAvatar)
+    public virtual void Show(ISpeechModel model)
     {
+        _selfCanvas.gameObject.SetActive(true);
+
         _stringBuilder.Clear();
         _showStatus = ShowTextStatus.Complete;
 
         StopAllCoroutines();
 
-        _speakerName.text = speakerName.Replace(_staticData.SpecWordForNickName, _staticData.Nickname);
-        _speechText.text = speechText.Replace(_staticData.SpecWordForNickName, _staticData.Nickname); ;
-
-        if (speakerAvatar != null)
-        {
-            _speakerAvatar.sprite = speakerAvatar;
-            _speakerAvatar.color = new(1, 1, 1, 1);
-        }
-        else
-        {
-            _speakerAvatar.color = new(1, 1, 1, 0);
-        }
-
-        _selfCanvas.gameObject.SetActive(true);
+        _speechText.text = model.Text;
     }
 
-    public void ShowSmooth(string speakerName, string speechText, Sprite speakerAvatar)
+    public virtual void ShowSmooth(ISpeechModel model)
     {
-        _speakerName.text = speakerName.Replace(_staticData.SpecWordForNickName, _staticData.Nickname);
-
-        if (speakerAvatar != null)
-        {
-            _speakerAvatar.sprite = speakerAvatar;
-            _speakerAvatar.color = new(1, 1, 1, 1);
-        }
-        else
-        {
-            _speakerAvatar.color = new(1, 1, 1, 0);
-        }
-
-        StartCoroutine(ShowingSpeechSmooth(speechText.Replace(_staticData.SpecWordForNickName, _staticData.Nickname)));
-
         _selfCanvas.gameObject.SetActive(true);
+
+        StartCoroutine(ShowingSpeechSmooth(model.Text));
     }
 
     public void Hide()
@@ -99,7 +65,7 @@ public class SpeechView : MonoBehaviour, ISpeechView
         OnClick?.Invoke();
     }
 
-    private IEnumerator ShowingSpeechSmooth(string speechText)
+    protected IEnumerator ShowingSpeechSmooth(string speechText)
     {
         _showStatus = ShowTextStatus.Showing;
 

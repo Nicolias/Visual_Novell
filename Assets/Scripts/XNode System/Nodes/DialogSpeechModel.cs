@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using Zenject;
 
-public class SpeechModel : XnodeModel, ISpeechModel
+public class DialogSpeechModel : XnodeModel, ISpeechModel
 {
 	[SerializeField] private Sprite _speakerAvatar;
 	[SerializeField] private string _speakerName;
@@ -10,4 +9,10 @@ public class SpeechModel : XnodeModel, ISpeechModel
     public Sprite Avatar => _speakerAvatar;
 	public string SpeakerName => _speakerName;
     public string Text => _speechText;
+
+    public void TryReplaceNickname(string cpecWord, string nickname)
+    {
+        _speechText = _speechText.Replace(cpecWord, nickname);
+        _speakerName = _speakerName.Replace(cpecWord, nickname);
+    }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using XNode;
 
 public class Commander : MonoBehaviour
@@ -6,7 +7,8 @@ public class Commander : MonoBehaviour
     [SerializeField] private StaticData _staticData;
 
     [SerializeField] private NodeGraph _graph;
-    [SerializeField] private SpeechView _speechView;
+    [SerializeField] private MonologSpeechView _monologSpeechView;
+    [SerializeField] private DialogSpeechView _dialogSpeechView;
     [SerializeField] private NameInputView _nameInputView;
     [SerializeField] private ChoiceView _choicesView;
     [SerializeField] private CharacterPortraitView _portraitView;
@@ -33,7 +35,8 @@ public class Commander : MonoBehaviour
 
         result.command = node switch
         {
-            ISpeechModel speech => new SpeechPresentar(speech, _speechView),
+            MonologSpeechModel speech => new SpeechPresentar(speech, _monologSpeechView, _staticData),
+            DialogSpeechModel dialogSpeech => new SpeechPresentar(dialogSpeech, _dialogSpeechView, _staticData),
             INicknameInputModel => new NameInputPresenter(_nameInputView, _staticData),
             IChoiceModel choice => new ChoicesPresentar(choice, _choicesView),
             ICharacterPortraitModel portrait => new CharacterPortraitController(portrait, _portraitView),
