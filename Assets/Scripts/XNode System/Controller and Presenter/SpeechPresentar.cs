@@ -27,6 +27,9 @@ public class SpeechPresentar : IPresentar
         _model.TryReplaceNickname(_staticData.SpecWordForNickName, _staticData.Nickname);
         _view.OnClick += OnCallBackView;
         _view.ShowSmooth(_model);
+
+        if (_model.IsImmediatelyNextNode)
+            OnComplete?.Invoke();
     }
 
     private void OnCallBackView()

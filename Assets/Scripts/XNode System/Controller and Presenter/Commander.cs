@@ -7,11 +7,17 @@ public class Commander : MonoBehaviour
     [SerializeField] private StaticData _staticData;
 
     [SerializeField] private NodeGraph _graph;
+
     [SerializeField] private MonologSpeechView _monologSpeechView;
     [SerializeField] private DialogSpeechView _dialogSpeechView;
+
     [SerializeField] private NameInputView _nameInputView;
+
     [SerializeField] private ChoiceView _choicesView;
+
     [SerializeField] private CharacterPortraitView _portraitView;
+
+    [SerializeField] public BackgroundView _backgroundView;
 
     private (ICommand Command, Node Node) _curent;
 
@@ -35,6 +41,7 @@ public class Commander : MonoBehaviour
 
         result.command = node switch
         {
+            BackgroundModel background => new BackgroundController(background, _backgroundView),
             MonologSpeechModel speech => new SpeechPresentar(speech, _monologSpeechView, _staticData),
             DialogSpeechModel dialogSpeech => new SpeechPresentar(dialogSpeech, _dialogSpeechView, _staticData),
             INicknameInputModel => new NameInputPresenter(_nameInputView, _staticData),

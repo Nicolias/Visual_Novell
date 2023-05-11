@@ -38,7 +38,7 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
 
     public virtual void Show(ISpeechModel model)
     {
-        _selfCanvas.gameObject.SetActive(true);
+        _selfCanvas.enabled = true;
 
         _stringBuilder.Clear();
         _showStatus = ShowTextStatus.Complete;
@@ -50,18 +50,21 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
 
     public virtual void ShowSmooth(ISpeechModel model)
     {
-        _selfCanvas.gameObject.SetActive(true);
+        _selfCanvas.enabled = true;
 
         StartCoroutine(ShowingSpeechSmooth(model.Text));
     }
 
     public void Hide()
     {
-        _selfCanvas.gameObject.SetActive(false);
+        _selfCanvas.enabled = false;
     }
 
     private void OnCallBack()
     {
+        if (ShowStatus == ShowTextStatus.Complete)
+            Hide();
+
         OnClick?.Invoke();
     }
 

@@ -9,6 +9,7 @@ public class DialogSpeechView : SpeechView
 
     public override void Show(ISpeechModel speechModel)
     {
+        base.Show(speechModel);
         var model = (DialogSpeechModel)speechModel;
 
         _speakerName.text = model.SpeakerName;
@@ -18,6 +19,8 @@ public class DialogSpeechView : SpeechView
 
     public override void ShowSmooth(ISpeechModel speechModel)
     {
+        base.ShowSmooth(speechModel);
+
         var model = (DialogSpeechModel)speechModel;
 
         _speakerName.text = model.SpeakerName;
