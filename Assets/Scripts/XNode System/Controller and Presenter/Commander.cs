@@ -17,7 +17,9 @@ public class Commander : MonoBehaviour
 
     [SerializeField] private CharacterPortraitView _portraitView;
 
-    [SerializeField] public BackgroundView _backgroundView;
+    [SerializeField] private BackgroundView _backgroundView;
+
+    [SerializeField] private AudioServise _audioServise;
 
     private (ICommand Command, Node Node) _curent;
 
@@ -44,6 +46,7 @@ public class Commander : MonoBehaviour
             BackgroundModel background => new BackgroundController(background, _backgroundView),
             MonologSpeechModel speech => new SpeechPresentar(speech, _monologSpeechView, _staticData),
             DialogSpeechModel dialogSpeech => new SpeechPresentar(dialogSpeech, _dialogSpeechView, _staticData),
+            AudioModel audio => new AudioController(audio, _audioServise),
             INicknameInputModel => new NameInputPresenter(_nameInputView, _staticData),
             IChoiceModel choice => new ChoicesPresentar(choice, _choicesView),
             ICharacterPortraitModel portrait => new CharacterPortraitController(portrait, _portraitView),
@@ -65,3 +68,4 @@ public class Commander : MonoBehaviour
         _curent.Command.Execute();
     }
 }
+
