@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class CharacterPortraitController : IController
+public class CharacterPortraitController : ICommand
 {
     public event Action OnComplete;
 

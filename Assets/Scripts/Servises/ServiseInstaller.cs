@@ -7,6 +7,6 @@ public class ServiseInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.Bind<StaticData>().FromComponentOn(_staticData.gameObject).AsSingle();
+       Container.Bind<StaticData>().FromComponentOn(_staticData.gameObject).AsSingle();
     }
 }

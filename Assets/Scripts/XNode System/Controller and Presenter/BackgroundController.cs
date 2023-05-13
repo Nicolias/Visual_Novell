@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class BackgroundController : IController
+public class BackgroundController : ICommand
 {
     public event Action OnComplete;
     private BackgroundView _view;

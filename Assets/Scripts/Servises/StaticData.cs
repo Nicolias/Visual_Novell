@@ -1,4 +1,4 @@
-п»їusing UnityEngine;
+using UnityEngine;
 
 public class StaticData : MonoBehaviour
 {
@@ -12,6 +12,6 @@ public class StaticData : MonoBehaviour
 
     private void OnEnable()
     {
-        Nickname = "Р’РµР·СѓРЅС‡РёРє";
+        Nickname = "Везунчик";
     }
 }
