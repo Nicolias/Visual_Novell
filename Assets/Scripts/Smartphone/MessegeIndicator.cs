@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MessegeIndicator : MonoBehaviour
 {
     [SerializeField] private Smartphone _smartphone;
-    [SerializeField] public Image _indicatorImage;
+    [SerializeField] private Image _indicatorImage;
 
     private Sequence _indicationSequence;
 

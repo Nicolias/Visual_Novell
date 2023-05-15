@@ -9,9 +9,10 @@ public abstract class Commander : MonoBehaviour
 
     private void Start()
     {
-        _curent = Packing(_currentGraph.nodes[0]);
-        _curent.Command.OnComplete += Next;
-        _curent.Command.Execute();
+        if (_currentGraph == null)
+            return;
+
+        PackAndExecuteCommand(_currentGraph.nodes[0]);
     }
 
     private void OnDisable()
@@ -19,17 +20,26 @@ public abstract class Commander : MonoBehaviour
         _curent.Command.OnComplete -= Next;
     }
 
-    protected abstract (ICommand, Node) Packing(Node node);
-
     private void Next()
     {
-        _curent.Command.OnComplete -= Next;
+        if (_curent.Command != null)
+        {
+            _curent.Command.OnComplete -= Next;
+        }
+
         NodePort port = _curent.Node.GetPort("_outPut").Connection;
 
         if (port == null) return;
 
-        _curent = Packing(port.node);
+        PackAndExecuteCommand(port.node);
+    }
+
+    protected void PackAndExecuteCommand(Node node)
+    {
+        _curent = Packing(node);
         _curent.Command.OnComplete += Next;
         _curent.Command.Execute();
     }
+
+    protected abstract (ICommand, Node) Packing(Node node);
 }

@@ -1,6 +1,6 @@
 ﻿using XNode;
 
-public class SmartphoneCommander : Commander
+public class MessengerCommander : Commander
 {
     protected override (ICommand, Node) Packing(Node node)
     {

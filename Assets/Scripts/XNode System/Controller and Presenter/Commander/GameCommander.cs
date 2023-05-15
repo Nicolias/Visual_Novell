@@ -19,7 +19,7 @@ public class GameCommander : Commander
     [SerializeField] private AudioServise _audioServise;
 
     [SerializeField] private SmartphoneGuideView _smartphoneGuideView;
-    //[SerializeField] private Smartphone _smartPhone;
+    [SerializeField] private Smartphone _smartPhone;
 
     protected override (ICommand, Node) Packing(Node node)
     {
@@ -36,7 +36,7 @@ public class GameCommander : Commander
             ICharacterPortraitModel portrait => new CharacterPortraitController(portrait, _portraitView),
             AudioModel audio => new AudioController(audio, _audioServise),
             INicknameInputModel => new NameInputPresenter(_nameInputView, _staticData),
-            //NewDialogInSmartphoneModel newMassegemodel => new SmartphoneDialogPresenter(newMassegemodel, _smartPhone),
+            NewDialogInSmartphoneModel newMassegemodel => new SmartphoneDialogPresenter(newMassegemodel, _smartPhone),
             SmartphoneGuidModel => new SmartPhoneGuidPresenter(_smartphoneGuideView),
             _ => null
         };
