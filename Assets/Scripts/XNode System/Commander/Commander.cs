@@ -20,6 +20,13 @@ public abstract class Commander : MonoBehaviour
         _curent.Command.OnComplete -= Next;
     }
 
+    public void PackAndExecuteCommand(Node node)
+    {
+        _curent = Packing(node);
+        _curent.Command.OnComplete += Next;
+        _curent.Command.Execute();
+    }
+
     private void Next()
     {
         if (_curent.Command != null)
@@ -32,13 +39,6 @@ public abstract class Commander : MonoBehaviour
         if (port == null) return;
 
         PackAndExecuteCommand(port.node);
-    }
-
-    protected void PackAndExecuteCommand(Node node)
-    {
-        _curent = Packing(node);
-        _curent.Command.OnComplete += Next;
-        _curent.Command.Execute();
     }
 
     protected abstract (ICommand, Node) Packing(Node node);

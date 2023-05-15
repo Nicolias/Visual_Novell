@@ -19,3 +19,8 @@ public class DialogSpeechModel : XnodeModel, ISpeechModel
         _speakerName = _speakerName.Replace(cpecWord, nickname);
     }
 }
+
+public class MessengerDialogSpeechModel : DialogSpeechModel, ISpeechModel
+{
+    [field: SerializeField] public MessegeSenderType MessegeSenderType { get; private set; }
+}

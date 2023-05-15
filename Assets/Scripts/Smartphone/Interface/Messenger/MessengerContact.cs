@@ -4,12 +4,15 @@ using XNode;
 using System;
 using System.Collections.Generic;
 using Zenject;
+using TMPro;
 
 [RequireComponent(typeof(Button))]
 public class MessengerContact : MonoBehaviour
 {
     [SerializeField] private Transform _chatsContainer;
     [SerializeField] private Chat _chatButtonTemplate;
+
+    [SerializeField] private TMP_Text _contactNameText;
 
     [Inject] private DiContainer _di;
 
@@ -23,6 +26,12 @@ public class MessengerContact : MonoBehaviour
         _selfButton = GetComponent<Button>();
     }
 
+    private void OnEnable()
+    {
+        _selfButton.onClick.AddListener(() => 
+        _chatsContainer.gameObject.SetActive(!_chatsContainer.gameObject.activeInHierarchy));
+    }
+
     public void Initialize(ContactElement contactElement)
     {
         _contactData = contactElement;
@@ -30,14 +39,10 @@ public class MessengerContact : MonoBehaviour
 
         _chatsContainer.SetParent(transform.parent);
 
+        _contactNameText.text = contactElement.Name;
+
         foreach (var dialog in contactElement.Dialogs)
             CreateNewChats(dialog);
-    }
-
-    private void OnEnable()
-    {
-        _selfButton.onClick.AddListener(() => 
-        _chatsContainer.gameObject.SetActive(!_chatsContainer.gameObject.activeInHierarchy));
     }
 
     private void OnDisable()
@@ -54,12 +59,12 @@ public class MessengerContact : MonoBehaviour
     {
         foreach (var chat in _chatsList)
         {
-            if (chat.Data == newMessege)
+            if (chat.ChatData == newMessege)
                 throw new InvalidOperationException("Chat already exist");
         }
 
         var newChat = _di.InstantiatePrefabForComponent<Chat>(_chatButtonTemplate, _chatsContainer);
-        newChat.Initialize(newMessege); ;
+        newChat.Initialize(newMessege);
         _chatsList.Add(newChat);
     }
 }

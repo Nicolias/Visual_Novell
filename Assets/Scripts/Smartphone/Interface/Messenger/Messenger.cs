@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Messenger : MonoBehaviour
 {
     public event Action<ContactElement> OnNewContactRecived;
-    public event Action<MessegeElement> OnNewMessegeRecived;
+    public event Action<MessegeData> OnNewMessegeRecived;
 
     [SerializeField] private MessengerWindow _messengerWindow;
     [SerializeField] private Button _openMesengerButton;
@@ -24,7 +24,7 @@ public class Messenger : MonoBehaviour
         _openMesengerButton.onClick.RemoveAllListeners();
     }
 
-    public void AddNewMessege(MessegeElement newMessege)
+    public void AddNewMessege(MessegeData newMessege)
     {
         var existContact = _contacts.Find(x => x.Name == newMessege.ContactName);
 

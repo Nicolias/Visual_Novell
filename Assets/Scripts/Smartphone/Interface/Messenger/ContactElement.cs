@@ -17,7 +17,7 @@ public class ContactElement
         _dialogs = dialogs;
     }
 
-    public void AddMessege(MessegeElement newMessegeElement)
+    public void AddMessege(MessegeData newMessegeElement)
     {
         if (newMessegeElement.ContactName != Name)
             throw new InvalidOperationException("Сообщение не пренадлежит этому контакту");

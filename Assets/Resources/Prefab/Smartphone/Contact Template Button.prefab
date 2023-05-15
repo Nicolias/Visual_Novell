@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 6116340615301125949}
   - component: {fileID: 7431606381663358975}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Contact Name Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,3 +353,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chatsContainer: {fileID: 5171468556136897881}
   _chatButtonTemplate: {fileID: 4724883419228724145, guid: f3e5a19ea84a4e74a81b8eb6e3630459, type: 3}
+  _contactNameText: {fileID: 7431606381663358975}

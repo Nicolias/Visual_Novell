@@ -3,29 +3,56 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using XNode;
+using Zenject;
 
 public class ChatView : MonoBehaviour
 {
-    public event Action<List<ChatMessegeText>> OnChatViewClosed;
+    public event Action<List<Messege>, Node> OnChatViewClosed;
 
-    private List<ChatMessegeText> _chatMesseges;
+    [SerializeField] private Transform _messegeContainer;
 
-    [SerializeField] private TMP_Text _outputText;
+    [Inject] private MessegeFactory _messegeFactory;
+    [Inject] private MessengerCommander _messengerCommander;
 
-    public void Show(List<ChatMessegeText> chatMesseges)
+    private List<Messege> _chatMesseges;
+    private Node _currentMessegeNode;
+
+    public void ShowChat(List<Messege> chatMesseges, Node currentNode)
     {
-        gameObject.SetActive(true);
-        _chatMesseges = chatMesseges;
-    }
+        foreach (Transform messege in _messegeContainer)
+            Destroy(messege.gameObject);
 
+        _chatMesseges = chatMesseges;
+
+        ShowOldMesseges();
+        ContinueDialog(currentNode);
+    }
     public void Close()
     {
-        OnChatViewClosed?.Invoke(_chatMesseges);
+        OnChatViewClosed?.Invoke(_chatMesseges, _currentMessegeNode);
         gameObject.SetActive(false);
     }
-}
 
-public class ChatMessegeText
-{
+    public void CreateMessegeView(Messege messege)
+    {
+        _messegeFactory.CreateMessege(messege);
+        _chatMesseges.Add(messege);
 
+        _currentMessegeNode = messege.CurrentNode;
+    }
+
+    private void ShowOldMesseges()
+    {
+        gameObject.SetActive(true);
+
+        foreach (Messege messege in _chatMesseges)
+            _messegeFactory.CreateMessege(messege);
+    }
+    private void ContinueDialog(Node currentNode)
+    {
+        if (currentNode == null)
+            return;
+
+        _messengerCommander.PackAndExecuteCommand(currentNode);
+    }
 }

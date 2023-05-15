@@ -13,12 +13,6 @@ public class MessengerWindow : MonoBehaviour
 
     private List<MessengerContact> _contactsView = new();
 
-    private void Start()
-    {
-        foreach (var contact in _messenger.Contacts)
-            CreateNewContact(contact);
-    }
-
     public void Open()
     {
         gameObject.SetActive(true);

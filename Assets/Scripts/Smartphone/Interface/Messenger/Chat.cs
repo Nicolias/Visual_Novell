@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using XNode;
@@ -10,9 +11,11 @@ public class Chat : MonoBehaviour
     [Inject] private ChatView _chatView;
 
     private Button _selfButton;
-    private List<ChatMessegeText> _chatMessegesData;
 
-    public NodeGraph Data { get; private set; }
+    private List<Messege> _messegesList = new();
+    private Node _currentNode;
+
+    public NodeGraph ChatData { get; private set; }
 
     private void Awake()
     {
@@ -32,18 +35,31 @@ public class Chat : MonoBehaviour
 
     public void Initialize(NodeGraph chat)
     {
-        Data = chat;
+        ChatData = chat;
+        _currentNode = chat.nodes[0];
     }
 
     private void OpenChat()
     {
         _chatView.Close();
         _chatView.OnChatViewClosed += SaveChatData;
-        _chatView.Show(_chatMessegesData);
+
+        _chatView.ShowChat(_messegesList, _currentNode);
     }
 
-    private void SaveChatData(List<ChatMessegeText> chatMesseges)
+    private void SaveChatData(List<Messege> chatMesseges, Node currentNode)
     {
         _chatView.OnChatViewClosed -= SaveChatData;
+
+        _messegesList = chatMesseges;
+
+        NodePort port = currentNode.GetPort("_outPut").Connection;
+        if (port == null)
+        {
+            _currentNode = null;
+            return;
+        }
+
+        _currentNode = port.node;
     }
 }

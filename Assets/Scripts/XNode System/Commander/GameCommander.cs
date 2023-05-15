@@ -36,7 +36,7 @@ public class GameCommander : Commander
             ICharacterPortraitModel portrait => new CharacterPortraitController(portrait, _portraitView),
             AudioModel audio => new AudioController(audio, _audioServise),
             INicknameInputModel => new NameInputPresenter(_nameInputView, _staticData),
-            NewDialogInSmartphoneModel newMassegemodel => new SmartphoneDialogPresenter(newMassegemodel, _smartPhone),
+            NewDialogInSmartphoneModel newMassegemodel => new SmartphoneNewMessegePresenter(newMassegemodel, _smartPhone),
             SmartphoneGuidModel => new SmartPhoneGuidPresenter(_smartphoneGuideView),
             _ => null
         };

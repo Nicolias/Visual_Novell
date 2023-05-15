@@ -1,13 +1,13 @@
 ﻿using System;
 
-public class SmartphoneDialogPresenter : IPresentar
+public class SmartphoneNewMessegePresenter : IPresentar
 {
     public event Action OnComplete;
 
     private NewDialogInSmartphoneModel _model;
     private Smartphone _view;
 
-    public SmartphoneDialogPresenter(NewDialogInSmartphoneModel model, Smartphone view)
+    public SmartphoneNewMessegePresenter(NewDialogInSmartphoneModel model, Smartphone view)
     {
         _model = model;
         _view = view;

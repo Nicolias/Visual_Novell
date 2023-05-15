@@ -32,7 +32,7 @@ public class Smartphone : MonoBehaviour
         _closeButton.onClick.RemoveAllListeners();
     }
 
-    public void AddNewMessege(MessegeElement newMessege)
+    public void AddNewMessege(MessegeData newMessege)
     {
         OnNewMessegeReceived?.Invoke();
 

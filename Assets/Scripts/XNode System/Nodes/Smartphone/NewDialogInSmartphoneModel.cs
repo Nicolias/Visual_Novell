@@ -3,5 +3,5 @@ using XNode;
 
 public class NewDialogInSmartphoneModel : XnodeModel
 {
-    [field: SerializeField] public MessegeElement NewDialog { get; private set; }
+    [field: SerializeField] public MessegeData NewDialog { get; private set; }
 }
