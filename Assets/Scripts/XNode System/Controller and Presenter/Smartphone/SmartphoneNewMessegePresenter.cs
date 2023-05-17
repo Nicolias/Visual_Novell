@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public class SmartphoneNewMessegePresenter : IPresentar
 {
@@ -15,7 +16,11 @@ public class SmartphoneNewMessegePresenter : IPresentar
 
     public void Execute()
     {
-        _view.AddNewMessege(_model.NewDialog);
+        _view.AddNewMessege(_model.NewDialog, CallBack);        
+    }
+
+    private void CallBack()
+    {
         OnComplete?.Invoke();
     }
 }

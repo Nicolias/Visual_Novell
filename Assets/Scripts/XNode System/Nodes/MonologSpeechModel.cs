@@ -8,8 +8,8 @@ public class MonologSpeechModel : XnodeModel, ISpeechModel
     public string Text => _speechText;
     public bool IsImmediatelyNextNode => _isImmediatelyNextNode;
 
-    public void TryReplaceNickname(string cpecWord, string nickname)
+    public void TryReplaceNickname(StaticData staticData)
     {
-        _speechText = _speechText.Replace(cpecWord, nickname);
+        _speechText = _speechText.Replace(staticData.SpecWordForNickName, staticData.Nickname);
     }
 }

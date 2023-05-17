@@ -15,6 +15,7 @@ public class MessengerContact : MonoBehaviour
     [SerializeField] private TMP_Text _contactNameText;
 
     [Inject] private DiContainer _di;
+    [Inject] private Messenger _messenger;
 
     private Button _selfButton;
 
@@ -40,9 +41,6 @@ public class MessengerContact : MonoBehaviour
         _chatsContainer.SetParent(transform.parent);
 
         _contactNameText.text = contactElement.Name;
-
-        foreach (var dialog in contactElement.Dialogs)
-            CreateNewChats(dialog);
     }
 
     private void OnDisable()
@@ -55,7 +53,7 @@ public class MessengerContact : MonoBehaviour
         _contactData.OnNewMessegeAdd -= CreateNewChats;
     }
 
-    private void CreateNewChats(NodeGraph newMessege)
+    private void CreateNewChats(NodeGraph newMessege, Action playActionAfterMessegeRed)
     {
         foreach (var chat in _chatsList)
         {
@@ -64,7 +62,9 @@ public class MessengerContact : MonoBehaviour
         }
 
         var newChat = _di.InstantiatePrefabForComponent<Chat>(_chatButtonTemplate, _chatsContainer);
-        newChat.Initialize(newMessege);
+        newChat.Initialize(newMessege, playActionAfterMessegeRed);
         _chatsList.Add(newChat);
+
+        _messenger.AddUnreadChat(newChat);
     }
 }

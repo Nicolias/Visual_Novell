@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class Messenger : MonoBehaviour
 {
-    public event Action<ContactElement> OnNewContactRecived;
-    public event Action<MessegeData> OnNewMessegeRecived;
+    public event Action OnNewMessegeRecived;
+    public event Action OnAllMessegeRed;
 
     [SerializeField] private MessengerWindow _messengerWindow;
     [SerializeField] private Button _openMesengerButton;
 
+    [Inject] private ChatView _chatView;
+
     private List<ContactElement> _contacts = new();
+    private List<Chat> _unreadChat = new();
     public IEnumerable<ContactElement> Contacts => _contacts;
 
     private void OnEnable()
@@ -24,20 +28,38 @@ public class Messenger : MonoBehaviour
         _openMesengerButton.onClick.RemoveAllListeners();
     }
 
-    public void AddNewMessege(MessegeData newMessege)
+    public void AddNewMessege(MessegeData newMessege, Action playActionAfterMessegeRed)
     {
         var existContact = _contacts.Find(x => x.Name == newMessege.ContactName);
 
+        OnNewMessegeRecived?.Invoke();
+
         if (existContact != null)
         {
-            existContact.AddMessege(newMessege);
+            existContact.AddMessege(newMessege, playActionAfterMessegeRed);
         }
         else
         {
-            var newConatact = new ContactElement(newMessege.ContactName, new() { newMessege.Messege });
-            _contacts.Add(newConatact);
+            var newConatact = new ContactElement(newMessege.ContactName);
+            _messengerWindow.CreateNewContactView(newConatact);
 
-            _messengerWindow.CreateNewContact(newConatact);
+            newConatact.AddMessege(newMessege, playActionAfterMessegeRed);
+            _contacts.Add(newConatact);
         }            
+    }
+
+    public void AddUnreadChat(Chat chat)
+    {
+        _unreadChat.Add(chat);
+        _chatView.OnChatRed += OnChatRedCallBack;
+    }
+
+    private void OnChatRedCallBack(Chat chat)
+    {
+        _chatView.OnChatRed -= OnChatRedCallBack;
+        _unreadChat.Remove(chat);
+
+        if (_unreadChat.Count == 0)
+            OnAllMessegeRed?.Invoke();
     }
 }

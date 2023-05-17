@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class MessegeIndicator : MonoBehaviour
 {
-    [SerializeField] private Smartphone _smartphone;
+    [SerializeField] private Messenger _smartphone;
     [SerializeField] private Image _indicatorImage;
 
     private Sequence _indicationSequence;
@@ -16,12 +16,14 @@ public class MessegeIndicator : MonoBehaviour
 
     private void OnEnable()
     {
-        _smartphone.OnNewMessegeReceived += PlayNewMessegeIndicator;
+        _smartphone.OnNewMessegeRecived += PlayNewMessegeIndicator;
+        _smartphone.OnAllMessegeRed += StopPlayIndicator;
     }
 
     private void OnDisable()
     {
-        _smartphone.OnNewMessegeReceived -= PlayNewMessegeIndicator;
+        _smartphone.OnNewMessegeRecived -= PlayNewMessegeIndicator;
+        _smartphone.OnAllMessegeRed -= StopPlayIndicator;
     }
 
     private void PlayNewMessegeIndicator()
@@ -31,5 +33,11 @@ public class MessegeIndicator : MonoBehaviour
             .Append(_indicatorImage.DOColor(new(1, 1, 1, 0), 1))
             .SetLoops(-1)
             .Play();
+    }
+
+    private void StopPlayIndicator()
+    {
+        _indicationSequence.Restart();
+        _indicationSequence.Pause();
     }
 }

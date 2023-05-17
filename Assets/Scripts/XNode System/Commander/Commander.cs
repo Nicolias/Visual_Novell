@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using XNode;
 
 public abstract class Commander : MonoBehaviour
 {
+    public event Action OnDialogEnd;
+
     [SerializeField] private NodeGraph _currentGraph;
 
     private (ICommand Command, Node Node) _curent;
@@ -36,7 +39,11 @@ public abstract class Commander : MonoBehaviour
 
         NodePort port = _curent.Node.GetPort("_outPut").Connection;
 
-        if (port == null) return;
+        if (port == null)
+        {
+            OnDialogEnd?.Invoke();
+            return;
+        }
 
         PackAndExecuteCommand(port.node);
     }

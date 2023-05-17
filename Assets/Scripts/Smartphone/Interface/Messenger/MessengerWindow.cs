@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -18,7 +19,7 @@ public class MessengerWindow : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void CreateNewContact(ContactElement ContactElement)
+    public void CreateNewContactView(ContactElement ContactElement)
     {
         var newContact = _di.InstantiatePrefabForComponent<MessengerContact>(_contactTemplate, _contactsContainer);
         newContact.Initialize(ContactElement);

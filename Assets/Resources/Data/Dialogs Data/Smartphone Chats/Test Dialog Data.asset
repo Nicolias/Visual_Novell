@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8385652231927949373
+--- !u!114 &-8482024741330210749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,42 +9,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f886da0be8bf631489f4b0a0ffb68dc7, type: 3}
-  m_Name: New Dialog In Smartphone Model
+  m_Script: {fileID: 11500000, guid: 90d5f8dc0521f3145b4ea694a58c20a7, type: 3}
+  m_Name: Smartphone Guid Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 568, y: 40}
+  position: {x: -232, y: 8}
   ports:
     keys:
     - _inPut
     - _outPut
     values:
     - _fieldName: _inPut
-      _node: {fileID: -8385652231927949373}
+      _node: {fileID: -8482024741330210749}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: _outPut
-        node: {fileID: 3976671571966795308}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: _outPut
-      _node: {fileID: -8385652231927949373}
+      _node: {fileID: -8482024741330210749}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 6153997048071181685}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <NewDialog>k__BackingField:
-    <ContactName>k__BackingField: Fartuna
-    <Messege>k__BackingField: {fileID: 11400000, guid: 4cf69c201882cc448abeea8ed8ce25a1, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,9 +55,9 @@ MonoBehaviour:
   m_Name: Test Dialog Data
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 3976671571966795308}
-  - {fileID: -8385652231927949373}
---- !u!114 &3976671571966795308
+  - {fileID: -8482024741330210749}
+  - {fileID: 6153997048071181685}
+--- !u!114 &6153997048071181685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,29 +70,29 @@ MonoBehaviour:
   m_Name: New Dialog In Smartphone Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: 40}
+  position: {x: 0, y: 0}
   ports:
     keys:
     - _inPut
     - _outPut
     values:
     - _fieldName: _inPut
-      _node: {fileID: 3976671571966795308}
+      _node: {fileID: 6153997048071181685}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8482024741330210749}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: _outPut
-      _node: {fileID: 3976671571966795308}
+      _node: {fileID: 6153997048071181685}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: _inPut
-        node: {fileID: -8385652231927949373}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -103,5 +100,5 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <NewDialog>k__BackingField:
-    <ContactName>k__BackingField: Fartuna
-    <Messege>k__BackingField: {fileID: 11400000, guid: 08cfb713994f11f418ddfa93c1aa1b1f, type: 2}
+    <ContactName>k__BackingField: Phartuna
+    <Messege>k__BackingField: {fileID: 11400000, guid: ddd8714396070c34cbbfb1d5c7a20aa0, type: 2}

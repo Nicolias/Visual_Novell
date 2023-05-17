@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using TMPro;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XNode;
@@ -14,6 +14,8 @@ public class Chat : MonoBehaviour
 
     private List<Messege> _messegesList = new();
     private Node _currentNode;
+
+    private Action _playActionAfterMessegeRed;
 
     public NodeGraph ChatData { get; private set; }
 
@@ -30,27 +32,23 @@ public class Chat : MonoBehaviour
     private void OnDisable()
     {
         _chatView.Close();
-        _chatView.OnChatViewClosed -= SaveChatData;
+        _selfButton.onClick.RemoveAllListeners();
     }
 
-    public void Initialize(NodeGraph chat)
+    public void Initialize(NodeGraph chat, Action playActionAfterMessegeRed)
     {
         ChatData = chat;
         _currentNode = chat.nodes[0];
+        _playActionAfterMessegeRed = playActionAfterMessegeRed;
     }
 
     private void OpenChat()
     {
-        _chatView.Close();
-        _chatView.OnChatViewClosed += SaveChatData;
-
-        _chatView.ShowChat(_messegesList, _currentNode);
+        _chatView.ShowChat(_messegesList, _currentNode, this, _playActionAfterMessegeRed);
     }
 
-    private void SaveChatData(List<Messege> chatMesseges, Node currentNode)
+    public void SaveChatData(List<Messege> chatMesseges, Node currentNode)
     {
-        _chatView.OnChatViewClosed -= SaveChatData;
-
         _messegesList = chatMesseges;
 
         NodePort port = currentNode.GetPort("_outPut").Connection;

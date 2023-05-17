@@ -7,29 +7,35 @@ using Zenject;
 
 public class ChatView : MonoBehaviour
 {
-    public event Action<List<Messege>, Node> OnChatViewClosed;
+    public event Action<Chat> OnChatRed;
 
     [SerializeField] private Transform _messegeContainer;
 
     [Inject] private MessegeFactory _messegeFactory;
     [Inject] private MessengerCommander _messengerCommander;
 
+    private Action _playActionAfterMessegeRed;
+
     private List<Messege> _chatMesseges;
     private Node _currentMessegeNode;
+    private Chat _curruntChat;
 
-    public void ShowChat(List<Messege> chatMesseges, Node currentNode)
+    public void ShowChat(List<Messege> chatMesseges, Node currentNode, Chat currentChat, Action playActionAfterMessegeRed)
     {
+        _messengerCommander.OnDialogEnd -= CallBack;
+        _playActionAfterMessegeRed = playActionAfterMessegeRed;
+
         foreach (Transform messege in _messegeContainer)
             Destroy(messege.gameObject);
 
         _chatMesseges = chatMesseges;
+        _curruntChat = currentChat;
 
         ShowOldMesseges();
         ContinueDialog(currentNode);
     }
     public void Close()
     {
-        OnChatViewClosed?.Invoke(_chatMesseges, _currentMessegeNode);
         gameObject.SetActive(false);
     }
 
@@ -39,6 +45,7 @@ public class ChatView : MonoBehaviour
         _chatMesseges.Add(messege);
 
         _currentMessegeNode = messege.CurrentNode;
+        _curruntChat.SaveChatData(_chatMesseges, _currentMessegeNode);
     }
 
     private void ShowOldMesseges()
@@ -53,6 +60,13 @@ public class ChatView : MonoBehaviour
         if (currentNode == null)
             return;
 
+        _messengerCommander.OnDialogEnd += CallBack;
         _messengerCommander.PackAndExecuteCommand(currentNode);
+    }
+
+    private void CallBack()
+    {
+        OnChatRed?.Invoke(_curruntChat);
+        _playActionAfterMessegeRed.Invoke();
     }
 }
