@@ -7,15 +7,31 @@ public class DialogSpeechModel : XnodeModel, ISpeechModel
     [SerializeField] private Sprite _speakerAvatar;
 	[SerializeField] private string _speakerName;
 	[SerializeField, TextArea(5, 10)] private string _speechText;
+    private StaticData _staticData;
 
     public Sprite Avatar => _speakerAvatar;
-	public string SpeakerName => _speakerName;
-    public string Text => _speechText;
     public bool IsImmediatelyNextNode => _isImmediatelyNextNode;
 
-    public void TryReplaceNickname(StaticData staticData)
+    public string Text
     {
-        _speechText = _speechText.Replace(staticData.SpecWordForNickName, staticData.Nickname);
-        _speakerName = _speakerName.Replace(staticData.SpecWordForNickName, staticData.Nickname);
+        get
+        {
+
+            return _speechText.Replace(_staticData.SpecWordForNickName, _staticData.Nickname);
+        }
+    }
+
+    public string SpeakerName
+    {
+        get
+        {
+
+            return _speakerName.Replace(_staticData.SpecWordForNickName, _staticData.Nickname);
+        }
+    }
+
+    public void Initialize(StaticData staticData)
+    {
+        _staticData = staticData;
     }
 }

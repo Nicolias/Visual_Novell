@@ -14,11 +14,6 @@ public class ChoiceView : MonoBehaviour, IChoiceView
 
     public Canvas Canvas => _selfCanvas;
 
-    private void Start()
-    {
-        HideCanvas();
-    }
-
     public void Show(IChoiceModel model)
     {
         ShowCanvas();

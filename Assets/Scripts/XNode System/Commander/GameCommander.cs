@@ -3,8 +3,6 @@ using XNode;
 
 public class GameCommander : Commander
 {
-    [SerializeField] private StaticData _staticData;
-
     [SerializeField] private MonologSpeechView _monologSpeechView;
     [SerializeField] private DialogSpeechView _dialogSpeechView;
 
@@ -20,6 +18,7 @@ public class GameCommander : Commander
 
     [SerializeField] private SmartphoneGuideView _smartphoneGuideView;
     [SerializeField] private Smartphone _smartPhone;
+    [SerializeField] private SmartphoneCallView _callView;    
 
     protected override (ICommand, Node) Packing(Node node)
     {
@@ -29,15 +28,17 @@ public class GameCommander : Commander
 
         result.command = node switch
         {
-            MonologSpeechModel speech => new SpeechPresentar(speech, _monologSpeechView, _staticData),
-            DialogSpeechModel dialogSpeech => new SpeechPresentar(dialogSpeech, _dialogSpeechView, _staticData),
+            MonologSpeechModel speech => new SpeechPresentar(speech, _monologSpeechView, StaticData),
+            DialogSpeechModel dialogSpeech => new SpeechPresentar(dialogSpeech, _dialogSpeechView, StaticData),
             IChoiceModel choice => new ChoicesPresentar(choice, _choicesView),
             BackgroundModel background => new BackgroundController(background, _backgroundView),
             ICharacterPortraitModel portrait => new CharacterPortraitController(portrait, _portraitView),
             AudioModel audio => new AudioController(audio, _audioServise),
-            INicknameInputModel => new NameInputPresenter(_nameInputView, _staticData),
+            INicknameInputModel => new NameInputPresenter(_nameInputView, StaticData),
             NewDialogInSmartphoneModel newMassegemodel => new SmartphoneNewMessegePresenter(newMassegemodel, _smartPhone),
             SmartphoneGuidModel => new SmartPhoneGuidPresenter(_smartphoneGuideView),
+            ICallModel callModel => new SmartphoneCallPresentar(callModel, _callView, AudioServise), 
+            WaitForSecondsModel waitModel => new WaitForSecondsPresenter(CoroutineServise, waitModel),
             _ => null
         };
 

@@ -4,9 +4,13 @@ using Zenject;
 public class ServiseInstaller : MonoInstaller
 {
     [SerializeField] private StaticData _staticData;
+    [SerializeField] private CoroutineServise _coroutineServise;
+    [SerializeField] private AudioServise _audioServise;
 
     public override void InstallBindings()
     {
-       Container.Bind<StaticData>().FromComponentOn(_staticData.gameObject).AsSingle();
+        Container.Bind<StaticData>().FromInstance(_staticData).AsSingle();
+        Container.Bind<CoroutineServise>().FromInstance(_coroutineServise).AsSingle();
+        Container.Bind<AudioServise>().FromInstance(_audioServise).AsSingle();
     }
 }

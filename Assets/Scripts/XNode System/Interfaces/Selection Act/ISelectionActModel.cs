@@ -8,4 +8,3 @@ public interface ISelectionActModel
 
     public void SetEndPort(Node node);
 }
-

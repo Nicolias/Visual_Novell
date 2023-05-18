@@ -1,11 +1,9 @@
-﻿using System;
-using XNode;
+﻿using XNode;
 using Zenject;
 
 public class MessengerCommander : Commander
 {
     [Inject] private ChatView _chatView;
-    [Inject] private StaticData _staticData;
 
     protected override (ICommand, Node) Packing(Node node)
     {
@@ -15,7 +13,7 @@ public class MessengerCommander : Commander
 
         result.command = node switch
         {
-            MessengerDialogSpeechModel dialog => new MessengerDialogPresenter(dialog, _chatView, node, _staticData),
+            MessengerDialogSpeechModel dialog => new MessengerDialogPresenter(dialog, _chatView, node, StaticData),
             _ => null
         };            
 

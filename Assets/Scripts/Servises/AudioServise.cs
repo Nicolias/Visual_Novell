@@ -7,6 +7,8 @@ public class AudioServise : MonoBehaviour
     [SerializeField] private List<AudioSource> _allMusic;
     [SerializeField] private List<AudioSource> _allSound;
 
+    [field: SerializeField] public AudioSource CallSound { get; private set; }
+
     public void PlaySound(AudioClip audioClip)
     {
         var sound = _allMusic.Find(x => x.clip == audioClip);

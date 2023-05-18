@@ -1,12 +1,17 @@
 ﻿using System;
 using UnityEngine;
 using XNode;
+using Zenject;
 
 public abstract class Commander : MonoBehaviour
 {
     public event Action OnDialogEnd;
 
     [SerializeField] private NodeGraph _currentGraph;
+
+    [Inject] protected StaticData StaticData;
+    [Inject] protected CoroutineServise CoroutineServise;
+    [Inject] protected AudioServise AudioServise;
 
     private (ICommand Command, Node Node) _curent;
 
@@ -20,11 +25,15 @@ public abstract class Commander : MonoBehaviour
 
     private void OnDisable()
     {
-        _curent.Command.OnComplete -= Next;
+        if(_curent.Command != null)
+            _curent.Command.OnComplete -= Next;
     }
 
     public void PackAndExecuteCommand(Node node)
     {
+        if (node is ISpeechModel)
+            (node as ISpeechModel).Initialize(StaticData);
+
         _curent = Packing(node);
         _curent.Command.OnComplete += Next;
         _curent.Command.Execute();

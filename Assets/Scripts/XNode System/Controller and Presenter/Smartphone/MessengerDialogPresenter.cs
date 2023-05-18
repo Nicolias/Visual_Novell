@@ -12,7 +12,6 @@ public class MessengerDialogPresenter : IPresentar
 
     public MessengerDialogPresenter(MessengerDialogSpeechModel model, ChatView view, Node currentNode, StaticData staticData)
     {
-        model.TryReplaceNickname(staticData);
         _model = model;
         _view = view;
         _currentNode = currentNode;

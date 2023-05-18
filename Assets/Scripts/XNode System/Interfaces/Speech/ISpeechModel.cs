@@ -2,5 +2,6 @@
 {
     public bool IsImmediatelyNextNode { get; }
     public string Text { get; }
-    public void TryReplaceNickname(StaticData staticData);
+    public string SpeakerName { get; }
+    public void Initialize(StaticData staticData);
 }

@@ -4,12 +4,21 @@ public class MonologSpeechModel : XnodeModel, ISpeechModel
 {
     [SerializeField] private bool _isImmediatelyNextNode;
     [SerializeField, TextArea(5, 10)] private string _speechText;
+    private StaticData _staticData;
 
-    public string Text => _speechText;
+    public string Text
+    {
+        get
+        {
+            return _speechText.Replace(_staticData.SpecWordForNickName, _staticData.Nickname);
+        }
+    }
+    public string SpeakerName => throw new System.NotImplementedException();
     public bool IsImmediatelyNextNode => _isImmediatelyNextNode;
 
-    public void TryReplaceNickname(StaticData staticData)
+
+    public void Initialize(StaticData staticData)
     {
-        _speechText = _speechText.Replace(staticData.SpecWordForNickName, staticData.Nickname);
+        _staticData = staticData;
     }
 }
