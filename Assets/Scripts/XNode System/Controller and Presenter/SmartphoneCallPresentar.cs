@@ -32,4 +32,3 @@ public class SmartphoneCallPresentar : IChoisePresenter
         _audioServise.CallSound.Stop();
     }
 }
-

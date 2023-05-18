@@ -39,6 +39,8 @@ public class GameCommander : Commander
             SmartphoneGuidModel => new SmartPhoneGuidPresenter(_smartphoneGuideView),
             ICallModel callModel => new SmartphoneCallPresentar(callModel, _callView, AudioServise), 
             WaitForSecondsModel waitModel => new WaitForSecondsPresenter(CoroutineServise, waitModel),
+            SetTimeOnSmartphoneWatchModel timeModel => new SetTimeOnSmartphoneCommand(timeModel, _smartPhone),
+            RequirementOpenPhoneModel => new RequirementOpenPhoneCommand(CoroutineServise, _smartPhone),
             _ => null
         };
 

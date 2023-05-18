@@ -34,7 +34,12 @@ public abstract class Commander : MonoBehaviour
         if (node is ISpeechModel)
             (node as ISpeechModel).Initialize(StaticData);
 
-        _curent = Packing(node);
+        if (node is ChangeDialogDataModel)
+            _curent = Packing((node as ChangeDialogDataModel).NodeGraph.nodes[0]);
+        else
+            _curent = Packing(node);
+
+
         _curent.Command.OnComplete += Next;
         _curent.Command.Execute();
     }

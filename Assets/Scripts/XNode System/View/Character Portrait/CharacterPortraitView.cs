@@ -31,6 +31,12 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
         }
         else
         {
+            if (existing.Position == CharacterPortraitPosition.Delete)
+            {
+                Destroy(existing.Image.gameObject);
+                return;
+            }
+
             existing.Image.sprite = sprite;
             existing.Image.transform.position = _position[(int)existing.Position].position;
         }
@@ -42,9 +48,10 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
 
         for (int i = 0; i < _charactersList.Count; i++)
         {
-            if (newCharacterPortraitData.Name == _charactersList[i].Name && newCharacterPortraitData.Position != _charactersList[i].Position)
+            if (newCharacterPortraitData.Name == _charactersList[i].Name 
+                && newCharacterPortraitData.Position != _charactersList[i].Position)
             {
-                _charactersList[i].ChangePosition(newCharacterPortraitData.Position);
+                _charactersList[i].SetPosition(newCharacterPortraitData.Position);
                 existingBox = _charactersList[i];
                 return true;
             }

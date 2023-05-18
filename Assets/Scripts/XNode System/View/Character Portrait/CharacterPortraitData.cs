@@ -13,7 +13,7 @@ public class CharacterPortraitData
         Position = position;
     }
 
-    public void ChangePosition(CharacterPortraitPosition newPosition)
+    public void SetPosition(CharacterPortraitPosition newPosition)
     {
         Position = newPosition;
     }

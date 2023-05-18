@@ -11,6 +11,17 @@ public class AudioServise : MonoBehaviour
 
     public void PlaySound(AudioClip audioClip)
     {
+        if (audioClip == null)
+        {
+            foreach (var music in _allMusic)
+                music.Stop();
+
+            foreach (var audio in _allSound)
+                audio.Stop();
+
+            return;
+        }
+
         var sound = _allMusic.Find(x => x.clip == audioClip);
 
         if (sound != null)

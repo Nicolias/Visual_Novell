@@ -1,10 +1,12 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Smartphone : MonoBehaviour
 {
-    public event Action OnNewMessegeReceived;    
+    public event Action OnNewMessegeReceived;
+    public event Action OnClosed;
 
     [SerializeField] private Button _openButton, _closeButton;
     [SerializeField] private Canvas _selfCanvas;
@@ -13,6 +15,8 @@ public class Smartphone : MonoBehaviour
 
     [SerializeField] private Messenger _messenger;
 
+    [SerializeField] private TMP_Text _clockText;
+
     private void OnEnable()
     {
         _closeButton.onClick.AddListener( () =>
@@ -20,6 +24,7 @@ public class Smartphone : MonoBehaviour
             _selfCanvas.enabled = false;
             _openButton.image.color = new(1, 1, 1, 1);
             _dialogSpeechView.gameObject.SetActive(true);
+            OnClosed?.Invoke();
         });
         _openButton.onClick.AddListener(() =>
         {
@@ -32,7 +37,7 @@ public class Smartphone : MonoBehaviour
     private void OnDisable()
     {
         _closeButton.onClick.RemoveAllListeners();
-        _closeButton.onClick.RemoveAllListeners();
+        _closeButton.onClick.RemoveAllListeners();        
     }
 
     public void AddNewMessege(MessegeData newMessege, Action playActionAfterMessegeRed)
@@ -40,5 +45,10 @@ public class Smartphone : MonoBehaviour
         OnNewMessegeReceived?.Invoke();
 
         _messenger.AddNewMessege(newMessege, playActionAfterMessegeRed);
+    }
+
+    public void SetTime(string hour, string minute)
+    {
+        _clockText.text = $"{hour}:{minute}";
     }
 }
