@@ -1,0 +1,3682 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8773342735282019482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -408, y: 1448}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -8773342735282019482}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 206195721680730776}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -8773342735282019482}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 5887035016351012340}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0422\u0430\u043A \u0442\u044B \u0438\u043D\u043E\u043F\u043B\u0430\u043D\u0435\u0442\u044F\u043D\u043A\u0430?"
+--- !u!114 &-8656166514047861179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1368, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -8656166514047861179}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3399966505735618829}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -8656166514047861179}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 6838590488331380218}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 42873a175688c1747802ea1bc8e9f69e, type: 3}
+  <Position>k__BackingField: 0
+--- !u!114 &-8558295471424264285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2520, y: 696}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -8558295471424264285}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3366555487743274057}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -8558295471424264285}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -7637319273243603794}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041E\u043D\u0438 \u043C\u0430\u043B\u043E \u0447\u0435\u043C \u043E\u0442\u043B\u0438\u0447\u0430\u044E\u0442\u0441\u044F
+    \u043E\u0442 \u043B\u044E\u0434\u0435\u0439, \u0442\u0435\u0431\u0435 \u043F\u0440\u043E\u0441\u0442\u043E
+    \u043F\u0440\u0438\u0434\u0435\u0442\u0441\u044F \u043F\u043E\u043D\u044F\u0442\u044C,
+    \u0447\u0442\u043E \u0438\u043C \u043D\u0440\u0430\u0432\u0438\u0442\u0441\u044F,
+    \u0430 \u0447\u0442\u043E \u043D\u0435\u0442. \u0418 \u0438\u0441\u0445\u043E\u0434\u044F
+    \u0438\u0437 \u044D\u0442\u043E\u0433\u043E, \u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
+--- !u!114 &-8489090083403051217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -8489090083403051217}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 543792186985443570}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -8489090083403051217}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 1995313068114237199}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 4d8cc91cac433254b8d0560e1dc87455, type: 3}
+  <Position>k__BackingField: 0
+--- !u!114 &-8244276513955786295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: 1336}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -8244276513955786295}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 5803503203243631493}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -8244276513955786295}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3399966505735618829}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0412 \u043F\u0440\u044F\u043C\u043E\u043C \u0441\u043C\u044B\u0441\u043B\u0435,
+    \u043E\u043D \u0438\u0441\u0447\u0435\u0437 \u0438 \u0441\u0432\u044F\u0437\u044C
+    \u0441 \u043D\u0438\u043C \u0438\u0441\u0447\u0435\u0437\u043B\u0430."
+--- !u!114 &-8158434757758553718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1544, y: 1224}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -8158434757758553718}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -4576182009093039237}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -8158434757758553718}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0412\u0435\u0440\u044E, \u0441\u0435\u0439\u0447\u0430\u0441, \u043A\u0430\u043A
+    \u043D\u0438\u043A\u043E\u0433\u0434\u0430."
+--- !u!114 &-7876676237153910625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -728, y: 472}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -7876676237153910625}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 2
+        node: {fileID: 2045716134844817819}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -7876676237153910625}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 5781673722462761148}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0422\u0430\u043A \u0447\u0442\u043E \u043E\u0442 \u043C\u0435\u043D\u044F
+    \u0442\u0435\u043F\u0435\u0440\u044C \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F?"
+--- !u!114 &-7823291665388318081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2264, y: 456}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -7823291665388318081}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 7
+        node: {fileID: 2045716134844817819}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -7823291665388318081}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -7042198022651715577}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0427\u0442\u043E-\u0442\u043E \u044F \u0441\u043E\u043C\u043D\u0435\u0432\u0430\u044E\u0441\u044C,
+    \u0447\u0442\u043E \u043C\u044B \u043F\u0440\u0438\u0434\u0435\u043C \u0432 \u0433\u043E\u0440\u043E\u0434,
+    \u043D\u0430\u0439\u0434\u0435\u043C \u0438\u0434\u043E\u043B\u0430 \u0438 \u043E\u043D
+    \u043D\u0430\u043C \u0441\u0440\u0430\u0437\u0443 \u0432\u0441\u044E \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E
+    \u0432\u044B\u043B\u043E\u0436\u0438\u0442."
+--- !u!114 &-7637319273243603794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2520, y: 936}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -7637319273243603794}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8558295471424264285}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -7637319273243603794}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -3222039404998870907}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041F\u0440\u0438\u0433\u043B\u0430\u0441\u0438 \u0432 \u043B\u044E\u0431\u0438\u043C\u043E\u0435
+    \u043C\u0435\u0441\u0442\u043E, \u0443\u0433\u043E\u0441\u0442\u0438 \u043B\u044E\u0431\u0438\u043C\u043E\u0439
+    \u0435\u0434\u043E\u0439, \u0430 \u0442\u0430\u043A\u0436\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E
+    \u043E\u0442\u0432\u0435\u0447\u0430\u0439 \u043D\u0430 \u0438\u0445 \u0432\u043E\u043F\u0440\u043E\u0441\u044B"
+--- !u!114 &-7530253308136880076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1368, y: 1336}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -7530253308136880076}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 8172889459505121133}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -7530253308136880076}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 877514167023176484}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u041C\u0434\u0430\u2026\u0437\u0430\u0432\u0430\u043B\u0438\u0442\u044C
+    \u043E\u043F\u0435\u0440\u0430\u0446\u0438\u044E \u0438\u0437-\u0437\u0430 \u0431\u0443\u043B\u043E\u0447\u043A\u0438,
+    \u043C\u043D\u0435 \u0442\u0435\u0431\u044F \u0436\u0430\u043B\u044C."
+--- !u!114 &-7042198022651715577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2264, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -7042198022651715577}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -7823291665388318081}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -7042198022651715577}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -3897630357790875230}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0422\u044B \u043F\u0440\u0430\u0432, \u0442\u0435\u0431\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442
+    \u0432\u0442\u0435\u0440\u0435\u0442\u044C\u0441\u044F \u0432 \u0434\u043E\u0432\u0435\u0440\u0438\u0435.
+    \u0420\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0438\u0442\u044C \u043A \u0441\u0435\u0431\u0435,
+    \u0442\u0430\u043A \u0447\u0442\u043E\u0431 \u043E\u043D\u0438 \u0442\u0435\u0431\u0435
+    \u0434\u043E\u0432\u0435\u0440\u044F\u043B\u0438."
+--- !u!114 &-6152348094790320342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -6152348094790320342}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 2505064155180356516}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -6152348094790320342}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 1393648043051868509}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041A\u043E\u043D\u0435\u0447\u043D\u043E \u043C\u043D\u043E\u0433\u043E,
+    \u0432 \u043A\u0430\u0436\u0434\u043E\u043C \u0433\u043E\u0440\u043E\u0434\u0435,
+    \u0434\u0435\u0440\u0435\u0432\u043D\u0435, \u0434\u0430 \u0432\u043E\u043E\u0431\u0449\u0435
+    \u0432 \u043B\u044E\u0431\u043E\u043C \u043D\u0430\u0441\u0435\u043B\u0435\u043D\u043D\u043E\u043C
+    \u043F\u0443\u043D\u043A\u0442\u0435 \u0435\u0441\u0442\u044C \u0441\u0432\u043E\u0439
+    \u0438\u0434\u043E\u043B. \u041E\u043D\u0438 \u043F\u0440\u0438\u0432\u044F\u0437\u0430\u043D\u044B
+    \u043A \u043C\u0435\u0441\u0442\u0443 \u043E\u0431\u0438\u0442\u0430\u043D\u0438\u044F"
+--- !u!114 &-6148344033916747612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -72, y: 952}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -6148344033916747612}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3912506488289495468}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -6148344033916747612}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 1703867614288676197}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041F\u043E\u0432\u0442\u043E\u0440\u043D\u043E\u0435 \u043F\u043E\u0441\u0435\u0449\u0435\u043D\u0438\u0435
+    \u043D\u0430\u0441\u0435\u043B\u0435\u043D\u043D\u044B\u0445 \u043F\u0443\u043D\u043A\u0442\u043E\u0432
+    \u0431\u0443\u0434\u0435\u0442 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0434\u0438\u0442\u044C
+    \u043F\u0440\u043E\u0449\u0435, \u043D\u043E \u043E\u0431 \u044D\u0442\u043E\u043C
+    \u043F\u043E\u0437\u0436\u0435"
+--- !u!114 &-5571396379089434571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1544, y: 728}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -5571396379089434571}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -199244447158660166}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -5571396379089434571}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -4576182009093039237}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0424\u043E\u0440\u0442\u0443\u043D\u0430 \u2013 \u044D\u0442\u043E
+    \u0411\u043E\u0433\u0438\u043D\u044F \u0443\u0434\u0430\u0447\u0438. \u041A\u043E\u043C\u0443
+    \u043E\u043D\u0430 \u0443\u043B\u044B\u0431\u043D\u0435\u0442\u0441\u044F, \u0442\u043E\u043C\u0443
+    \u0441\u043E\u043F\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u0443\u0434\u0430\u0447\u0430
+    \u0432 \u0440\u0430\u0437\u043B\u0438\u0447\u043D\u044B\u0445 \u0434\u0435\u043B\u0430\u0445.
+    \u041E\u043D\u0430 \u043B\u044E\u0431\u0438\u0442 \u0434\u0430\u0432\u0430\u0442\u044C
+    \u0438\u0441\u043F\u044B\u0442\u0430\u043D\u0438\u044F \u043B\u044E\u0434\u044F\u043C,
+    \u043E\u0441\u043E\u0431\u0435\u043D\u043D\u043E \u0442\u0435\u043C, \u043A\u0442\u043E
+    \u0436\u0435\u043B\u0430\u0435\u0442 \u0438\u0437\u043C\u0435\u043D\u0438\u0442\u044C
+    \u0441\u0432\u043E\u044E \u0436\u0438\u0437\u043D\u044C."
+--- !u!114 &-4783543118676547910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: 872}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -4783543118676547910}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -627152630034208121}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -4783543118676547910}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3420631365221594348}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041F\u0440\u044F\u043C \u0442\u0430\u043A \u0438 \u0441\u043A\u0430\u0437\u0430\u043B\u0430?"
+--- !u!114 &-4777868449738701870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: 1208}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -4777868449738701870}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 1393648043051868509}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -4777868449738701870}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -2905209139371826780}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0417\u043D\u0430\u0447\u0438\u0442 \u0432 \u043A\u0430\u0436\u0434\u043E\u043C
+    \u0433\u043E\u0440\u043E\u0434\u0435 \u0435\u0441\u0442\u044C \u0441\u0432\u043E\u0439
+    \u0430\u043D\u0433\u0435\u043B \u0445\u0440\u0430\u043D\u0438\u0442\u0435\u043B\u044C?"
+--- !u!114 &-4576182009093039237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1544, y: 968}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -4576182009093039237}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -5571396379089434571}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -4576182009093039237}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -8158434757758553718}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041E\u043D\u0430 \u0447\u0443\u0432\u0441\u0442\u0432\u0443\u0435\u0442
+    \u0436\u0435\u043B\u0430\u043D\u0438\u0435 \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430
+    \u0438 \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u0435\u0442 \u0438\u0441\u043F\u044B\u0442\u0430\u043D\u0438\u0435.
+    \u041F\u043E\u0432\u0435\u0440\u044C, \u0436\u0438\u0437\u043D\u044C \u043C\u0435\u043D\u044F\u0435\u0442\u0441\u044F
+    \u043F\u0440\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438 \u0441\u0440\u0430\u0437\u0443
+    \u043F\u043E\u0441\u043B\u0435 \u0437\u0430\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F
+    \u043F\u0430\u043A\u0442\u0430."
+--- !u!114 &-4043903729694802090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -72, y: 456}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -4043903729694802090}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 4
+        node: {fileID: 2045716134844817819}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -4043903729694802090}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3912506488289495468}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u041A\u0430\u043A \u043C\u043D\u043E\u0433\u043E \u043C\u0435\u0441\u0442
+    \u043C\u044B \u043F\u043E\u0441\u0435\u0442\u0438\u043C?"
+--- !u!114 &-3897630357790875230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2264, y: 952}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -3897630357790875230}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -7042198022651715577}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -3897630357790875230}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 6505828442270770028}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u041A\u0430\u043A\u0438\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u043C?"
+--- !u!114 &-3222039404998870907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2520, y: 1176}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -3222039404998870907}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -7637319273243603794}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -3222039404998870907}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3494251569814926020}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u042D\u0442\u043E \u0432\u0441\u0451 \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0438\u0442
+    \u0438\u0445 \u043F\u043E \u043E\u0442\u043D\u043E\u0448\u0435\u043D\u0438\u044E
+    \u043A \u0442\u0435\u0431\u0435. \u041E\u0442 \u0438\u0445 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043D\u0438\u044F
+    \u0438 \u0443\u0440\u043E\u0432\u043D\u044F \u0441\u0438\u043C\u043F\u0430\u0442\u0438\u0438,
+    \u0437\u0430\u0432\u0438\u0441\u0438\u0442 \u043A\u0430\u043A \u043C\u043D\u043E\u0433\u043E
+    \u043F\u043E\u043B\u0443\u0447\u0438\u0448\u044C \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438"
+--- !u!114 &-3183915548233044098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2264, y: 1432}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -3183915548233044098}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 6505828442270770028}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -3183915548233044098}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -1742668238853960037}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0422\u0430\u043A \u0442\u043E \u0434\u0440\u0443\u0437\u044C\u044F,
+    \u0430 \u044D\u0442\u043E \u0438\u0434\u043E\u043B\u044B, \u043A\u043E\u0442\u043E\u0440\u044B\u0445
+    \u044F \u0431\u0443\u0434\u0443 \u0432\u0438\u0434\u0435\u0442\u044C \u0438\u0437-\u0437\u0430
+    \u043D\u0430\u0448\u0435\u0439 \u0441\u0432\u044F\u0437\u0438. \u041E\u0442\u043A\u0443\u0434\u0430
+    \u043C\u043D\u0435 \u0437\u043D\u0430\u0442\u044C \u043F\u043E\u0434\u0445\u043E\u0434
+    \u043A \u043D\u0438\u043C"
+--- !u!114 &-2905209139371826780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: 1448}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -2905209139371826780}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -4777868449738701870}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -2905209139371826780}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041E\u043D\u0438 \u043D\u0435 \u0442\u043E \u0447\u0442\u043E \u0445\u0440\u0430\u043D\u0438\u0442\u0435\u043B\u0438,
+    \u0441\u043A\u043E\u0440\u0435\u0435 \u043E\u043B\u0438\u0446\u0435\u0442\u0432\u043E\u0440\u0435\u043D\u0438\u0435
+    \u0442\u043E\u0433\u043E \u043C\u0435\u0441\u0442\u0430, \u0433\u0434\u0435 \u043E\u0431\u0438\u0442\u0430\u044E\u0442
+    \u0438 \u043F\u043E \u043A\u0430\u043A\u043E\u0439-\u0442\u043E \u043F\u0440\u0438\u0447\u0438\u043D\u0435
+    \u0441\u0432\u044F\u0437\u0430\u043D\u044B \u0441 \u043D\u0438\u043C"
+--- !u!114 &-2204776732183250652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -408, y: 456}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -2204776732183250652}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 3
+        node: {fileID: 2045716134844817819}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -2204776732183250652}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 6067746435784798532}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u041E\u0442\u043A\u0443\u0434\u0430 \u0442\u044B \u043F\u0440\u0438\u0448\u043B\u0430?
+    \u042F \u0438\u043C\u0435\u044E \u0432\u0432\u0438\u0434\u0443, \u0433\u0434\u0435
+    \u0442\u044B \u0436\u0438\u0432\u0435\u0448\u044C?"
+--- !u!114 &-1742668238853960037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2264, y: 1672}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -1742668238853960037}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -3183915548233044098}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -1742668238853960037}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3366555487743274057}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 59f2a762aceaa794f8f4e0f0fe692313, type: 3}
+  <Position>k__BackingField: 0
+--- !u!114 &-1481200262391741795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1592, y: 856}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -1481200262391741795}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 877514167023176484}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -1481200262391741795}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 6338222725606065623}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u042F \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u0430\u043B\u0430,
+    \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E, \u043F\u0440\u0430\u0432\u0434\u0430
+    \u0441\u0447\u0438\u0442\u0430\u044E \u043D\u0443\u0436\u043D\u043E \u0431\u044B\u0442\u044C
+    \u043E\u0442\u043A\u0440\u044B\u0442\u044B\u043C \u0434\u0440\u0443\u0433 \u0434\u0440\u0443\u0433\u0443!"
+--- !u!114 &-627152630034208121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -627152630034208121}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 5006572401249180990}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -627152630034208121}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -4783543118676547910}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 42873a175688c1747802ea1bc8e9f69e, type: 3}
+  <Position>k__BackingField: 0
+--- !u!114 &-278655763266218424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1832, y: 1096}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -278655763266218424}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 224395150728996391}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -278655763266218424}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 1728641391960243855}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0415\u0441\u043B\u0438 \u0447\u0435\u0441\u0442\u043D\u043E, \u043D\u0435
+    \u0437\u043D\u0430\u044E. \u041F\u043E\u0442\u0435\u0440\u044F \u0441\u0432\u044F\u0437\u0438
+    \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0434\u0438\u0442 \u0432 \u0434\u0432\u0443\u0445
+    \u0441\u043B\u0443\u0447\u0430\u044F\u0445. \u041F\u0435\u0440\u0432\u044B\u0439
+    \u044D\u0442\u043E \u043E\u0442\u043C\u0435\u043D\u0430 \u043F\u0430\u043A\u0442\u0430,
+    \u043D\u043E \u0442\u043E\u0433\u0434\u0430 \u0421\u0442\u0430\u0440\u0448\u0430\u044F
+    \u0431\u044B\u043B\u0430 \u0431\u044B \u0432 \u043A\u0443\u0440\u0441\u0435"
+--- !u!114 &-199244447158660166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1528, y: 472}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -199244447158660166}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 0
+        node: {fileID: 2045716134844817819}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -199244447158660166}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -5571396379089434571}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0424\u043E\u0440\u0442\u0443\u043D\u0430, \u043E\u043D\u0430 \u044F\u0432\u0438\u043B\u0430\u0441\u044C
+    \u043C\u043D\u0435 \u0432\u0447\u0435\u0440\u0430, \u0440\u0430\u0441\u0441\u043A\u0430\u0436\u0438
+    \u043F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435?"
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0f20f6c3ef4714aa6088328634f4ee, type: 3}
+  m_Name: 4 Ask And Question With Dey
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2045716134844817819}
+  - {fileID: -199244447158660166}
+  - {fileID: -5571396379089434571}
+  - {fileID: -4576182009093039237}
+  - {fileID: -8158434757758553718}
+  - {fileID: 3814806678203468416}
+  - {fileID: 8943349746818450277}
+  - {fileID: 6204527100753527494}
+  - {fileID: -7876676237153910625}
+  - {fileID: 5781673722462761148}
+  - {fileID: 7402553408027437040}
+  - {fileID: 7473585164234239536}
+  - {fileID: 3319359740017478549}
+  - {fileID: -2204776732183250652}
+  - {fileID: 6067746435784798532}
+  - {fileID: 4676259405470723882}
+  - {fileID: -8773342735282019482}
+  - {fileID: 206195721680730776}
+  - {fileID: 5887035016351012340}
+  - {fileID: 826309545551969624}
+  - {fileID: 8562724569206008789}
+  - {fileID: -4043903729694802090}
+  - {fileID: 3912506488289495468}
+  - {fileID: -6148344033916747612}
+  - {fileID: 1703867614288676197}
+  - {fileID: 2505064155180356516}
+  - {fileID: -6152348094790320342}
+  - {fileID: 1393648043051868509}
+  - {fileID: -4777868449738701870}
+  - {fileID: -2905209139371826780}
+  - {fileID: 5006572401249180990}
+  - {fileID: -4783543118676547910}
+  - {fileID: 3420631365221594348}
+  - {fileID: 1864462005219875910}
+  - {fileID: 146818561815581579}
+  - {fileID: -627152630034208121}
+  - {fileID: 3979783000032058930}
+  - {fileID: 5826964544608353000}
+  - {fileID: 3374004247442076586}
+  - {fileID: 543792186985443570}
+  - {fileID: -8489090083403051217}
+  - {fileID: 1995313068114237199}
+  - {fileID: -8244276513955786295}
+  - {fileID: 6838590488331380218}
+  - {fileID: 5803503203243631493}
+  - {fileID: 3399966505735618829}
+  - {fileID: -8656166514047861179}
+  - {fileID: 8172889459505121133}
+  - {fileID: -7530253308136880076}
+  - {fileID: 877514167023176484}
+  - {fileID: -1481200262391741795}
+  - {fileID: 6338222725606065623}
+  - {fileID: 5791846052085905566}
+  - {fileID: 224395150728996391}
+  - {fileID: -278655763266218424}
+  - {fileID: 1728641391960243855}
+  - {fileID: -7823291665388318081}
+  - {fileID: -7042198022651715577}
+  - {fileID: 6505828442270770028}
+  - {fileID: -3183915548233044098}
+  - {fileID: 3366555487743274057}
+  - {fileID: -3897630357790875230}
+  - {fileID: -1742668238853960037}
+  - {fileID: -8558295471424264285}
+  - {fileID: -7637319273243603794}
+  - {fileID: -3222039404998870907}
+  - {fileID: 3494251569814926020}
+  - {fileID: 10308818377849630}
+--- !u!114 &10308818377849630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2520, y: 1656}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 10308818377849630}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3494251569814926020}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 10308818377849630}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u041B\u0430\u0434\u043D\u043E, \u043F\u0440\u0438 \u0432\u0441\u0442\u0440\u0435\u0447\u0435
+    \u0440\u0430\u0437\u0431\u0435\u0440\u0435\u043C\u0441\u044F."
+--- !u!114 &146818561815581579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 856, y: 856}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 146818561815581579}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3979783000032058930}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 146818561815581579}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 5826964544608353000}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0425\u043E\u0440\u043E\u0448\u043E."
+--- !u!114 &206195721680730776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -408, y: 1208}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 206195721680730776}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 4676259405470723882}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 206195721680730776}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -8773342735282019482}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0412 \u044D\u0442\u043E\u0439 \u0433\u0430\u043B\u0430\u043A\u0442\u0438\u043A\u0435
+    \u043F\u043E\u043B\u043D\u043E \u0442\u0430\u043A\u0438\u0445 \u043C\u0438\u0440\u043E\u0432
+    \u043A\u0430\u043A \u0442\u0432\u043E\u0439. \u042F \u0438\u0437 \u0441\u043E\u0437\u0432\u0435\u0437\u0434\u0438\u044F
+    \u041E\u0440\u0438\u043E\u043D"
+--- !u!114 &224395150728996391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1832, y: 856}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 224395150728996391}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 5791846052085905566}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 224395150728996391}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -278655763266218424}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0410 \u0447\u0442\u043E \u043C\u043E\u0433\u043B\u043E \u043F\u0440\u043E\u0438\u0437\u043E\u0439\u0442\u0438
+    \u0441 \u0442\u0435\u043C \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0438\u043A\u043E\u043C?"
+--- !u!114 &543792186985443570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 856, y: 1608}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 543792186985443570}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3374004247442076586}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 543792186985443570}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -8489090083403051217}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0418 \u043A\u0430\u043A \u044D\u0442\u043E \u0441\u0432\u044F\u0437\u0430\u043D\u043E
+    \u0441 \u0442\u0432\u043E\u0438\u043C \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435\u043C
+    \u0438 \u043A\u0430\u043A\u0438\u043C-\u0442\u043E \u043F\u0440\u043E\u0441\u0442\u0443\u043F\u043A\u043E\u043C?"
+--- !u!114 &826309545551969624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -408, y: 1848}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 826309545551969624}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 5887035016351012340}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 826309545551969624}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 8562724569206008789}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0421\u0430\u043C \u0442\u044B \u0438\u043D\u043E\u043F\u043B\u0430\u043D\u0435\u0442\u044F\u043D\u0438\u043D!!!"
+--- !u!114 &877514167023176484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1592, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 877514167023176484}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -7530253308136880076}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 877514167023176484}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -1481200262391741795}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 4d8cc91cac433254b8d0560e1dc87455, type: 3}
+  <Position>k__BackingField: 0
+--- !u!114 &1393648043051868509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: 952}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 1393648043051868509}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -6152348094790320342}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 1393648043051868509}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -4777868449738701870}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0418\u0434\u043E\u043B\u044B \u043C\u043E\u0433\u0443\u0442 \u043F\u043E\u043A\u0438\u0434\u0430\u0442\u044C
+    \u0441\u0432\u043E\u0438 \u043C\u0435\u0441\u0442\u0430 \u043E\u0431\u0438\u0442\u0430\u043D\u0438\u044F,
+    \u043D\u043E \u043D\u0435\u043D\u0430\u0434\u043E\u043B\u0433\u043E. \u042D\u0442\u043E
+    \u0438\u0437-\u0437\u0430 \u0442\u043E\u0433\u043E, \u0447\u0442\u043E \u043E\u043D\u0438
+    \u0441\u0432\u044F\u0437\u0430\u043D\u044B \u0441 \u043C\u0435\u0441\u0442\u043E\u043C,
+    \u0438\u043C\u0435\u044F \u0441\u0432\u043E\u044E \u0438\u0441\u0442\u043E\u0440\u0438\u044E
+    \u0438 \u043F\u0435\u0440\u0435\u0436\u0438\u0442\u044B\u0435 \u044F\u0440\u043A\u0438\u0435
+    \u044D\u043C\u043E\u0446\u0438\u0438"
+--- !u!114 &1703867614288676197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -72, y: 1208}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 1703867614288676197}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -6148344033916747612}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 1703867614288676197}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\xAB\u0418 \u043F\u043E\u0447\u0435\u043C\u0443 \u0441\u0440\u0430\u0437\u0443
+    \u043F\u0440\u043E\u0449\u0435 \u043D\u0435\u043B\u044C\u0437\u044F\xBB, -\u0432\u0438\u0434\u0438\u043C\u043E
+    \u0432\u0441\u0451 \u0432 \u0436\u0438\u0437\u043D\u0438 \u0441\u0442\u0430\u043B\u043E
+    \u0431\u044B \u043F\u0440\u043E\u0449\u0435, \u0438 \u0438\u0441\u043F\u044B\u0442\u0430\u043D\u0438\u044F
+    \u043D\u0438\u043A\u0430\u043A\u043E\u0433\u043E \u043D\u0435 \u0431\u044B\u043B\u043E."
+--- !u!114 &1728641391960243855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1832, y: 1336}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 1728641391960243855}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -278655763266218424}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 1728641391960243855}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0418 \u0432\u0442\u043E\u0440\u043E\u0435 - \u044D\u0442\u043E
+    \u0441\u043C\u0435\u0440\u0442\u044C \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0438\u043A\u0430,
+    \u043D\u043E \u044F \u043D\u0435 \u0445\u043E\u0447\u0443 \u043E\u0431 \u044D\u0442\u043E\u043C
+    \u0434\u0443\u043C\u0430\u0442\u044C"
+--- !u!114 &1864462005219875910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: 1368}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 1864462005219875910}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3420631365221594348}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 1864462005219875910}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3979783000032058930}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u041C\u044B \u0442\u0435\u043F\u0435\u0440\u044C \u043F\u0430\u0440\u0442\u043D\u0435\u0440\u044B,
+    \u0443 \u043D\u0430\u0441 \u0434\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C
+    \u0434\u043E\u0432\u0435\u0440\u0438\u0435, \u0434\u0430\u0432\u0430\u0439 \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u0439."
+--- !u!114 &1995313068114237199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: 856}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 1995313068114237199}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8489090083403051217}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 1995313068114237199}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 5803503203243631493}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0414\u0435\u043B\u043E \u0432 \u0442\u043E\u043C, \u0447\u0442\u043E
+    \u043A\u043E\u0433\u0434\u0430 \u044F \u0431\u044B\u043B\u0430 \u043D\u0430 \u0442\u0430\u043A\u043E\u043C
+    \u0436\u0435 \u0437\u0430\u0434\u0430\u043D\u0438\u0438 \u0438 \u043C\u044B \u0432\u043C\u0435\u0441\u0442\u0435
+    \u0441 \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0438\u043A\u043E\u043C
+    \u043F\u0440\u043E\u0445\u043E\u0434\u0438\u043B\u0438 \u0438\u0441\u043F\u044B\u0442\u0430\u043D\u0438\u044F,
+    \u044F \u0435\u0433\u043E \u043F\u043E\u0442\u0435\u0440\u044F\u043B\u0430."
+--- !u!114 &2045716134844817819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c3bc6838e80d94ca59252e2039c95d, type: 3}
+  m_Name: FAQ Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 184, y: -296}
+  ports:
+    keys:
+    - _textChoices
+    - _inPut
+    - _outPut
+    - _textChoices 0
+    - _textChoices 1
+    - _textChoices 2
+    - _textChoices 3
+    - _textChoices 4
+    - _textChoices 5
+    - _textChoices 6
+    - _textChoices 7
+    values:
+    - _fieldName: _textChoices
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _inPut
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _textChoices 0
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -199244447158660166}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: _textChoices 1
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3814806678203468416}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: _textChoices 2
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -7876676237153910625}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: _textChoices 3
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -2204776732183250652}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: _textChoices 4
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -4043903729694802090}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: _textChoices 5
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 2505064155180356516}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: _textChoices 6
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 5006572401249180990}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: _textChoices 7
+      _node: {fileID: 2045716134844817819}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -7823291665388318081}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  _inPut: 0
+  _outPut: 0
+  _questeText: 
+  _textChoices:
+  - "\u041A\u0442\u043E \u0442\u0430\u043A\u0430\u044F \u0424\u043E\u0440\u0442\u0443\u043D\u0430?"
+  - "\u0427\u0442\u043E \u0437\u043D\u0430\u0447\u0438\u0442 \u0434\u043B\u044F \u0442\u0435\u0431\u044F
+    \u0421\u0442\u0430\u0440\u0448\u0430\u044F?"
+  - "\u0427\u0442\u043E \u043C\u043D\u0435 \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F
+    \u0434\u0435\u043B\u0430\u0442\u044C?"
+  - "\u041E\u0442\u043A\u0443\u0434\u0430 \u0442\u044B \u043F\u0440\u0438\u0448\u043B\u0430?"
+  - "\u041D\u0430\u043C \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442 \u043C\u043D\u043E\u0433\u043E
+    \u043F\u0435\u0440\u0435\u043C\u0435\u0449\u0430\u0442\u044C\u0441\u044F?"
+  - "\u041C\u043D\u043E\u0433\u043E \u043B\u0438 \u0442\u0430\u043A\u0438\u0445 \u0438\u0434\u043E\u043B\u043E\u0432
+    \u0432 \u043D\u0430\u0448\u0435\u043C \u043C\u0438\u0440\u0435?"
+  - "\u0424\u043E\u0440\u0442\u0443\u043D\u0430 \u043E \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0438
+    \u0414\u044D\u0438?"
+  - "\u041A\u0430\u043A \u043C\u043D\u0435 \u0434\u043E\u0431\u0438\u0442\u044C\u0441\u044F
+    \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0438\u0434\u043E\u043B\u043E\u0432?"
+--- !u!114 &2505064155180356516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: 456}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 2505064155180356516}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 5
+        node: {fileID: 2045716134844817819}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 2505064155180356516}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -6152348094790320342}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u041C\u043D\u043E\u0433\u043E \u0438\u0434\u043E\u043B\u043E\u0432
+    \u0432 \u044D\u0442\u043E\u043C \u043C\u0438\u0440\u0435?"
+--- !u!114 &3319359740017478549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -728, y: 1464}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3319359740017478549}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 7473585164234239536}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3319359740017478549}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0414\u0430, \u0432\u044B\u0431\u0438\u0440\u0430\u0435\u0448\u044C
+    \u043D\u0435 \u0442\u044B, \u043D\u043E \u0443\u0432\u0435\u0440\u0435\u043D\u0430
+    \u0431\u0443\u0434\u0435\u0442 \u0432\u0440\u0435\u043C\u044F, \u043A\u043E\u0433\u0434\u0430
+    \u043C\u044B \u0441\u0430\u043C\u0438 \u0441\u043C\u043E\u0436\u0435\u043C \u0432\u044B\u0431\u0438\u0440\u0430\u0442\u044C."
+--- !u!114 &3366555487743274057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2520, y: 456}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3366555487743274057}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -1742668238853960037}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3366555487743274057}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -8558295471424264285}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\xAB\u0421\u043F\u0440\u0430\u0432\u0435\u0434\u043B\u0438\u0432\u043E\xBB,
+    - \u041E\u043D\u0430 \u043C\u0438\u043B\u043E \u0443\u043B\u044B\u0431\u043D\u0443\u043B\u0430\u0441\u044C."
+--- !u!114 &3374004247442076586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 856, y: 1352}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3374004247442076586}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 5826964544608353000}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3374004247442076586}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 543792186985443570}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u042F \u0435\u043C \u043F\u0440\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438
+    \u0432\u0441\u0451 \u0438 \u043B\u044E\u0431\u043B\u044E \u043F\u0440\u043E\u0431\u043E\u0432\u0430\u0442\u044C
+    \u043D\u043E\u0432\u044B\u0435 \u0431\u043B\u044E\u0434\u0430."
+--- !u!114 &3399966505735618829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: 1576}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3399966505735618829}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8244276513955786295}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3399966505735618829}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -8656166514047861179}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0422\u0430\u043A \u0430 \u043F\u043E\u0447\u0435\u043C\u0443 \u044D\u0442\u043E
+    \u0442\u0432\u043E\u0439 \u043F\u0440\u043E\u0441\u0442\u0443\u043F\u043E\u043A?"
+--- !u!114 &3420631365221594348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: 1112}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3420631365221594348}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -4783543118676547910}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3420631365221594348}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 1864462005219875910}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041D\u0443 \u0442\u0430\u043C \u043D\u0435 \u043C\u043E\u044F \u0432\u0438\u043D\u0430
+    \u0431\u044B\u043B\u0430."
+--- !u!114 &3494251569814926020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2520, y: 1416}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3494251569814926020}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -3222039404998870907}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3494251569814926020}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 10308818377849630}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0410 \u0441\u043B\u0435\u0434\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u043E
+    \u0438 \u0432\u0430\u0440\u0438\u0430\u043D\u0442\u044B \u0440\u0435\u0448\u0438\u0442\u044C
+    \u0438\u0445 \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u044B"
+--- !u!114 &3814806678203468416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1112, y: 472}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3814806678203468416}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 1
+        node: {fileID: 2045716134844817819}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3814806678203468416}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 8943349746818450277}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0422\u044B \u0441\u043A\u0430\u0437\u0430\u043B\u0430, \u0447\u0442\u043E
+    \u0424\u043E\u0440\u0442\u0443\u043D\u0430 \u0434\u043B\u044F \u0442\u0435\u0431\u044F
+    \u0421\u0442\u0430\u0440\u0448\u0430\u044F, \u0447\u0442\u043E \u044D\u0442\u043E
+    \u0437\u043D\u0430\u0447\u0438\u0442?"
+--- !u!114 &3912506488289495468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -72, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3912506488289495468}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -4043903729694802090}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3912506488289495468}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -6148344033916747612}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u042F \u043D\u0435 \u0437\u043D\u0430\u044E \u043F\u043B\u0430\u043D\u043E\u0432
+    \u0424\u043E\u0440\u0442\u0443\u043D\u044B \u0438 \u043A\u0430\u043A \u0434\u043E\u043B\u0433\u043E
+    \u043C\u044B \u0431\u0443\u0434\u0435\u043C \u0432 \u0434\u043E\u0440\u043E\u0433\u0435,
+    \u043D\u043E \u0434\u043E\u0431\u0438\u0440\u0430\u0442\u044C\u0441\u044F \u0434\u043E
+    \u043C\u0435\u0441\u0442\u0430 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044F
+    \u0432 \u043F\u0435\u0440\u0432\u044B\u0439 \u0440\u0430\u0437 \u043F\u0440\u0438\u0434\u0435\u0442\u0441\u044F
+    \u0441\u0430\u043C\u043E\u0441\u0442\u043E\u044F\u0442\u0435\u043B\u044C\u043D\u043E."
+--- !u!114 &3979783000032058930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 872, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3979783000032058930}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 1864462005219875910}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3979783000032058930}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 146818561815581579}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 59f2a762aceaa794f8f4e0f0fe692313, type: 3}
+  <Position>k__BackingField: 0
+--- !u!114 &4676259405470723882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -408, y: 952}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 4676259405470723882}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 6067746435784798532}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 4676259405470723882}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 206195721680730776}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0423 \u0432\u0430\u0441 \u043B\u044E\u0434\u0435\u0439 \u0441 \u043D\u0430\u0443\u0447\u043D\u043E\u0439
+    \u0442\u043E\u0447\u043A\u0438 \u0437\u0440\u0435\u043D\u0438\u044F \u043C\u0438\u0440
+    \u2013 \u044D\u0442\u043E \u043F\u043B\u0430\u043D\u0435\u0442\u0430 \u043D\u0430\u0441\u0435\u043B\u0435\u043D\u043D\u0430\u044F
+    \u0440\u0430\u0437\u043D\u044B\u043C\u0438 \u0444\u043E\u0440\u043C\u0430\u043C\u0438
+    \u0436\u0438\u0437\u043D\u0438"
+--- !u!114 &5006572401249180990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1112, y: 440}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 5006572401249180990}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _textChoices 6
+        node: {fileID: 2045716134844817819}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 5006572401249180990}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -627152630034208121}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u041C\u043D\u0435 \u0424\u043E\u0440\u0442\u0443\u043D\u0430 \u043E\u0431\u043C\u043E\u043B\u0432\u0438\u043B\u0430\u0441\u044C,
+    \u0447\u0442\u043E \u0442\u0435\u0431\u044F \u043D\u0430\u043F\u0440\u0430\u0432\u0438\u043B\u0438
+    \u043A\u043E \u043C\u043D\u0435 \u0438\u0437-\u0437\u0430 \u043A\u0430\u043A\u043E\u0433\u043E-\u0442\u043E
+    \u043F\u0440\u043E\u0441\u0442\u0443\u043F\u043A\u0430. \u0427\u0442\u043E \u0442\u044B
+    \u0441\u0434\u0435\u043B\u0430\u043B\u0430?"
+--- !u!114 &5781673722462761148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -728, y: 728}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 5781673722462761148}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -7876676237153910625}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 5781673722462761148}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 7402553408027437040}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0422\u0435\u0431\u0435 \u0441\u043B\u0435\u0434\u0443\u0435\u0442
+    \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C
+    \u043F\u043E \u0440\u0430\u0437\u043B\u0438\u0447\u043D\u044B\u043C \u043D\u0430\u0441\u0435\u043B\u0435\u043D\u043D\u044B\u043C
+    \u043F\u0443\u043D\u043A\u0442\u0430\u043C \u0438 \u0432\u0441\u0442\u0440\u0435\u0447\u0430\u0442\u044C
+    \u0442\u0430\u043C \u0438\u0434\u043E\u043B\u043E\u0432, \u0443\u0437\u043D\u0430\u0432\u0430\u0442\u044C
+    \u0438\u0445. \u0427\u0435\u043C \u0431\u043E\u043B\u044C\u0448\u0435 \u0442\u044B
+    \u0443\u0437\u043D\u0430\u0435\u0448\u044C \u0438\u0434\u043E\u043B\u0430, \u0442\u0435\u043C
+    \u0431\u043E\u043B\u044C\u0448\u0435 \u0431\u0443\u0434\u0435\u0448\u044C \u0437\u043D\u0430\u0442\u044C
+    \u043E \u043C\u0435\u0441\u0442\u0435 \u0435\u0433\u043E \u043E\u0431\u0438\u0442\u0430\u043D\u0438\u044F."
+--- !u!114 &5791846052085905566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1832, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 5791846052085905566}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 6338222725606065623}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 5791846052085905566}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 224395150728996391}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: a86bcd7171c0d1d4b9bc6eb7d33a0299, type: 3}
+  <Position>k__BackingField: 0
+--- !u!114 &5803503203243631493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: 1096}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 5803503203243631493}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 1995313068114237199}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 5803503203243631493}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -8244276513955786295}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0412 \u0441\u043C\u044B\u0441\u043B\u0435 \u043F\u043E\u0442\u0435\u0440\u044F\u043B\u0430?"
+--- !u!114 &5826964544608353000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 856, y: 1112}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 5826964544608353000}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 146818561815581579}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 5826964544608353000}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3374004247442076586}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0427\u0435\u0441\u0442\u043D\u043E \u0433\u043E\u0432\u043E\u0440\u044F,
+    \u044F \u043B\u044E\u0431\u043B\u044E \u043F\u043E\u043A\u0443\u0448\u0430\u0442\u044C."
+--- !u!114 &5887035016351012340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -408, y: 1704}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 5887035016351012340}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8773342735282019482}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 5887035016351012340}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 826309545551969624}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 4d8cc91cac433254b8d0560e1dc87455, type: 3}
+  <Position>k__BackingField: 0
+--- !u!114 &6067746435784798532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -408, y: 712}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 6067746435784798532}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -2204776732183250652}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 6067746435784798532}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 4676259405470723882}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u042F \u0438\u0437 \u043C\u0438\u0440\u0430, \u043A\u043E\u0442\u043E\u0440\u044B\u0439
+    \u043E\u0447\u0435\u043D\u044C \u0434\u0430\u043B\u0435\u043A\u043E \u043E\u0442\u0441\u044E\u0434\u0430.
+    \u0415\u0441\u043B\u0438 \u043E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C
+    \u043F\u043E \u043F\u0440\u043E\u0449\u0435, \u0442\u043E \u043F\u043E \u043C\u0438\u043C\u043E
+    \u0442\u0432\u043E\u0435\u0433\u043E \u043C\u0438\u0440\u0430, \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442
+    \u043C\u043D\u043E\u0436\u0435\u0441\u0442\u0432\u043E \u0434\u0440\u0443\u0433\u0438\u0445,
+    \u043D\u0435 \u0441\u0447\u0438\u0442\u0430\u044F \u0438\u043D\u044B\u0445 \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u0439."
+--- !u!114 &6204527100753527494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1128, y: 968}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 6204527100753527494}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 8943349746818450277}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 6204527100753527494}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u0411\u0435\u0437 \u043D\u0430\u0447\u0430\u043B\u044C\u043D\u0438\u043A\u0430
+    \u043D\u0438\u0433\u0434\u0435 \u043D\u0435 \u043E\u0431\u043E\u0439\u0442\u0438\u0441\u044C."
+--- !u!114 &6338222725606065623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1592, y: 1096}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 6338222725606065623}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -1481200262391741795}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 6338222725606065623}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 5791846052085905566}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\xAB\u0418\u0437\u0432\u0438\u043D\u0438, \u043D\u0435 \u0437\u043B\u0438\u0441\u044C\xBB,
+    -\u042F \u0435\u0439 \u0443\u043B\u044B\u0431\u043D\u0443\u043B\u0441\u044F \u0438
+    \u043E\u043D\u0430 \u0432\u0440\u043E\u0434\u0435 \u0443\u0441\u043F\u043E\u043A\u043E\u0438\u043B\u0430\u0441\u044C."
+--- !u!114 &6505828442270770028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2264, y: 1192}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 6505828442270770028}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -3897630357790875230}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 6505828442270770028}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -3183915548233044098}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041A\u0430\u043A \u044D\u0442\u043E \u043A\u0430\u043A\u0438\u043C?
+    \u0422\u044B \u043D\u0438\u043A\u043E\u0433\u0434\u0430 \u0441 \u0434\u0440\u0443\u0437\u044C\u044F\u043C\u0438
+    \u043D\u0435 \u0433\u0443\u043B\u044F\u043B? \u041D\u0430 \u0441\u0432\u0438\u0434\u0430\u043D\u0438\u0435
+    \u043D\u0435 \u0445\u043E\u0434\u0438\u043B?"
+--- !u!114 &6838590488331380218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1368, y: 856}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 6838590488331380218}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8656166514047861179}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 6838590488331380218}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 8172889459505121133}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u0432 \u044D\u0442\u043E\u0442
+    \u043C\u043E\u043C\u0435\u043D\u0442 \u044F \u0443\u043F\u043B\u0435\u0442\u0430\u043B\u0430
+    \u0431\u0443\u043B\u043E\u0447\u043A\u0443 \u0441 \u043C\u0430\u043B\u0438\u043D\u043E\u0432\u044B\u043C
+    \u0434\u0436\u0435\u043C\u043E\u043C, \u043E\u043D\u0430 \u043D\u0430\u0441\u0442\u043E\u043B\u044C\u043A\u043E
+    \u0432\u043A\u0443\u0441\u043D\u0430\u044F \u0431\u044B\u043B\u0430, \u0447\u0442\u043E
+    \u043E \u043F\u043E\u0442\u0435\u0440\u044F\u043D\u043D\u043E\u0439 \u0441\u0432\u044F\u0437\u0438
+    \u044F \u0437\u0430\u043C\u0435\u0442\u0438\u043B\u0430 \u0442\u043E\u043B\u044C\u043A\u043E
+    \u0447\u0435\u0440\u0435\u0437 \u043F\u043E\u043B \u0447\u0430\u0441\u0430."
+--- !u!114 &7402553408027437040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -728, y: 968}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 7402553408027437040}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 5781673722462761148}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 7402553408027437040}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 7473585164234239536}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0422\u0435\u043C \u0441\u0430\u043C\u044B\u043C \u0443\u0437\u043D\u0430\u0435\u0448\u044C
+    \u0435\u0433\u043E \u043B\u0438\u0447\u043D\u0443\u044E \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0443,
+    \u0430 \u043F\u043E\u0441\u043B\u0435 \u0435\u0435 \u0440\u0435\u0448\u0435\u043D\u0438\u044F,
+    \u0438\u0434\u043E\u043B \u043F\u043E\u0434\u0441\u043A\u0430\u0436\u0435\u0442
+    \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0435 \u043C\u0435\u0441\u0442\u043E
+    \u043A\u0443\u0434\u0430 \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442
+    \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C\u0441\u044F."
+--- !u!114 &7473585164234239536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -728, y: 1224}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 7473585164234239536}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 7402553408027437040}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 7473585164234239536}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3319359740017478549}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 0}
+  _speakerName: (G)
+  _speechText: "\u041D\u0443 \u0432\u043E\u0442 \u0438 \u043E\u0442\u043F\u0443\u0441\u043A
+    \u043F\u043E\u044F\u0432\u0438\u043B\u0441\u044F\xBB, -\u0445\u043E\u0442\u044F
+    \u043A\u0443\u0434\u0430 \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C\u0441\u044F,
+    \u043F\u043E \u0432\u0441\u0435\u0439 \u0432\u0438\u0434\u0438\u043C\u043E\u0441\u0442\u0438
+    \u0432\u044B\u0431\u0438\u0440\u0430\u044E \u043D\u0435 \u044F.\r"
+--- !u!114 &8172889459505121133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1368, y: 1096}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 8172889459505121133}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 6838590488331380218}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 8172889459505121133}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -7530253308136880076}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u041D\u0443 \u0438 \u043F\u043E\u0442\u043E\u043C, \u043A\u043E\u0433\u0434\u0430
+    \u044F \u043F\u043E\u043F\u044B\u0442\u0430\u043B\u0430\u0441\u044C \u0435\u0433\u043E
+    \u043D\u0430\u0439\u0442\u0438, \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442
+    \u0431\u044B\u043B \u043D\u0443\u043B\u0435\u0432\u044B\u043C"
+--- !u!114 &8562724569206008789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -408, y: 2104}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 8562724569206008789}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 826309545551969624}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 8562724569206008789}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: b1686ab877caa3441995c4951348f1c2, type: 3}
+  <Position>k__BackingField: 0
+--- !u!114 &8943349746818450277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1128, y: 728}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 8943349746818450277}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3814806678203468416}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 8943349746818450277}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 6204527100753527494}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u0435\u044F"
+  _speechText: "\u0423 \u0412\u0430\u0441 \u043B\u044E\u0434\u0435\u0439 \u0432 \u043F\u043E\u0434\u043E\u0431\u043D\u043E\u0439
+    \u0438\u0435\u0440\u0430\u0440\u0445\u0438\u0447\u0435\u0441\u043A\u043E\u0439
+    \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0435 \u043E\u043D\u0430 \u0437\u043D\u0430\u0447\u0438\u0442\u0441\u044F
+    \u043A\u0430\u043A \u043D\u0430\u0447\u0430\u043B\u044C\u043D\u0438\u0446\u0430.
+    \u041C\u044B \u0435\u0435 \u0441\u043B\u0443\u0448\u0430\u0435\u043C\u0441\u044F
+    \u0438 \u0432\u044B\u043F\u043E\u043B\u043D\u044F\u0435\u043C, \u0432\u0441\u0451
+    \u0447\u0442\u043E \u043E\u043D\u0430 \u0441\u043A\u0430\u0436\u0435\u0442."

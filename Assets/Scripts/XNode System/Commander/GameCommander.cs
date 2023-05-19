@@ -18,7 +18,10 @@ public class GameCommander : Commander
 
     [SerializeField] private SmartphoneGuideView _smartphoneGuideView;
     [SerializeField] private Smartphone _smartPhone;
-    [SerializeField] private SmartphoneCallView _callView;    
+    [SerializeField] private SmartphoneCallView _callView;
+
+    [SerializeField] private FAQView _faqView;
+    [SerializeField] private FAQCommander _faqCommander;
 
     protected override (ICommand, Node) Packing(Node node)
     {
@@ -30,6 +33,7 @@ public class GameCommander : Commander
         {
             MonologSpeechModel speech => new SpeechPresentar(speech, _monologSpeechView, StaticData),
             DialogSpeechModel dialogSpeech => new SpeechPresentar(dialogSpeech, _dialogSpeechView, StaticData),
+            FAQModel faqModel => new FAQController(faqModel, _faqView, _faqCommander), 
             IChoiceModel choice => new ChoicesPresentar(choice, _choicesView),
             BackgroundModel background => new BackgroundController(background, _backgroundView),
             ICharacterPortraitModel portrait => new CharacterPortraitController(portrait, _portraitView),

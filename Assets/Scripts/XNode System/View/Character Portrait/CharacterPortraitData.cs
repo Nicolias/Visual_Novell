@@ -1,4 +1,5 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterPortraitData
 {
@@ -16,5 +17,10 @@ public class CharacterPortraitData
     public void SetPosition(CharacterPortraitPosition newPosition)
     {
         Position = newPosition;
+    }
+
+    public void ChangeImageSpriteOn(Sprite sprite)
+    {
+        Image.sprite = sprite;
     }
 }

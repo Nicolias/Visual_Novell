@@ -9,6 +9,7 @@ public class ChoiceButton : MonoBehaviour
     [SerializeField] private Button _selfButton;
 
     public Node Node { get; private set; }
+    public string ChoiceText => _text.text;
     public string ChoiceName => _text.text;
     public Button Button => _selfButton;
 
