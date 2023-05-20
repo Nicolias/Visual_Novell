@@ -23,6 +23,8 @@ public class GameCommander : Commander
     [SerializeField] private FAQView _faqView;
     [SerializeField] private FAQCommander _faqCommander;
 
+    [SerializeField] private CharactersLibrary _characterLibrary;
+
     protected override (ICommand, Node) Packing(Node node)
     {
         (ICommand command, Node node) result;
@@ -45,6 +47,7 @@ public class GameCommander : Commander
             WaitForSecondsModel waitModel => new WaitForSecondsPresenter(CoroutineServise, waitModel),
             SetTimeOnSmartphoneWatchModel timeModel => new SetTimeOnSmartphoneCommand(timeModel, _smartPhone),
             RequirementOpenPhoneModel => new RequirementOpenPhoneCommand(CoroutineServise, _smartPhone),
+            AddSympathyModel sympathyModel => new AddSympthyToCharacterController(sympathyModel, _characterLibrary),
             _ => null
         };
 

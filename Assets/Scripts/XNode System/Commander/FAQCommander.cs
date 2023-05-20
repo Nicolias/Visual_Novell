@@ -4,6 +4,7 @@ using XNode;
 public class FAQCommander : Commander
 {
     [SerializeField] private DialogSpeechView _dialogSpeechView;
+    [SerializeField] private CharacterPortraitView _portraitView;
 
     protected override (ICommand, Node) Packing(Node node)
     {
@@ -14,6 +15,7 @@ public class FAQCommander : Commander
         result.command = node switch
         {
             DialogSpeechModel dialogSpeech => new SpeechPresentar(dialogSpeech, _dialogSpeechView, StaticData),
+            ICharacterPortraitModel portrait => new CharacterPortraitController(portrait, _portraitView),
             _ => null
         };
 

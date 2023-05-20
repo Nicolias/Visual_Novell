@@ -50,7 +50,8 @@ public class MessengerContact : MonoBehaviour
 
     private void OnDestroy()
     {
-        _contactData.OnNewMessegeAdd -= CreateNewChats;
+        if(_contactData != null)
+            _contactData.OnNewMessegeAdd -= CreateNewChats;
     }
 
     private void CreateNewChats(NodeGraph newMessege, Action playActionAfterMessegeRed)
