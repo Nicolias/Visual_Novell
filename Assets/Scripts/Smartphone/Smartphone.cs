@@ -14,8 +14,11 @@ public class Smartphone : MonoBehaviour
     [SerializeField] private DialogSpeechView _dialogSpeechView;
 
     [SerializeField] private Messenger _messenger;
+    [SerializeField] private DUX _dux;
 
     [SerializeField] private TMP_Text _clockText;
+
+    private bool _isDUXTutorialShow = false;
 
     private void OnEnable()
     {
@@ -50,5 +53,14 @@ public class Smartphone : MonoBehaviour
     public void SetTime(string hour, string minute)
     {
         _clockText.text = $"{hour}:{minute}";
+    }
+
+    public void OpenAccesToDUX()
+    {
+        if (_isDUXTutorialShow)
+            return;
+
+        _dux.OpenAccesToDUX();
+        _isDUXTutorialShow = true;
     }
 }

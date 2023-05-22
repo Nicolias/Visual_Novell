@@ -3,13 +3,10 @@
 public class RequirementOpenPhoneCommand : ICommand
 {
     public event Action OnComplete;
-
-    private CoroutineServise _coroutineServise;
     private Smartphone _smartphone;
 
-    public RequirementOpenPhoneCommand(CoroutineServise coroutineServise, Smartphone smartphone)
+    public RequirementOpenPhoneCommand(Smartphone smartphone)
     {
-        _coroutineServise = coroutineServise;
         _smartphone = smartphone;
     }
 

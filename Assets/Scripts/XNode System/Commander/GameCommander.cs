@@ -20,6 +20,8 @@ public class GameCommander : Commander
     [SerializeField] private Smartphone _smartPhone;
     [SerializeField] private SmartphoneCallView _callView;
 
+    [SerializeField] private DUXWindow _duxWindow;
+
     [SerializeField] private FAQView _faqView;
     [SerializeField] private FAQCommander _faqCommander;
 
@@ -46,7 +48,8 @@ public class GameCommander : Commander
             ICallModel callModel => new SmartphoneCallPresentar(callModel, _callView, AudioServise), 
             WaitForSecondsModel waitModel => new WaitForSecondsPresenter(CoroutineServise, waitModel),
             SetTimeOnSmartphoneWatchModel timeModel => new SetTimeOnSmartphoneCommand(timeModel, _smartPhone),
-            RequirementOpenPhoneModel => new RequirementOpenPhoneCommand(CoroutineServise, _smartPhone),
+            RequirementOpenPhoneModel => new RequirementOpenPhoneCommand(_smartPhone),
+            RequirementOpenDUXModel => new RequirementOpenDUXCommand(_smartPhone, _duxWindow),
             AddSympathyModel sympathyModel => new AddSympthyToCharacterController(sympathyModel, _characterLibrary),
             _ => null
         };
