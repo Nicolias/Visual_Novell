@@ -6,12 +6,14 @@ public class CharacterPortraitData
     public string Name { get; private set; }
     public Image Image { get; private set; }
     public CharacterPortraitPosition Position { get; private set; }
+    public CharacterType CharacterType { get; private set; }
 
-    public CharacterPortraitData(string name, Image image, CharacterPortraitPosition position)
+    public CharacterPortraitData(ICharacterPortraitModel characterPortrait, Image characterImage)
     {
-        Name = name;
-        Image = image;
-        Position = position;
+        Name = characterPortrait.Name;
+        Image = characterImage;
+        Position = characterPortrait.Position;
+        CharacterType = characterPortrait.CharacterType;
     }
 
     public void SetPosition(CharacterPortraitPosition newPosition)

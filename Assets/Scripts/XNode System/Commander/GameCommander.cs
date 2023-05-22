@@ -17,6 +17,8 @@ public class GameCommander : Commander
     [SerializeField] private AudioServise _audioServise;
 
     [SerializeField] private SmartphoneGuideView _smartphoneGuideView;
+    [SerializeField] private AccureMoneyView _accureMoneyPanel;
+
     [SerializeField] private Smartphone _smartPhone;
     [SerializeField] private SmartphoneCallView _callView;
 
@@ -51,6 +53,7 @@ public class GameCommander : Commander
             RequirementOpenPhoneModel => new RequirementOpenPhoneCommand(_smartPhone),
             RequirementOpenDUXModel => new RequirementOpenDUXCommand(_smartPhone, _duxWindow),
             AddSympathyModel sympathyModel => new AddSympthyToCharacterController(sympathyModel, _characterLibrary),
+            AccureMoneyModel accureMoneyModel => new AccureMoneyCommand(accureMoneyModel, _accureMoneyPanel, _smartPhone),
             _ => null
         };
 

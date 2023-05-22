@@ -2,6 +2,8 @@
 
 public class PortraitModel : XnodeModel, ICharacterPortraitModel
 {
+    [field: SerializeField] public CharacterType CharacterType { get; private set; }
+
     [field: SerializeField]
     public string Name { get; private set; }
 

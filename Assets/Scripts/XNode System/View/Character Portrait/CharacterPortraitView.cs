@@ -16,17 +16,17 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
         _colors = new Color[2] { new Color(1, 1, 1, 1), new Color(1, 1, 1, 0) };
     }
 
-    public void Show(string name, Sprite sprite, CharacterPortraitPosition position)
+    public void Show(ICharacterPortraitModel characterPortrait)
     {
-        if (CheckNeededCreateNewCharacter(name, out CharacterPortraitData exist))
+        if (CheckNeededCreateNewCharacter(characterPortrait.CharacterType, out CharacterPortraitData exist))
         {
-            Image newCharacterImage = Instantiate(_prefab, _positions[(int)position]);
+            Image newCharacterImage = Instantiate(_prefab, _positions[(int)characterPortrait.Position]);
 
             newCharacterImage.name = name;
-            newCharacterImage.sprite = sprite;
+            newCharacterImage.sprite = characterPortrait.Sprite;
             newCharacterImage.color = _colors[0];
 
-            CharacterPortraitData newCharacterPortraitData = new(name, newCharacterImage, position);
+            CharacterPortraitData newCharacterPortraitData = new(characterPortrait, newCharacterImage);
 
             _charactersList.Add(newCharacterPortraitData);
         }
@@ -38,19 +38,19 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
                 return;
             }
 
-            exist.Image.sprite = sprite;
-            exist.SetPosition(position);
+            exist.Image.sprite = characterPortrait.Sprite;
+            exist.SetPosition(characterPortrait.Position);
             exist.Image.transform.SetParent(_positions[(int)exist.Position]);
         }
     }
 
-    private bool CheckNeededCreateNewCharacter(string name, out CharacterPortraitData exist)
+    private bool CheckNeededCreateNewCharacter(CharacterType characterType, out CharacterPortraitData exist)
     {
         exist = null;
 
         for (int i = 0; i < _charactersList.Count; i++)
         {
-            if (_charactersList[i].Name == name)
+            if (_charactersList[i].CharacterType == characterType)
             {
                 exist = _charactersList[i];
                 return false;

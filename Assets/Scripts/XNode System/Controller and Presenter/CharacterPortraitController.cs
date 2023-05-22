@@ -15,7 +15,7 @@ public class CharacterPortraitController : ICommand
 
     public void Execute()
     {
-        _view.Show(_model.Name, _model.Sprite, _model.Position);
+        _view.Show(_model);
         OnComplete?.Invoke();
     }
 }
