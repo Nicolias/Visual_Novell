@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using XNode;
+using Zenject;
 
 public class GameCommander : Commander
 {
+    [Inject] private Wallet _wallet;
+    [Inject] private Battery _battery;
+
     [SerializeField] private MonologSpeechView _monologSpeechView;
     [SerializeField] private DialogSpeechView _dialogSpeechView;
 
@@ -16,8 +20,7 @@ public class GameCommander : Commander
 
     [SerializeField] private AudioServise _audioServise;
 
-    [SerializeField] private SmartphoneGuideView _smartphoneGuideView;
-    [SerializeField] private AccureMoneyView _accureMoneyPanel;
+    [SerializeField] private SmartphoneGuideView _smartphoneGuideView;    
 
     [SerializeField] private Smartphone _smartPhone;
     [SerializeField] private SmartphoneCallView _callView;
@@ -53,7 +56,10 @@ public class GameCommander : Commander
             RequirementOpenPhoneModel => new RequirementOpenPhoneCommand(_smartPhone),
             RequirementOpenDUXModel => new RequirementOpenDUXCommand(_smartPhone, _duxWindow),
             AddSympathyModel sympathyModel => new AddSympthyToCharacterController(sympathyModel, _characterLibrary),
-            AccureMoneyModel accureMoneyModel => new AccureMoneyCommand(accureMoneyModel, _accureMoneyPanel, _smartPhone),
+            AccureMoneyModel accureMoneyModel => new AccureStoregeValueCommand(accureMoneyModel, _wallet, _smartPhone),
+            AccureEnergyModel accureEnergyModel => new AccureStoregeValueCommand(accureEnergyModel, _battery, _smartPhone),
+            DecreeseMoneyModel decreeseMoneyModel => new DecreeseStoregeValueCommand(decreeseMoneyModel, _wallet),
+            DecreeseEnergyModel decreeseEnergyModel => new DecreeseStoregeValueCommand(decreeseEnergyModel, _battery),
             _ => null
         };
 

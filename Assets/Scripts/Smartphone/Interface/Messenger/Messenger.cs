@@ -12,6 +12,8 @@ public class Messenger : MonoBehaviour
     [SerializeField] private MessengerWindow _messengerWindow;
     [SerializeField] private Button _openMesengerButton;
 
+    [SerializeField] private GameObject _unreadChatIndicator;
+
     [Inject] private ChatView _chatView;
 
     private List<ContactElement> _contacts = new();
@@ -52,6 +54,7 @@ public class Messenger : MonoBehaviour
     {
         _unreadChat.Add(chat);
         _chatView.OnChatRed += OnChatRedCallBack;
+        _unreadChatIndicator.SetActive(true);
     }
 
     private void OnChatRedCallBack(Chat chat)
@@ -60,6 +63,9 @@ public class Messenger : MonoBehaviour
         _unreadChat.Remove(chat);
 
         if (_unreadChat.Count == 0)
+        {
             OnAllMessegeRed?.Invoke();
+            _unreadChatIndicator.SetActive(false);
+        }
     }
 }

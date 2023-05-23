@@ -55,7 +55,7 @@ MonoBehaviour:
   _outPut: 0
   _isImmediatelyNextNode: 0
   _speakerAvatar: {fileID: 21300000, guid: 07bf8c021fb4f0945b63059d0d39a789, type: 3}
-  _speakerName: "\u0424\u0430\u0440\u0442\u0443\u043D\u0430"
+  _speakerName: "\u0424\u043E\u0440\u0442\u0443\u043D\u0430"
   _speechText: "\"\u041C\u043E\u043D\u0435\u0442\u0430 \u0432\u0441\u0442\u0430\u043D\u0435\u0442
     \u043D\u0430 \u0440\u0435\u0431\u0440\u043E,\r\n\u0424\u043E\u0440\u0442\u0443\u043D\u0430
     \u0432\u044B\u0431\u0440\u043E\u0441\u0438\u0442 \u0437\u0435\u0440\u043E,\r\n\u041F\u043B\u0430\u0442\u0438

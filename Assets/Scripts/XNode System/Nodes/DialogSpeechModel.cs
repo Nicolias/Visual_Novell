@@ -16,7 +16,6 @@ public class DialogSpeechModel : XnodeModel, ISpeechModel
     {
         get
         {
-
             return _speechText.Replace(_staticData.SpecWordForNickName, _staticData.Nickname);
         }
     }

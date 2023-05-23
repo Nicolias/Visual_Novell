@@ -29,8 +29,11 @@ public class MessengerContact : MonoBehaviour
 
     private void OnEnable()
     {
-        _selfButton.onClick.AddListener(() => 
-        _chatsContainer.gameObject.SetActive(!_chatsContainer.gameObject.activeInHierarchy));
+        if (_selfButton != null & _chatsContainer != null)
+        {
+            _selfButton.onClick.AddListener(() =>
+            _chatsContainer.gameObject.SetActive(!_chatsContainer.gameObject.activeInHierarchy));
+        }
     }
 
     public void Initialize(ContactElement contactElement)

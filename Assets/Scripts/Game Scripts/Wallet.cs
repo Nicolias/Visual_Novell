@@ -1,22 +1,42 @@
 using System;
 using UnityEngine;
 
-public class Wallet : MonoBehaviour
+public class Wallet : MonoBehaviour, IStorageView
 {
+    public event Action OnClosed;
+
+    [SerializeField] private AccureMoneyView _accureMoneyPanel;
+
     private int _amountMoney;
 
-    public void AccureMoney(int money)
+    private void OnEnable()
     {
-        if (money <= 0) throw new InvalidOperationException();
+        _accureMoneyPanel.OnClosed += CallBack;
+    }
+
+    private void OnDisable()
+    {
+        _accureMoneyPanel.OnClosed -= CallBack;
+    }
+
+    public void Accure(int money)
+    {
+        if (money <= 0) throw new InvalidOperationException("Начисленно 0 денег");
+        _accureMoneyPanel.PrintAccureMoney(money);
 
         _amountMoney += money;
     }
 
-    public void DecreeseMoney(int money)
+    public void Decreese(int money)
     {
-        if (money >= 0) throw new InvalidOperationException();
+        if (money <= 0) throw new InvalidOperationException();
         if (_amountMoney <= 0) throw new InvalidOperationException("Недостаточно средств");
 
         _amountMoney -= money;
+    }
+
+    private void CallBack()
+    {
+        OnClosed?.Invoke();
     }
 }

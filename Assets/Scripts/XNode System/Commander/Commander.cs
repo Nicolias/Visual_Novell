@@ -11,7 +11,7 @@ public abstract class Commander : MonoBehaviour
 
     [Inject] protected StaticData StaticData;
     [Inject] protected CoroutineServise CoroutineServise;
-    [Inject] protected AudioServise AudioServise;
+    [Inject] protected AudioServise AudioServise;    
 
     private (ICommand Command, Node Node) _curent;
 
@@ -31,13 +31,13 @@ public abstract class Commander : MonoBehaviour
 
     public void PackAndExecuteCommand(Node node)
     {
-        if (node is ISpeechModel)
-            (node as ISpeechModel).Initialize(StaticData);
-
         if (node is ChangeDialogDataModel)
             _curent = Packing((node as ChangeDialogDataModel).NodeGraph.nodes[0]);
         else
             _curent = Packing(node);
+
+        if (_curent.Node is ISpeechModel)
+            (_curent.Node as ISpeechModel).Initialize(StaticData);
 
 
         _curent.Command.OnComplete += Next;

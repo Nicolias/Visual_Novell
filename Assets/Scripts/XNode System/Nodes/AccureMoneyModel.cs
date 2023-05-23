@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-public class AccureMoneyModel : XnodeModel
+public class AccureMoneyModel : XnodeModel, IStorageModel
 {
-    [field: SerializeField] public int Money { get; private set; }
+    [SerializeField] private int _money;
+
+    public int Value => _money;
 }

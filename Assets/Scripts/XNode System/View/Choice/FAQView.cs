@@ -33,8 +33,8 @@ public class FAQView : MonoBehaviour
     {
         choiceButton.Button.onClick.AddListener(() =>
         {
-            OnQuestionSelected?.Invoke((choiceButton.Node, choiceButton.ChoiceText));
             HideCanvas();
+            OnQuestionSelected?.Invoke((choiceButton.Node, choiceButton.ChoiceText));
         });
     }
 

@@ -32,8 +32,9 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
         }
         else
         {
-            if (exist.Position == CharacterPortraitPosition.Delete)
+            if (characterPortrait.Position == CharacterPortraitPosition.Delete)
             {
+                _charactersList.Remove(exist);
                 Destroy(exist.Image.gameObject);
                 return;
             }

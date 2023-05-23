@@ -57,7 +57,7 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <Money>k__BackingField: 200
+  _money: 100
 --- !u!114 &5866381017460401968
 MonoBehaviour:
   m_ObjectHideFlags: 0
