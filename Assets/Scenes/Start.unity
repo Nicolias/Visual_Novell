@@ -3131,7 +3131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c07e66c0fc93d48a5bfd20eef0ffcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 0}
   _dialogSpeechView: {fileID: 368888865}
   _portraitView: {fileID: 415884106}
 --- !u!1 &614916411
@@ -4936,6 +4935,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1022039784}
   - component: {fileID: 1022039785}
+  - component: {fileID: 1022039787}
+  - component: {fileID: 1022039786}
   m_Layer: 5
   m_Name: 'Accure Money Panel '
   m_TagString: Untagged
@@ -4979,6 +4980,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _closeButton: {fileID: 1383657906}
   _log: {fileID: 2139976316}
+--- !u!114 &1022039786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022039783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!223 &1022039787
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022039783}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 13
+  m_TargetDisplay: 0
 --- !u!224 &1084844339 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7558404637647013662, guid: b901847a191dcdd4e9fac98db1a281b6, type: 3}
@@ -7574,7 +7614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1652980046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7825,7 +7865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cffc17622677741b27852bb50ee8c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 0}
 --- !u!1001 &1774824511
 PrefabInstance:
   m_ObjectHideFlags: 0

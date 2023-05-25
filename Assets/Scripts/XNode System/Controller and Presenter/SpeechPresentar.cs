@@ -26,6 +26,7 @@ public class SpeechPresentar : IPresentar
 
     public void Execute()
     {
+        Debug.Log("Sub");
         _view.OnClick += OnCallBackView;
 
         if (_view.gameObject.activeInHierarchy)
@@ -66,6 +67,7 @@ public class SpeechPresentar : IPresentar
             }
         }
 
+        Debug.Log("Unsub");
         _view.OnClick -= OnCallBackView;
         OnComplete?.Invoke();
     }

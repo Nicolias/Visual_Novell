@@ -66,6 +66,7 @@ public class ChatView : MonoBehaviour
 
     private void CallBack()
     {
+        _messengerCommander.OnDialogEnd -= CallBack;
         OnChatRed?.Invoke(_curruntChat);
         _playActionAfterMessegeRed.Invoke();
     }

@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
 {
+    public event Action OnComplite;
+
     [SerializeField] private Image _prefab;
     [SerializeField] private Transform[] _positions;
 
@@ -29,19 +33,38 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
             CharacterPortraitData newCharacterPortraitData = new(characterPortrait, newCharacterImage);
 
             _charactersList.Add(newCharacterPortraitData);
+
+            DOTween.Sequence()
+                .Append(newCharacterImage.DOColor(new(1, 1, 1, 0), 0))
+                .Append(newCharacterImage.DOColor(new(1, 1, 1, 1), 0.5f))
+                .AppendCallback(() => OnComplite?.Invoke())
+                .Play();
         }
         else
         {
             if (characterPortrait.Position == CharacterPortraitPosition.Delete)
             {
+                DOTween.Sequence()
+                .Append(exist.Image.DOColor(new(1, 1, 1, 0), 0.5f))
+                .AppendCallback(() => OnComplite?.Invoke())
+                .Play();
+
                 _charactersList.Remove(exist);
                 Destroy(exist.Image.gameObject);
                 return;
             }
 
-            exist.Image.sprite = characterPortrait.Sprite;
-            exist.SetPosition(characterPortrait.Position);
-            exist.Image.transform.SetParent(_positions[(int)exist.Position]);
+            DOTween.Sequence()
+                .Append(exist.Image.DOColor(new(1, 1, 1, 0), 0.2f))
+                .AppendCallback(() =>
+                {
+                    exist.Image.sprite = characterPortrait.Sprite;
+                    exist.SetPosition(characterPortrait.Position);
+                    exist.Image.transform.SetParent(_positions[(int)exist.Position]);
+                })
+                .Append(exist.Image.DOColor(new(1, 1, 1, 1), 0.2f))
+                .AppendCallback(() => OnComplite?.Invoke())
+                .Play();
         }
     }
 

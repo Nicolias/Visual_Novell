@@ -32,17 +32,17 @@ public class FAQView : MonoBehaviour
     private void AssignEventOnButton(ChoiceButton choiceButton)
     {
         choiceButton.Button.onClick.AddListener(() =>
-        {
+        {            
             HideCanvas();
             OnQuestionSelected?.Invoke((choiceButton.Node, choiceButton.ChoiceText));
         });
     }
 
-    private void ShowCanvas() => _selfCanvas.gameObject.SetActive(true);
+    private void ShowCanvas() => _selfCanvas.enabled = true;
 
     private void HideCanvas()
     {
-        _selfCanvas.gameObject.SetActive(false);
+        _selfCanvas.enabled = false;
 
         for (int i = 0; i < _container.childCount; i++)
             Destroy(_container.GetChild(i).gameObject);

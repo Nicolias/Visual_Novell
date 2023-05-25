@@ -14,6 +14,11 @@ public class ChoiceModel : XnodeModel, IChoiceModel
     public Node[] Nodes => GetNodes();
     public string QuestionText => _questeText;
 
+    public override void Accept(ICommanderVisitor visitor)
+    {
+        visitor.Visit(this);
+    }
+
     public void SetEndPort(Node node)
     {
         NodePort node1 = GetOutputPort("_outPut");

@@ -12,4 +12,9 @@ public class PortraitModel : XnodeModel, ICharacterPortraitModel
 
     [field: SerializeField]
     public CharacterPortraitPosition Position { get; private set; }
+
+    public override void Accept(ICommanderVisitor visitor)
+    {
+        visitor.Visit(this);
+    }
 }

@@ -16,6 +16,10 @@ public class MonologSpeechModel : XnodeModel, ISpeechModel
     public string SpeakerName => throw new System.NotImplementedException();
     public bool IsImmediatelyNextNode => _isImmediatelyNextNode;
 
+    public override void Accept(ICommanderVisitor visitor)
+    {
+        visitor.Visit(this);
+    }
 
     public void Initialize(StaticData staticData)
     {

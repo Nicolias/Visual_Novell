@@ -14,7 +14,13 @@ public class BackgroundController : ICommand
 
     public void Execute()
     {
+        _view.OnPicturChange += CallBack;
         _view.Replace(_model.Sprite);
+    }
+
+    private void CallBack()
+    {
+        _view.OnPicturChange -= CallBack;
         OnComplete?.Invoke();
     }
 }

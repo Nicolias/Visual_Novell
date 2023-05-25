@@ -13,6 +13,11 @@ public class SmartphoneCallModel : XnodeModel, ICallModel
     public Node[] Nodes => GetNodes();
     public string CharacterName => _characterName;
 
+    public override void Accept(ICommanderVisitor visitor)
+    {
+        visitor.Visit(this);
+    }
+
     public void SetEndPort(Node node)
     {
         NodePort node1 = GetOutputPort("_outPut");

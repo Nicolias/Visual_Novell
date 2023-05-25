@@ -16,6 +16,12 @@ public class CharacterPortraitController : ICommand
     public void Execute()
     {
         _view.Show(_model);
+        _view.OnComplite += CallBack;
+    }
+
+    private void CallBack()
+    {
+        _view.OnComplite -= CallBack;
         OnComplete?.Invoke();
     }
 }

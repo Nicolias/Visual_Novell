@@ -7,51 +7,33 @@ public abstract class Commander : MonoBehaviour
 {
     public event Action OnDialogEnd;
 
-    [SerializeField] private NodeGraph _currentGraph;
-
     [Inject] protected StaticData StaticData;
     [Inject] protected CoroutineServise CoroutineServise;
     [Inject] protected AudioServise AudioServise;    
 
-    private (ICommand Command, Node Node) _curent;
-
-    private void Start()
-    {
-        if (_currentGraph == null)
-            return;
-
-        PackAndExecuteCommand(_currentGraph.nodes[0]);
-    }
+    private (ICommand command, Node node) _curent;
 
     private void OnDisable()
     {
-        if(_curent.Command != null)
-            _curent.Command.OnComplete -= Next;
+        if(_curent.command != null)
+            _curent.command.OnComplete -= Next;
     }
 
     public void PackAndExecuteCommand(Node node)
     {
-        if (node is ChangeDialogDataModel)
-            _curent = Packing((node as ChangeDialogDataModel).NodeGraph.nodes[0]);
-        else
-            _curent = Packing(node);
-
-        if (_curent.Node is ISpeechModel)
-            (_curent.Node as ISpeechModel).Initialize(StaticData);
-
-
-        _curent.Command.OnComplete += Next;
-        _curent.Command.Execute();
+        _curent = Packing(node);
+        _curent.command.OnComplete += Next;
+        _curent.command.Execute();
     }
 
     private void Next()
     {
-        if (_curent.Command != null)
+        if (_curent.command != null)
         {
-            _curent.Command.OnComplete -= Next;
+            _curent.command.OnComplete -= Next;
         }
 
-        NodePort port = _curent.Node.GetPort("_outPut").Connection;
+        NodePort port = _curent.node.GetPort("_outPut").Connection;
 
         if (port == null)
         {

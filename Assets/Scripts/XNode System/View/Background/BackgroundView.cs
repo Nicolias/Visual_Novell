@@ -1,17 +1,33 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class BackgroundView : MonoBehaviour
 {
+    public event Action OnPicturChange;
+
     [SerializeField] private Image _image;
 
     public void Replace(Sprite sprite)
     {
-        _image.sprite = sprite;
+        var sequnce = DOTween.Sequence();
 
-        if (_image.sprite == null)
-            _image.color = new(1, 1, 1, 0);
+        if (sprite == null)
+        {
+            sequnce
+                .Append(_image.DOColor(new(1, 1, 1, 0), 0.5f))
+                .AppendCallback(() => OnPicturChange?.Invoke())
+                .Play();
+        }
         else
-            _image.color = new(1, 1, 1, 1);
+        {
+            sequnce
+                .Append(_image.DOColor(new(1, 1, 1, 0), 0.5f))
+                .AppendCallback(() => _image.sprite = sprite)
+                .Append(_image.DOColor(new(1, 1, 1, 1), 0.5f))
+                .AppendCallback(() => OnPicturChange?.Invoke())
+                .Play();
+        }
     }
 }

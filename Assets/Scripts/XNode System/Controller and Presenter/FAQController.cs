@@ -30,6 +30,7 @@ public class FAQController : IController
         {
             _FAQCommander.OnDialogEnd -= Execute;
             OnComplete?.Invoke();
+            return;
         }
 
         _view.OnQuestionSelected += OnCallBackView;

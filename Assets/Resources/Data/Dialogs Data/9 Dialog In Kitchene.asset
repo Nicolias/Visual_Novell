@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2360, y: 344}
+  position: {x: 2616, y: 360}
   ports:
     keys:
     - _inPut
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2120, y: -168}
+  position: {x: 2376, y: -152}
   ports:
     keys:
     - _inPut
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2360, y: -936}
+  position: {x: 2616, y: -920}
   ports:
     keys:
     - _inPut
@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2360, y: -424}
+  position: {x: 2616, y: -408}
   ports:
     keys:
     - _inPut
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 200, y: 664}
+  position: {x: 184, y: 664}
   ports:
     keys:
     - _inPut
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2360, y: -680}
+  position: {x: 2616, y: -664}
   ports:
     keys:
     - _inPut
@@ -1433,7 +1433,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1832, y: -680}
+  position: {x: 2008, y: -664}
   ports:
     keys:
     - _inPut
@@ -1654,7 +1654,10 @@ MonoBehaviour:
       _node: {fileID: -2635773340623332664}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 8841204487555040664}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -1808,7 +1811,7 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 4321c0117ad44914a91e4d5efc3dcd8d, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 38547555dfd5ed1499963f4bee9b6a95, type: 3}
 --- !u!114 &-2109638381786130086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,7 +2033,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2120, y: -680}
+  position: {x: 2376, y: -664}
   ports:
     keys:
     - _inPut
@@ -2081,7 +2084,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1832, y: -424}
+  position: {x: 2008, y: -408}
   ports:
     keys:
     - _inPut
@@ -2131,7 +2134,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1832, y: -168}
+  position: {x: 2008, y: -152}
   ports:
     keys:
     - _inPut
@@ -2830,7 +2833,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2120, y: 88}
+  position: {x: 2376, y: 104}
   ports:
     keys:
     - _inPut
@@ -3042,7 +3045,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1832, y: -936}
+  position: {x: 2008, y: -920}
   ports:
     keys:
     - _inPut
@@ -3338,7 +3341,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2120, y: -424}
+  position: {x: 2376, y: -408}
   ports:
     keys:
     - _inPut
@@ -3651,7 +3654,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2360, y: 88}
+  position: {x: 2616, y: 104}
   ports:
     keys:
     - _inPut
@@ -3702,7 +3705,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2360, y: -168}
+  position: {x: 2616, y: -152}
   ports:
     keys:
     - _inPut
@@ -3753,7 +3756,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2120, y: -936}
+  position: {x: 2376, y: -920}
   ports:
     keys:
     - _inPut
@@ -3922,6 +3925,9 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _textChoices 1
+        node: {fileID: -2635773340623332664}
+        reroutePoints: []
+      - fieldName: _outPut
         node: {fileID: -2635773340623332664}
         reroutePoints: []
       _direction: 0
