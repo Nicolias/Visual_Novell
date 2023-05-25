@@ -1,28 +1,52 @@
-﻿using System;
+﻿using Factory.Messenger;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class MessengerWindow : MonoBehaviour
 {
-    [SerializeField] private Messenger _messenger;
+    [SerializeField] private Canvas _selfCanvas;
+    [SerializeField] private Button _closeButton;
 
-    [SerializeField] private MessengerContact _contactTemplate;
-    [SerializeField] private Transform _contactsContainer;
+    [Inject] private ContactFactory _contactFactory;
 
-    [Inject] private DiContainer _di;
+    private Dictionary<ContactElement, MessengerContact> _contactsView = new();
 
-    private List<MessengerContact> _contactsView = new();
-
-    public void Open()
+    private void OnEnable()
     {
-        gameObject.SetActive(true);
+        _closeButton.onClick.AddListener(Hide);
     }
 
-    public void CreateNewContactView(ContactElement ContactElement)
+    private void OnDisable()
     {
-        var newContact = _di.InstantiatePrefabForComponent<MessengerContact>(_contactTemplate, _contactsContainer);
-        newContact.Initialize(ContactElement);
-        _contactsView.Add(newContact);
+        _closeButton.onClick.RemoveAllListeners();
+    }
+
+    public void Show()
+    {
+        _selfCanvas.enabled = true;
+    }
+
+    public MessengerContact CreateContactView(ContactElement contactElement)
+    {
+        var contactView = _contactFactory.CreateNewContactView(contactElement);
+        _contactsView.Add(contactElement, contactView);
+
+        return contactView;
+    }
+
+    public MessengerContact GetExistContactView(ContactElement contactElement)
+    {
+        return _contactsView[contactElement];
+    }
+
+    private void Hide()
+    {
+        _selfCanvas.enabled = false;
+
+        foreach (var contact in _contactsView)
+            contact.Value.Hide();
     }
 }

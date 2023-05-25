@@ -4,7 +4,7 @@ using XNode;
 
 public class ContactElement
 {
-    public event Action<NodeGraph, Action> OnNewMessegeAdd;
+    public event Action<Chat> OnNewChatAdded;
 
     private List<NodeGraph> _dialogs = new();
 
@@ -16,13 +16,10 @@ public class ContactElement
         Name = name;
     }
 
-    public void AddMessege(MessegeData newMessegeElement, Action playActionAfterMessegeRed)
+    public void AddMessege(Chat chat)
     {
-        if (newMessegeElement.ContactName != Name)
-            throw new InvalidOperationException("Сообщение не пренадлежит этому контакту");
+        _dialogs.Add(chat.Data);
 
-        _dialogs.Add(newMessegeElement.Messege);
-
-        OnNewMessegeAdd?.Invoke(newMessegeElement.Messege, playActionAfterMessegeRed);
+        OnNewChatAdded?.Invoke(chat);
     }
 }

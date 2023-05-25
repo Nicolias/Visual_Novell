@@ -1,26 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using XNode;
 using System;
 using System.Collections.Generic;
-using Zenject;
 using TMPro;
 
 [RequireComponent(typeof(Button))]
 public class MessengerContact : MonoBehaviour
 {
     [SerializeField] private Transform _chatsContainer;
-    [SerializeField] private Chat _chatButtonTemplate;
-
     [SerializeField] private TMP_Text _contactNameText;
-
-    [Inject] private DiContainer _di;
-    [Inject] private Messenger _messenger;
 
     private Button _selfButton;
 
     private ContactElement _contactData;
     private List<Chat> _chatsList = new();
+
+    public Transform ChatsContainer => _chatsContainer;
 
     private void Awake()
     {
@@ -30,20 +25,7 @@ public class MessengerContact : MonoBehaviour
     private void OnEnable()
     {
         if (_selfButton != null & _chatsContainer != null)
-        {
-            _selfButton.onClick.AddListener(() =>
-            _chatsContainer.gameObject.SetActive(!_chatsContainer.gameObject.activeInHierarchy));
-        }
-    }
-
-    public void Initialize(ContactElement contactElement)
-    {
-        _contactData = contactElement;
-        _contactData.OnNewMessegeAdd += CreateNewChats;
-
-        _chatsContainer.SetParent(transform.parent);
-
-        _contactNameText.text = contactElement.Name;
+            _selfButton.onClick.AddListener(Hide);            
     }
 
     private void OnDisable()
@@ -54,21 +36,33 @@ public class MessengerContact : MonoBehaviour
     private void OnDestroy()
     {
         if(_contactData != null)
-            _contactData.OnNewMessegeAdd -= CreateNewChats;
+            _contactData.OnNewChatAdded -= AddNewChatView;
     }
 
-    private void CreateNewChats(NodeGraph newMessege, Action playActionAfterMessegeRed)
+    public void Initialize(ContactElement contactElement)
+    {
+        _contactData = contactElement;
+
+        _contactData.OnNewChatAdded += AddNewChatView;
+
+        _chatsContainer.SetParent(transform.parent);
+
+        _contactNameText.text = contactElement.Name;
+    }
+
+    public void Hide()
+    {
+        _chatsContainer.gameObject.SetActive(!_chatsContainer.gameObject.activeInHierarchy);
+    }
+
+    private void AddNewChatView(Chat newChat)
     {
         foreach (var chat in _chatsList)
         {
-            if (chat.ChatData == newMessege)
+            if (chat.Data == newChat.Data)
                 throw new InvalidOperationException("Chat already exist");
         }
 
-        var newChat = _di.InstantiatePrefabForComponent<Chat>(_chatButtonTemplate, _chatsContainer);
-        newChat.Initialize(newMessege, playActionAfterMessegeRed);
         _chatsList.Add(newChat);
-
-        _messenger.AddUnreadChat(newChat);
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Smartphone : MonoBehaviour
 {
-    public event Action OnNewMessegeReceived;
     public event Action OnClosed;
 
     [SerializeField] private Button _openButton, _closeButton;
@@ -19,6 +18,8 @@ public class Smartphone : MonoBehaviour
     [SerializeField] private TMP_Text _clockText;
 
     private bool _isDUXTutorialShow = false;
+
+    public Messenger Messenger => _messenger;
 
     private void OnEnable()
     {
@@ -41,13 +42,6 @@ public class Smartphone : MonoBehaviour
     {
         _closeButton.onClick.RemoveAllListeners();
         _closeButton.onClick.RemoveAllListeners();        
-    }
-
-    public void AddNewMessege(MessegeData newMessege, Action playActionAfterMessegeRed)
-    {
-        OnNewMessegeReceived?.Invoke();
-
-        _messenger.AddNewMessege(newMessege, playActionAfterMessegeRed);
     }
 
     public void SetTime(string hour, string minute)

@@ -8,6 +8,8 @@ using Zenject;
 [RequireComponent(typeof(Button))]
 public class Chat : MonoBehaviour
 {
+    public event Action OnChatRed;
+
     [Inject] private ChatView _chatView;
 
     private Button _selfButton;
@@ -15,9 +17,7 @@ public class Chat : MonoBehaviour
     private List<Messege> _messegesList = new();
     private Node _currentNode;
 
-    private Action _playActionAfterMessegeRed;
-
-    public NodeGraph ChatData { get; private set; }
+    public NodeGraph Data { get; private set; }
 
     private void Awake()
     {
@@ -35,16 +35,15 @@ public class Chat : MonoBehaviour
         _selfButton.onClick.RemoveAllListeners();
     }
 
-    public void Initialize(NodeGraph chat, Action playActionAfterMessegeRed)
+    public void Initialize(NodeGraph chat)
     {
-        ChatData = chat;
+        Data = chat;
         _currentNode = chat.nodes[0];
-        _playActionAfterMessegeRed = playActionAfterMessegeRed;
     }
 
     private void OpenChat()
     {
-        _chatView.ShowChat(_messegesList, _currentNode, this, _playActionAfterMessegeRed);
+        _chatView.ShowChat(_messegesList, _currentNode, this, () => OnChatRed?.Invoke());
     }
 
     public void SaveChatData(List<Messege> chatMesseges, Node currentNode)

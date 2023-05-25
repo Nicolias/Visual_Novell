@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Factory.Messenger;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using XNode;
 using Zenject;
 
 public class Messenger : MonoBehaviour
 {
     public event Action OnNewMessegeRecived;
     public event Action OnAllMessegeRed;
+    public event Action<NodeGraph> OnChatRed;
 
     [SerializeField] private MessengerWindow _messengerWindow;
     [SerializeField] private Button _openMesengerButton;
@@ -15,14 +18,15 @@ public class Messenger : MonoBehaviour
     [SerializeField] private GameObject _unreadChatIndicator;
 
     [Inject] private ChatView _chatView;
+    [Inject] private ChatFactory _chatFactory;
+
 
     private List<ContactElement> _contacts = new();
-    private List<Chat> _unreadChat = new();
-    public IEnumerable<ContactElement> Contacts => _contacts;
+    private List<Chat> _unreadChats = new();
 
     private void OnEnable()
     {
-        _openMesengerButton.onClick.AddListener(() => _messengerWindow.Open());
+        _openMesengerButton.onClick.AddListener(() => _messengerWindow.Show());
     }
 
     private void OnDisable()
@@ -30,42 +34,50 @@ public class Messenger : MonoBehaviour
         _openMesengerButton.onClick.RemoveAllListeners();
     }
 
-    public void AddNewMessege(MessegeData newMessege, Action playActionAfterMessegeRed)
+    public void AddNewMessege(MessegeData newMessege)
     {
-        var existContact = _contacts.Find(x => x.Name == newMessege.ContactName);
+        ContactElement existContact = _contacts.Find(x => x.Name == newMessege.ContactName);
+        MessengerContact currentContactView = null;
 
-        OnNewMessegeRecived?.Invoke();
-
-        if (existContact != null)
+        if (existContact == null)
         {
-            existContact.AddMessege(newMessege, playActionAfterMessegeRed);
+            ContactElement newConatactData = new(newMessege.ContactName);
+            _contacts.Add(newConatactData);
+
+            currentContactView = _messengerWindow.CreateContactView(newConatactData);
         }
         else
         {
-            var newConatact = new ContactElement(newMessege.ContactName);
-            _messengerWindow.CreateNewContactView(newConatact);
+            currentContactView = _messengerWindow.GetExistContactView(existContact);
+        }
 
-            newConatact.AddMessege(newMessege, playActionAfterMessegeRed);
-            _contacts.Add(newConatact);
-        }            
+        var chat = _chatFactory.Create(newMessege.Messege, currentContactView.ChatsContainer);
+        AddUnreadChat(chat);
+
+        OnNewMessegeRecived?.Invoke();
     }
 
-    public void AddUnreadChat(Chat chat)
+    private void AddUnreadChat(Chat chat)
     {
-        _unreadChat.Add(chat);
+        for (int i = 0; i < _unreadChats.Count; i++)
+            if (_unreadChats[i].Data == chat.Data) throw new InvalidOperationException("Чат уже существут");
+
+        _unreadChats.Add(chat);
         _chatView.OnChatRed += OnChatRedCallBack;
         _unreadChatIndicator.SetActive(true);
     }
 
     private void OnChatRedCallBack(Chat chat)
     {
+        OnChatRed?.Invoke(chat.Data);
         _chatView.OnChatRed -= OnChatRedCallBack;
-        _unreadChat.Remove(chat);
+        _unreadChats.Remove(chat);
 
-        if (_unreadChat.Count == 0)
+        if (_unreadChats.Count == 0)
         {
             OnAllMessegeRed?.Invoke();
             _unreadChatIndicator.SetActive(false);
         }
     }
+
 }

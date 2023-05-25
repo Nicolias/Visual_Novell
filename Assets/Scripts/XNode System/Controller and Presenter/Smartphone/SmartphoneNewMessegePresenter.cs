@@ -1,13 +1,14 @@
 ﻿using System;
+using XNode;
 
 public class SmartphoneNewMessegePresenter : IPresentar
 {
     public event Action OnComplete;
 
     private NewDialogInSmartphoneModel _model;
-    private Smartphone _view;
+    private Messenger _view;
 
-    public SmartphoneNewMessegePresenter(NewDialogInSmartphoneModel model, Smartphone view)
+    public SmartphoneNewMessegePresenter(NewDialogInSmartphoneModel model, Messenger view)
     {
         _model = model;
         _view = view;
@@ -15,11 +16,16 @@ public class SmartphoneNewMessegePresenter : IPresentar
 
     public void Execute()
     {
-        _view.AddNewMessege(_model.NewDialog, CallBack);        
+        _view.AddNewMessege(_model.NewDialog);
+        _view.OnChatRed += CallBack;
     }
 
-    private void CallBack()
+    private void CallBack(NodeGraph messege)
     {
+        if (messege != _model.NewDialog.Messege)
+            return;
+
+        _view.OnChatRed -= CallBack;
         OnComplete?.Invoke();
     }
 }

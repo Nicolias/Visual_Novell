@@ -6,11 +6,12 @@ public class DUXWindow : MonoBehaviour
 {
     public event Action OnClosed;
 
+    [SerializeField] private Canvas _selfCanvas;
     [SerializeField] private Button _closeButton;
 
     private void OnEnable()
     {
-        _closeButton.onClick.AddListener(() => gameObject.SetActive(false));
+        _closeButton.onClick.AddListener(() => _selfCanvas.enabled = false);
     }
 
     private void OnDisable()
@@ -21,6 +22,6 @@ public class DUXWindow : MonoBehaviour
 
     public void Open()
     {
-        gameObject.SetActive(true);
+        _selfCanvas.enabled = true;
     }
 }

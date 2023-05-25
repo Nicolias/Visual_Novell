@@ -87,7 +87,7 @@ public class GameCommander : Commander, ICommanderVisitor
 
     public void Visit(NewDialogInSmartphoneModel newMassegemodel)
     {
-        _result.command = new SmartphoneNewMessegePresenter(newMassegemodel, _smartPhone);
+        _result.command = new SmartphoneNewMessegePresenter(newMassegemodel, _smartPhone.Messenger);
     }
     public void Visit(SetTimeOnSmartphoneWatchModel timeModel)
     {

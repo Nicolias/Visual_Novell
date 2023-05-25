@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using TMPro;
-using XNode;
 using UnityEngine.UI;
 
 public class NameInputView : MonoBehaviour, ITextInputView
@@ -37,12 +36,12 @@ public class NameInputView : MonoBehaviour, ITextInputView
         OnTextInput?.Invoke(_nameInputField.text);
 
         HideCanvas();
-    }    
+    }
 
-    private void ShowCanvas() => _selfCanvas.gameObject.SetActive(true);
+    private void ShowCanvas() => _selfCanvas.enabled = true;
 
     private void HideCanvas()
     {
-        _selfCanvas.gameObject.SetActive(false);
+        _selfCanvas.enabled = false;
     }
 }
