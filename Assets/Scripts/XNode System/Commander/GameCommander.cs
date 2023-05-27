@@ -6,6 +6,7 @@ public class GameCommander : Commander, ICommanderVisitor
 {
     [Inject] private readonly Wallet _wallet;
     [Inject] private readonly Battery _battery;
+    [Inject] private readonly Quiz _quiz;
 
     [SerializeField] private NodeGraph _currentGraph;
 
@@ -38,6 +39,8 @@ public class GameCommander : Commander, ICommanderVisitor
 
     private void Start()
     {
+        _quiz.StartQuiz(CharacterType.Dey);
+
         if (_currentGraph == null)
             return;
 

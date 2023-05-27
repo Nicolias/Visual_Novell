@@ -1,18 +1,23 @@
+using Characters;
 using System;
 
 public class Quiz
 {
     public event Action OnCharacterSympathyPointsChanged;
 
-    private Character _character;
+    private CharactersLibrary _characterLibrary;
+    private Character _currentCharacter;
+
+    private CharacterType _characterType;
+
     private QuizView _quizView;
 
     private int _sympathyPointsByWin = 2;
     private int _sympathyPointsByLose = 1;
 
-    public Quiz(Character character, QuizView quizView)
+    public Quiz(CharactersLibrary characterLibrary, QuizView quizView)
     {
-        _character = character;
+        _characterLibrary = characterLibrary;
 
         _quizView = quizView;
 
@@ -20,17 +25,24 @@ public class Quiz
         _quizView.OnAnswerUncorrected += DecreesSympathy;
     }
 
+    public void StartQuiz(CharacterType characterType)
+    {
+        _characterType = characterType;
+        _currentCharacter = _characterLibrary.AllCharacters.Find(x => x.CharacterType == characterType);
+        _quizView.ShowQuestion(_currentCharacter);
+    }
+
     private void AccureSympathy()
     {
-        _character.AccureSympathyPoints(_sympathyPointsByWin);
+        _characterLibrary.AddPointsTo(_characterType, _sympathyPointsByWin);
 
-        _quizView.ShowQuestion(_character.CharacterType);
+        _quizView.ShowQuestion(_currentCharacter);
     }
 
     private void DecreesSympathy()
     {
-        _character.DecreesSympathyPoints(_sympathyPointsByLose);
+        _characterLibrary.DecreesPointsFrom(_characterType, _sympathyPointsByLose);
 
-        _quizView.ShowQuestion(_character.CharacterType);
+        _quizView.ShowQuestion(_currentCharacter);
     }
 }

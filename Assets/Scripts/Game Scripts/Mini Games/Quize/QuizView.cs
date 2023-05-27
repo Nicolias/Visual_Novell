@@ -1,5 +1,7 @@
-﻿using Factory.Quiz;
+﻿using Characters;
+using Factory.Quiz;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,26 +12,76 @@ public class QuizView : MonoBehaviour
     public event Action OnAnswerCorrected;
     public event Action OnAnswerUncorrected;
 
+    [SerializeField] private float _showTime;
+
     [SerializeField] private TMP_Text _currentSympathyText;
     [SerializeField] private ChoisePanel _choisePanel;
 
+    [SerializeField] private Canvas _canvas;
+
     [Inject] private QuestionFactory _questionFactory;
 
-    public void ShowQuestion(CharacterType characterType)
+    private Character _currentCharacter;
+    private List<ChoiceButton> _uncorrectButtons;
+
+    public void HideCanvas()
     {
-        QuizElement quizElement = _questionFactory.GetQuestion(characterType);
-        _choisePanel.Show(quizElement.Qustion, GenerateChoicElements(quizElement));       
+        _canvas.enabled = false;
+        _currentCharacter.OnSympathyPointsChanged -= UpdateSympathyPointsText;
     }
 
-    private List<ChoiseElement> GenerateChoicElements(QuizElement quizElement)
+    public void ShowQuestion(Character character)
     {
-        List<ChoiseElement> choiseElements = new();
+        _canvas.enabled = true;
+        _currentCharacter = character;
 
-        for (int i = 0; i < quizElement.UncorrectedAnswerText.Count + 1; i++)
-            choiseElements.Add(new(quizElement.UncorrectedAnswerText[i], () => OnAnswerUncorrected?.Invoke()));
+        _currentCharacter.OnSympathyPointsChanged += UpdateSympathyPointsText;
+        _currentSympathyText.text = _currentCharacter.SympathyPoints.ToString();
 
-        choiseElements.Add(new(quizElement.CorrectAnswerText, () => OnAnswerCorrected?.Invoke()));
+        QuizElement quizElement = _questionFactory.GetQuestion(character.CharacterType);
+        _uncorrectButtons = _choisePanel.ShowAndGetUncorrectButtons(quizElement.Qustion, GenerateChoicElements(quizElement));
+    }
+
+    private List<(AnswerType ,ChoiseElement)> GenerateChoicElements(QuizElement quizElement)
+    {
+        List<(AnswerType, ChoiseElement)> choiseElements = new();
+
+        for (int i = 0; i < quizElement.UncorrectedAnswerText.Count; i++)
+            choiseElements.Add((AnswerType.Uncorrect, new(quizElement.UncorrectedAnswerText[i], () =>
+            {
+                StartCoroutine(ShowUncorrectButtons(() =>
+                {
+                    _choisePanel.Hide();
+                    OnAnswerUncorrected?.Invoke();
+                }));
+            })));
+
+        choiseElements.Add((AnswerType.Correct, new(quizElement.CorrectAnswerText, () =>
+        {
+            StartCoroutine(ShowUncorrectButtons(() =>
+            {
+                _choisePanel.Hide();
+                OnAnswerCorrected?.Invoke();
+            }));
+        })));
+
+        choiseElements.Shuffle();
 
         return choiseElements;
+    }
+
+    private void UpdateSympathyPointsText(int points)
+    {
+        _currentSympathyText.text = points.ToString();
+    }
+
+    private IEnumerator ShowUncorrectButtons(Action action)
+    {
+        foreach (var uncorrectButton in _uncorrectButtons)
+            uncorrectButton.Button.image.color = Color.red;        
+
+        yield return new WaitForSeconds(_showTime);
+
+        action.Invoke();
     }
 }

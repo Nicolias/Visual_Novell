@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[RequireComponent(typeof(ChoisePanel))]
 public class ChoiceView : MonoBehaviour, IChoiceView
 {
     public virtual event Action<Node> OnChoiceMade;
 
-    [SerializeField] private Canvas _selfCanvas;
-    [SerializeField] private ChoisePanel _choisePanel;
+    private ChoisePanel _choisePanel;
 
-    public Canvas Canvas => _selfCanvas;
+    private void Awake()
+    {
+        _choisePanel = GetComponent<ChoisePanel>();
+    }
 
     public void Show(IChoiceModel model)
     {
-        _selfCanvas.enabled = true;
         List<ChoiseElement> choiseElements = new();
 
         for (int i = 0; i < model.Nodes.Length; i++)
@@ -28,7 +30,7 @@ public class ChoiceView : MonoBehaviour, IChoiceView
         return new(model.Item2, () =>
         {
             OnChoiceMade?.Invoke(model.Item1);
-            _selfCanvas.enabled = false;
+            _choisePanel.Hide();
         });
     }
 }

@@ -33,7 +33,7 @@ public class CharacterSympathy
 
     public void DecreesPoints(int points)
     {
-        if(points <= 0) throw new InvalidOperationException();
+        if(points < 0) throw new InvalidOperationException();
         if (_amountPoints - points < 0) throw new InvalidOperationException("Симпатия ушла в отрицательное значение");
 
         _amountPoints -= points;
