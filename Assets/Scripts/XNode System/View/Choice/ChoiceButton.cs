@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using XNode;
@@ -8,10 +9,14 @@ public class ChoiceButton : MonoBehaviour
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Button _selfButton;
 
-    public Node Node { get; private set; }
+    public Action ActionWhenOnClick { get; private set; }
     public string ChoiceText => _text.text;
-    public string ChoiceName => _text.text;
     public Button Button => _selfButton;
+
+    private void OnEnable()
+    {
+        _selfButton.onClick.AddListener(() => ActionWhenOnClick.Invoke());
+    }
 
     private void OnDisable()
     {
@@ -20,7 +25,7 @@ public class ChoiceButton : MonoBehaviour
 
     public void Initialized(ChoiseElement choiseElement)
     {
-        Node = choiseElement.Node;
+        ActionWhenOnClick = choiseElement.ActionWhenOnClick;
         _text.text = choiseElement.Text;
     }
 }

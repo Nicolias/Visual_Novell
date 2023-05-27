@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
 
 public class CharacterSympathy
@@ -10,6 +8,7 @@ public class CharacterSympathy
     private int _amountPoints, _level;
 
     public int SympathyLevel => _level;
+    public int Points => _amountPoints;
 
     public CharacterSympathy(int currentPoint, int currentLevel, StaticData staticData)
     {
@@ -30,5 +29,13 @@ public class CharacterSympathy
             _amountPoints -= _staticData.HowManyPointesNeedForReach(_level);
             _level++;
         }
+    }
+
+    public void DecreesPoints(int points)
+    {
+        if(points <= 0) throw new InvalidOperationException();
+        if (_amountPoints - points < 0) throw new InvalidOperationException("Симпатия ушла в отрицательное значение");
+
+        _amountPoints -= points;
     }
 }

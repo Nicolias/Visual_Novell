@@ -6675,6 +6675,53 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1356503187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1356503189}
+  - component: {fileID: 1356503188}
+  m_Layer: 0
+  m_Name: Xnode Changer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1356503188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356503187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22cfa83c4f810c9488cafd712a3ea902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nodegraph: {fileID: 11400000, guid: 5f1e24a88b3cafd41b56aefc9fba2ec8, type: 2}
+  _name: (G)
+  _sprite: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
+--- !u!4 &1356503189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356503187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1869602, y: 0.93091387, z: 6.7646646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380785989
 GameObject:
   m_ObjectHideFlags: 0
@@ -8593,7 +8640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b351c29c801994d86ca486a36a11b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 11400000, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
+  _currentGraph: {fileID: 11400000, guid: 0f3cf738a1d195d4e9bd8c30b63f6e3b, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}

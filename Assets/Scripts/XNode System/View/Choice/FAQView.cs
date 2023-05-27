@@ -16,35 +16,31 @@ public class FAQView : MonoBehaviour
 
     public void Show(List<(Node, string)> questions)
     {
-        ShowCanvas();
-
+        _selfCanvas.enabled = true;
         for (int i = 0; i < questions.Count; i++)
         {
             ChoiceButton choiceButton = Instantiate(_choiseButtonTemplate, _container);
-            ChoiseElement choiseElement = new(questions[i].Item2, questions[i].Item1);
+
+            ChoiseElement choiseElement = GetChoiceElement(questions[i]);
 
             choiceButton.Initialized(choiseElement);
-
-            AssignEventOnButton(choiceButton);
         }
     }
 
-    private void AssignEventOnButton(ChoiceButton choiceButton)
+    private ChoiseElement GetChoiceElement((Node, string) question)
     {
-        choiceButton.Button.onClick.AddListener(() =>
-        {            
+        return new(question.Item2, () =>
+        {
+            OnQuestionSelected?.Invoke(question);
             HideCanvas();
-            OnQuestionSelected?.Invoke((choiceButton.Node, choiceButton.ChoiceText));
         });
     }
-
-    private void ShowCanvas() => _selfCanvas.enabled = true;
 
     private void HideCanvas()
     {
         _selfCanvas.enabled = false;
 
-        for (int i = 0; i < _container.childCount; i++)
-            Destroy(_container.GetChild(i).gameObject);
+        foreach (Transform item in _container)
+            Destroy(item.gameObject);
     }
 }

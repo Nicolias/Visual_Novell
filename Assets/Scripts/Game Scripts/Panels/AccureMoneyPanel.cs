@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class AccureMoneyView : MonoBehaviour
+public class AccureMoneyPanel : MonoBehaviour
 {
     public event Action OnClosed;
 

@@ -38,4 +38,10 @@ public class DialogSpeechModel : XnodeModel, ISpeechModel
     {
         _staticData = staticData;
     }
+
+    public void SetAvatar(Sprite sprite, string name)
+    {
+        if(_speakerName == name)
+            _speakerAvatar = sprite;
+    }
 }

@@ -20,6 +20,6 @@ public class CharactersLibrary : MonoBehaviour
     public void AddPointsTo(CharacterType characterType, int poinsAmount)
     {
         var character = _allCharacters.Find(x => x.CharacterType == characterType);
-        character.AddPoints(poinsAmount);
+        character.AccureSympathyPoints(poinsAmount);
     }
 }

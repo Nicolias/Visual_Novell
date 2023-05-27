@@ -5,7 +5,7 @@ public class Wallet : MonoBehaviour, IStorageView
 {
     public event Action OnClosed;
 
-    [SerializeField] private AccureMoneyView _accureMoneyPanel;
+    [SerializeField] private AccureMoneyPanel _accureMoneyPanel;
 
     private int _amountMoney;
 

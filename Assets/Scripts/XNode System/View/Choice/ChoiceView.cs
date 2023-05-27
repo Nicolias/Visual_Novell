@@ -1,5 +1,5 @@
 ﻿using System;
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
@@ -8,45 +8,27 @@ public class ChoiceView : MonoBehaviour, IChoiceView
     public virtual event Action<Node> OnChoiceMade;
 
     [SerializeField] private Canvas _selfCanvas;
-    [SerializeField] private Transform _container;
-    [SerializeField] private ChoiceButton _choiseButtonTemplate;
-    [SerializeField] private TMP_Text _questionText;
+    [SerializeField] private ChoisePanel _choisePanel;
 
     public Canvas Canvas => _selfCanvas;
 
     public void Show(IChoiceModel model)
     {
-        ShowCanvas();
-
-        _questionText.text = model.QuestionText;
+        _selfCanvas.enabled = true;
+        List<ChoiseElement> choiseElements = new();
 
         for (int i = 0; i < model.Nodes.Length; i++)
-        {
-            ChoiceButton choiceButton = Instantiate(_choiseButtonTemplate, _container);
-            ChoiseElement choiseElement = new(model.Choices[i], model.Nodes[i]);
+            choiseElements.Add(GetChoiceElement((model.Nodes[i], model.Choices[i])));
 
-            choiceButton.Initialized(choiseElement);
-
-            AssignEventOnButton(choiceButton);
-        }
+        _choisePanel.Show(model.QuestionText, choiseElements);
     }
 
-    private void AssignEventOnButton(ChoiceButton choiceButton)
+    private ChoiseElement GetChoiceElement((Node, string) model)
     {
-        choiceButton.Button.onClick.AddListener(() =>
+        return new(model.Item2, () =>
         {
-            OnChoiceMade?.Invoke(choiceButton.Node);
-            HideCanvas();
+            OnChoiceMade?.Invoke(model.Item1);
+            _selfCanvas.enabled = false;
         });
-    }
-
-    private void ShowCanvas() => _selfCanvas.enabled = true;
-
-    private void HideCanvas()
-    {
-        _selfCanvas.enabled = false;
-
-        for (int i = 0; i < _container.childCount; i++)
-            Destroy(_container.GetChild(i).gameObject);
     }
 }

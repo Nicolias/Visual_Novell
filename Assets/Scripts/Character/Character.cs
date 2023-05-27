@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using Zenject;
 
 [Serializable]
 public class Character
@@ -17,10 +16,15 @@ public class Character
         _characterType = characterType;
     }
 
-    public void AddPoints(int points)
+    public void AccureSympathyPoints(int points)
     {
         if (points <= 0) throw new InvalidOperationException();
 
         _sympathy.AddPoints(points);
+    }
+
+    public void DecreesSympathyPoints(int points)
+    {
+        _sympathy.DecreesPoints(_sympathy.Points < points ? _sympathy.Points : points);
     }
 }
