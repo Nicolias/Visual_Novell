@@ -19,7 +19,7 @@ public class FAQCommander : Commander, ICommanderVisitor
     public void Visit(DialogSpeechModel dialogSpeech)
     {
         dialogSpeech.Initialize(StaticData);
-        _result.command = new SpeechPresentar(dialogSpeech, _dialogSpeechView, StaticData);
+        _result.command =  DI.Instantiate<SpeechPresentar>(new object[] { dialogSpeech, _dialogSpeechView });
     }
     public void Visit(MonologSpeechModel speech)
     {
@@ -48,7 +48,7 @@ public class FAQCommander : Commander, ICommanderVisitor
 
     public void Visit(ICharacterPortraitModel portrait)
     {
-        _result.command = new CharacterPortraitController(portrait, _portraitView);
+        _result.command = DI.Instantiate<CharacterPortraitController>(new object[] { portrait, _portraitView });
     }
 
     public void Visit(AudioModel audio)

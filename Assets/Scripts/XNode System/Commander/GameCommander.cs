@@ -4,9 +4,7 @@ using Zenject;
 
 public class GameCommander : Commander, ICommanderVisitor
 {
-    [Inject] private readonly Wallet _wallet;
-    [Inject] private readonly Battery _battery;
-    [Inject] private readonly Quiz _quiz;
+    
 
     [SerializeField] private NodeGraph _currentGraph;
 
@@ -39,8 +37,6 @@ public class GameCommander : Commander, ICommanderVisitor
 
     private void Start()
     {
-        _quiz.StartQuiz(CharacterType.Dey);
-
         if (_currentGraph == null)
             return;
 
@@ -58,34 +54,34 @@ public class GameCommander : Commander, ICommanderVisitor
     public void Visit(DialogSpeechModel dialogSpeech)
     {
         dialogSpeech.Initialize(StaticData);
-        _result.command = new SpeechPresentar(dialogSpeech, _dialogSpeechView, StaticData);
+        _result.command = DI.Instantiate<SpeechPresentar>(new object[] { dialogSpeech, _dialogSpeechView});
     }
     public void Visit(MonologSpeechModel speech)
     {
         speech.Initialize(StaticData);
-        _result.command = new SpeechPresentar(speech, _monologSpeechView, StaticData);
+        _result.command = DI.Instantiate<SpeechPresentar>(new object[] { speech, _monologSpeechView });
     }
 
     public void Visit(ICharacterPortraitModel portrait)
     {
-        _result.command = new CharacterPortraitController(portrait, _portraitView);
+        _result.command =DI.Instantiate<CharacterPortraitController>(new object[] { portrait, _portraitView });
     }
     public void Visit(BackgroundModel background)
     {
-        _result.command = new BackgroundController(background, _backgroundView);
+        _result.command = DI.Instantiate<BackgroundController>(new object[] { background, _backgroundView });
     }
     public void Visit(IChoiceModel choice)
     {
-        _result.command = new ChoicesPresentar(choice, _choicesView);
+        _result.command = DI.Instantiate<ChoicesPresentar>(new object[] { choice, _choicesView });
     }
     public void Visit(AudioModel audio)
     {
-        _result.command = new AudioController(audio, _audioServise);
+        _result.command = DI.Instantiate<AudioController>(new object[] { audio, _audioServise });
     }
 
     public void Visit(INicknameInputModel nickNameModel)
     {
-        _result.command = new NameInputPresenter(_nameInputView, StaticData);
+        _result.command = DI.Instantiate<NameInputPresenter>(new object[] { _nameInputView, StaticData });
     }
 
     public void Visit(NewDialogInSmartphoneModel newMassegemodel)
@@ -94,20 +90,20 @@ public class GameCommander : Commander, ICommanderVisitor
     }
     public void Visit(SetTimeOnSmartphoneWatchModel timeModel)
     {
-        _result.command = new SetTimeOnSmartphoneCommand(timeModel, _smartPhone);
+        _result.command = DI.Instantiate<SetTimeOnSmartphoneCommand>(new object[] { timeModel, _smartPhone });
     }
     public void Visit(ICallModel callModel)
     {
-        _result.command = new SmartphoneCallPresentar(callModel, _callView, AudioServise);
+        _result.command = DI.Instantiate<SmartphoneCallPresentar>(new object[] { callModel, _callView });
     }
 
     public void Visit(SmartphoneGuidModel smartPhoneGuid)
     {
-        _result.command = new SmartPhoneGuidPresenter(_smartphoneGuideView);
+        _result.command = DI.Instantiate<SmartPhoneGuidPresenter>(new object[] { _smartphoneGuideView });
     }
     public void Visit(WaitForSecondsModel waitModel)
     {
-        _result.command = new WaitForSecondsPresenter(CoroutineServise, waitModel);
+        _result.command = DI.Instantiate<WaitForSecondsPresenter>(new object[] {  waitModel });
     }
 
     public void Visit(RequirementOpenPhoneModel requirementOpenPhoneModel)
@@ -116,34 +112,34 @@ public class GameCommander : Commander, ICommanderVisitor
     }
     public void Visit(RequirementOpenDUXModel requirementOpenDUXModel)
     {
-        _result.command = new RequirementOpenDUXCommand(_smartPhone, _duxWindow);
+        _result.command = DI.Instantiate<RequirementOpenDUXCommand>(new object[] { _smartPhone, _duxWindow });
     }
 
     public void Visit(AddSympathyModel sympathyModel)
     {
-        _result.command = new AddSympthyToCharacterController(sympathyModel, _characterLibrary);
+        _result.command = DI.Instantiate<AddSympthyToCharacterController>(new object[] { sympathyModel, _characterLibrary });
     }
     public void Visit(AccureMoneyModel accureMoneyModel)
     {
-        _result.command = new AccureStoregeValueCommand(accureMoneyModel, _wallet, _smartPhone);
+        _result.command = DI.Instantiate<AccureStoregeValueCommand>(new object[] { accureMoneyModel });
     }
     public void Visit(AccureEnergyModel accureEnergyModel)
     {
-        _result.command = new AccureStoregeValueCommand(accureEnergyModel, _battery, _smartPhone);
+        _result.command = DI.Instantiate<AccureStoregeValueCommand>(new object[] { accureEnergyModel });
     }
 
     public void Visit(DecreeseMoneyModel decreeseMoneyModel)
     {
-        _result.command = new DecreeseStoregeValueCommand(decreeseMoneyModel, _wallet);
+        _result.command = DI.Instantiate<DecreeseStoregeValueCommand>(new object[] { decreeseMoneyModel });
     }
     public void Visit(DecreeseEnergyModel decreeseEnergyModel)
     {
-        _result.command = new DecreeseStoregeValueCommand(decreeseEnergyModel, _battery);
+        _result.command = DI.Instantiate<DecreeseStoregeValueCommand>(new object[] { decreeseEnergyModel });
     }
 
     public void Visit(FAQModel faqModel)
     {
-        _result.command = new FAQController(faqModel, _faqView, _faqCommander);
+        _result.command = DI.Instantiate<FAQController>(new object[] { faqModel, _faqView, _faqCommander });
     }
     public void Visit(ChangeDialogDataModel changeDialogDataModel)
     {

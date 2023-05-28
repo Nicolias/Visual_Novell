@@ -8,8 +8,7 @@ public abstract class Commander : MonoBehaviour
     public event Action OnDialogEnd;
 
     [Inject] protected StaticData StaticData;
-    [Inject] protected CoroutineServise CoroutineServise;
-    [Inject] protected AudioServise AudioServise;    
+    [Inject] protected readonly DiContainer DI;
 
     private (ICommand command, Node node) _curent;
 

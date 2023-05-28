@@ -1,28 +1,22 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class SpeechPresentar : IPresentar 
 {
     public event Action OnComplete;
 
-    private ISpeechModel _model;
-    private SpeechView _view;
+    protected ISpeechModel _model;
+    protected SpeechView _view;
     private StaticData _staticData;
 
-    public SpeechPresentar(DialogSpeechModel model, DialogSpeechView view, StaticData staticData)
+    public SpeechPresentar(ISpeechModel model, SpeechView view, StaticData staticData)
     {
         _model = model;
         _view = view;
         _staticData = staticData;
-    }
-
-    public SpeechPresentar(MonologSpeechModel model, MonologSpeechView view, StaticData staticData)
-    {
-        _model = model;
-        _view = view;
-        _staticData = staticData;
-    }
+    }    
 
     public void Execute()
     {
