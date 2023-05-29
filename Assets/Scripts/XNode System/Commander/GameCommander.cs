@@ -4,8 +4,6 @@ using Zenject;
 
 public class GameCommander : Commander, ICommanderVisitor
 {
-    
-
     [SerializeField] private NodeGraph _currentGraph;
 
     [SerializeField] private MonologSpeechView _monologSpeechView;
@@ -32,6 +30,8 @@ public class GameCommander : Commander, ICommanderVisitor
     [SerializeField] private FAQCommander _faqCommander;
 
     [SerializeField] private CharactersLibrary _characterLibrary;
+
+    [SerializeField] private RockPaperScissors _rockPaperScissorsView;
 
     private (ICommand command, Node node) _result; 
 
@@ -150,5 +150,15 @@ public class GameCommander : Commander, ICommanderVisitor
     public void Visit(MessengerDialogSpeechModel dialogSpeech)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void Visit(QuizModel quizModel)
+    {
+        _result.command = DI.Instantiate<QuizPresenter>(new object[] { quizModel });
+    }
+
+    public void Visit(MiniGameModel miniGameModel)
+    {
+        _result.command = DI.Instantiate<MiniGameController>(new object[] { miniGameModel, _rockPaperScissorsView });
     }
 }

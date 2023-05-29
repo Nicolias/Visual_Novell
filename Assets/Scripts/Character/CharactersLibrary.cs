@@ -1,4 +1,5 @@
 ﻿using Characters;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -9,8 +10,6 @@ public class CharactersLibrary : MonoBehaviour
     [Inject] private StaticData _staticData;
     [SerializeField] private List<Character> _allCharacters;
 
-    public List<Character> AllCharacters => _allCharacters;
-
     private void Awake()
     {
         List<Character> allCharacters = new();
@@ -19,6 +18,15 @@ public class CharactersLibrary : MonoBehaviour
             allCharacters.Add(new Character(0, 1, _staticData, _allCharacters[i].CharacterType));
 
         _allCharacters = allCharacters;
+    }
+
+    public Character GetCharacter(CharacterType characterType)
+    {
+        foreach (var character in _allCharacters)
+            if (character.CharacterType == characterType)
+                return character;
+
+        throw new ArgumentOutOfRangeException();
     }
 
     public void AddPointsTo(CharacterType characterType, int pointsAmount)

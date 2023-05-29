@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Wallet : MonoBehaviour, IStorageView
 {
-    public event Action OnClosed;
+    public event Action OnAccureCompleted;
 
     [SerializeField] private AccureMoneyPanel _accureMoneyPanel;
 
@@ -37,6 +37,6 @@ public class Wallet : MonoBehaviour, IStorageView
 
     private void CallBack()
     {
-        OnClosed?.Invoke();
+        OnAccureCompleted?.Invoke();
     }
 }

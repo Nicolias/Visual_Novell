@@ -278,6 +278,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1753988284}
+  - {fileID: 498886662}
   m_Father: {fileID: 1480432595}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -963,6 +964,7 @@ MonoBehaviour:
   _wallet: {fileID: 1630095573}
   _battery: {fileID: 573761176}
   _quizView: {fileID: 1753988287}
+  _choisePanel: {fileID: 1813958999}
 --- !u!1 &142055841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,6 +2826,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chatFactory: {fileID: 1708326410}
   _contactFactory: {fileID: 1267390141}
+--- !u!1 &498886660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498886662}
+  - component: {fileID: 498886663}
+  m_Layer: 5
+  m_Name: RockPaperScissors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &498886662
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498886660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 30273715}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &498886663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498886660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0c49e102ba0404a8b3d4cc72b46043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startGameCost: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -8630,7 +8682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showTime: 1
   _currentSympathyText: {fileID: 1324252540}
-  _choisePanel: {fileID: 1813958999}
+  _choisePanel: {fileID: 0}
   _canvas: {fileID: 1753988286}
 --- !u!1 &1774504461
 GameObject:
@@ -8991,7 +9043,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1813958992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b429d14081a89b14a86da3e75735cb59, type: 3}
+  m_Script: {fileID: 11500000, guid: ac524cfac6931874eb921ec6cf08ef54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 115665940}
@@ -9047,7 +9099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b351c29c801994d86ca486a36a11b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 0}
+  _currentGraph: {fileID: 11400000, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}
@@ -9062,6 +9114,7 @@ MonoBehaviour:
   _faqView: {fileID: 1384729935}
   _faqCommander: {fileID: 591720258}
   _characterLibrary: {fileID: 1987210476}
+  _rockPaperScissorsView: {fileID: 498886663}
 --- !u!1 &1855090275
 GameObject:
   m_ObjectHideFlags: 0

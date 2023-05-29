@@ -66,7 +66,6 @@ public class SpeechPresentar : IPresentar
         OnComplete?.Invoke();
     }
 
-
     private IEnumerator WaitUntilAndInvoke(Action action)
     {
         yield return new WaitUntil(() => _view.gameObject.activeInHierarchy == true);

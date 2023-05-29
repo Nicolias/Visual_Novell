@@ -27,13 +27,13 @@ public class AccureStoregeValueCommand : ICommand
     {
         _smarphone.OnClosed -= SmartphoneCloseCallBack;
 
-        _view.OnClosed += CallBack;
+        _view.OnAccureCompleted += CallBack;
         _view.Accure(_model.Value);
     }
 
     private void CallBack()
     {
-        _view.OnClosed -= CallBack;
+        _view.OnAccureCompleted -= CallBack;
         OnComplete?.Invoke();
     }
 }

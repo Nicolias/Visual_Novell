@@ -27,6 +27,7 @@ public class QuizView : MonoBehaviour
     public void HideCanvas()
     {
         _canvas.enabled = false;
+        _choisePanel.Hide();
         _currentCharacter.OnSympathyPointsChanged -= UpdateSympathyPointsText;
     }
 

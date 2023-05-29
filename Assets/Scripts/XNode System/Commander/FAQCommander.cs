@@ -125,4 +125,14 @@ public class FAQCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(QuizModel quizModel)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Visit(MiniGameModel miniGameModel)
+    {
+        throw new System.NotImplementedException();
+    }
 }

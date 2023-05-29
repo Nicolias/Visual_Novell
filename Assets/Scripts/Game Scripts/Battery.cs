@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class Battery : MonoBehaviour, IStorageView
 {
-    public event Action OnClosed;
+    public event Action OnAccureCompleted;
 
     private int _chargeLeve;
+
+    public int ChargeLevel => _chargeLeve;
 
     private void Start()
     {
@@ -19,7 +21,7 @@ public class Battery : MonoBehaviour, IStorageView
         if (_chargeLeve > 100)
             _chargeLeve = 100;
 
-        OnClosed?.Invoke();
+        OnAccureCompleted?.Invoke();
     }
 
     public void Decreese(int value)

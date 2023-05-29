@@ -1,14 +1,14 @@
-﻿using XNode;
-
-public interface ICommanderVisitor
+﻿public interface ICommanderVisitor
 {
     public void Visit(MonologSpeechModel speech);
     public void Visit(DialogSpeechModel dialogSpeech);
     public void Visit(MessengerDialogSpeechModel dialogSpeech);
     public void Visit(FAQModel faqModel);
     public void Visit(IChoiceModel choice);
+    public void Visit(QuizModel quizModel);
     public void Visit(BackgroundModel background);
     public void Visit(ICharacterPortraitModel portrait);
+    public void Visit(MiniGameModel miniGameModel);
     public void Visit(AudioModel audio);
     public void Visit(INicknameInputModel nickNameModel);
     public void Visit(NewDialogInSmartphoneModel newMassegemodel);

@@ -124,5 +124,15 @@ public class MessengerCommander : Commander, ICommanderVisitor
     public void Visit(ChangeDialogDataModel changeDialogDataModel)
     {
         throw new System.NotImplementedException();
-    }    
+    }
+
+    public void Visit(QuizModel quizModel)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Visit(MiniGameModel miniGameModel)
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Characters
 {
     [Serializable]
-    public class Character
+    public class Character 
     {
         public event Action<int> OnSympathyPointsChanged;
 
