@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-[RequireComponent(typeof(ChoisePanel))]
+[RequireComponent(typeof(ChoicePanel))]
 public class ChoiceView : MonoBehaviour, IChoiceView
 {
     public virtual event Action<Node> OnChoiceMade;
 
-    private ChoisePanel _choisePanel;
+    private ChoicePanel _choisePanel;
 
     private void Awake()
     {
-        _choisePanel = GetComponent<ChoisePanel>();
+        _choisePanel = GetComponent<ChoicePanel>();
     }
 
     public void Show(IChoiceModel model)

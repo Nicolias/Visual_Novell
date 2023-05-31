@@ -31,7 +31,7 @@ public class GameCommander : Commander, ICommanderVisitor
 
     [SerializeField] private CharactersLibrary _characterLibrary;
 
-    [SerializeField] private RockPaperScissors _rockPaperScissorsView;
+    [SerializeField] private MiniGameSelector _miniGameSelector;
 
     private (ICommand command, Node node) _result; 
 
@@ -159,6 +159,6 @@ public class GameCommander : Commander, ICommanderVisitor
 
     public void Visit(MiniGameModel miniGameModel)
     {
-        _result.command = DI.Instantiate<MiniGameController>(new object[] { miniGameModel, _rockPaperScissorsView });
+        _result.command = DI.Instantiate<MiniGameController>(new object[] { miniGameModel, _miniGameSelector });
     }
 }

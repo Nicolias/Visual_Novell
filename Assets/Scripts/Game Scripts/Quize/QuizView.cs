@@ -15,7 +15,7 @@ public class QuizView : MonoBehaviour
     [SerializeField] private float _showTime;
 
     [SerializeField] private TMP_Text _currentSympathyText;
-    [SerializeField] private ChoisePanel _choisePanel;
+    [SerializeField] private ChoicePanel _choisePanel;
 
     [SerializeField] private Canvas _canvas;
 

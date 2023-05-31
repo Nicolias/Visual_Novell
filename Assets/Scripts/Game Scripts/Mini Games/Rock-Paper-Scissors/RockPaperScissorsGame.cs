@@ -10,10 +10,18 @@ namespace Game.RockPaperScissors
         public event Action OnCharacterWon;
         public event Action OnCharacterLost;
 
-        [Inject] private ChoisePanel _choisePanel;       
+        [Inject] private ChoicePanel _choisePanel;
+        [Inject] private CoroutineServise _coroutineServise;
 
         private Array _rpsArray = typeof(RockPaperScissorsType).GetEnumValues();
-        private string _question = "Начнем, Камень, Ножницы, Бумага!";
+
+        private readonly string _question = "Начнем, Камень, Ножницы, Бумага!";
+        private readonly string[] _turnName = new[] 
+        {
+        "Камень",
+        "Ножницы",
+        "Бумага"
+        };
 
         public void StartGame()
         {
@@ -27,7 +35,7 @@ namespace Game.RockPaperScissors
             for (int i = 0; i < _rpsArray.Length; i++)
             {
                 RockPaperScissorsType currentType = (RockPaperScissorsType)i;
-                result.Add(new ChoiseElement(_rpsArray.GetValue(i).ToString(), () => Compare(currentType)));
+                result.Add(new ChoiseElement(_turnName[i], () => Compare(currentType)));
             }
 
             return result;
@@ -37,50 +45,55 @@ namespace Game.RockPaperScissors
         {
             RockPaperScissorsType enemyGesture = (RockPaperScissorsType)UnityEngine.Random.Range(0, _rpsArray.Length);
 
-            if (playerGesture == enemyGesture)
-            {
-                OnDrawn?.Invoke();
-                return;
-            }
+            _choisePanel.Show(_turnName[(int)enemyGesture], new());
 
-            if (playerGesture == RockPaperScissorsType.Rock)
+            _coroutineServise.WaitForSecondsAndInvoke(1f, () =>
             {
-                switch (enemyGesture)
+                if (playerGesture == enemyGesture)
                 {
-                    case RockPaperScissorsType.Paper:
-                        OnCharacterLost?.Invoke();
-                        break;
-                    case RockPaperScissorsType.Scissors:
-                        OnCharacterWon?.Invoke();
-                        break;
+                    OnDrawn?.Invoke();
+                    return;
                 }
-            }
 
-            if (playerGesture == RockPaperScissorsType.Paper)
-            {
-                switch (enemyGesture)
+                if (playerGesture == RockPaperScissorsType.Rock)
                 {
-                    case RockPaperScissorsType.Rock:
-                        OnCharacterWon?.Invoke();
-                        break;
-                    case RockPaperScissorsType.Scissors:
-                        OnCharacterLost?.Invoke();
-                        break;
+                    switch (enemyGesture)
+                    {
+                        case RockPaperScissorsType.Paper:
+                            OnCharacterLost?.Invoke();
+                            break;
+                        case RockPaperScissorsType.Scissors:
+                            OnCharacterWon?.Invoke();
+                            break;
+                    }
                 }
-            }
 
-            if (playerGesture == RockPaperScissorsType.Scissors)
-            {
-                switch (enemyGesture)
+                if (playerGesture == RockPaperScissorsType.Paper)
                 {
-                    case RockPaperScissorsType.Rock:
-                        OnCharacterLost?.Invoke();
-                        break;
-                    case RockPaperScissorsType.Paper:
-                        OnCharacterWon?.Invoke();
-                        break;
+                    switch (enemyGesture)
+                    {
+                        case RockPaperScissorsType.Rock:
+                            OnCharacterWon?.Invoke();
+                            break;
+                        case RockPaperScissorsType.Scissors:
+                            OnCharacterLost?.Invoke();
+                            break;
+                    }
                 }
-            }
+
+                if (playerGesture == RockPaperScissorsType.Scissors)
+                {
+                    switch (enemyGesture)
+                    {
+                        case RockPaperScissorsType.Rock:
+                            OnCharacterLost?.Invoke();
+                            break;
+                        case RockPaperScissorsType.Paper:
+                            OnCharacterWon?.Invoke();
+                            break;
+                    }
+                }
+            });
         }
     }
 }

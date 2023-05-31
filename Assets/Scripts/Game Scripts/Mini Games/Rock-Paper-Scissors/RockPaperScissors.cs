@@ -4,56 +4,56 @@ using System;
 using UnityEngine;
 using Zenject;
 
-public class RockPaperScissors : MonoBehaviour
+public class RockPaperScissors : MiniGame
 {
-    public event Action OnGameEnded;
-
-    [Inject] private CharactersLibrary _charactersLibrary;
-    [Inject] private ChoisePanel _choisePanel;
-    [Inject] private Battery _battery;
     [Inject] private DiContainer _di;
 
-    [SerializeField] private int _startGameCost;
+    [SerializeField] private string _winSpeech, _loseSpeech, _drawnSpeech;
 
     private RockPaperScissorsGame _rockPaperScissorsGame;
-    private Character _currentCharacter;
 
     private void Awake()
     {
         _rockPaperScissorsGame = _di.Instantiate<RockPaperScissorsGame>();
     }
 
-    public bool StartGame(CharacterType characterType)
+    public override void StartGame(Character character)
     {
-        if (_battery.ChargeLevel <= _startGameCost)
-            return false;
+        base.StartGame(character);
 
-        _currentCharacter = _charactersLibrary.GetCharacter(characterType);
-
-        _rockPaperScissorsGame.OnCharacterWon += OnGameResult;
-        _rockPaperScissorsGame.OnCharacterLost += OnGameResult;
-        _rockPaperScissorsGame.OnDrawn += OnGameResult;
-
-        _battery.Decreese(_startGameCost);
+        _rockPaperScissorsGame.OnCharacterWon += OnGameWin;
+        _rockPaperScissorsGame.OnCharacterLost += OnGameLose;
+        _rockPaperScissorsGame.OnDrawn += OnGameDrawn;
+        
         _rockPaperScissorsGame.StartGame();
+    }    
 
-        return true;
+    protected override void EndGame()
+    {
+        base.EndGame();
+
+        _rockPaperScissorsGame.OnCharacterWon -= OnGameWin;
+        _rockPaperScissorsGame.OnCharacterLost -= OnGameLose;
+        _rockPaperScissorsGame.OnDrawn -= OnGameDrawn;
     }
 
-    public void EndGame()
+    protected override void OnGameResult(string resultCharacterSpeech)
     {
-        _rockPaperScissorsGame.OnCharacterWon -= OnGameResult;
-        _rockPaperScissorsGame.OnCharacterLost -= OnGameResult;
-        _rockPaperScissorsGame.OnDrawn -= OnGameResult;
-
-        _choisePanel.Hide();
-
-        OnGameEnded?.Invoke();
+        CurrentCharacter.AccureSympathyPoints(1);
+        
+        base.OnGameResult(resultCharacterSpeech);
     }
 
-    private void OnGameResult()
+    private void OnGameWin()
     {
-        EndGame();
-        _currentCharacter.AccureSympathyPoints(1);
+        OnGameResult(_winSpeech);
+    }
+    private void OnGameLose()
+    {
+        OnGameResult(_loseSpeech);
+    }
+    private void OnGameDrawn()
+    {
+        OnGameResult(_drawnSpeech);
     }
 }
