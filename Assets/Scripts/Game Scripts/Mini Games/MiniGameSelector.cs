@@ -2,6 +2,7 @@ using Characters;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -14,6 +15,7 @@ public class MiniGameSelector : MonoBehaviour
     [Inject] private readonly CharactersLibrary _charactersLibrary;
     [Inject] private readonly Battery _battery;
 
+    [SerializeField]private TMP_Text _sympathyCounter;
     [SerializeField] private List<MiniGame> _miniGames;
     [SerializeField] private int _startGameCost;
 
@@ -26,7 +28,7 @@ public class MiniGameSelector : MonoBehaviour
             miniGame.OnGameEnded += OnGameEnd;
             miniGame.OnGameClosed += CloseMiniGamesSelection;
             miniGame.OnGameRestarted += OnGameRestart;
-        }
+        }            
     }
 
     private void OnDisable()
@@ -55,6 +57,8 @@ public class MiniGameSelector : MonoBehaviour
         _battery.Decreese(_startGameCost);
         _currentCharacter = _charactersLibrary.GetCharacter(character);
         _choicePanel.Show("Выбери игру", GetChoiceElements());
+
+        UpdateSympathyView(_currentCharacter.SympathyPoints);
     }
 
     public void CloseMiniGamesSelection()
@@ -76,9 +80,15 @@ public class MiniGameSelector : MonoBehaviour
     private void OnGameEnd()
     {
         OnGameEnded?.Invoke();
+        UpdateSympathyView(_currentCharacter.SympathyPoints);
     }
     private void OnGameRestart()
     {
         ShowMiniGameSelectoin(_currentCharacter.CharacterType);
+    }
+
+    private void UpdateSympathyView(int sympathyPoints)
+    {
+        _sympathyCounter.text = $"Симпатия: {sympathyPoints}";
     }
 }

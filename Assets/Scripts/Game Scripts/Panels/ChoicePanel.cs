@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -29,6 +30,11 @@ public class ChoicePanel : MonoBehaviour
         }
 
         return uncorrectButtons;
+    }
+
+    internal void Show(string v, object getChoiceElements)
+    {
+        throw new NotImplementedException();
     }
 
     public void Show(string question, List<ChoiseElement> choiseElements)

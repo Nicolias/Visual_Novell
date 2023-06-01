@@ -46,7 +46,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u041A\u0430\u043A\u0443\u044E?"
 --- !u!114 &-8694987836954550621
@@ -190,7 +190,10 @@ MonoBehaviour:
       _node: {fileID: -3349918405926465474}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -2758869742636081683}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -215,7 +218,7 @@ MonoBehaviour:
   m_Name: Change Dialog Data Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 968, y: 2312}
+  position: {x: 1384, y: 2312}
   ports:
     keys:
     - _inPut
@@ -225,7 +228,10 @@ MonoBehaviour:
       _node: {fileID: -3169345446681481846}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -384438551649629199}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -242,6 +248,151 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <NodeGraph>k__BackingField: {fileID: 11400000, guid: 0974ccc37d59639448f3902fe16bcfb7, type: 2}
+--- !u!114 &-2969558897877583877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212f1be3355682c47a650d93891831d5, type: 3}
+  m_Name: Mini Game Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 968, y: 2312}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -2969558897877583877}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -2758869742636081683}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -2969558897877583877}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -384438551649629199}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <BettaryChargeLevelCondition>k__BackingField: 20
+--- !u!114 &-2758869742636081683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 760, y: 2312}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -2758869742636081683}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -3349918405926465474}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -2758869742636081683}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -2969558897877583877}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 59f2a762aceaa794f8f4e0f0fe692313, type: 3}
+  <Position>k__BackingField: 2
+--- !u!114 &-384438551649629199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1176, y: 2312}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -384438551649629199}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -2969558897877583877}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -384438551649629199}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -3169345446681481846}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 59f2a762aceaa794f8f4e0f0fe692313, type: 3}
+  <Position>k__BackingField: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +418,9 @@ MonoBehaviour:
   - {fileID: 7275386927846199137}
   - {fileID: -3349918405926465474}
   - {fileID: -3169345446681481846}
+  - {fileID: -2969558897877583877}
+  - {fileID: -2758869742636081683}
+  - {fileID: -384438551649629199}
 --- !u!114 &3469143009648442292
 MonoBehaviour:
   m_ObjectHideFlags: 0

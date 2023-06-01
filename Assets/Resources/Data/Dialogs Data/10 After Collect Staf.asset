@@ -554,9 +554,9 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <CharacterType>k__BackingField: 1
+  <CharacterType>k__BackingField: 2
   <Name>k__BackingField: "\u0424\u043E\u0440\u0442\u0443\u043D\u0430"
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 8da5eeac2814b4d49adc18955ff9526e, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: e93cae6f47711be4aa19c1c085417fba, type: 3}
   <Position>k__BackingField: 3
 --- !u!114 &-8023363538299650610
 MonoBehaviour:
@@ -1425,9 +1425,9 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <CharacterType>k__BackingField: 1
+  <CharacterType>k__BackingField: 2
   <Name>k__BackingField: "\u0424\u043E\u0440\u0442\u0443\u043D\u0430"
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 8da5eeac2814b4d49adc18955ff9526e, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: e93cae6f47711be4aa19c1c085417fba, type: 3}
   <Position>k__BackingField: 2
 --- !u!114 &-6662634087133512686
 MonoBehaviour:
@@ -1474,9 +1474,9 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <CharacterType>k__BackingField: 1
+  <CharacterType>k__BackingField: 2
   <Name>k__BackingField: "\u0424\u043E\u0440\u0442\u0443\u043D\u0430"
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 8da5eeac2814b4d49adc18955ff9526e, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: e93cae6f47711be4aa19c1c085417fba, type: 3}
   <Position>k__BackingField: 3
 --- !u!114 &-6549579914277223473
 MonoBehaviour:
@@ -2652,9 +2652,9 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <CharacterType>k__BackingField: 1
+  <CharacterType>k__BackingField: 2
   <Name>k__BackingField: "\u0424\u043E\u0440\u0442\u0443\u043D\u0430"
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 8da5eeac2814b4d49adc18955ff9526e, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: e93cae6f47711be4aa19c1c085417fba, type: 3}
   <Position>k__BackingField: 2
 --- !u!114 &-4366270234271297726
 MonoBehaviour:

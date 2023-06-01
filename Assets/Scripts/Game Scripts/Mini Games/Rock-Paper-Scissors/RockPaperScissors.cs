@@ -7,6 +7,7 @@ using Zenject;
 public class RockPaperScissors : MiniGame
 {
     [Inject] private DiContainer _di;
+    [Inject] private CoroutineServise _coroutineServise;
 
     [SerializeField] private string _winSpeech, _loseSpeech, _drawnSpeech;
 
@@ -24,8 +25,9 @@ public class RockPaperScissors : MiniGame
         _rockPaperScissorsGame.OnCharacterWon += OnGameWin;
         _rockPaperScissorsGame.OnCharacterLost += OnGameLose;
         _rockPaperScissorsGame.OnDrawn += OnGameDrawn;
-        
-        _rockPaperScissorsGame.StartGame();
+
+        ChoicePanel.Show("Давай сыграем в Камень, Ножницы, Бумага", new());
+        _coroutineServise.WaitForSecondsAndInvoke(1f, _rockPaperScissorsGame.StartGame);        
     }    
 
     protected override void EndGame()
@@ -35,13 +37,6 @@ public class RockPaperScissors : MiniGame
         _rockPaperScissorsGame.OnCharacterWon -= OnGameWin;
         _rockPaperScissorsGame.OnCharacterLost -= OnGameLose;
         _rockPaperScissorsGame.OnDrawn -= OnGameDrawn;
-    }
-
-    protected override void OnGameResult(string resultCharacterSpeech)
-    {
-        CurrentCharacter.AccureSympathyPoints(1);
-        
-        base.OnGameResult(resultCharacterSpeech);
     }
 
     private void OnGameWin()

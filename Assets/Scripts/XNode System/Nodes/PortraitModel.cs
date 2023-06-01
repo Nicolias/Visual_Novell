@@ -17,4 +17,10 @@ public class PortraitModel : XnodeModel, ICharacterPortraitModel
     {
         visitor.Visit(this);
     }
+
+    public void Set(CharacterType ch, string st)
+    {
+        if(Name == st)
+            CharacterType = ch;
+    }
 }

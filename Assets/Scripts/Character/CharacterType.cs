@@ -1,6 +1,6 @@
 ﻿public enum CharacterType
 {
-    All,
-    Dey,
-    Fortoona
+    Dey = 0,
+    All = 1,
+    Fortoona = 2
 }

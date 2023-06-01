@@ -29,12 +29,14 @@ public abstract class MiniGame : MonoBehaviour
 
     protected virtual void OnGameResult(string resultCharacterSpeech)
     {
+        CurrentCharacter.AccureSympathyPoints(1);
+
         ChoicePanel.Show(resultCharacterSpeech, new List<ChoiseElement>()
         {
             new("Повторить", () => 
             {
                 OnGameRestarted?.Invoke();
-                OnGameEnded?.Invoke();
+                EndGame();
             })
             //new("Закончить", () => 
             //{
