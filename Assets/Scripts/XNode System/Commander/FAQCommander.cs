@@ -135,4 +135,9 @@ public class FAQCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(ChangeLocationModel changeLocationModel)
+    {
+        throw new System.NotImplementedException();
+    }
 }

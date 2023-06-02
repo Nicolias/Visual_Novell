@@ -1,4 +1,5 @@
-﻿using Factory.Messenger;
+﻿using Factory.CellLocation;
+using Factory.Messenger;
 using Factory.Quiz;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,14 @@ public class FactoryInstaller : MonoInstaller
 
     [SerializeField] private ChatFactory _chatFactory;
     [SerializeField] private ContactFactory _contactFactory;
+    [SerializeField] private LocationCellFactory _locationCellFactory;
 
     public override void InstallBindings()
     {
         Container.Bind<ChatFactory>().FromInstance(_chatFactory).AsSingle();
         Container.Bind<ContactFactory>().FromInstance(_contactFactory).AsSingle();
-        Container.Bind<QuestionFactory>().FromMethod(QuestionFactoryBind);
+        Container.Bind<LocationCellFactory>().FromInstance(_locationCellFactory).AsSingle();
+        Container.Bind<QuestionFactory>().FromMethod(QuestionFactoryBind).AsSingle();
     }
 
     private QuestionFactory QuestionFactoryBind()

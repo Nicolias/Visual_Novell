@@ -7,6 +7,7 @@
     public void Visit(IChoiceModel choice);
     public void Visit(QuizModel quizModel);
     public void Visit(BackgroundModel background);
+    public void Visit(ChangeLocationModel changeLocationModel);
     public void Visit(ICharacterPortraitModel portrait);
     public void Visit(MiniGameModel miniGameModel);
     public void Visit(AudioModel audio);

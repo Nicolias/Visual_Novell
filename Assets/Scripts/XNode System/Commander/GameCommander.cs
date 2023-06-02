@@ -70,10 +70,16 @@ public class GameCommander : Commander, ICommanderVisitor
     {
         _result.command = DI.Instantiate<BackgroundController>(new object[] { background, _backgroundView });
     }
+
+    public void Visit(ChangeLocationModel changeLocationModel)
+    {
+        _result.command = DI.Instantiate<ChangeLocationController>(new object[] { changeLocationModel});
+    }
     public void Visit(IChoiceModel choice)
     {
         _result.command = DI.Instantiate<ChoicesPresentar>(new object[] { choice, _choicesView });
     }
+
     public void Visit(AudioModel audio)
     {
         _result.command = DI.Instantiate<AudioController>(new object[] { audio, _audioServise });
@@ -88,10 +94,12 @@ public class GameCommander : Commander, ICommanderVisitor
     {
         _result.command = new SmartphoneNewMessegePresenter(newMassegemodel, _smartPhone.Messenger);
     }
+
     public void Visit(SetTimeOnSmartphoneWatchModel timeModel)
     {
         _result.command = DI.Instantiate<SetTimeOnSmartphoneCommand>(new object[] { timeModel, _smartPhone });
     }
+
     public void Visit(ICallModel callModel)
     {
         _result.command = DI.Instantiate<SmartphoneCallPresentar>(new object[] { callModel, _callView });

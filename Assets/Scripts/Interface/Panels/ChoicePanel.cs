@@ -32,11 +32,6 @@ public class ChoicePanel : MonoBehaviour
         return uncorrectButtons;
     }
 
-    internal void Show(string v, object getChoiceElements)
-    {
-        throw new NotImplementedException();
-    }
-
     public void Show(string question, List<ChoiseElement> choiseElements)
     {
         _selfCanvas.enabled = true;
