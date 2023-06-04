@@ -10,12 +10,29 @@ public class Map : MonoBehaviour
     [Inject] private LocationCellFactory _locationCellFactory;
     [Inject] private ChoicePanel _choicePanel;
 
+    [Inject] private BackgroundView _background;
+    [Inject] private CollectionPanel _collectionPanel;
+
+    [Inject] private Smartphone _smartphone;
+
     [SerializeField] private List<Location> _locations;
     [SerializeField] private Transform _locationCellContainer;
 
-    [SerializeField] private Button _closeButton;
+    [SerializeField] private Button _closeButton, _openButton;
 
-    private List<LocationCell> _locationCells;
+    private List<LocationCell> _locationCells = new();
+
+    private void Awake()
+    {
+        for (int i = 0; i < _locations.Count; i++)
+        {
+            _locations[i].Initialize(_background, _collectionPanel);
+        }
+        _closeButton.onClick.AddListener(Hide);
+        _openButton.onClick.AddListener(Show);
+
+        gameObject.SetActive(false);
+    }
 
     private void OnEnable()
     {
@@ -23,8 +40,6 @@ public class Map : MonoBehaviour
 
         foreach (var locationCell in _locationCells)
             locationCell.OnLocationSelected += OnLocationSelect;
-
-        _closeButton.onClick.AddListener(Hide);
     }
 
     private void OnDisable()
@@ -35,6 +50,11 @@ public class Map : MonoBehaviour
         foreach (var locationCell in _locationCells)
             locationCell.OnLocationSelected -= OnLocationSelect;
 
+    }
+
+    private void OnDestroy()
+    {
+        _openButton.onClick.RemoveAllListeners();
         _closeButton.onClick.RemoveAllListeners();
     }
 
@@ -63,6 +83,7 @@ public class Map : MonoBehaviour
                 action?.Invoke();
                 Hide();
                 _choicePanel.Hide();
+                _smartphone.Hide();
             })
         });
     }

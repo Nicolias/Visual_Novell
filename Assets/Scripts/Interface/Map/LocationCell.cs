@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 [RequireComponent(typeof(Button))]
 public class LocationCell : MonoBehaviour
@@ -17,7 +18,7 @@ public class LocationCell : MonoBehaviour
 
     private void Awake()
     {
-        _selfButton = GetComponent<Button>();   
+        _selfButton = GetComponent<Button>();
     }
 
     private void OnEnable()

@@ -23,19 +23,8 @@ public class Smartphone : MonoBehaviour
 
     private void OnEnable()
     {
-        _closeButton.onClick.AddListener( () =>
-        {
-            _selfCanvas.enabled = false;
-            _openButton.image.color = new(1, 1, 1, 1);
-            _dialogSpeechView.gameObject.SetActive(true);
-            OnClosed?.Invoke();
-        });
-        _openButton.onClick.AddListener(() =>
-        {
-            _selfCanvas.enabled = true;
-            _openButton.image.color = new(1, 1, 1, 0);
-            _dialogSpeechView.gameObject.SetActive(false);
-        });
+        _closeButton.onClick.AddListener(Hide);
+        _openButton.onClick.AddListener(Show);
     }
 
     private void OnDisable()
@@ -56,5 +45,20 @@ public class Smartphone : MonoBehaviour
 
         _dux.OpenAccesToDUX();
         _isDUXTutorialShow = true;
+    }
+
+    private void Show()
+    {
+        _selfCanvas.enabled = true;
+        _openButton.image.color = new(1, 1, 1, 0);
+        _dialogSpeechView.gameObject.SetActive(false);
+    }
+
+    public void Hide()
+    {
+        _selfCanvas.enabled = false;
+        _openButton.image.color = new(1, 1, 1, 1);
+        _dialogSpeechView.gameObject.SetActive(true);
+        OnClosed?.Invoke();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BackgroundView : MonoBehaviour
 {
-    public event Action OnPicturChange;
+    public event Action OnPicturChanged;
 
     [SerializeField] private Image _image;
 
@@ -17,7 +17,7 @@ public class BackgroundView : MonoBehaviour
         {
             sequnce
                 .Append(_image.DOColor(new(1, 1, 1, 0), 0.5f))
-                .AppendCallback(() => OnPicturChange?.Invoke())
+                .AppendCallback(() => OnPicturChanged?.Invoke())
                 .Play();
         }
         else
@@ -26,7 +26,7 @@ public class BackgroundView : MonoBehaviour
                 .Append(_image.DOColor(new(1, 1, 1, 0), 0.5f))
                 .AppendCallback(() => _image.sprite = sprite)
                 .Append(_image.DOColor(new(1, 1, 1, 1), 0.5f))
-                .AppendCallback(() => OnPicturChange?.Invoke())
+                .AppendCallback(() => OnPicturChanged?.Invoke())
                 .Play();
         }
     }

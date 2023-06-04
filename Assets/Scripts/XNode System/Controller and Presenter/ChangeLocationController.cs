@@ -17,13 +17,13 @@ public class ChangeLocationController : ICommand
 
     public void Execute()
     {
-        _backgroundView.OnPicturChange += CallBack;
+        _backgroundView.OnPicturChanged += CallBack;
         _view.ChangeLocation(_model.LocationType);
     }
 
     private void CallBack()
     {
-        _backgroundView.OnPicturChange -= CallBack;
+        _backgroundView.OnPicturChanged -= CallBack;
         OnComplete?.Invoke();
     }
 }

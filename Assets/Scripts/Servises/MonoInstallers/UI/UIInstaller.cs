@@ -9,10 +9,17 @@ public class UIInstaller : MonoInstaller
     [SerializeField] private Messenger _messenger;
     [SerializeField] private ChoicePanel _choisePanel;
     [SerializeField] private Map _map;
+    [SerializeField] private Smartphone _smartphone;
     [SerializeField] private BackgroundView _background;
+    [SerializeField] private CollectionPanel _collectionPanel;
 
     public override void InstallBindings()
     {
+        Container.
+            Bind<Smartphone>().
+            FromInstance(_smartphone).
+            AsSingle();
+
         Container.
             Bind<ChatView>().
             FromInstance(_chatView).
@@ -36,5 +43,6 @@ public class UIInstaller : MonoInstaller
         Container.Bind<ChoicePanel>().FromInstance(_choisePanel).AsSingle();
         Container.Bind<Map>().FromInstance(_map).AsSingle();
         Container.Bind<BackgroundView>().FromInstance(_background).AsSingle();
+        Container.Bind<CollectionPanel>().FromInstance(_collectionPanel).AsSingle();
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a54ff07f4daa6f4c9e8981bf9775e19, type: 3}
+  m_Name: Star
+  m_EditorClassIdentifier: 
+  <ItemSpriteInInventory>k__BackingField: {fileID: 21300000, guid: bef2cae4ed3161343807025710c35b35, type: 3}
+  <ItemSpriteInScene>k__BackingField: {fileID: 21300000, guid: 3b191591516b1544c9b536059a81d406, type: 3}
+  <Name>k__BackingField: "\u0422\u0430\u043B\u0438\u0441\u043C\u0430\u043D"
+  <Prefab>k__BackingField: {fileID: 5953770025345903161, guid: 5504f82ba6ae0bf45b52a61ccd6f5fa3, type: 3}
+  <ItemAfterInstantiatePosition>k__BackingField: {x: 470, y: -391}
