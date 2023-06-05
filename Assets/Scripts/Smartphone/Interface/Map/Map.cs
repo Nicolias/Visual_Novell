@@ -20,6 +20,8 @@ public class Map : MonoBehaviour
 
     [SerializeField] private Button _closeButton, _openButton;
 
+    [SerializeField] private Canvas _selfCanvas;
+
     private List<LocationCell> _locationCells = new();
 
     private void Awake()
@@ -28,14 +30,13 @@ public class Map : MonoBehaviour
         {
             _locations[i].Initialize(_background, _collectionPanel);
         }
-        _closeButton.onClick.AddListener(Hide);
-        _openButton.onClick.AddListener(Show);
-
-        gameObject.SetActive(false);
     }
 
     private void OnEnable()
     {
+        _closeButton.onClick.AddListener(Hide);
+        _openButton.onClick.AddListener(Show);
+
         _locationCells = _locationCellFactory.CreateNewLocationCell(_locations, _locationCellContainer);
 
         foreach (var locationCell in _locationCells)
@@ -50,22 +51,19 @@ public class Map : MonoBehaviour
         foreach (var locationCell in _locationCells)
             locationCell.OnLocationSelected -= OnLocationSelect;
 
-    }
-
-    private void OnDestroy()
-    {
         _openButton.onClick.RemoveAllListeners();
         _closeButton.onClick.RemoveAllListeners();
+
     }
 
     public void Show()
     {
-        gameObject.SetActive(true);
+        _selfCanvas.enabled = true;
     }
 
     private void Hide()
     {
-        gameObject.SetActive(false);
+        _selfCanvas.enabled = false;
     }
 
     public void ChangeLocation(LocationType locationType)

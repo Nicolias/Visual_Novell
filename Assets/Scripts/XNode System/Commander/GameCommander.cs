@@ -169,4 +169,9 @@ public class GameCommander : Commander, ICommanderVisitor
     {
         _result.command = DI.Instantiate<MiniGameController>(new object[] { miniGameModel, _miniGameSelector });
     }
+
+    public void Visit(CollectQuestModel collectQuestModel)
+    {
+        _result.command = DI.Instantiate<CollectionQuestController>(new object[] { collectQuestModel });
+    }
 }

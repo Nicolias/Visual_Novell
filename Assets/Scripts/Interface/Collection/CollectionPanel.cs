@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CollectionPanel : MonoBehaviour
 {
+    public event Func<ItemForCollection, bool> IsItemDelete;
     public event Action<ItemForCollection> OnItemDeleted;
 
     private List<ItemForCollectionView> _itemsOnPanel = new();
@@ -28,10 +29,15 @@ public class CollectionPanel : MonoBehaviour
 
         _itemsOnPanel.RemoveAll(x => x);
     }
+
     private void OnItemSelected(ItemForCollectionView itemForCollectionView, ItemForCollection itemData)
     {
-        Destroy(itemForCollectionView.gameObject);
-        _itemsOnPanel.Remove(itemForCollectionView);
-        OnItemDeleted?.Invoke(itemData);
+        if (IsItemDelete.Invoke(itemData))
+        {
+            Destroy(itemForCollectionView.gameObject);
+            _itemsOnPanel.Remove(itemForCollectionView);
+
+            OnItemDeleted?.Invoke(itemData);
+        }
     }
 }

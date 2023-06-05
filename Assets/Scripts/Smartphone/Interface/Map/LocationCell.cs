@@ -23,8 +23,8 @@ public class LocationCell : MonoBehaviour
 
     private void OnEnable()
     {
-        _selfButton.onClick.AddListener(() => OnLocationSelected?
-            .Invoke(_selfLocation, () => _selfLocation.Show()));
+        _selfButton.onClick.AddListener(
+            () => OnLocationSelected?.Invoke(_selfLocation, () => _selfLocation.Show()));
     }
 
     private void OnDisable()

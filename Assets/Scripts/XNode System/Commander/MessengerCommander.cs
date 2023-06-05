@@ -140,4 +140,9 @@ public class MessengerCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(CollectQuestModel collectQuestModel)
+    {
+        throw new System.NotImplementedException();
+    }
 }

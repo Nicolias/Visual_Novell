@@ -12,9 +12,13 @@ public class UIInstaller : MonoInstaller
     [SerializeField] private Smartphone _smartphone;
     [SerializeField] private BackgroundView _background;
     [SerializeField] private CollectionPanel _collectionPanel;
+    [SerializeField] private Inventory _inventory;
+    [SerializeField] private CollectionQuestView _collectionQuestView;
 
     public override void InstallBindings()
     {
+        Container.Bind<CollectionQuestView>().FromInstance(_collectionQuestView).AsSingle();
+
         Container.
             Bind<Smartphone>().
             FromInstance(_smartphone).
@@ -44,5 +48,6 @@ public class UIInstaller : MonoInstaller
         Container.Bind<Map>().FromInstance(_map).AsSingle();
         Container.Bind<BackgroundView>().FromInstance(_background).AsSingle();
         Container.Bind<CollectionPanel>().FromInstance(_collectionPanel).AsSingle();
+        Container.Bind<Inventory>().FromInstance(_inventory).AsSingle();
     }
 }

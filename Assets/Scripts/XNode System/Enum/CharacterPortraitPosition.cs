@@ -3,5 +3,6 @@
     Left = 0,
     Center = 1,
     Right = 2,
-    Delete = 3
+    Delete = 3,
+    BehindeTable = 4
 }
