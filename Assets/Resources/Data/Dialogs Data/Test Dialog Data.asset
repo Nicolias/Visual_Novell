@@ -46,9 +46,9 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <ItemForCollections>k__BackingField:
-  - {fileID: 11400000, guid: 04eab390825b84c409a902272f92a728, type: 2}
-  - {fileID: 11400000, guid: 4a566a284642fd14881498a26164050f, type: 2}
-  - {fileID: 11400000, guid: 78499872ea9677b42ab6f3863915ab14, type: 2}
+  - {fileID: 11400000, guid: 754e32a40a68edc41b6f31c6040ae03d, type: 2}
+  - {fileID: 11400000, guid: f211ef9f961634d43a75127279e5bd96, type: 2}
+  - {fileID: 11400000, guid: b203782e17303224aa7765504af9656e, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,8 +109,8 @@ MonoBehaviour:
   _outPut: 0
   _isImmediatelyNextNode: 0
   _speakerAvatar: {fileID: 0}
-  _speakerName: 
-  _speechText: 
+  _speakerName: jhghjg
+  _speechText: gjfghfgh
 --- !u!114 &5063503822692165459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,4 +153,4 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <LocationType>k__BackingField: 1
+  <LocationType>k__BackingField: 0
