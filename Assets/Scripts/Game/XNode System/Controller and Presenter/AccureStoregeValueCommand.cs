@@ -17,7 +17,7 @@ public class AccureStoregeValueCommand : ICommand
 
     public void Execute()
     {
-        if (_smarphone.gameObject.activeInHierarchy)
+        if (_smarphone.SelfCanvas.enabled)
             _smarphone.OnClosed += SmartphoneCloseCallBack;
         else
             SmartphoneCloseCallBack();

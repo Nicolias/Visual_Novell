@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using XNode;
-using Zenject;
 
 public class GameCommander : Commander, ICommanderVisitor
 {
@@ -17,8 +16,6 @@ public class GameCommander : Commander, ICommanderVisitor
 
     [SerializeField] private BackgroundView _backgroundView;
 
-    [SerializeField] private AudioServise _audioServise;
-
     [SerializeField] private SmartphoneGuideView _smartphoneGuideView;    
 
     [SerializeField] private Smartphone _smartPhone;
@@ -27,20 +24,26 @@ public class GameCommander : Commander, ICommanderVisitor
     [SerializeField] private DUXWindow _duxWindow;
 
     [SerializeField] private FAQView _faqView;
-    [SerializeField] private FAQCommander _faqCommander;
 
     [SerializeField] private CharactersLibrary _characterLibrary;
 
     [SerializeField] private MiniGameSelector _miniGameSelector;
 
-    private (ICommand command, Node node) _result; 
+    [SerializeField] private AccureItemPanel _accureItemPanel;
 
-    private void Start()
+    private (ICommand command, Node node) _result;
+
+    protected override string SaveKey => "GameCommanderSave";
+
+    private void OnEnable()
     {
         if (_currentGraph == null)
             return;
 
-        PackAndExecuteCommand(_currentGraph.nodes[0]);
+        if (SaveLoadServise.HasSave(SaveKey))
+            Load();
+        else
+            PackAndExecuteCommand(_currentGraph.nodes[0]);
     }
 
     protected override (ICommand, Node) Packing(Node node)
@@ -82,7 +85,7 @@ public class GameCommander : Commander, ICommanderVisitor
 
     public void Visit(AudioModel audio)
     {
-        _result.command = DI.Instantiate<AudioController>(new object[] { audio, _audioServise });
+        _result.command = DI.Instantiate<AudioController>(new object[] { audio });
     }
 
     public void Visit(INicknameInputModel nickNameModel)
@@ -129,25 +132,25 @@ public class GameCommander : Commander, ICommanderVisitor
     }
     public void Visit(AccureMoneyModel accureMoneyModel)
     {
-        _result.command = DI.Instantiate<AccureStoregeValueCommand>(new object[] { accureMoneyModel });
+        _result.command = DI.Instantiate<AccureStoregeValueCommand>(new object[] { accureMoneyModel, Wallet});
     }
     public void Visit(AccureEnergyModel accureEnergyModel)
     {
-        _result.command = DI.Instantiate<AccureStoregeValueCommand>(new object[] { accureEnergyModel });
+        _result.command = DI.Instantiate<AccureStoregeValueCommand>(new object[] { accureEnergyModel , Battery});
     }
 
     public void Visit(DecreeseMoneyModel decreeseMoneyModel)
     {
-        _result.command = DI.Instantiate<DecreeseStoregeValueCommand>(new object[] { decreeseMoneyModel });
+        _result.command = DI.Instantiate<DecreeseStoregeValueCommand>(new object[] { decreeseMoneyModel, Wallet });
     }
     public void Visit(DecreeseEnergyModel decreeseEnergyModel)
     {
-        _result.command = DI.Instantiate<DecreeseStoregeValueCommand>(new object[] { decreeseEnergyModel });
+        _result.command = DI.Instantiate<DecreeseStoregeValueCommand>(new object[] { decreeseEnergyModel, Battery });
     }
 
     public void Visit(FAQModel faqModel)
     {
-        _result.command = DI.Instantiate<FAQController>(new object[] { faqModel, _faqView, _faqCommander });
+        _result.command = DI.Instantiate<FAQController>(new object[] { faqModel, _faqView });
     }
     public void Visit(ChangeDialogDataModel changeDialogDataModel)
     {
@@ -173,5 +176,15 @@ public class GameCommander : Commander, ICommanderVisitor
     public void Visit(CollectQuestModel collectQuestModel)
     {
         _result.command = DI.Instantiate<CollectionQuestController>(new object[] { collectQuestModel });
+    }
+
+    public void Visit(GetterEnergyItemModel getterEnergyItemModel)
+    {
+        _result.command = new GetterItemController(_accureItemPanel);
+    }
+
+    public void Visit(SwitchSceneModel switchSceneModel)
+    {
+        _result.command = new SwitchSceneCommand(switchSceneModel.SceneNumber);
     }
 }

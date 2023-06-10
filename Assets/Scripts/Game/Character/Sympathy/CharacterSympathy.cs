@@ -1,13 +1,15 @@
 using System;
+using UnityEngine;
+using Zenject;
 
-
+[Serializable]
 public class CharacterSympathy
 {
-    private readonly StaticData _staticData;
+    [SerializeField] private StaticData _staticData;
 
-    private int _amountPoints, _level;
+    [SerializeField] private int _amountPoints, _level;
 
-    public int SympathyLevel => _level;
+    public int Level => _level;
     public int Points => _amountPoints;
 
     public CharacterSympathy(int currentPoint, int currentLevel, StaticData staticData)

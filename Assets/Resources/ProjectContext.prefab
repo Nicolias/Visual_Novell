@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8221505217524400767}
   - component: {fileID: 1988708908077892785}
   - component: {fileID: 3105232655102802972}
+  - component: {fileID: -6488452133548788136}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 3105232655102802972}
+  - {fileID: -6488452133548788136}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -74,5 +76,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240fc5f1c02c5984f83f0dbbe621acb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneLoader: {fileID: 1680778512733038762, guid: 1dafd6ef2fd8df04d82a1723e4dd8c6b, type: 3}
+  _saveLoadServise: {fileID: -648786301470591772, guid: 18f9312634d37074b88eaf79351a012f, type: 3}
   _timesOfDayServise: {fileID: -113376616637251828, guid: 0388d534c0614bd449b1ccf80d8bd84e, type: 3}
+--- !u!114 &-6488452133548788136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212180771893149256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5243f3b7ad82f4a9d88bf5ea186773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _staticData: {fileID: 2296899151798057738, guid: e6db747f68570ce4a812c6df77df7332, type: 3}
+  _coroutineServise: {fileID: 1376940366168555733, guid: cf0467157a6256d4bbe89b9095894419, type: 3}
+  _audioServise: {fileID: 5489979904845633024, guid: 33a28bbc8b6b33f428c993a5ac1d0c1c, type: 3}

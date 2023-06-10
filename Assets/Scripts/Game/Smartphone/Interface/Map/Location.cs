@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
-[System.Serializable]
-public class Location
+[Serializable]
+public class Location : IDisposable
 {
     private BackgroundView _background;
     private CollectionPanel _collectionPanel;
@@ -15,6 +14,11 @@ public class Location
     [field: SerializeField] public LocationType LocationType { get; private set; }
     [field: SerializeField] public string Name { get; private set; }
 
+    public void Dispose()
+    {
+        _collectionPanel.OnItemDeleted -= OnItemDelete;
+    }
+
     public void Initialize(BackgroundView background, CollectionPanel collectionPanel)
     {
         _background = background;
@@ -24,10 +28,10 @@ public class Location
     public void Show()
     {
         _collectionPanel.HideItems();
-        _collectionPanel.OnItemDeleted += OnItemDelete;
-
         _background.Replace(_backgroundSprite);
+
         _background.OnPicturChanged += OnPicturChange;
+        _collectionPanel.OnItemDeleted += OnItemDelete;
     }
 
     private void OnItemDelete(ItemForCollection itemData)

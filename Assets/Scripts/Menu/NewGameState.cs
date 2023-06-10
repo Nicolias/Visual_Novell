@@ -8,7 +8,7 @@ public class NewGameState : BaseState
 
     private AsyncOperation _async;
 
-    public NewGameState(ChoiceButton newGameButton, GameObject menuButtons, SceneLoader sceneLoader)
+    public NewGameState(ChoiceButton newGameButton, GameObject menuButtons)
     {
         _newGameButton = newGameButton;
         _menuButtons = menuButtons;
@@ -16,13 +16,14 @@ public class NewGameState : BaseState
 
     public override void Entry()
     {
-        if (_async == null)
-        {
-            _async = SceneManager.LoadSceneAsync(1);
-            _async.allowSceneActivation = false;
-        }
+        //if (_async == null)
+        //{
+        //    _async = SceneManager.LoadSceneAsync(1);
+        //    _async.allowSceneActivation = false;
+        //}
 
-        _newGameButton.Initialized(new("Новая игра", () => _async.allowSceneActivation = true));
+        _newGameButton.Initialized(new("Новая игра", () => SceneManager.LoadScene(1)));
+        //_newGameButton.Initialized(new("Новая игра", () => _async.allowSceneActivation = true));
         _menuButtons.SetActive(true);
     }
 

@@ -14,10 +14,12 @@ public class UIInstaller : MonoInstaller
     [SerializeField] private CollectionPanel _collectionPanel;
     [SerializeField] private Inventory _inventory;
     [SerializeField] private CollectionQuestView _collectionQuestView;
+    [SerializeField] private FAQCommander _fAQCommander;
 
     public override void InstallBindings()
     {
         Container.Bind<CollectionQuestView>().FromInstance(_collectionQuestView).AsSingle();
+        Container.Bind<FAQCommander>().FromInstance(_fAQCommander).AsSingle();
 
         Container.
             Bind<Smartphone>().

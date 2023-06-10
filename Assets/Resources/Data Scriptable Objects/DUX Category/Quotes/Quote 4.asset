@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df100dfae9dd424c96c8b106a954b9a, type: 3}
+  m_Name: Quote 4
+  m_EditorClassIdentifier: 
+  _discriptoin: "\u0416\u0430\u043B\u043E\u0441\u0442\u044C \u043A \u0441\u0435\u0431\u0435
+    \u0443\u0431\u0438\u0432\u0430\u0435\u0442 \u0431\u044B\u0441\u0442\u0440\u0435\u0435,
+    \u0447\u0435\u043C \u043F\u0443\u043B\u044F.\r\n\u2013 \u041B\u0443\u0438\u0441
+    \u0420\u0438\u0432\u0435\u0440\u0430\r\n"
+  <CategoryName>k__BackingField: "\u0416\u0430\u043B\u043E\u0441\u0442\u044C "
+  <Subcategories>k__BackingField: []
+  <CharacterSprite>k__BackingField: {fileID: 21300000, guid: f6f87f7505ced8442bfe8218f4fddc11, type: 3}

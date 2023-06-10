@@ -5,19 +5,26 @@ using UnityEngine;
 using Zenject;
 
 
-public class CharactersLibrary : MonoBehaviour
+public class CharactersLibrary : MonoBehaviour, ISaveLoadObject
 {
     [Inject] private StaticData _staticData;
+    [Inject] private SaveLoadServise _saveLoadServise;
     [SerializeField] private List<Character> _allCharacters;
+
+    private const string _saveKey = "CharacterLibrarySave";
 
     private void Awake()
     {
-        List<Character> allCharacters = new();
+        if (_saveLoadServise.HasSave(_saveKey))
+        {
+            _allCharacters = new();
+            Load();
+        }
+    }
 
-        for (int i = 0; i < _allCharacters.Count; i++)
-            allCharacters.Add(new Character(0, 1, _staticData, _allCharacters[i].CharacterType));
-
-        _allCharacters = allCharacters;
+    private void OnDestroy()
+    {
+        Save();
     }
 
     public Character GetCharacter(CharacterType characterType)
@@ -39,5 +46,34 @@ public class CharactersLibrary : MonoBehaviour
     {
         var character = _allCharacters.Find(x => x.CharacterType == characterType);
         character.DecreesSympathyPoints(pointsAmount);
+    }
+
+    public void Save()
+    {
+        _saveLoadServise.Save(_saveKey, new SaveData.IntData() { Int = _allCharacters.Count });
+
+        for (int i = 0; i < _allCharacters.Count; i++)
+        {
+            _saveLoadServise.Save($"{_saveKey}/{i}", new SaveData.CharacterData()
+            {
+                CharacterType = _allCharacters[i].CharacterType,
+                SympathyLevel = _allCharacters[i].SympathyLevel,
+                SympathyPoints = _allCharacters[i].SympathyPoints
+            });
+        }
+    }
+
+    public void Load()
+    {
+        int characterCount = _saveLoadServise.Load<SaveData.IntData>(_saveKey).Int;
+
+        for (int i = 0; i < characterCount; i++)
+        {
+            var characterData = _saveLoadServise.Load<SaveData.CharacterData>($"{_saveKey}/{i}");
+            Character character = new(characterData.SympathyPoints, characterData.SympathyLevel, 
+                _staticData, characterData.CharacterType);
+
+            _allCharacters.Add(character);
+        }
     }
 }

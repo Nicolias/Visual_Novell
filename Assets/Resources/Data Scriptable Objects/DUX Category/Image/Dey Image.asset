@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed11dcf47745b734bbe85ff7556598ac, type: 3}
+  m_Name: Dey Image
+  m_EditorClassIdentifier: 
+  _discriptoin: 
+  <CategoryName>k__BackingField: "\u0414\u0435\u044F"
+  <Subcategories>k__BackingField:
+  - {fileID: 11400000, guid: 47c049f7a7a591a4897741c4f3be6384, type: 2}
+  - {fileID: 11400000, guid: 1ef513f2988fdcf4cb15d2ae74c58d34, type: 2}
+  - {fileID: 11400000, guid: 61e71ea613fedd9439c07acb34f4b0c3, type: 2}
+  - {fileID: 11400000, guid: b611d00e9437d844abfd4ad31a8b5b8c, type: 2}
+  - {fileID: 11400000, guid: d0f0bb2248f348745a73afb206466da6, type: 2}
+  - {fileID: 11400000, guid: adbc3e73e8b31d9418abbdeab551f6d6, type: 2}

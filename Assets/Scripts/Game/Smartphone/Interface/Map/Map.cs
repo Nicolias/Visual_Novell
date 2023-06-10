@@ -23,6 +23,7 @@ public class Map : MonoBehaviour
     [SerializeField] private Canvas _selfCanvas;
 
     private List<LocationCell> _locationCells = new();
+    private Location _currentLocation;
 
     private void Awake()
     {
@@ -53,7 +54,6 @@ public class Map : MonoBehaviour
 
         _openButton.onClick.RemoveAllListeners();
         _closeButton.onClick.RemoveAllListeners();
-
     }
 
     public void Show()
@@ -68,8 +68,11 @@ public class Map : MonoBehaviour
 
     public void ChangeLocation(LocationType locationType)
     {
-        var location = _locations.Find(x => x.LocationType == locationType);
-        location.Show();
+        if (_currentLocation != null)
+            _currentLocation.Dispose();
+
+        _currentLocation = _locations.Find(x => x.LocationType == locationType);
+        _currentLocation.Show();
     }
 
     private void OnLocationSelect(Location location, Action action)
@@ -78,10 +81,14 @@ public class Map : MonoBehaviour
         {
             new("Подвердить", () => 
             {
+                if (_currentLocation != null)
+                    _currentLocation.Dispose();
+
                 action?.Invoke();
                 Hide();
                 _choicePanel.Hide();
                 _smartphone.Hide();
+                _currentLocation = location;
             })
         });
     }

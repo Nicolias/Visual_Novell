@@ -8,7 +8,7 @@ public class ContinueGameState : BaseState
 
     private AsyncOperation _async;
 
-    public ContinueGameState(ChoiceButton newGameButton, GameObject menuButtons, SceneLoader sceneLoader)
+    public ContinueGameState(ChoiceButton newGameButton, GameObject menuButtons)
     {
         _newGameButton = newGameButton;
         _menuButtons = menuButtons;

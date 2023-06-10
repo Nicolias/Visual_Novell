@@ -4,16 +4,17 @@ using UnityEngine;
 namespace Characters
 {
     [Serializable]
-    public class Character 
+    public class Character
     {
         public event Action<int> OnSympathyPointsChanged;
 
-        [SerializeField] private readonly CharacterSympathy _sympathy;
+        [SerializeField] private CharacterSympathy _sympathy;
 
         [SerializeField] private CharacterType _characterType;
 
         public CharacterType CharacterType => _characterType;
         public int SympathyPoints => _sympathy.Points;
+        public int SympathyLevel => _sympathy.Level;
 
         public Character(int sympathyPoints, int sympathyLevel, StaticData staticData, CharacterType characterType)
         {

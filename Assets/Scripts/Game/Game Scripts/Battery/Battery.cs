@@ -10,7 +10,7 @@ public class Battery : MonoBehaviour, IStorageView
 
     public int ChargeLevel => _chargeLeve;
 
-    private void Start()
+    private void Awake()
     {
         _chargeLeve = 100;
     }

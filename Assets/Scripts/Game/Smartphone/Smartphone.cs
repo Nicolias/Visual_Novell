@@ -20,6 +20,7 @@ public class Smartphone : MonoBehaviour
     private bool _isDUXTutorialShow = false;
 
     public Messenger Messenger => _messenger;
+    public Canvas SelfCanvas => _selfCanvas;
 
     private void OnEnable()
     {

@@ -3,19 +3,27 @@ using UnityEngine;
 using XNode;
 using Zenject;
 
-public abstract class Commander : MonoBehaviour
+public abstract class Commander : MonoBehaviour, ISaveLoadObject
 {
     public event Action OnDialogEnd;
 
-    [Inject] protected StaticData StaticData;
+    [Inject] protected readonly SaveLoadServise SaveLoadServise;
+    [Inject] protected readonly StaticData StaticData;
     [Inject] protected readonly DiContainer DI;
+
+    [Inject] protected readonly Battery Battery;
+    [Inject] protected readonly Wallet Wallet;
 
     private (ICommand command, Node node) _curent;
 
+    protected abstract string SaveKey { get; }
+
     private void OnDisable()
     {
-        if(_curent.command != null)
+        if (_curent.command != null)
             _curent.command.OnComplete -= Next;
+
+        Save();
     }
 
     public void PackAndExecuteCommand(Node node)
@@ -44,4 +52,25 @@ public abstract class Commander : MonoBehaviour
     }
 
     protected abstract (ICommand, Node) Packing(Node node);
+
+    public void Save()
+    {
+        SaveLoadServise.Save(SaveKey, GetSaveSnapshot());
+    }
+
+    public void Load()
+    {
+        var data = SaveLoadServise.Load<SaveData.NodeData>(SaveKey);
+        _curent.node = data.Node;
+
+        PackAndExecuteCommand(_curent.node);
+    }
+
+    private SaveData.NodeData GetSaveSnapshot()
+    {
+        return new SaveData.NodeData()
+        {
+            Node = _curent.node,
+        };
+    }
 }

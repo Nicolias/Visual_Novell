@@ -9,12 +9,12 @@ public class MenuBehaviour
     private bool _hasSave;
 
     public MenuBehaviour(ChoiceButton newOrContinueGameButton, 
-        SettingWindow settingWindow, GameObject menuButtons, SceneLoader sceneLoader)
+        SettingWindow settingWindow, GameObject menuButtons)
     {
         _states = new()
         {
-            new NewGameState(newOrContinueGameButton, menuButtons, sceneLoader),
-            new ContinueGameState(newOrContinueGameButton, menuButtons, sceneLoader),
+            new NewGameState(newOrContinueGameButton, menuButtons),
+            new ContinueGameState(newOrContinueGameButton, menuButtons),
             new SettingState(settingWindow)
         };
     }

@@ -7,6 +7,8 @@ public class MessengerCommander : Commander, ICommanderVisitor
 
     private (ICommand command, Node node) _result;
 
+    protected override string SaveKey => "MessengerCommander";
+
     protected override (ICommand, Node) Packing(Node node)
     {
         _result.node = node;
@@ -142,6 +144,16 @@ public class MessengerCommander : Commander, ICommanderVisitor
     }
 
     public void Visit(CollectQuestModel collectQuestModel)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Visit(GetterEnergyItemModel getterEnergyItemModel)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Visit(SwitchSceneModel switchSceneModel)
     {
         throw new System.NotImplementedException();
     }

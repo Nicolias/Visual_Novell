@@ -11,9 +11,9 @@ public class ChangerAvatar : MonoBehaviour
     {
         for (int i = 0; i < _nodegraph.nodes.Count; i++)
         {
-            if (_nodegraph.nodes[i] is PortraitModel)
+            if (_nodegraph.nodes[i] is DialogSpeechModel)
             {
-                (_nodegraph.nodes[i] as PortraitModel).Set(CharacterType.Dey, _name);
+                (_nodegraph.nodes[i] as DialogSpeechModel).SetAvatar(_sprite, _name);
             }
         }
     }

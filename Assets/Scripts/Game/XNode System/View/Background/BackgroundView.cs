@@ -2,12 +2,28 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
-public class BackgroundView : MonoBehaviour
+public class BackgroundView : MonoBehaviour, ISaveLoadObject
 {
     public event Action OnPicturChanged;
 
+    [Inject] private SaveLoadServise _saveLoadServise;
+
     [SerializeField] private Image _image;
+
+    private const string _saveKey = "BackgroundSave";
+
+    private void OnEnable()
+    {
+        if(_saveLoadServise.HasSave(_saveKey))
+            Load();
+    }
+
+    private void OnDisable()
+    {
+        Save(); 
+    }
 
     public void Replace(Sprite sprite)
     {
@@ -29,5 +45,16 @@ public class BackgroundView : MonoBehaviour
                 .AppendCallback(() => OnPicturChanged?.Invoke())
                 .Play();
         }
+    }
+
+    public void Save()
+    {
+        _saveLoadServise.Save<SaveData.ImageData>(_saveKey, new() { Sprite = _image.sprite });
+    }
+
+    public void Load()
+    {
+        var data = _saveLoadServise.Load<SaveData.ImageData>(_saveKey);
+        Replace(data.Sprite);
     }
 }

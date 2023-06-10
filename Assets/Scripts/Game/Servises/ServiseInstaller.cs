@@ -10,7 +10,7 @@ public class ServiseInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<StaticData>().FromComponentInNewPrefab(_staticData).AsSingle();
-        Container.Bind<CoroutineServise>().FromInstance(_coroutineServise).AsSingle();
-        Container.Bind<AudioServise>().FromInstance(_audioServise).AsSingle();
+        Container.Bind<CoroutineServise>().FromComponentsInNewPrefab(_coroutineServise).AsSingle();
+        Container.Bind<AudioServise>().FromComponentsInNewPrefab(_audioServise).AsSingle();
     }
 }

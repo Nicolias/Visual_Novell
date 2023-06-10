@@ -32,6 +32,9 @@ public class CollectionPanel : MonoBehaviour
 
     private void OnItemSelected(ItemForCollectionView itemForCollectionView, ItemForCollection itemData)
     {
+        if (IsItemDelete == null)
+            return;
+
         if (IsItemDelete.Invoke(itemData))
         {
             Destroy(itemForCollectionView.gameObject);

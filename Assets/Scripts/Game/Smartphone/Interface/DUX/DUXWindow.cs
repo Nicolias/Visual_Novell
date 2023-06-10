@@ -13,36 +13,44 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
 
     [SerializeField] private Image _mainImage;
     [SerializeField] private TMP_Text _discriptionText;
+    [SerializeField] private Button _backButton;
 
     [SerializeField] private List<DUXCategoryData> _categories;
     [SerializeField] private Transform _categoriesContainer;
     [SerializeField] private ChoiceButton _categoryButtonTemplate;
 
-    private void OnEnable()
-    {
-        _closeButton.onClick.AddListener(Hide);
-        ShowCategory(_categories);
-    }
-
-    private void OnDisable()
-    {
-        _closeButton.onClick.RemoveAllListeners();
-        OnClosed?.Invoke();
-    }
+    private Stack<List<DUXCategoryData>> _categoriesStack = new();
 
     public void Open()
     {
         _selfCanvas.enabled = true;
+        _closeButton.onClick.AddListener(Hide);
+        ShowCategory(_categories);
     }
 
     private void Hide()
     {
         _selfCanvas.enabled = false;
         _mainImage.color = new(1, 1, 1, 0);
+        _discriptionText.text = "";
+
+        OnClosed?.Invoke();
+        _closeButton.onClick.RemoveAllListeners();
     }
 
     private void ShowCategory(List<DUXCategoryData> categories)
     {
+        _backButton.onClick.RemoveAllListeners();
+        _backButton.onClick.AddListener(() =>
+        {
+            if (_categoriesStack.Count > 0)
+            {
+                ShowCategory(_categoriesStack.Pop());
+                _mainImage.color = new(1, 1, 1, 0);
+                _discriptionText.text = "";
+            }
+        });
+
         foreach (Transform category in _categoriesContainer)
             Destroy(category.gameObject);
 
@@ -52,8 +60,11 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
 
             newCategory.Initialized(new(category.CategoryName, () =>
             {
-                if(category.Subcategories.Count > 0)
+                if (category.Subcategories.Count > 0)
+                {
                     ShowCategory(category.Subcategories);
+                    _categoriesStack.Push(categories);
+                }
 
                 category.Accept(this);
             }));
@@ -66,13 +77,18 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
         _mainImage.color = new(1, 1, 1, 1);
         _discriptionText.text = characterCategoryData.Discription;
     }
+
+    public void Visit(CharacterImageVariationCategoryData characterImageVariationCategoryData)
+    {
+        _mainImage.sprite = characterImageVariationCategoryData.CharacterSprite;
+        _mainImage.color = new(1, 1, 1, 1);
+    }
+
+    public void Visit(CharacterImageCategoryData characterImageCategoryData)
+    {
+        _discriptionText.text = characterImageCategoryData.Discription;
+    }
 }
-
-
-
-
-
-
 
 #region class
 public class LocationCategoryData : DUXCategoryData

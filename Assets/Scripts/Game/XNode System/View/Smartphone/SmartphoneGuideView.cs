@@ -6,7 +6,8 @@ public class SmartphoneGuideView : MonoBehaviour
 {
     public event Action OnComplete;
 
-    [SerializeField] private Button _closebutton, _smartphoneOpenButton;
+    [SerializeField] private Button _closebutton;
+    [SerializeField] private MessengeIndicator _smartphoneOpenButton;
 
     private void OnEnable()
     {
@@ -16,7 +17,7 @@ public class SmartphoneGuideView : MonoBehaviour
             gameObject.SetActive(false);
         });
 
-        _smartphoneOpenButton.gameObject.SetActive(true);
+        _smartphoneOpenButton.Show();
     }
 
     private void OnDisable()

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
+using System;
 
 public class AudioServise : MonoBehaviour
 {
@@ -35,5 +35,24 @@ public class AudioServise : MonoBehaviour
             sound = _allSound.Find(x => x.clip == audioClip);
             sound.Play();
         }
+    }
+
+    public void ChangeSoundVolume(float volumeLevel)
+    {
+        ChangeVolume(volumeLevel, _allSound);
+        CallSound.volume = volumeLevel;
+    }
+
+    public void ChangeMusicVolume(float volumeLevel)
+    {
+        ChangeVolume(volumeLevel, _allMusic);
+    }
+
+    private void ChangeVolume(float valumeLevel, List<AudioSource> audioSources)
+    {
+        if (valumeLevel > 1) throw new ArgumentOutOfRangeException("");
+
+        foreach (var audio in audioSources)
+            audio.volume = valumeLevel;
     }
 }

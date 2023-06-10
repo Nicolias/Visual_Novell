@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
-public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
+public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISaveLoadObject
 {
     public event Action OnComplite;
+
+    [Inject] private SaveLoadServise _saveLoadServise;
 
     [SerializeField] private Image _prefab;
     [SerializeField] private Transform[] _positions;
@@ -14,35 +17,45 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
     private List<CharacterPortraitData> _charactersList;
     private Color[] _colors;
 
-    private void Start()
+    private const string _saveKey = "CharacterPortrait";
+
+    private void Awake()
     {
-        _charactersList = new();
         _colors = new Color[2] { new Color(1, 1, 1, 1), new Color(1, 1, 1, 0) };
     }
 
-    public void Show(ICharacterPortraitModel characterPortrait)
+    private void OnEnable()
     {
-        if (CheckNeededCreateNewCharacter(characterPortrait.CharacterType, out CharacterPortraitData exist))
+        _charactersList = new();
+
+        if (_saveLoadServise.HasSave(_saveKey))
+            Load();
+    }
+
+    private void OnDisable()
+    {
+        Save();
+    }
+
+    public void Show(ICharacterPortraitModel character)
+    {
+        if (CheckNeededCreateNewCharacter(character.CharacterType, out CharacterPortraitData exist))
         {
-            Image newCharacterImage = Instantiate(_prefab, _positions[(int)characterPortrait.Position]);
+            Image newCharacterImage = InstantiateCharacter(character.Name, character.Sprite, character.Position);
 
-            newCharacterImage.name = name;
-            newCharacterImage.sprite = characterPortrait.Sprite;
-            newCharacterImage.color = _colors[0];
-
-            CharacterPortraitData newCharacterPortraitData = new(characterPortrait, newCharacterImage);
-
-            _charactersList.Add(newCharacterPortraitData);
+            CharacterPortraitData newCharacterPortraitData = new(character, newCharacterImage);
 
             DOTween.Sequence()
                 .Append(newCharacterImage.DOColor(new(1, 1, 1, 0), 0))
                 .Append(newCharacterImage.DOColor(new(1, 1, 1, 1), 0.5f))
                 .AppendCallback(() => OnComplite?.Invoke())
                 .Play();
+
+            _charactersList.Add(newCharacterPortraitData);
         }
         else
         {
-            if (characterPortrait.Position == CharacterPortraitPosition.Delete)
+            if (character.Position == CharacterPortraitPosition.Delete)
             {
                 DOTween.Sequence()
                 .Append(exist.Image.DOColor(new(1, 1, 1, 0), 0.5f))
@@ -58,8 +71,8 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
                 .Append(exist.Image.DOColor(new(1, 1, 1, 0), 0.2f))
                 .AppendCallback(() =>
                 {
-                    exist.Image.sprite = characterPortrait.Sprite;
-                    exist.SetPosition(characterPortrait.Position);
+                    exist.Image.sprite = character.Sprite;
+                    exist.SetPosition(character.Position);
                     exist.Image.transform.SetParent(_positions[(int)exist.Position]);
                 })
                 .Append(exist.Image.DOColor(new(1, 1, 1, 1), 0.2f))
@@ -82,5 +95,67 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView
         }
 
         return true;
+    }
+
+    private Image InstantiateCharacter(string characterName, Sprite characterPortraitSprite, 
+        CharacterPortraitPosition characterPortraitPosition)
+    {
+        Image newCharacterImage = Instantiate(_prefab, _positions[(int)characterPortraitPosition]);
+
+        newCharacterImage.name = characterName;
+        newCharacterImage.sprite = characterPortraitSprite;
+        newCharacterImage.color = _colors[0];
+
+        return newCharacterImage;
+    }
+
+    public void Save()
+    {
+        _saveLoadServise.Save(_saveKey, new SaveData.IntData()
+        {
+            Int = _charactersList.Count
+        });
+
+        for (int i = 0; i < _charactersList.Count; i++)
+        {
+            var portraitData = _charactersList[i];
+
+            _saveLoadServise.Save($"{_saveKey}/{i}", new SaveData.CharactersPortraiteData()
+            {
+                CharacterType = portraitData.CharacterType,
+                Sprite = portraitData.Image.sprite,
+                Position = portraitData.Position,
+                Name = portraitData.Name,
+            });
+        }
+    }
+
+    public void Load()
+    {
+        int characterCount = _saveLoadServise.Load<SaveData.IntData>(_saveKey).Int;
+
+        for (int i = 0; i < characterCount; i++)
+        {
+            var character = _saveLoadServise.Load<SaveData.CharactersPortraiteData>($"{_saveKey}/{i}");
+            Show(new CharacterModel(character.CharacterType, 
+                character.Name, character.Sprite, character.Position));
+        }
+    }
+
+    private class CharacterModel : ICharacterPortraitModel
+    {
+        public CharacterType CharacterType { get; private set; }
+        public string Name { get; private set; }
+        public Sprite Sprite { get; private set; }
+        public CharacterPortraitPosition Position { get; private set; }
+
+        public CharacterModel(CharacterType characterType, string name, 
+            Sprite sprite, CharacterPortraitPosition position)
+        {
+            CharacterType = characterType;
+            Name = name;
+            Sprite = sprite;
+            Position = position;
+        }
     }
 }

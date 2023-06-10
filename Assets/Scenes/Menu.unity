@@ -558,9 +558,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1787495099}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1889,6 +1889,7 @@ GameObject:
   - component: {fileID: 1480432593}
   - component: {fileID: 1480432592}
   - component: {fileID: 1480432596}
+  - component: {fileID: 1480432597}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2000,12 +2001,25 @@ MonoBehaviour:
   _quitButton: {fileID: 808907365}
   _settingWindow: {fileID: 1884477578}
   _menuButtons: {fileID: 1687794172}
-  _timeText: {fileID: 2125552467}
+  _menuMusic: {fileID: 8300000, guid: 64fc4fa9612b3774eb36aca7945d085b, type: 3}
+--- !u!114 &1480432597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480432591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b43ed061948fc47a3f8d52d9da14d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _background: {fileID: 32273440}
   _morningSprite: {fileID: 21300000, guid: 6d3c7fa9dcfa8c1488ef62d697e2bfaf, type: 3}
   _daySprite: {fileID: 21300000, guid: 75af98c29af372e4aa236a4c41c70fa1, type: 3}
   _eveningSprite: {fileID: 21300000, guid: efb7151e39ddb5b42b801b552d0de4be, type: 3}
   _nightSprite: {fileID: 21300000, guid: dcfd87f067ef61247af06bdfced3d231, type: 3}
+  _timeText: {fileID: 2125552467}
 --- !u!1 &1680665115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,6 +2306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d235ef50c3d198a409664bbcd6198e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundSlider: {fileID: 333238991}
+  _musicSlider: {fileID: 2080456842}
 --- !u!1 &1932968431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,9 +2430,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 270769824}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
