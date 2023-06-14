@@ -1,30 +1,39 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuBehaviour
+public class MenuBehaviour : ISaveLoadObject
 {
+    private readonly SaveLoadServise _saveLoadServise;
     private readonly List<BaseState> _states;
     private BaseState _currentState;
 
-    private bool _hasSave;
+    private const string _saveKey = "HasGameProgress";
 
     public MenuBehaviour(ChoiceButton newOrContinueGameButton, 
-        SettingWindow settingWindow, GameObject menuButtons)
+        SettingWindow settingWindow, GameObject menuButtons, SaveLoadServise saveLoadServise)
     {
+        _saveLoadServise = saveLoadServise;
+
         _states = new()
         {
-            new NewGameState(newOrContinueGameButton, menuButtons),
+            new NewGameState(newOrContinueGameButton, menuButtons, saveLoadServise, Save),
             new ContinueGameState(newOrContinueGameButton, menuButtons),
             new SettingState(settingWindow)
         };
+
+        Load();
     }
 
     public void OpenMainMenu()
     {
-        if (_hasSave)
+        if (_saveLoadServise.HasSave(_saveKey))
+        {
             Switch<ContinueGameState>();
+        }
         else
+        {
             Switch<NewGameState>();
+        }
     }
 
     public void OpenSetting()
@@ -48,5 +57,15 @@ public class MenuBehaviour
         var state = _states.Find(x => x is T);
         _currentState = state;
         _currentState.Entry();
+    }
+
+    public void Load()
+    {
+        OpenMainMenu();
+    }
+
+    public void Save()
+    {
+        _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = true });
     }
 }

@@ -1,7 +1,5 @@
 ﻿using Characters;
 using Game.GuessNumber;
-using Game.RockPaperScissors;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -17,7 +15,7 @@ public class GuessNumber : MiniGame
 
     private List<(int, int)> _boundsVariation = new()
     {
-        new(1,3),
+        new(1, 3),
         new(1, 10)
     };
     private string _currentWinSpeech;

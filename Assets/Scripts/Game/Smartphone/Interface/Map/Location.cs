@@ -1,28 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using XNode;
 
 [Serializable]
 public class Location : IDisposable
 {
-    private BackgroundView _background;
-    private CollectionPanel _collectionPanel;
+    [SerializeField] private BackgroundView _background;
+    [SerializeField] private CollectionPanel _collectionPanel;
 
     [SerializeField] private Sprite _backgroundSprite;
     [SerializeField] private List<ItemForCollection> _itemsForCollection;
 
+    [SerializeField] private Node _questOnLocation;
+
     [field: SerializeField] public LocationType LocationType { get; private set; }
     [field: SerializeField] public string Name { get; private set; }
+
+    public Node QuestOnLocation => _questOnLocation;
+
+    public void Initialize(BackgroundView background, CollectionPanel collectionPanel)
+    {
+        _background = background;
+        _collectionPanel = collectionPanel;
+    }
 
     public void Dispose()
     {
         _collectionPanel.OnItemDeleted -= OnItemDelete;
     }
 
-    public void Initialize(BackgroundView background, CollectionPanel collectionPanel)
+    public void SetQuest(Node questOnLocation)
     {
-        _background = background;
-        _collectionPanel = collectionPanel;
+        _questOnLocation = questOnLocation;
+    }
+
+    public void StartQuest()
+    {
+        _questOnLocation = null;
     }
 
     public void Show()
@@ -44,4 +59,5 @@ public class Location : IDisposable
         _background.OnPicturChanged -= OnPicturChange;
         _collectionPanel.ShowItems(_itemsForCollection);
     }
+
 }

@@ -21,8 +21,6 @@ public class GameCommander : Commander, ICommanderVisitor
     [SerializeField] private Smartphone _smartPhone;
     [SerializeField] private SmartphoneCallView _callView;
 
-    [SerializeField] private DUXWindow _duxWindow;
-
     [SerializeField] private FAQView _faqView;
 
     [SerializeField] private CharactersLibrary _characterLibrary;
@@ -123,7 +121,7 @@ public class GameCommander : Commander, ICommanderVisitor
     }
     public void Visit(RequirementOpenDUXModel requirementOpenDUXModel)
     {
-        _result.command = DI.Instantiate<RequirementOpenDUXCommand>(new object[] { _smartPhone, _duxWindow });
+        _result.command = DI.Instantiate<RequirementOpenDUXCommand>(new object[] { _smartPhone });
     }
 
     public void Visit(AddSympathyModel sympathyModel)
@@ -185,6 +183,16 @@ public class GameCommander : Commander, ICommanderVisitor
 
     public void Visit(SwitchSceneModel switchSceneModel)
     {
-        _result.command = new SwitchSceneCommand(switchSceneModel.SceneNumber);
+        _result.command = new SwitchSceneCommand(switchSceneModel.SceneNumber, SaveLoadServise);
+    }
+
+    public void Visit(ChangeMapEnabledModel changeEnabledLocation)
+    {
+        _result.command = DI.Instantiate<EnebledMapController>(new object[] { changeEnabledLocation });
+    }
+
+    public void Visit(SetQuestOnLocationModel setQuestOnLocation)
+    {
+        _result.command = DI.Instantiate<SetQuestOnLocationCommand>(new object[] { setQuestOnLocation });
     }
 }

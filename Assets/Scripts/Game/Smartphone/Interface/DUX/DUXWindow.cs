@@ -19,6 +19,8 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
     [SerializeField] private Transform _categoriesContainer;
     [SerializeField] private ChoiceButton _categoryButtonTemplate;
 
+    [SerializeField] private AudioPlayer _audioPlayer;
+
     private Stack<List<DUXCategoryData>> _categoriesStack = new();
 
     public void Open()
@@ -49,6 +51,8 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
                 _mainImage.color = new(1, 1, 1, 0);
                 _discriptionText.text = "";
             }
+
+            _audioPlayer.Hide();
         });
 
         foreach (Transform category in _categoriesContainer)
@@ -88,14 +92,17 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
     {
         _discriptionText.text = characterImageCategoryData.Discription;
     }
+
+    public void Visit(MelodyCategoryData melodyCategoryData)
+    {
+        _discriptionText.text = melodyCategoryData.Discription;
+        _audioPlayer.SetAudioClip(melodyCategoryData.AudioClip);
+        _audioPlayer.Show();
+    }
 }
 
 #region class
 public class LocationCategoryData : DUXCategoryData
-{
-
-}
-public class MelodyCategoryData : DUXCategoryData
 {
 
 }

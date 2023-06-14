@@ -5,6 +5,7 @@ using Zenject;
 public class MenuWindow : MonoBehaviour
 {
     [Inject] private AudioServise _audioServise;
+    [Inject] private SaveLoadServise _saveLoadServise;
 
     [SerializeField] private ChoiceButton _newOrContinueGameButton;
     [SerializeField] private Button _settingButton;
@@ -20,7 +21,7 @@ public class MenuWindow : MonoBehaviour
 
     private void Awake()
     {
-        _menuBehaviour = new(_newOrContinueGameButton, _settingWindow, _menuButtons);
+        _menuBehaviour = new(_newOrContinueGameButton, _settingWindow, _menuButtons, _saveLoadServise);
     }
 
     private void OnEnable()
@@ -35,10 +36,7 @@ public class MenuWindow : MonoBehaviour
     {
         _settingButton.onClick.RemoveAllListeners();
         _quitButton.onClick.RemoveAllListeners();
-    }
 
-    private void Start()
-    {
-        _menuBehaviour.OpenMainMenu();
+        _audioServise.StopSound(_menuMusic);
     }
 }

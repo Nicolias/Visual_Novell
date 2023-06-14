@@ -28,7 +28,7 @@ public class MenuTimeDependent: MonoBehaviour
 
     private void Update()
     {
-        _timeText.text = $"{_timesOfDayServise.CurrentTime.Hour}:{_timesOfDayServise.CurrentTime.Minute}";
+        _timeText.text = $"{_timesOfDayServise.CurrentTime:HH}:{_timesOfDayServise.CurrentTime:mm}";
     }
 
     private void ChangeBackground(TimesOfDayType timesOfDayType)

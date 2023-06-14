@@ -22,6 +22,11 @@ public class SaveLoadServise : MonoBehaviour
         }
     }
 
+    public void ClearAllSave()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     public bool HasSave(string key)
     {
         return PlayerPrefs.HasKey(key);

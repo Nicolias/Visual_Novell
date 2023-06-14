@@ -1,13 +1,24 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
-public class DUX : MonoBehaviour
+[RequireComponent(typeof(Button))]
+public class DUX : MonoBehaviour, ISaveLoadObject
 {
-    [SerializeField] private DUXWindow _duxWindow;
-    [SerializeField] private Button _openDUXButton;
+    [Inject] private SaveLoadServise _saveLoadServise;
+    [Inject] private DUXWindow _duxWindow;
+
+    private Button _openDUXButton;
 
     private Sequence _sequence;
+
+    private const string _saveKey = "DUXSave";
+
+    private void Awake()
+    {
+        _openDUXButton = GetComponent<Button>();
+    }
 
     private void OnEnable()
     {
@@ -18,11 +29,16 @@ public class DUX : MonoBehaviour
             if(_sequence != null)
                 _sequence.Pause();
         });
+
+        if (_saveLoadServise.HasSave(_saveKey))
+            Load();
     }
 
     private void OnDisable()
     {
         _openDUXButton.onClick.RemoveAllListeners();
+
+        Save();
     }
 
     public void OpenAccesToDUX()
@@ -36,5 +52,15 @@ public class DUX : MonoBehaviour
             .Append(transform.DOScale(1, 1.5f))
             .SetLoops(-1)
             .Play();
+    }
+
+    public void Save()
+    {
+        _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = _openDUXButton.enabled });
+    }
+
+    public void Load()
+    {
+        _openDUXButton.enabled = _saveLoadServise.Load<SaveData.BoolData>(_saveKey).Bool;
     }
 }

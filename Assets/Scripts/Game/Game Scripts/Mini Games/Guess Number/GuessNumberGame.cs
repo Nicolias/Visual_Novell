@@ -31,7 +31,7 @@ namespace Game.GuessNumber
             _guessNumberPanel.OnValueSelected -= Compare;
             int enemyNumber = UnityEngine.Random.Range(_numberBounds.Item1, _numberBounds.Item2);
 
-            _choicePanel.Show($"Противник выбрал число {enemyNumber}", new());
+            _choicePanel.Show($"Соперник выбрал число {enemyNumber}", new());
 
             _coroutineServise.WaitForSecondsAndInvoke(1.5f, () =>
             {

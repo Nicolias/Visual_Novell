@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _discriptoin: 
   <CategoryName>k__BackingField: "\u041C\u0435\u043B\u043E\u0434\u0438\u0438"
-  <Subcategories>k__BackingField: []
+  <Subcategories>k__BackingField:
+  - {fileID: 11400000, guid: b18f766060e86c8458ba611cbcc18c04, type: 2}
+  - {fileID: 11400000, guid: b231f55c30543a24387f635944ce88f2, type: 2}
+  - {fileID: 11400000, guid: 7f84660ac5139b049a6953178e4fa971, type: 2}
+  - {fileID: 11400000, guid: c694ec30bcaff794c9606b90b0ac3e47, type: 2}
+  - {fileID: 11400000, guid: 06bf9af1f3fe43b488a9aa80a6e82083, type: 2}
+  - {fileID: 11400000, guid: 3f6d84a80d8f71e4ab12167d2925e22e, type: 2}

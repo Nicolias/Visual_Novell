@@ -13,7 +13,8 @@ public class CharactersLibrary : MonoBehaviour, ISaveLoadObject
 
     private const string _saveKey = "CharacterLibrarySave";
 
-    private void Awake()
+    [Inject]
+    public void Construct()
     {
         if (_saveLoadServise.HasSave(_saveKey))
         {

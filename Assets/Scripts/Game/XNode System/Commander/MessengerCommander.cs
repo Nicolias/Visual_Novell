@@ -157,4 +157,14 @@ public class MessengerCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(ChangeMapEnabledModel changeEnabledLocation)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Visit(SetQuestOnLocationModel setQuestOnLocation)
+    {
+        throw new System.NotImplementedException();
+    }
 }

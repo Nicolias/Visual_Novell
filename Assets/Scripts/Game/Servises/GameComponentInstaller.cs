@@ -11,7 +11,7 @@ public class GameComponentInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.Bind<CharactersLibrary>().FromInstance(_charactersLibrary).AsSingle();
+        Container.Bind<CharactersLibrary>().FromInstance(_charactersLibrary).AsSingle().NonLazy();
         Container.Bind<Wallet>().FromInstance(_wallet).AsSingle();
         Container.Bind<Battery>().FromInstance(_battery).AsSingle();
         Container.Bind<QuizView>().FromInstance(_quizView).AsSingle();

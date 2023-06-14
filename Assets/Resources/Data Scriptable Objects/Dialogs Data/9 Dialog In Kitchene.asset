@@ -465,52 +465,6 @@ MonoBehaviour:
   _speechText: "\u0412\u043E\u0442 \u0442\u0435\u0431\u0435 \u0437\u0435\u043B\u0435\u043D\u044B\u0439
     \u0447\u0430\u0439 \u0438 \u0431\u0438\u0441\u043A\u0432\u0438\u0442 \u0435\u0441\u0442\u044C
     \u0435\u0449\u0435."
---- !u!114 &-7617734812275426763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5815f1f81eaaca48ad1b95198a73251, type: 3}
-  m_Name: Change Location Model
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -2280, y: 616}
-  ports:
-    keys:
-    - _inPut
-    - _outPut
-    values:
-    - _fieldName: _inPut
-      _node: {fileID: -7617734812275426763}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: _outPut
-        node: {fileID: -875564800253906437}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: _outPut
-      _node: {fileID: -7617734812275426763}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: _inPut
-        node: {fileID: 3662170742920027309}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  _inPut: 0
-  _outPut: 0
-  <LocationType>k__BackingField: 1
 --- !u!114 &-7362740504596730431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,6 +677,98 @@ MonoBehaviour:
     \u0432\u0435\u0440\u043D\u0443\u0442\u044C \u0438\u043B\u0438 \u0432\u043E\u0437\u043E\u0431\u043D\u043E\u0432\u0438\u0442\u044C.
     \u041D\u0443\u0436\u043D\u043E \u0434\u0432\u0438\u0433\u0430\u0442\u044C\u0441\u044F
     \u0434\u0430\u043B\u044C\u0448\u0435."
+--- !u!114 &-6868230647117655381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b8195c46afabb4e85a42446ab44d42, type: 3}
+  m_Name: Audio Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -2072, y: 616}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -6868230647117655381}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -6011148910721383831}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -6868230647117655381}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 388648383384636318}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: 3ee506f4080466a4486c64f0eb484671, type: 3}
+--- !u!114 &-6786412338545563610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8438bdb98b4608a4da75799dbf5b5bb6, type: 3}
+  m_Name: Change Map Enabled Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 632, y: 1432}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -6786412338545563610}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -3427346563700778968}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -6786412338545563610}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -2100102130013017954}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Enebled>k__BackingField: 1
 --- !u!114 &-6414323296833582413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +929,52 @@ MonoBehaviour:
     \u043A \u043C\u0435\u0441\u0442\u0443 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044F,
     \u0430 \u043E\u0441\u0442\u0430\u0432\u0448\u0435\u0435\u0441\u044F \u043F\u0440\u0438\u0433\u043E\u0434\u0438\u0442\u0441\u044F
     \u043F\u043E \u043F\u0440\u0438\u0435\u0437\u0434\u0443"
+--- !u!114 &-6011148910721383831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8438bdb98b4608a4da75799dbf5b5bb6, type: 3}
+  m_Name: Change Map Enabled Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -2280, y: 616}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -6011148910721383831}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3662170742920027309}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -6011148910721383831}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -6868230647117655381}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Enebled>k__BackingField: 0
 --- !u!114 &-5715179962210251595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1362,6 +1454,52 @@ MonoBehaviour:
   _speakerName: "\u0414\u0435\u044F"
   _speechText: "\u041D\u0435 \u043E\u0431\u0440\u0430\u0449\u0430\u0439 \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u0435,
     \u044F \u0448\u0443\u0447\u0443."
+--- !u!114 &-3483300116779384470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8438bdb98b4608a4da75799dbf5b5bb6, type: 3}
+  m_Name: Change Map Enabled Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1048, y: 1432}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -3483300116779384470}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -2100102130013017954}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -3483300116779384470}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 4392106720657005901}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <Enebled>k__BackingField: 0
 --- !u!114 &-3427346563700778968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,7 +1537,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -2100102130013017954}
+        node: {fileID: -6786412338545563610}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1928,7 +2066,7 @@ MonoBehaviour:
   m_Name: Collect Quest Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: 1432}
+  position: {x: 840, y: 1432}
   ports:
     keys:
     - _inPut
@@ -1940,7 +2078,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -3427346563700778968}
+        node: {fileID: -6786412338545563610}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1952,7 +2090,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 4392106720657005901}
+        node: {fileID: -3483300116779384470}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -2236,7 +2374,7 @@ MonoBehaviour:
   m_Name: Portrait Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2488, y: 616}
+  position: {x: -2696, y: 616}
   ports:
     keys:
     - _inPut
@@ -2257,7 +2395,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -7617734812275426763}
+        node: {fileID: 3662170742920027309}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -2506,7 +2644,10 @@ MonoBehaviour:
   - {fileID: 3662170742920027309}
   - {fileID: -2100102130013017954}
   - {fileID: -3427346563700778968}
-  - {fileID: -7617734812275426763}
+  - {fileID: -3483300116779384470}
+  - {fileID: -6011148910721383831}
+  - {fileID: -6786412338545563610}
+  - {fileID: -6868230647117655381}
 --- !u!114 &100544388273835104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2584,7 +2725,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 3662170742920027309}
+        node: {fileID: -6868230647117655381}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -3197,7 +3338,7 @@ MonoBehaviour:
   m_Name: Portrait Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2072, y: 616}
+  position: {x: -2488, y: 616}
   ports:
     keys:
     - _inPut
@@ -3209,7 +3350,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -7617734812275426763}
+        node: {fileID: -875564800253906437}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -3221,7 +3362,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 388648383384636318}
+        node: {fileID: -6011148910721383831}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -3347,7 +3488,7 @@ MonoBehaviour:
   m_Name: Change Dialog Data Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 840, y: 1432}
+  position: {x: 1256, y: 1432}
   ports:
     keys:
     - _inPut
@@ -3359,7 +3500,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -2100102130013017954}
+        node: {fileID: -3483300116779384470}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

@@ -1,6 +1,5 @@
 using Characters;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -54,7 +53,6 @@ public class MiniGameSelector : MonoBehaviour
 
         gameObject.SetActive(true);
 
-        _battery.Decreese(_startGameCost);
         _currentCharacter = _charactersLibrary.GetCharacter(character);
         _choicePanel.Show("Выбери игру", GetChoiceElements());
 
@@ -80,6 +78,7 @@ public class MiniGameSelector : MonoBehaviour
     private void OnGameEnd()
     {
         OnGameEnded?.Invoke();
+        _battery.Decreese(_startGameCost);
         UpdateSympathyView(_currentCharacter.SympathyPoints);
     }
     private void OnGameRestart()

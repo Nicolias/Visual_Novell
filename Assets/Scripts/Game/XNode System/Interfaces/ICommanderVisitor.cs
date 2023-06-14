@@ -2,6 +2,7 @@
 {
     void Visit(MonologSpeechModel speech);
     void Visit(DialogSpeechModel dialogSpeech);
+    void Visit(SetQuestOnLocationModel setQuestOnLocation);
     void Visit(MessengerDialogSpeechModel dialogSpeech);
     void Visit(FAQModel faqModel);
     void Visit(IChoiceModel choice);
@@ -9,6 +10,7 @@
     void Visit(BackgroundModel background);
     void Visit(ChangeLocationModel changeLocationModel);
     void Visit(ICharacterPortraitModel portrait);
+    void Visit(ChangeMapEnabledModel changeEnabledLocation);
     void Visit(SwitchSceneModel switchSceneModel);
     void Visit(GetterEnergyItemModel getterEnergyItemModel);
     void Visit(CollectQuestModel collectQuestModel);

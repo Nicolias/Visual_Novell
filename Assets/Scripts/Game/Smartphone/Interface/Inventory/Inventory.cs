@@ -7,9 +7,10 @@ using UnityEngine.UI;
 using Zenject;
 
 [RequireComponent(typeof(Canvas))]
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, ISaveLoadObject
 {
-    [Inject] private CollectionPanel _collectionPanel;
+    [Inject] private SaveLoadServise _saveLoadServise;
+
     [Inject] private DiContainer _di;
 
     [SerializeField] private Transform _itemCellsContainer;
@@ -23,6 +24,8 @@ public class Inventory : MonoBehaviour
     private Canvas _selfCanvas;
     private List<ItemForCollection> _items = new();
 
+    private const string _saveKey = "InventorySave";
+
     private void Awake()
     {
         _selfCanvas = GetComponent<Canvas>();
@@ -32,12 +35,17 @@ public class Inventory : MonoBehaviour
     {
         _openButton.onClick.AddListener(Show);
         _closeButton.onClick.AddListener(Hide);
+
+        if (_saveLoadServise.HasSave(_saveKey))
+            Load();
     }
 
     private void OnDisable()
     {
         _openButton.onClick.RemoveAllListeners();
         _closeButton.onClick.RemoveAllListeners();
+
+        Save();
     }
 
     public void Show()
@@ -60,5 +68,15 @@ public class Inventory : MonoBehaviour
 
         var itemCell = _di.InstantiatePrefabForComponent<InventoryCell>(_inventoryCell, _itemCellsContainer);
         itemCell.Initialize(itemData, _itamImage, _itemDiscription);
+    }
+
+    public void Save()
+    {
+        _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = enabled });
+    }
+
+    public void Load()
+    {
+        enabled = _saveLoadServise.Load<SaveData.BoolData>(_saveKey).Bool;
     }
 }

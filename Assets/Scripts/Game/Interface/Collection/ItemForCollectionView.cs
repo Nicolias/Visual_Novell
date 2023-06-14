@@ -12,6 +12,8 @@ public class ItemForCollectionView : MonoBehaviour
     private ItemForCollection _itemData;
     private Button _selfButton;
 
+    public ItemForCollection Data => _itemData;
+
     private void Awake()
     {
         _selfButton = GetComponent<Button>();

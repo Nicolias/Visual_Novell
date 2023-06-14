@@ -12,14 +12,15 @@ public class QuizView : MonoBehaviour
     public event Action OnAnswerCorrected;
     public event Action OnAnswerUncorrected;
 
-    [SerializeField] private float _showTime;
+    [Inject] private QuestionFactory _questionFactory;
 
     [SerializeField] private TMP_Text _currentSympathyText;
     [SerializeField] private ChoicePanel _choisePanel;
 
     [SerializeField] private Canvas _canvas;
 
-    [Inject] private QuestionFactory _questionFactory;
+    [SerializeField] private float _showTime;
+    [SerializeField] private Sprite _uncorrectButtonSprite;
 
     private Character _currentCharacter;
     private List<ChoiceButton> _uncorrectButtons;
@@ -79,7 +80,7 @@ public class QuizView : MonoBehaviour
     private IEnumerator ShowUncorrectButtons(Action action)
     {
         foreach (var uncorrectButton in _uncorrectButtons)
-            uncorrectButton.Button.image.color = Color.red;        
+            uncorrectButton.Button.image.sprite = _uncorrectButtonSprite;
 
         yield return new WaitForSeconds(_showTime);
 

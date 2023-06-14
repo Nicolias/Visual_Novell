@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NewGameState : BaseState
@@ -6,24 +7,26 @@ public class NewGameState : BaseState
     private ChoiceButton _newGameButton;
     private GameObject _menuButtons;
 
-    private AsyncOperation _async;
+    private Action _saveAction;
+    private SaveLoadServise _saveLoadServise;
 
-    public NewGameState(ChoiceButton newGameButton, GameObject menuButtons)
+    public NewGameState(ChoiceButton newGameButton, GameObject menuButtons, SaveLoadServise saveLoadServise, Action saveAction)
     {
         _newGameButton = newGameButton;
         _menuButtons = menuButtons;
+
+        _saveAction = saveAction;
+        _saveLoadServise = saveLoadServise;
     }
 
     public override void Entry()
     {
-        //if (_async == null)
-        //{
-        //    _async = SceneManager.LoadSceneAsync(1);
-        //    _async.allowSceneActivation = false;
-        //}
-
-        _newGameButton.Initialized(new("Новая игра", () => SceneManager.LoadScene(1)));
-        //_newGameButton.Initialized(new("Новая игра", () => _async.allowSceneActivation = true));
+        _newGameButton.Initialized(new("Новая игра", () =>
+        {
+            _saveLoadServise.ClearAllSave();
+            _saveAction.Invoke();
+            SceneManager.LoadScene(1);
+        }));
         _menuButtons.SetActive(true);
     }
 

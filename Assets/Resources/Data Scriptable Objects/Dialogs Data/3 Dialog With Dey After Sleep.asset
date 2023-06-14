@@ -239,7 +239,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 2848730983028614113}
+        node: {fileID: -6661517538899156756}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u0410 \u0447\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0441\u0432\u044F\u0437\u044C?"
 --- !u!114 &-7379266617766929996
@@ -297,10 +297,56 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u042F \u0434\u0430\u0436\u0435 \u043D\u0435 \u0437\u043D\u0430\u044E
     \u0441 \u0447\u0435\u0433\u043E \u043D\u0430\u0447\u0430\u0442\u044C."
+--- !u!114 &-7127660558939073740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5815f1f81eaaca48ad1b95198a73251, type: 3}
+  m_Name: Change Location Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 712, y: -248}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -7127660558939073740}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -177595550482103558}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -7127660558939073740}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -444379414634493381}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <LocationType>k__BackingField: 0
 --- !u!114 &-6853349164332813844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +446,52 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <AudioClip>k__BackingField: {fileID: 8300000, guid: a250fdfbb30a10d4c963faafe555a46c, type: 3}
+--- !u!114 &-6661517538899156756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b8195c46afabb4e85a42446ab44d42, type: 3}
+  m_Name: Audio Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1112, y: 264}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -6661517538899156756}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8481643570370291880}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -6661517538899156756}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 2848730983028614113}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: c9d5f9fadea35434391b7d5d5aa6c4a5, type: 3}
 --- !u!114 &-5317585465198190810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,52 +544,6 @@ MonoBehaviour:
     \u0441\u0430\u043C\u043E\u0433\u043E \u043C\u043E\u043C\u0435\u043D\u0442\u0430,
     \u043A\u0430\u043A \u0442\u044B \u0437\u0430\u043A\u043B\u044E\u0447\u0438\u043B
     \u043F\u0430\u043A\u0442 \u0441 \u0424\u043E\u0440\u0442\u0443\u043D\u043E\u0439"
---- !u!114 &-4279855228573527104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 776c94b67f2600f4c97edf47f0a4ed33, type: 3}
-  m_Name: Background Model
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 712, y: -248}
-  ports:
-    keys:
-    - _inPut
-    - _outPut
-    values:
-    - _fieldName: _inPut
-      _node: {fileID: -4279855228573527104}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: _outPut
-        node: {fileID: -177595550482103558}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: _outPut
-      _node: {fileID: -4279855228573527104}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: _inPut
-        node: {fileID: -444379414634493381}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  _inPut: 0
-  _outPut: 0
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 8a20b4f5118ad5a4bb541315d15302dc, type: 3}
 --- !u!114 &-4271663777545151290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,7 +643,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\xAB\u041E\u0442\u043A\u0443\u0434\u0430 \u0442\u044B \u043F\u043E\u044F\u0432\u0438\u043B\u0430\u0441\u044C?\xBB
     \n\u2014 \u044F \u0431\u044B\u043B \u0432 \u043D\u0435\u0434\u043E\u0443\u043C\u0435\u043D\u0438\u0438."
@@ -925,7 +971,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -4279855228573527104}
+        node: {fileID: -7127660558939073740}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -946,7 +992,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u041F\u043E\u0447\u0435\u043C\u0443 \u0438 \u043D\u0435\u0442, \u0433\u0434\u0435
     \u0442\u044B \u0441\u0435\u0439\u0447\u0430\u0441?"
@@ -996,7 +1042,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u0423 \u0442\u0435\u0431\u044F \u0442\u043E\u0436\u0435 \u0435\u0441\u0442\u044C
     \u0442\u0435\u043B\u0435\u0444\u043E\u043D? \u0418\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u043E
@@ -1039,7 +1085,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -4279855228573527104}
+        node: {fileID: -7127660558939073740}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1076,7 +1122,6 @@ MonoBehaviour:
   - {fileID: 6906187551608257638}
   - {fileID: -7379266617766929996}
   - {fileID: -177595550482103558}
-  - {fileID: -4279855228573527104}
   - {fileID: -444379414634493381}
   - {fileID: 1209660724754620331}
   - {fileID: 5167985208248420243}
@@ -1113,6 +1158,8 @@ MonoBehaviour:
   - {fileID: -9112570579597733709}
   - {fileID: -6688522867089772540}
   - {fileID: -3280312402851545878}
+  - {fileID: -7127660558939073740}
+  - {fileID: -6661517538899156756}
 --- !u!114 &300694833896559457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,7 +1313,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u2014\u041E\u043D\u0430 \u0441\u0442\u043E\u0438\u0442 \u043F\u0435\u0440\u0435\u0434\u043E
     \u043C\u043D\u043E\u0439 \u0438 \u043C\u0438\u043B\u043E \u0443\u043B\u044B\u0431\u0430\u0435\u0442\u0441\u044F."
@@ -1444,7 +1491,7 @@ MonoBehaviour:
   m_Name: Portrait Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1112, y: 264}
+  position: {x: 1320, y: 264}
   ports:
     keys:
     - _inPut
@@ -1456,7 +1503,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -8481643570370291880}
+        node: {fileID: -6661517538899156756}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1836,7 +1883,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\xAB\u0418\u0437\u0432\u0438\u043D\u0438, \u0435\u0449\u0435 \u0440\u0430\u0437\xBB,
     \u2014\u042F \u0435\u0439 \u0443\u043B\u044B\u0431\u043D\u0443\u043B\u0441\u044F
@@ -1937,7 +1984,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u0421\u043B\u0443\u0448\u0430\u0439, \u044F \u0432\u0438\u0436\u0443
     \u0442\u0435\u0431\u044F \u0432 \u043F\u0435\u0440\u0432\u044B\u0439 \u0440\u0430\u0437,
@@ -2041,7 +2088,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u2014\u0421\u043B\u043E\u0432\u0438\u043B \u0441\u0435\u0431\u044F
     \u043D\u0430 \u043C\u044B\u0441\u043B\u0438, \u0447\u0442\u043E \u0441\u043D\u043E\u0432\u0430
@@ -2241,6 +2288,6 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 0}
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u0418\u0437\u0432\u0438\u043D\u0438."

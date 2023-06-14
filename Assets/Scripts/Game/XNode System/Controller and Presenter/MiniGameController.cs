@@ -30,9 +30,5 @@ public class MiniGameController : IController
             _view.CloseMiniGamesSelection();
             OnComplete?.Invoke();
         }
-        else
-        {
-            _view.ShowMiniGameSelectoin(_model.CharacterType);
-        }
     }
 }

@@ -47,7 +47,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -175,7 +175,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -314,8 +314,8 @@ MonoBehaviour:
   - {fileID: 3018412266134025784}
   - {fileID: 3018412266134025784}
   - {fileID: 8209800610931621947}
-  - {fileID: 4901397382109920780}
   - {fileID: 6244873775395604121}
+  - {fileID: 4901397382109920780}
   <CallSound>k__BackingField: {fileID: 4901397382109920780}
 --- !u!1 &1693914306251991842
 GameObject:
@@ -913,7 +913,7 @@ AudioSource:
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1041,7 +1041,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1169,7 +1169,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1297,7 +1297,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
