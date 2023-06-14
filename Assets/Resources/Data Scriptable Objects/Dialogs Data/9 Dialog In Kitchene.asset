@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9164565775606501036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 424, y: 1432}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -9164565775606501036}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8880509884116086390}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -9164565775606501036}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -3285912559142937760}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: b7bafd254a98ef940a7888c5029e991a, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &-8977813434935861825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +62,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1192, y: -168}
+  position: {x: 1336, y: -568}
   ports:
     keys:
     - _inPut
@@ -62,7 +111,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1048, y: 1176}
+  position: {x: 216, y: 1432}
   ports:
     keys:
     - _inPut
@@ -74,7 +123,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -3647500964949213783}
+        node: {fileID: -8761342499126419146}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -86,7 +135,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -3285912559142937760}
+        node: {fileID: -9164565775606501036}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -116,7 +165,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2616, y: 360}
+  position: {x: 3288, y: 472}
   ports:
     keys:
     - _inPut
@@ -128,7 +177,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 7007088422623841147}
+        node: {fileID: -2704818913467886734}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -257,6 +306,55 @@ MonoBehaviour:
     \u043E\u0441\u0442\u044B\u043D\u0435\u0442, \u0430 \u0442\u044B \u043C\u043E\u0436\u0435\u0448\u044C
     \u0441\u043F\u0440\u043E\u0441\u0438\u0442\u044C, \u0447\u0442\u043E \u0435\u0449\u0435
     \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u0443\u0435\u0442."
+--- !u!114 &-8761342499126419146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1256, y: 1176}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -8761342499126419146}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -3647500964949213783}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -8761342499126419146}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -8880509884116086390}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: b7bafd254a98ef940a7888c5029e991a, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &-8741595446033226963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +368,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1192, y: -680}
+  position: {x: 1064, y: -568}
   ports:
     keys:
     - _inPut
@@ -282,7 +380,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 6898950423154881286}
+        node: {fileID: -8728612295767993773}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -294,7 +392,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -3941265942049611152}
+        node: {fileID: 2154337659606560693}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -310,6 +408,55 @@ MonoBehaviour:
     \u0412\u0430\u0441 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u043F\u043E\u0441\u0442\u0440\u0430\u0434\u0430\u0435\u0442\xBB,
     - \u041E\u043D\u0430 \u0443\u043B\u044B\u0431\u043D\u0443\u043B\u0430\u0441\u044C
     \u043C\u043D\u0435."
+--- !u!114 &-8728612295767993773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1064, y: -744}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -8728612295767993773}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 6898950423154881286}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -8728612295767993773}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -8741595446033226963}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: b7bafd254a98ef940a7888c5029e991a, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &-8500977172074230916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +470,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2376, y: -152}
+  position: {x: 3048, y: -216}
   ports:
     keys:
     - _inPut
@@ -478,7 +625,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2616, y: -920}
+  position: {x: 3288, y: -984}
   ports:
     keys:
     - _inPut
@@ -490,7 +637,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 3338825375178071595}
+        node: {fileID: 3570631476746648779}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -635,7 +782,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2616, y: -408}
+  position: {x: 3288, y: -472}
   ports:
     keys:
     - _inPut
@@ -736,7 +883,7 @@ MonoBehaviour:
   m_Name: Change Map Enabled Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: 1432}
+  position: {x: 1272, y: 1432}
   ports:
     keys:
     - _inPut
@@ -889,7 +1036,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: -424}
+  position: {x: -296, y: -312}
   ports:
     keys:
     - _inPut
@@ -1010,10 +1157,7 @@ MonoBehaviour:
       _node: {fileID: -5715179962210251595}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: _inPut
-        node: {fileID: -3297393794948633410}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -1137,6 +1281,55 @@ MonoBehaviour:
   _speechText: "\u0427\u0430\u0439 \u0433\u043E\u0440\u044F\u0447\u0438\u0439, \u0442\u0430\u043A
     \u0447\u0442\u043E \u043C\u043E\u0436\u0435\u0448\u044C \u0435\u0449\u0435 \u0441\u043F\u0440\u043E\u0441\u0438\u0442\u044C,
     \u0447\u0442\u043E \u0442\u0435\u0431\u044F \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u0443\u0435\u0442."
+--- !u!114 &-5134259696885638860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 392, y: -744}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -5134259696885638860}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 6865987578382916017}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -5134259696885638860}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -3692432690908385236}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &-5014169900959940506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,7 +1395,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1192, y: -424}
+  position: {x: 1336, y: -808}
   ports:
     keys:
     - _inPut
@@ -1214,7 +1407,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -8741595446033226963}
+        node: {fileID: 2154337659606560693}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1241,6 +1434,55 @@ MonoBehaviour:
     \u044F \u043D\u0435 \u043F\u043E\u0439\u043C\u0443 \u0435\u0451, \u043E\u043D\u0430
     \u0441\u0435\u0440\u044C\u0435\u0437\u043D\u043E \u0438\u043B\u0438 \u0448\u0443\u0442\u0438\u0442
     \u0442\u0430\u043A."
+--- !u!114 &-3890746852641198095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -8, y: -744}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -3890746852641198095}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 5450107428004998976}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -3890746852641198095}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 8429922106951863145}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &-3850074631494537126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,7 +1496,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2616, y: -664}
+  position: {x: 3288, y: -728}
   ports:
     keys:
     - _inPut
@@ -1310,7 +1552,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 920, y: -680}
+  position: {x: 392, y: -568}
   ports:
     keys:
     - _inPut
@@ -1322,7 +1564,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 6865987578382916017}
+        node: {fileID: -5134259696885638860}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1366,7 +1608,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 840, y: 1176}
+  position: {x: 1048, y: 1176}
   ports:
     keys:
     - _inPut
@@ -1390,7 +1632,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -8880509884116086390}
+        node: {fileID: -8761342499126419146}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1467,7 +1709,7 @@ MonoBehaviour:
   m_Name: Change Map Enabled Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1048, y: 1432}
+  position: {x: 424, y: 1688}
   ports:
     keys:
     - _inPut
@@ -1513,7 +1755,7 @@ MonoBehaviour:
   m_Name: Portrait Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 424, y: 1432}
+  position: {x: 1064, y: 1432}
   ports:
     keys:
     - _inPut
@@ -1562,7 +1804,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: 1176}
+  position: {x: 840, y: 1176}
   ports:
     keys:
     - _inPut
@@ -1574,7 +1816,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -5715179962210251595}
+        node: {fileID: 9128447565708732639}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1613,7 +1855,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1256, y: 1176}
+  position: {x: 648, y: 1432}
   ports:
     keys:
     - _inPut
@@ -1625,7 +1867,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -8880509884116086390}
+        node: {fileID: -9164565775606501036}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1653,6 +1895,55 @@ MonoBehaviour:
     \u0437\u0434\u0435\u0441\u044C \u0432\u0435\u0447\u043D\u043E\xBB, - \u043E\u043D\u0430
     \u0441\u043B\u0435\u0433\u043A\u0430 \u043F\u043E\u0445\u043B\u043E\u043F\u0430\u043B\u0430
     \u043C\u0435\u043D\u044F \u043F\u043E \u043F\u043B\u0435\u0447\u0443."
+--- !u!114 &-3074930722280714964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2152, y: -728}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -3074930722280714964}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 2617120211546141178}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -3074930722280714964}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 6767526123210513467}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &-2778742833277879049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,7 +1957,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2008, y: -664}
+  position: {x: 2808, y: -728}
   ports:
     keys:
     - _inPut
@@ -1705,6 +1996,55 @@ MonoBehaviour:
     \u0442\u0435\u0431\u0435. \u0422\u044B \u0432\u0435\u0434\u044C \u0437\u043D\u0430\u0435\u0448\u044C,
     \u043A\u0430\u043A \u043E\u0431\u0440\u0430\u0437\u0443\u044E\u0442\u0441\u044F
     \u043F\u043E\u0441\u0435\u043B\u0435\u043D\u0438\u044F, \u0433\u043E\u0440\u043E\u0434\u0430?"
+--- !u!114 &-2704818913467886734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 3288, y: 296}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -2704818913467886734}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 7007088422623841147}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -2704818913467886734}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -8819784468642017028}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: b7bafd254a98ef940a7888c5029e991a, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &-2678346399692412297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,6 +2343,55 @@ MonoBehaviour:
   _speechText: "\u0427\u0430\u0439 \u0433\u043E\u0440\u044F\u0447\u0438\u0439, \u0442\u0430\u043A
     \u0447\u0442\u043E \u043C\u043E\u0436\u0435\u0448\u044C \u0435\u0449\u0435 \u0441\u043F\u0440\u043E\u0441\u0438\u0442\u044C,
     \u0447\u0442\u043E \u0442\u0435\u0431\u044F \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u0443\u0435\u0442."
+--- !u!114 &-2255062579206022230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1896, y: -728}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -2255062579206022230}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 906268009579958958}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -2255062579206022230}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 1399772012827108768}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &-2109638381786130086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2016,7 +2405,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 216, y: 1432}
+  position: {x: 856, y: 1432}
   ports:
     keys:
     - _inPut
@@ -2066,7 +2455,7 @@ MonoBehaviour:
   m_Name: Collect Quest Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 840, y: 1432}
+  position: {x: 216, y: 1688}
   ports:
     keys:
     - _inPut
@@ -2221,7 +2610,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: -936}
+  position: {x: -296, y: -1000}
   ports:
     keys:
     - _inPut
@@ -2245,7 +2634,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 5272119894728873585}
+        node: {fileID: 4675660293851918704}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -2273,7 +2662,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2376, y: -664}
+  position: {x: 3048, y: -728}
   ports:
     keys:
     - _inPut
@@ -2311,6 +2700,55 @@ MonoBehaviour:
   _speechText: "\u0412\u043E\u0442 \u0442\u044B \u0431\u043B\u0438\u0437\u043E\u043A
     \u043A \u0438\u0441\u0442\u0438\u043D\u0435. \u041B\u0430\u0434\u043D\u043E \u043D\u0435
     \u0431\u0443\u0434\u0443 \u043C\u0443\u0447\u0430\u0442\u044C \u0442\u0435\u0431\u044F."
+--- !u!114 &-1156953333724928829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 680, y: -744}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -1156953333724928829}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 100544388273835104}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -1156953333724928829}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 3389052526756062654}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &-1092055939104964537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2324,7 +2762,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2008, y: -408}
+  position: {x: 2808, y: -472}
   ports:
     keys:
     - _inPut
@@ -2420,7 +2858,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2008, y: -152}
+  position: {x: 2808, y: -216}
   ports:
     keys:
     - _inPut
@@ -2444,7 +2882,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 7522079027931761047}
+        node: {fileID: 8547037847612429680}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -2648,6 +3086,20 @@ MonoBehaviour:
   - {fileID: -6011148910721383831}
   - {fileID: -6786412338545563610}
   - {fileID: -6868230647117655381}
+  - {fileID: 4675660293851918704}
+  - {fileID: -3890746852641198095}
+  - {fileID: -5134259696885638860}
+  - {fileID: -1156953333724928829}
+  - {fileID: -8728612295767993773}
+  - {fileID: 2154337659606560693}
+  - {fileID: -2255062579206022230}
+  - {fileID: -3074930722280714964}
+  - {fileID: 8547037847612429680}
+  - {fileID: 3570631476746648779}
+  - {fileID: -2704818913467886734}
+  - {fileID: 9128447565708732639}
+  - {fileID: -8761342499126419146}
+  - {fileID: -9164565775606501036}
 --- !u!114 &100544388273835104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2661,7 +3113,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 920, y: -424}
+  position: {x: 680, y: -1000}
   ports:
     keys:
     - _inPut
@@ -2685,7 +3137,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 3389052526756062654}
+        node: {fileID: -1156953333724928829}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -2816,7 +3268,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1464, y: -936}
+  position: {x: 1896, y: -984}
   ports:
     keys:
     - _inPut
@@ -2840,7 +3292,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 1399772012827108768}
+        node: {fileID: -2255062579206022230}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -2921,7 +3373,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1464, y: -680}
+  position: {x: 1896, y: -552}
   ports:
     keys:
     - _inPut
@@ -2933,7 +3385,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 906268009579958958}
+        node: {fileID: -2255062579206022230}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -3062,6 +3514,55 @@ MonoBehaviour:
     \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u044F\u0449\u0438\u0435 \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0435,
     \u043C\u0430\u043D\u0438\u0442 \u0441\u043B\u043E\u0432\u043D\u043E \u043D\u043E\u0447\u043D\u043E\u0435
     \u043D\u0435\u0431\u043E."
+--- !u!114 &2154337659606560693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1336, y: -984}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 2154337659606560693}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8741595446033226963}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 2154337659606560693}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -3941265942049611152}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &2617120211546141178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3075,7 +3576,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1464, y: -424}
+  position: {x: 2152, y: -984}
   ports:
     keys:
     - _inPut
@@ -3099,7 +3600,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 6767526123210513467}
+        node: {fileID: -3074930722280714964}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -3126,7 +3627,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2376, y: 104}
+  position: {x: 3048, y: 40}
   ports:
     keys:
     - _inPut
@@ -3150,7 +3651,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -7362740504596730431}
+        node: {fileID: 3570631476746648779}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -3182,7 +3683,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 920, y: -168}
+  position: {x: 680, y: -568}
   ports:
     keys:
     - _inPut
@@ -3194,7 +3695,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 100544388273835104}
+        node: {fileID: -1156953333724928829}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -3276,6 +3777,55 @@ MonoBehaviour:
     \u043A\u043E\u0433\u0434\u0430 \u044F \u0441\u044E\u0434\u0430 \u0435\u0449\u0435
     \u0432\u0435\u0440\u043D\u0443\u0441\u044C \u0438 \u0432\u0435\u0440\u043D\u0443\u0441\u044C
     \u043B\u0438 \u0432\u043E\u043E\u0431\u0449\u0435."
+--- !u!114 &3570631476746648779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 3048, y: 296}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 3570631476746648779}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 3338825375178071595}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 3570631476746648779}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -7362740504596730431}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &3581048115882957563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3387,7 +3937,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2008, y: -920}
+  position: {x: 2808, y: -984}
   ports:
     keys:
     - _inPut
@@ -3488,7 +4038,7 @@ MonoBehaviour:
   m_Name: Change Dialog Data Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1256, y: 1432}
+  position: {x: 632, y: 1688}
   ports:
     keys:
     - _inPut
@@ -3570,6 +4120,55 @@ MonoBehaviour:
     \u0442\u0435\u0431\u044F \u0436\u0434\u0443\u0442 \u043F\u0435\u0440\u0435\u043C\u0435\u043D\u044B
     \u0438 \u043D\u043E\u0432\u044B\u0435 \u044D\u043C\u043E\u0446\u0438\u0438, \u0432
     \u044D\u0442\u043E\u043C \u044F \u0443\u0432\u0435\u0440\u0435\u043D\u0430."
+--- !u!114 &4675660293851918704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -296, y: -744}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 4675660293851918704}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -1550753965440392251}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 4675660293851918704}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 5272119894728873585}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &4731575390765233044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3634,7 +4233,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: 344}
+  position: {x: -8, y: -296}
   ports:
     keys:
     - _inPut
@@ -3683,7 +4282,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2376, y: -408}
+  position: {x: 3048, y: -472}
   ports:
     keys:
     - _inPut
@@ -3736,7 +4335,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: -680}
+  position: {x: -296, y: -568}
   ports:
     keys:
     - _inPut
@@ -3748,7 +4347,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -1550753965440392251}
+        node: {fileID: 4675660293851918704}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -3788,7 +4387,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: -168}
+  position: {x: -8, y: -1000}
   ports:
     keys:
     - _inPut
@@ -3812,7 +4411,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 8429922106951863145}
+        node: {fileID: -3890746852641198095}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -3839,7 +4438,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1464, y: -168}
+  position: {x: 2152, y: -552}
   ports:
     keys:
     - _inPut
@@ -3851,7 +4450,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 2617120211546141178}
+        node: {fileID: -3074930722280714964}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -3889,7 +4488,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 920, y: -936}
+  position: {x: 392, y: -1000}
   ports:
     keys:
     - _inPut
@@ -3913,7 +4512,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -3692432690908385236}
+        node: {fileID: -5134259696885638860}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -3943,7 +4542,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1192, y: -936}
+  position: {x: 1080, y: -1000}
   ports:
     keys:
     - _inPut
@@ -3967,7 +4566,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -8741595446033226963}
+        node: {fileID: -8728612295767993773}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -3996,7 +4595,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2616, y: 104}
+  position: {x: 3288, y: 40}
   ports:
     keys:
     - _inPut
@@ -4020,7 +4619,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -8819784468642017028}
+        node: {fileID: -2704818913467886734}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -4047,7 +4646,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2616, y: -152}
+  position: {x: 3288, y: -216}
   ports:
     keys:
     - _inPut
@@ -4098,7 +4697,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2376, y: -920}
+  position: {x: 3048, y: -984}
   ports:
     keys:
     - _inPut
@@ -4110,7 +4709,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -791580025996938667}
+        node: {fileID: 8547037847612429680}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -4200,7 +4799,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: 88}
+  position: {x: -8, y: -552}
   ports:
     keys:
     - _inPut
@@ -4212,7 +4811,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 5450107428004998976}
+        node: {fileID: -3890746852641198095}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -4242,6 +4841,55 @@ MonoBehaviour:
     \u0434\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438, \u043C\u043E\u0436\u0435\u0442
     \u0441\u0433\u043E\u0440\u0435\u0442\u044C \u043C\u043E\u043C\u0435\u043D\u0442\u0430\u043B\u044C\u043D\u043E
     \u043B\u044E\u0431\u0430\u044F \u0432\u0435\u0449\u044C."
+--- !u!114 &8547037847612429680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2808, y: 40}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 8547037847612429680}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -791580025996938667}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 8547037847612429680}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 7522079027931761047}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
+  <Position>k__BackingField: 4
 --- !u!114 &8841204487555040664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4292,3 +4940,49 @@ MonoBehaviour:
   _outPut: 0
   <Points>k__BackingField: 1
   <Character>k__BackingField: 0
+--- !u!114 &9128447565708732639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d769d83eaff8b4e9395b8154bde09f, type: 3}
+  m_Name: Portrait Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 632, y: 1176}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 9128447565708732639}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 9128447565708732639}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -3297393794948633410}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <CharacterType>k__BackingField: 0
+  <Name>k__BackingField: "\u0414\u0435\u044F"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
+  <Position>k__BackingField: 4
