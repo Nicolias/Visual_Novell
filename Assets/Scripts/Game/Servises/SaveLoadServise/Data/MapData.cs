@@ -6,6 +6,7 @@ namespace SaveData
     public class MapData
     {
         public bool Enabled;
+        public bool GuidComplete;
         public int CurrentLocationIndex;
     }
 }

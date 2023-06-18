@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _staticData: {fileID: 2296899151798057738, guid: e6db747f68570ce4a812c6df77df7332, type: 3}
+  _charactersLibrary: {fileID: 8315552502562017731, guid: 955988d044b2c5a48aa261ca46517603, type: 3}
   _coroutineServise: {fileID: 1376940366168555733, guid: cf0467157a6256d4bbe89b9095894419, type: 3}
   _audioServise: {fileID: 5489979904845633024, guid: 33a28bbc8b6b33f428c993a5ac1d0c1c, type: 3}
   _dUXWindow: {fileID: 1470999570783338434, guid: 031edbb68f34905468dd135bbdfc4abb, type: 3}

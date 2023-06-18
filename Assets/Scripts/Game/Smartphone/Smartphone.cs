@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,9 +11,9 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
     public event Action OnClosed;
 
     [Inject] private SaveLoadServise _saveLoadServise;
+    [Inject] private Map _map;
 
     [SerializeField] private Button _openButton, _closeButton;
-    [SerializeField] private Button _exiteButton;
     [SerializeField] private Canvas _selfCanvas;
 
     [SerializeField] private DialogSpeechView _dialogSpeechView;
@@ -34,8 +35,6 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
         _closeButton.onClick.AddListener(Hide);
         _openButton.onClick.AddListener(Show);
 
-        _exiteButton.onClick.AddListener(() => SceneManager.LoadScene(0));
-
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
     }
@@ -43,7 +42,7 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
     private void OnDisable()
     {
         _closeButton.onClick.RemoveAllListeners();
-        _closeButton.onClick.RemoveAllListeners();
+        _openButton.onClick.RemoveAllListeners();
 
         Save();
     }
@@ -70,6 +69,22 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
 
         _dux.OpenAccesToDUX();
         _isDUXTutorialShow = true;
+    }
+
+    public void ChangeEnabled(List<(SmartphoneWindows, bool)> windowsEnabled)
+    {
+        foreach (var windowEnabled in windowsEnabled)
+        {
+            switch (windowEnabled.Item1)
+            {
+                case SmartphoneWindows.Map:
+                    _map.SetEnabled(windowEnabled.Item2);
+                    break;
+                case SmartphoneWindows.DUX:
+                    _dux.SetEnabled(windowEnabled.Item2);
+                    break;
+            }
+        }
     }
 
     private void Show()

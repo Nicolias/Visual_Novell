@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class DUXWindow : MonoBehaviour, IDUXVisitor
 {
@@ -12,6 +13,7 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
     [SerializeField] private Button _closeButton;
 
     [SerializeField] private Image _mainImage;
+    [SerializeField] private TMP_Text _characterSympathyPoints;
     [SerializeField] private TMP_Text _discriptionText;
     [SerializeField] private Button _backButton;
 
@@ -21,7 +23,15 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
 
     [SerializeField] private AudioPlayer _audioPlayer;
 
+    private CharactersLibrary _charactersLibrary;
+
     private Stack<List<DUXCategoryData>> _categoriesStack = new();
+
+    [Inject]
+    public void Construct(CharactersLibrary charactersLibrary)
+    {
+        _charactersLibrary = charactersLibrary;
+    }
 
     public void Open()
     {
@@ -50,6 +60,7 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
                 ShowCategory(_categoriesStack.Pop());
                 _mainImage.color = new(1, 1, 1, 0);
                 _discriptionText.text = "";
+                _characterSympathyPoints.text = "";
             }
 
             _audioPlayer.Hide();
@@ -80,6 +91,8 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
         _mainImage.sprite = characterCategoryData.CharacterSprite;
         _mainImage.color = new(1, 1, 1, 1);
         _discriptionText.text = characterCategoryData.Discription;
+
+        _characterSympathyPoints.text = $"Симпатия: {_charactersLibrary.GetCharacter(characterCategoryData.CharacterType).SympathyPoints}";
     }
 
     public void Visit(CharacterImageVariationCategoryData characterImageVariationCategoryData)
@@ -99,13 +112,16 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
         _audioPlayer.SetAudioClip(melodyCategoryData.AudioClip);
         _audioPlayer.Show();
     }
+
+    public void Visit(DiscriptionWithImageData discriptionWithImageData)
+    {
+        _mainImage.sprite = discriptionWithImageData.Sprite;
+        _mainImage.color = new(1, 1, 1, 1);
+        _discriptionText.text = discriptionWithImageData.Discription;
+    }
 }
 
 #region class
-public class LocationCategoryData : DUXCategoryData
-{
-
-}
 public class QuoteCategoryData : DUXCategoryData
 {
 

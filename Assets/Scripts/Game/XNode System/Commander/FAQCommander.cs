@@ -158,12 +158,22 @@ public class FAQCommander : Commander, ICommanderVisitor
         throw new System.NotImplementedException();
     }
 
-    public void Visit(ChangeMapEnabledModel changeEnabledLocation)
+    public void Visit(SetQuestOnLocationModel setQuestOnLocation)
     {
         throw new System.NotImplementedException();
     }
 
-    public void Visit(SetQuestOnLocationModel setQuestOnLocation)
+    public void Visit(SpawnItemModel spawnItemModel)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Visit(ChangeEnabledModel changeEnabledModel)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Visit(ChapterCaptionModel chapterCaptionModel)
     {
         throw new System.NotImplementedException();
     }

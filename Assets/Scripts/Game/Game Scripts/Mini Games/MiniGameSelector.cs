@@ -15,6 +15,7 @@ public class MiniGameSelector : MonoBehaviour
     [Inject] private readonly Battery _battery;
 
     [SerializeField]private TMP_Text _sympathyCounter;
+    [SerializeField] private TMP_Text _chargeCounter;
     [SerializeField] private List<MiniGame> _miniGames;
     [SerializeField] private int _startGameCost;
 
@@ -89,5 +90,6 @@ public class MiniGameSelector : MonoBehaviour
     private void UpdateSympathyView(int sympathyPoints)
     {
         _sympathyCounter.text = $"Симпатия: {sympathyPoints}";
+        _chargeCounter.text = $"Осталось энергии: {_battery.ChargeLevel}%";
     }
 }

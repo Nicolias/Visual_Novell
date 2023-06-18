@@ -54,6 +54,11 @@ public class DUX : MonoBehaviour, ISaveLoadObject
             .Play();
     }
 
+    public void SetEnabled(bool enabled)
+    {
+        _openDUXButton.enabled = enabled;
+    }
+
     public void Save()
     {
         _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = _openDUXButton.enabled });

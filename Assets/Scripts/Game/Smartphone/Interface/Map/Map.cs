@@ -27,6 +27,9 @@ public class Map : MonoBehaviour, ISaveLoadObject
 
     [SerializeField] private Canvas _selfCanvas;
 
+    [SerializeField] private GameObject _guidPanel;
+    private bool _guidComplete;
+
     private List<LocationCell> _locationCells = new();
     private Location _currentLocation;
 
@@ -84,6 +87,11 @@ public class Map : MonoBehaviour, ISaveLoadObject
         _choicePanel.Hide();
     }
 
+    public void Add(ItemForCollection item, LocationType location)
+    {
+        _locations.Find(x => x.LocationType == location).Add(item);
+    }
+
     public void SetQuest(LocationType locationType, Node quest)
     {
         _locations.Find(x => x.LocationType == locationType).SetQuest(quest);
@@ -97,8 +105,13 @@ public class Map : MonoBehaviour, ISaveLoadObject
 
     public void SetEnabled(bool eneble)
     {
-        _saveLoadServise.Save(_saveKey, new SaveData.MapData() { Enabled = eneble });
         _openButton.enabled = eneble;
+
+        if (_guidComplete == false)
+        {
+            _guidPanel.SetActive(true);
+            _guidComplete = true;
+        }
     }
 
     public void ChangeLocation(LocationType locationType)
@@ -143,20 +156,37 @@ public class Map : MonoBehaviour, ISaveLoadObject
     public void Save()
     {
         for (int i = 0; i < _locations.Count; i++)
-            _saveLoadServise.Save($"{_saveKey}/{i}", new SaveData.NodeData() { Node = _locations[i].QuestOnLocation });
+        {
+            _saveLoadServise.Save($"{_saveKey}/{i}", new SaveData.IntData() { Int = _locations[i].Items.Count });
+
+            for (int k = 0; k < _locations[i].Items.Count; k++)
+            {
+                _saveLoadServise.Save($"{_saveKey}/{i}/{k}", new SaveData.LocationData()
+                {
+                    Quest = _locations[i].QuestOnLocation,
+                    Items = _locations[i].Items[k]
+                });
+            }
+        }
 
         if (_currentLocation != null)
+        {
             _saveLoadServise.Save(_saveKey, new SaveData.MapData()
             {
                 Enabled = _openButton.enabled,
+                GuidComplete = _guidComplete,
                 CurrentLocationIndex = _locations.IndexOf(_currentLocation)
-            });
+            }) ;
+        }
         else
+        {
             _saveLoadServise.Save(_saveKey, new SaveData.MapData()
             {
                 Enabled = _openButton.enabled,
+                GuidComplete = _guidComplete,
                 CurrentLocationIndex = -1
             });
+        }
     }
 
     public void Load()
@@ -168,7 +198,20 @@ public class Map : MonoBehaviour, ISaveLoadObject
         if (data.CurrentLocationIndex != -1)
             _currentLocation = _locations[data.CurrentLocationIndex];
 
+        _guidComplete = data.GuidComplete;
+
         for (int i = 0; i < _locations.Count; i++)
-            _locations[i].SetQuest(_saveLoadServise.Load<SaveData.NodeData>($"{_saveKey}/{i}").Node);
+        {
+            int count = _saveLoadServise.Load<SaveData.IntData>($"{_saveKey}/{i}").Int;
+
+            for (int k = 0; k < count; k++)
+            {
+                _locations[i].SetQuest(_saveLoadServise.Load<SaveData.LocationData>($"{_saveKey}/{i}/{k}").Quest);
+                var item = _saveLoadServise.Load<SaveData.LocationData>($"{_saveKey}/{i}/{k}").Items;
+
+                if (_locations[i].Items.Contains(item) == false)
+                    _locations[i].Add(item);
+            }
+        }
     }
 }

@@ -15,6 +15,7 @@ public class UIInstaller : MonoInstaller
     [SerializeField] private Inventory _inventory;
     [SerializeField] private CollectionQuestView _collectionQuestView;
     [SerializeField] private FAQCommander _fAQCommander;
+    [SerializeField] private ChapterCaption _chapterCaption;
 
     public override void InstallBindings()
     {
@@ -51,5 +52,6 @@ public class UIInstaller : MonoInstaller
         Container.Bind<BackgroundView>().FromInstance(_background).AsSingle();
         Container.Bind<CollectionPanel>().FromInstance(_collectionPanel).AsSingle();
         Container.Bind<Inventory>().FromInstance(_inventory).AsSingle();
+        Container.Bind<ChapterCaption>().FromInstance(_chapterCaption).AsSingle();
     }
 }

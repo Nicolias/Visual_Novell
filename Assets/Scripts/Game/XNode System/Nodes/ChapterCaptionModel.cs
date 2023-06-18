@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class ChangeMapEnabledModel : XnodeModel
+public class ChapterCaptionModel : XnodeModel
 {
-    [field: SerializeField] public bool Enebled { get; private set; }
+    [field: SerializeField] public string ChapterText { get; private set; } 
 
     public override void Accept(ICommanderVisitor visitor)
     {

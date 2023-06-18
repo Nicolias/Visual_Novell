@@ -23,8 +23,6 @@ public class GameCommander : Commander, ICommanderVisitor
 
     [SerializeField] private FAQView _faqView;
 
-    [SerializeField] private CharactersLibrary _characterLibrary;
-
     [SerializeField] private MiniGameSelector _miniGameSelector;
 
     [SerializeField] private AccureItemPanel _accureItemPanel;
@@ -126,7 +124,7 @@ public class GameCommander : Commander, ICommanderVisitor
 
     public void Visit(AddSympathyModel sympathyModel)
     {
-        _result.command = DI.Instantiate<AddSympthyToCharacterController>(new object[] { sympathyModel, _characterLibrary });
+        _result.command = DI.Instantiate<AddSympthyToCharacterController>(new object[] { sympathyModel });
     }
     public void Visit(AccureMoneyModel accureMoneyModel)
     {
@@ -186,13 +184,23 @@ public class GameCommander : Commander, ICommanderVisitor
         _result.command = new SwitchSceneCommand(switchSceneModel.SceneNumber, SaveLoadServise);
     }
 
-    public void Visit(ChangeMapEnabledModel changeEnabledLocation)
-    {
-        _result.command = DI.Instantiate<EnebledMapController>(new object[] { changeEnabledLocation });
-    }
-
     public void Visit(SetQuestOnLocationModel setQuestOnLocation)
     {
         _result.command = DI.Instantiate<SetQuestOnLocationCommand>(new object[] { setQuestOnLocation });
+    }
+
+    public void Visit(SpawnItemModel spawnItemModel)
+    {
+        _result.command = DI.Instantiate<SpawnItemCommand>(new object[] { spawnItemModel });
+    }
+
+    public void Visit(ChangeEnabledModel changeEnabledModel)
+    {
+        _result.command = DI.Instantiate<EnebledController>(new object[] { changeEnabledModel });
+    }
+
+    public void Visit(ChapterCaptionModel chapterCaptionModel)
+    {
+        _result.command = DI.Instantiate<ChapterCaptionCommand>(new object[] { chapterCaptionModel });
     }
 }

@@ -21,7 +21,11 @@ public class ItemForCollectionView : MonoBehaviour
 
     private void OnEnable()
     {
-        _selfButton.onClick.AddListener(() => OnItemSelected?.Invoke(this, _itemData));
+        _selfButton.onClick.AddListener(() =>
+        {
+            if(_itemData.IsInteractable)
+                OnItemSelected?.Invoke(this, _itemData);
+        });
     }
 
     private void OnDisable()
