@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using XNode;
+using Zenject;
 
 public class GameCommander : Commander, ICommanderVisitor
 {
+    [Inject] private AudioServise _audioServise;
+
     [SerializeField] private NodeGraph _currentGraph;
 
     [SerializeField] private MonologSpeechView _monologSpeechView;
@@ -33,6 +36,8 @@ public class GameCommander : Commander, ICommanderVisitor
 
     private void OnEnable()
     {
+        _audioServise.Load();
+
         if (_currentGraph == null)
             return;
 

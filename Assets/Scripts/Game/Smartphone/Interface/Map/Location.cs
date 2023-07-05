@@ -28,7 +28,8 @@ public class Location : IDisposable
 
     public void Dispose()
     {
-        _collectionPanel.OnItemDeleted -= OnItemDelete;
+        if(_collectionPanel != null)
+            _collectionPanel.OnItemDeleted -= OnItemDelete;
     }
 
     public void SetQuest(Node questOnLocation)

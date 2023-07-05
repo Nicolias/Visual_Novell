@@ -15,5 +15,5 @@ MonoBehaviour:
   _discriptoin: 
   <CategoryName>k__BackingField: "\u041B\u043E\u043A\u0430\u0446\u0438\u0438"
   <Subcategories>k__BackingField:
-  - {fileID: 11400000, guid: 847c462d8ca5c3b4591e30160a1ba4b2, type: 2}
-  - {fileID: 11400000, guid: 2a1906e8c806bee499934c9f800afe32, type: 2}
+  - {fileID: 11400000, guid: 5589444a1280a8a4d9ddc1b4c0389fa7, type: 2}
+  - {fileID: 11400000, guid: fa3b8173fdede1b4b88aae5aec9f3415, type: 2}

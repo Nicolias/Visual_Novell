@@ -16,6 +16,7 @@ public class AudioController : IController
     public void Execute()
     {
         _view.PlaySound(_model.AudioClip);
+        _view.Save();
         OnComplete?.Invoke();
     }
 }

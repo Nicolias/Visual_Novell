@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5df100dfae9dd424c96c8b106a954b9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1acea191d88ff8b49b3078d0a64d4a40, type: 3}
   m_Name: Kitchen
   m_EditorClassIdentifier: 
   _discriptoin: "\u041C\u0435\u0441\u0442\u043E \u0433\u043E\u0442\u043E\u0432\u043A\u0438
     \u0438 \u043F\u0440\u0438\u0451\u043C\u0430 \u043F\u0438\u0449\u0438. \u0413\u043B\u0430\u0432\u043D\u043E\u0435,
-    \u0447\u0442\u043E\u0431 \u0431\u044B\u043B\u043E, \u0447\u0442\u043E \u043F\u043E\u043A\u0443\u0448\u0430\u0442\u044C."
+    \u0447\u0442\u043E\u0431 \u0431\u044B\u043B\u043E, \u0447\u0442\u043E \u043F\u043E\u043A\u0443\u0448\u0430\u0442\u044C"
   <CategoryName>k__BackingField: "\u041A\u0443\u0445\u043D\u044F"
   <Subcategories>k__BackingField: []
-  <CharacterSprite>k__BackingField: {fileID: 21300000, guid: 38547555dfd5ed1499963f4bee9b6a95, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 38547555dfd5ed1499963f4bee9b6a95, type: 3}

@@ -5,12 +5,14 @@ public class MenuBehaviour : ISaveLoadObject
 {
     private readonly SaveLoadServise _saveLoadServise;
     private readonly List<BaseState> _states;
+    private readonly QuitGamePanel _quitGamePanel;
     private BaseState _currentState;
 
     private const string _saveKey = "HasGameProgress";
 
     public MenuBehaviour(ChoiceButton newOrContinueGameButton, 
-        SettingWindow settingWindow, GameObject menuButtons, SaveLoadServise saveLoadServise)
+        SettingWindow settingWindow, GameObject menuButtons, 
+        SaveLoadServise saveLoadServise, QuitGamePanel quitGamePanel)
     {
         _saveLoadServise = saveLoadServise;
 
@@ -20,6 +22,8 @@ public class MenuBehaviour : ISaveLoadObject
             new ContinueGameState(newOrContinueGameButton, menuButtons),
             new SettingState(settingWindow)
         };
+
+        _quitGamePanel = quitGamePanel;
 
         Load();
     }
@@ -46,7 +50,7 @@ public class MenuBehaviour : ISaveLoadObject
         if (_currentState is SettingState)
             OpenMainMenu();
         else
-            Application.Quit();
+            _quitGamePanel.Show();
     }
 
     private void Switch<T>() where T : BaseState

@@ -6,7 +6,6 @@ public class GameComponentInstaller : MonoInstaller
     [SerializeField] private Wallet _wallet;
     [SerializeField] private Battery _battery;
     [SerializeField] private QuizView _quizView;
-    
 
     public override void InstallBindings()
     {        

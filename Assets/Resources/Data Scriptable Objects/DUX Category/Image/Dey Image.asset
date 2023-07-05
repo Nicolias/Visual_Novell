@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dey Image
   m_EditorClassIdentifier: 
   _discriptoin: 
-  <CategoryName>k__BackingField: "\u0414\u0435\u044F"
+  <CategoryName>k__BackingField: "\u0414\u044D\u044F"
   <Subcategories>k__BackingField:
-  - {fileID: 11400000, guid: 47c049f7a7a591a4897741c4f3be6384, type: 2}
-  - {fileID: 11400000, guid: 1ef513f2988fdcf4cb15d2ae74c58d34, type: 2}
-  - {fileID: 11400000, guid: 61e71ea613fedd9439c07acb34f4b0c3, type: 2}
-  - {fileID: 11400000, guid: b611d00e9437d844abfd4ad31a8b5b8c, type: 2}
+  - {fileID: 11400000, guid: dacf65a4ab737694b909b8a255f0ba2b, type: 2}
+  - {fileID: 11400000, guid: 6d2c1031c47f8b647938864f8ed7d30e, type: 2}
+  - {fileID: 11400000, guid: 6dd94c1d34961bc449c29923fce3cc0c, type: 2}
+  - {fileID: 11400000, guid: 4fb94b177ae882b48bdf671e1f1cc844, type: 2}
+  - {fileID: 11400000, guid: 719f010bbb39e8d43a6e82153ba9c38c, type: 2}
   - {fileID: 11400000, guid: 665abf8cd59ebb54e8c0112966781fab, type: 2}
-  - {fileID: 11400000, guid: adbc3e73e8b31d9418abbdeab551f6d6, type: 2}

@@ -21,13 +21,9 @@ public class MenuTimeDependent: MonoBehaviour
         _timesOfDayServise = timesOfDayServise;
     }
 
-    private void OnEnable()
-    {
-        ChangeBackground(_timesOfDayServise.GetCurrentTimesOfDay());
-    }
-
     private void Update()
     {
+        ChangeBackground(_timesOfDayServise.GetCurrentTimesOfDay());
         _timeText.text = $"{_timesOfDayServise.CurrentTime:HH}:{_timesOfDayServise.CurrentTime:mm}";
     }
 

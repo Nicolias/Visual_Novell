@@ -15,16 +15,15 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
     private const string _musicSaveKey = "MusicAudioSave";
     private const string _soundSaveKey = "SoundAudioSave";
 
-    private void Awake()
-    {
-        if (_saveLoadServise.HasSave(_soundSaveKey))
-            Load();
-    }
+    public AudioSource CurrentMusic { get; private set; }
+    public AudioSource CurrentSound { get; private set; }
 
     public void PlaySound(AudioClip audioClip)
     {
         if (audioClip == null)
         {
+            CallSound.Stop();
+
             foreach (var music in _allMusic)
                 music.Stop();
 
@@ -41,17 +40,17 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
             _allMusic.ForEach(x => x.mute = true);
             sound.mute = false;
             sound.Play();
+            CurrentMusic = sound;
         }
         else
         {
             sound = _allSound.Find(x => x.clip == audioClip);
             sound.Play();
+            CurrentSound = sound;
         }
-
-        Save();
     }
 
-    internal void StopSound(AudioClip audioClip)
+    public void StopSound(AudioClip audioClip)
     {
         var sound = _allMusic.Find(x => x.clip == audioClip);
 
@@ -64,8 +63,6 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
         {
             sound.Stop();
         }
-
-        Save();
     }
 
     public void ChangeSoundVolume(float volumeLevel)
@@ -94,8 +91,11 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
 
     public void Load()
     {
-        LoadAudio(_allMusic, _musicSaveKey);
-        LoadAudio(_allSound, _soundSaveKey);
+        if (_saveLoadServise.HasSave(_soundSaveKey))
+        {
+            LoadAudio(_allMusic, _musicSaveKey);
+            LoadAudio(_allSound, _soundSaveKey);
+        }
     }
 
     private void SaveAudio(List<AudioSource> audioSources, string saveKey)

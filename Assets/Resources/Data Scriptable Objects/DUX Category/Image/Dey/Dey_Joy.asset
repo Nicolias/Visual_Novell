@@ -20,5 +20,8 @@ MonoBehaviour:
     \u0441 \u043D\u0435\u0439, \u043F\u0440\u043E\u0441\u0442\u043E \u0442\u0430\u043A,
     \u0431\u0435\u0437 \u043F\u0440\u0438\u0447\u0438\u043D\u044B."
   <CategoryName>k__BackingField: "\u0412\u0435\u0441\u0435\u043B\u044C\u0435"
-  <Subcategories>k__BackingField: []
+  <Subcategories>k__BackingField:
+  - {fileID: 11400000, guid: 15e90bbfaa435724fb22a781fd82bedd, type: 2}
+  - {fileID: 11400000, guid: 246d55ed04d958a499d9c676a0d8442c, type: 2}
+  - {fileID: 11400000, guid: 22081854fabd83a40a6988de34fd83b0, type: 2}
   <Sprite>k__BackingField: {fileID: 21300000, guid: 77700a235794b9c4ba0a9664fee3bfc3, type: 3}

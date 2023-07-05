@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,17 +12,33 @@ public class QuitGamePanel : MonoBehaviour
 
     [SerializeField] private Canvas _selfCanvas;
 
+    private Action _quitAction;
+
     private void OnEnable()
     {
-        _exitButton.onClick.AddListener(() => _selfCanvas.enabled = true);
+        if (_exitButton != null)
+        {
+            _exitButton.onClick.AddListener(Show);
+            _completeExiteButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+        }
+        else
+        {
+            _completeExiteButton.onClick.AddListener(Application.Quit);
+        }
+
         _exitPanelCloseButton.onClick.AddListener(() => _selfCanvas.enabled = false);
-        _completeExiteButton.onClick.AddListener(() => SceneManager.LoadScene(0));
     }
 
     private void OnDisable()
     {
-        _exitButton.onClick.RemoveAllListeners();
+        if (_exitButton != null)
+            _exitButton.onClick.RemoveAllListeners();
         _exitPanelCloseButton.onClick.RemoveAllListeners();
         _completeExiteButton.onClick.RemoveAllListeners();
+    }
+
+    public void Show()
+    {
+        _selfCanvas.enabled = true;
     }
 }

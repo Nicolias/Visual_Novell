@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -9,6 +10,7 @@ public class BatteryView : MonoBehaviour
     [Inject] private Battery _battery;
 
     [SerializeField] private Image _batteryImage;
+    [SerializeField] private TMP_Text _chargeValueText;
 
     [SerializeField] private Sprite _lowBetterySprite, _midleBetterySprite, _fullBetterySprite;
     
@@ -38,5 +40,7 @@ public class BatteryView : MonoBehaviour
                 _batteryImage.sprite = _lowBetterySprite;
                 break;
         }
+
+        _chargeValueText.text = $"{value}%";
     }
 }

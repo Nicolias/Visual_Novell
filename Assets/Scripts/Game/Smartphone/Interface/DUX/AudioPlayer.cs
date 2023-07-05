@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class AudioPlayer : MonoBehaviour
 {
+    [Inject] private AudioServise _audioServise;
+
     [SerializeField] private AudioSource _audioSource;
 
     [SerializeField] private Button _playButton;
@@ -26,6 +29,8 @@ public class AudioPlayer : MonoBehaviour
         _pauseButton.onClick.AddListener(() => _audioSource.Stop());
 
         _progerssSlider.onValueChanged.AddListener((x) => _currentProgress = x);
+
+        _audioServise.CurrentMusic.Pause();
     }
 
     private void OnDisable()
@@ -34,6 +39,8 @@ public class AudioPlayer : MonoBehaviour
         _pauseButton.onClick.RemoveAllListeners();
 
         _progerssSlider.onValueChanged.RemoveAllListeners();
+
+        _audioServise.CurrentMusic.Play();
     }
 
     private void Update()
@@ -53,17 +60,17 @@ public class AudioPlayer : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void Hide()
+    {
+        _audioSource.clip = null;
+        gameObject.SetActive(false);
+    }
+
     public void SetAudioClip(AudioClip audioClip)
     {
         _audioSource.clip = audioClip;
         _audioSource.Pause();
         _progerssSlider.value = _progerssSlider.minValue;
         _currentProgress = _progerssSlider.minValue;
-    }
-
-    public void Hide()
-    {
-        _audioSource.clip = null;
-        gameObject.SetActive(false);
     }
 }

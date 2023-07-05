@@ -78,8 +78,8 @@ public class MiniGameSelector : MonoBehaviour
 
     private void OnGameEnd()
     {
-        OnGameEnded?.Invoke();
         _battery.Decreese(_startGameCost);
+        OnGameEnded?.Invoke();
         UpdateSympathyView(_currentCharacter.SympathyPoints);
     }
     private void OnGameRestart()

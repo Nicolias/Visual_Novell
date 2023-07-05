@@ -14,14 +14,15 @@ public class MenuWindow : MonoBehaviour
     [SerializeField] private SettingWindow _settingWindow;
     [SerializeField] private GameObject _menuButtons;
 
-    [SerializeField] private AudioClip _menuMusic;
+    [SerializeField] private QuitGamePanel _quitGamePanel;
 
+    [SerializeField] private AudioClip _menuMusic;
 
     private MenuBehaviour _menuBehaviour;
 
     private void Awake()
     {
-        _menuBehaviour = new(_newOrContinueGameButton, _settingWindow, _menuButtons, _saveLoadServise);
+        _menuBehaviour = new(_newOrContinueGameButton, _settingWindow, _menuButtons, _saveLoadServise, _quitGamePanel);
     }
 
     private void OnEnable()
@@ -29,6 +30,9 @@ public class MenuWindow : MonoBehaviour
         _settingButton.onClick.AddListener(_menuBehaviour.OpenSetting);
         _quitButton.onClick.AddListener(_menuBehaviour.Quit);
 
+
+
+        _audioServise.PlaySound(null);
         _audioServise.PlaySound(_menuMusic);
     }
 
@@ -36,7 +40,5 @@ public class MenuWindow : MonoBehaviour
     {
         _settingButton.onClick.RemoveAllListeners();
         _quitButton.onClick.RemoveAllListeners();
-
-        _audioServise.StopSound(_menuMusic);
     }
 }

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5df100dfae9dd424c96c8b106a954b9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1acea191d88ff8b49b3078d0a64d4a40, type: 3}
   m_Name: Quote 1
   m_EditorClassIdentifier: 
   _discriptoin: "\u0427\u0442\u043E\u0431 \u0437\u0430\u0433\u043B\u044F\u043D\u0443\u0442\u044C
@@ -24,4 +24,4 @@ MonoBehaviour:
     \u043C\u0438\u043B\u043B\u0438\u043E\u043D \u043B\u0435\u0442."
   <CategoryName>k__BackingField: "\u041A\u043E\u0441\u043C\u043E\u0441 "
   <Subcategories>k__BackingField: []
-  <CharacterSprite>k__BackingField: {fileID: 21300000, guid: f6f87f7505ced8442bfe8218f4fddc11, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: f6f87f7505ced8442bfe8218f4fddc11, type: 3}

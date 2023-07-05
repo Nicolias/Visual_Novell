@@ -7,7 +7,7 @@ public class TimesOfDayServise : MonoBehaviour
 
     public DateTime CurrentTime => _currentTime;
 
-    private void Awake()
+    private void Update()
     {
         _currentTime = DateTime.Now;
     }
@@ -18,9 +18,9 @@ public class TimesOfDayServise : MonoBehaviour
         {
             case (> 18):
                 return TimesOfDayType.Evning;
-            case (> 14):
+            case (> 12):
                 return TimesOfDayType.Day;
-            case (> 8):
+            case (> 6):
                 return TimesOfDayType.Morning;
             case (> 0):
                 return TimesOfDayType.Night;
