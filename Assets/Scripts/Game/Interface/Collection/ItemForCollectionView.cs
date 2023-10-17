@@ -10,6 +10,8 @@ public class ItemForCollectionView : MonoBehaviour
     private ItemForCollection _itemData;
     private Button _selfButton;
 
+    public ItemForCollection Data => _itemData;
+
     public event Action<ItemForCollectionView, ItemForCollection> ItemSelected;
 
     private void Awake()
@@ -35,6 +37,12 @@ public class ItemForCollectionView : MonoBehaviour
     {
         _itemData = itemData;
 
-        _itemImage.sprite = itemData.ItemSpriteInScene;
+        if(_itemImage != null)
+            _itemImage.sprite = itemData.ItemSpriteInScene;
+    }
+
+    public void SelectItem()
+    {
+        ItemSelected?.Invoke(this, _itemData);
     }
 }

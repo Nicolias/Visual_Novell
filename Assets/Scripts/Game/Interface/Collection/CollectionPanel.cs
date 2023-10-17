@@ -11,13 +11,11 @@ public class CollectionPanel : MonoBehaviour
     public event Action<ItemForCollectionView, ItemForCollection> ItemSelected;
     public event Action<ItemForCollection> ItemDeleted;
 
-    public void ShowItems(List<ItemForCollection> itemsForCollection)
+    public void ShowItems(List<ItemForCollectionView> itemsView)
     {
-        foreach (var itemForCollection in itemsForCollection)
+        foreach (var itemView in itemsView)
         {
-            ItemForCollectionView itemView = Instantiate(itemForCollection.Prefab, transform);
-            itemView.Initialize(itemForCollection);
-            itemView.transform.localPosition = itemForCollection.ItemAfterInstantiatePosition;
+            itemView.gameObject.SetActive(true);
             itemView.ItemSelected += OnItemSelected;
             _itemsOnPanel.Add(itemView);
         }
@@ -26,9 +24,28 @@ public class CollectionPanel : MonoBehaviour
     public void HideItems()
     {
         foreach (var item in _itemsOnPanel)
-            Destroy(item.gameObject);
+        {
+            item.gameObject.SetActive(false);
+            item.ItemSelected -= OnItemSelected;
+        }
 
         _itemsOnPanel.RemoveAll(x => x);
+    }
+
+    public List<ItemForCollectionView> CreateItemsView(List<ItemForCollection> itemsData)
+    {
+        List<ItemForCollectionView> itemsView = new List<ItemForCollectionView>();
+
+        foreach (var itemData in itemsData)
+        {
+            ItemForCollectionView itemView = Instantiate(itemData.Prefab, transform);
+            itemView.Initialize(itemData);
+            itemView.transform.localPosition = itemData.ItemAfterInstantiatePosition;
+
+            itemsView.Add(itemView);
+        }
+
+        return itemsView;
     }
 
     public void Delete(ItemForCollectionView itemView, ItemForCollection itemData)
@@ -36,8 +53,9 @@ public class CollectionPanel : MonoBehaviour
         if (_currentSelectedItem == null | _currentSelectedItem != itemData)
             throw new InvalidProgramException("Сначало предмет должен быть выделен");
 
-        Destroy(itemView.gameObject);
+        DestroyImmediate(itemView.gameObject);
         _itemsOnPanel.Remove(itemView);
+        itemView.ItemSelected -= OnItemSelected;
 
         ItemDeleted?.Invoke(itemData);
     }

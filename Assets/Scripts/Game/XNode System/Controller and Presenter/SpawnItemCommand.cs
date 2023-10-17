@@ -20,7 +20,7 @@ public class SpawnItemCommand : ICommand
     public void Execute()
     {
         _map.Add(_item, _locationType);
-        _collectionPanel.ShowItems(new() { _item});
+        _collectionPanel.ShowItems(_collectionPanel.CreateItemsView(new() { _item }));
         OnComplete?.Invoke();
     }
 }

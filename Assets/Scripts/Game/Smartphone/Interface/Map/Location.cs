@@ -17,6 +17,8 @@ public class Location : IDisposable
     [field: SerializeField] public LocationType LocationType { get; private set; }
     [field: SerializeField] public string Name { get; private set; }
 
+    private List<ItemForCollectionView> _itemsOnLocationView = new List<ItemForCollectionView>(); 
+
     public Node QuestOnLocation => _questOnLocation;
     public List<ItemForCollection> Items => _itemsOnLocation;
 
@@ -24,6 +26,17 @@ public class Location : IDisposable
     {
         _background = background;
         _collectionPanel = collectionPanel;
+
+        _itemsOnLocationView = collectionPanel.CreateItemsView(_itemsOnLocation);
+    }
+
+    public void Show()
+    {
+        _collectionPanel.HideItems();
+        _background.Replace(_backgroundSprite);
+
+        _collectionPanel.ShowItems(_itemsOnLocationView);
+        _collectionPanel.ItemDeleted += OnItemDelete;
     }
 
     public void Dispose()
@@ -40,6 +53,7 @@ public class Location : IDisposable
     public void Add(ItemForCollection item)
     {
         _itemsOnLocation.Add(item);
+        _itemsOnLocationView.AddRange(_collectionPanel.CreateItemsView(new() { item }));
     }
 
     public void StartQuest()
@@ -47,23 +61,9 @@ public class Location : IDisposable
         _questOnLocation = null;
     }
 
-    public void Show()
-    {
-        _collectionPanel.HideItems();
-        _background.Replace(_backgroundSprite);
-
-        _background.OnPicturChanged += OnPicturChange;
-        _collectionPanel.ItemDeleted += OnItemDelete;
-    }
-
     private void OnItemDelete(ItemForCollection itemData)
     {
         _itemsOnLocation.Remove(itemData);
-    }
-
-    private void OnPicturChange()
-    {
-        _background.OnPicturChanged -= OnPicturChange;
-        _collectionPanel.ShowItems(_itemsOnLocation);
+        _itemsOnLocationView.RemoveAll(x => x == null);
     }
 }

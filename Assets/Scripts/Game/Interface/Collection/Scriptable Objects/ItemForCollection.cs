@@ -10,5 +10,10 @@ public abstract class ItemForCollection : ScriptableObject
     [field: SerializeField] public Vector2 ItemAfterInstantiatePosition { get; private set; }
     [field: SerializeField] public bool IsInteractable { get; private set; }
 
+    public void Initialize(ItemForCollectionView itemView)
+    {
+        Prefab = itemView;
+    }
+
     public abstract void Acсept(IItemCollector itemCollectorVisitor);
 }

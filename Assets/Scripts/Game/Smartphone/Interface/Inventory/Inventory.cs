@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using Zenject;
 
 [RequireComponent(typeof(Canvas))]
-public class Inventory : MonoBehaviour, ISaveLoadObject
+public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
 {
     [Inject] private SaveLoadServise _saveLoadServise;
 
@@ -25,6 +25,8 @@ public class Inventory : MonoBehaviour, ISaveLoadObject
     private List<ItemForCollection> _items = new();
 
     private const string _saveKey = "InventorySave";
+
+    public Inventory InventoryComponent => this;
 
     private void Awake()
     {

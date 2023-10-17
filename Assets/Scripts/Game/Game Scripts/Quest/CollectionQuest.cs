@@ -5,25 +5,27 @@ public class CollectionQuest : Quest, IItemCollector, IDisposable
 {
     private readonly CollectionPanel _collectionPanel;
 
-    private readonly Inventory _inventory;
+    private readonly IInventory _inventory;
 
-    private List<ItemForCollection> _itemsForCollection = new();
+    private List<ItemForCollectionView> _itemsForCollection = new();
     private ItemForCollection _currentItemData;
 
-    public IEnumerable<ItemForCollection> ItemForCollections => _itemsForCollection;
+    public IEnumerable<ItemForCollectionView> ItemsForCollection => _itemsForCollection;
+    public bool IsQuestComplete { get; private set; }
 
     public event Action QuestCompleted;
     public event Action<ItemForCollection> ItemCollected;
 
-    public CollectionQuest(List<ItemForCollection> itemsForCollection, CollectionPanel collectionPanel, Inventory inventory)
+    public CollectionQuest(List<ItemForCollection> itemsForCollectionData, CollectionPanel collectionPanel, IInventory inventory)
     {
         _collectionPanel = collectionPanel;
         _inventory = inventory;
 
-        _itemsForCollection.AddRange(itemsForCollection);
+        _itemsForCollection = _collectionPanel.CreateItemsView(itemsForCollectionData);
+        _collectionPanel.ShowItems(_itemsForCollection);
 
         if(_itemsForCollection.Count > 0)
-            _currentItemData = _itemsForCollection[0];
+            _currentItemData = _itemsForCollection[0].Data;
 
         _collectionPanel.ItemSelected += OnItemSelected;
     }
@@ -38,29 +40,36 @@ public class CollectionQuest : Quest, IItemCollector, IDisposable
         if (_currentItemData == null)
             throw new InvalidOperationException("Нет текущего предмета в списки заданий по сбору.");
 
-        if (_currentItemData != selectedItemData)
+        if (selectdItemView == null)
+            throw new InvalidOperationException("Предмет уже удален");
+
+        if (_currentItemData != selectdItemView.Data)
             return;
 
-        if (_itemsForCollection.Contains(selectedItemData))
+        if (_itemsForCollection.Contains(selectdItemView))
         {
-            _itemsForCollection.Remove(selectedItemData);
+            _itemsForCollection.Remove(selectdItemView);
 
             if (_itemsForCollection.Count != 0)
-                _currentItemData = _itemsForCollection[0];
+            {
+                _currentItemData = _itemsForCollection[0].Data;
+            }
             else
+            {
                 QuestCompleted?.Invoke();
+                IsQuestComplete = true;
+            }
 
-            selectedItemData.Acсept(this);
+            selectdItemView.Data.Acсept(this);
+            _collectionPanel.Delete(selectdItemView, selectdItemView.Data);
 
-            _collectionPanel.Delete(selectdItemView, selectedItemData);
-
-            ItemCollected?.Invoke(selectedItemData);
+            ItemCollected?.Invoke(selectdItemView.Data);
         }
     }
 
     public void Visit(BackpackItem backpackItem)
     {
-        _inventory.enabled = true;
+        _inventory.InventoryComponent.enabled = true;
     }
 
     public void Visit(KeyItem keyItem)

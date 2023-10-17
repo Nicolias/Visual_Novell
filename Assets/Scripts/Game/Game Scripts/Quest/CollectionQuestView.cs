@@ -17,10 +17,10 @@ public class CollectionQuestView : MonoBehaviour, IDisposable
         _currentQust = currentQuest;
         _itemsForCollection = new();
 
-        foreach (ItemForCollection item in currentQuest.ItemForCollections)
+        foreach (var item in currentQuest.ItemsForCollection)
         {
             var itemQuest = Instantiate(_textTemplate, _questsTextContainer);
-            itemQuest.Initialize(item);
+            itemQuest.Initialize(item.Data);
             _itemsForCollection.Add(itemQuest);
         }
 
