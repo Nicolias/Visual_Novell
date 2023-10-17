@@ -29,7 +29,7 @@ public class Location : IDisposable
     public void Dispose()
     {
         if(_collectionPanel != null)
-            _collectionPanel.OnItemDeleted -= OnItemDelete;
+            _collectionPanel.ItemDeleted -= OnItemDelete;
     }
 
     public void SetQuest(Node questOnLocation)
@@ -53,7 +53,7 @@ public class Location : IDisposable
         _background.Replace(_backgroundSprite);
 
         _background.OnPicturChanged += OnPicturChange;
-        _collectionPanel.OnItemDeleted += OnItemDelete;
+        _collectionPanel.ItemDeleted += OnItemDelete;
     }
 
     private void OnItemDelete(ItemForCollection itemData)
@@ -66,5 +66,4 @@ public class Location : IDisposable
         _background.OnPicturChanged -= OnPicturChange;
         _collectionPanel.ShowItems(_itemsOnLocation);
     }
-
 }

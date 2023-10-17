@@ -4,9 +4,11 @@ using Zenject;
 
 public class StaticData : MonoBehaviour, ISaveLoadObject
 {
-    [Inject] private SaveLoadServise _saveLoadServise;
+    private const string _saveKey = "StaticDataSave";
 
     [SerializeField] private List<QuizElement> _quizQuestion;
+    [SerializeField] private string _nickname = "Везунчик";
+    [Inject] private SaveLoadServise _saveLoadServise;
 
     private Dictionary<int, int> _needPointsToRichLevel = new()
     {
@@ -14,16 +16,9 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
         {3, 200 }
     };
 
-    private const string _saveKey = "StaticDataSave";
-
     [field: SerializeField] public string SpecWordForNickName { get; private set; }
-    public string Nickname { get; private set; }
+    public string Nickname => _nickname;
     public List<QuizElement> QuizQuestion => _quizQuestion;
-
-    private void Awake()
-    {
-        Nickname = "Везунчик";
-    }
 
     private void OnEnable()
     {
@@ -43,7 +38,7 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
 
     public void SetNickname(string nickname)
     {
-        Nickname = nickname;
+        _nickname = nickname;
     }
 
     public void Save()
@@ -54,6 +49,6 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
     public void Load()
     {
         var data = _saveLoadServise.Load<SaveData.StringData>(_saveKey);
-        Nickname = data.String;
+        _nickname = data.String;
     }
 }

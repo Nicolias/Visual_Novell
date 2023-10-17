@@ -1,0 +1,27 @@
+{
+    "name": "VisualNovell",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b8e24fd1eb19b4226afebb2810e3c19b",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:77f72228c7ca8ad4d9c603f3b5bddc97"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "DOTween.dll",
+        "DOTweenEditor.dll",
+        "Zenject.ReflectionBaking.Mono.Cecil.dll",
+        "Zenject-usage.dll",
+        "Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll",
+        "Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll",
+        "Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

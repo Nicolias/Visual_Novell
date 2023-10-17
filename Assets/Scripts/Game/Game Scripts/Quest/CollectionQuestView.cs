@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectionQuestView : MonoBehaviour
+public class CollectionQuestView : MonoBehaviour, IDisposable
 {
     [SerializeField] private Transform _questsTextContainer;
     [SerializeField] private QuestText _textTemplate;
@@ -24,7 +24,12 @@ public class CollectionQuestView : MonoBehaviour
             _itemsForCollection.Add(itemQuest);
         }
 
-        _currentQust.OnItemCollected += OnItemCollect;
+        _currentQust.ItemCollected += OnItemCollect;
+    }
+
+    public void Dispose()
+    {
+        _currentQust.ItemCollected -= OnItemCollect;
     }
 
     private void OnItemCollect(ItemForCollection item)
@@ -35,12 +40,11 @@ public class CollectionQuestView : MonoBehaviour
 
         if (_itemsForCollection.Count == 0)
         {
-            _currentQust.OnItemCollected -= OnItemCollect;
+            _currentQust.ItemCollected -= OnItemCollect;
 
             _itemsForCollection = null;
             _currentQust = null;
             gameObject.SetActive(false);
         }
-
     }
 }

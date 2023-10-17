@@ -5,14 +5,12 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class ItemForCollectionView : MonoBehaviour
 {
-    public event Action<ItemForCollectionView, ItemForCollection> OnItemSelected;
-
     [SerializeField] private Image _itemImage;
 
     private ItemForCollection _itemData;
     private Button _selfButton;
 
-    public ItemForCollection Data => _itemData;
+    public event Action<ItemForCollectionView, ItemForCollection> ItemSelected;
 
     private void Awake()
     {
@@ -24,7 +22,7 @@ public class ItemForCollectionView : MonoBehaviour
         _selfButton.onClick.AddListener(() =>
         {
             if(_itemData.IsInteractable)
-                OnItemSelected?.Invoke(this, _itemData);
+                ItemSelected?.Invoke(this, _itemData);
         });
     }
 

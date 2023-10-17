@@ -1,50 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class CollectionQuest : Quest, IItemCollector
+public class CollectionQuest : Quest, IItemCollector, IDisposable
 {
-    public event Action OnQuestCompleted;
-    public event Action<ItemForCollection> OnItemCollected;
-
     private readonly CollectionPanel _collectionPanel;
 
     private readonly Inventory _inventory;
 
-    private List<ItemForCollection> _itemForCollections = new();
-    private ItemForCollection _currentItem;
+    private List<ItemForCollection> _itemsForCollection = new();
+    private ItemForCollection _currentItemData;
 
-    public IEnumerable<ItemForCollection> ItemForCollections => _itemForCollections;
+    public IEnumerable<ItemForCollection> ItemForCollections => _itemsForCollection;
 
-    public CollectionQuest(List<ItemForCollection> itemForCollections, CollectionPanel collectionPanel, Inventory inventory)
+    public event Action QuestCompleted;
+    public event Action<ItemForCollection> ItemCollected;
+
+    public CollectionQuest(List<ItemForCollection> itemsForCollection, CollectionPanel collectionPanel, Inventory inventory)
     {
         _collectionPanel = collectionPanel;
         _inventory = inventory;
 
-        _itemForCollections.AddRange(itemForCollections);
-        if(_itemForCollections.Count > 0)
-            _currentItem = _itemForCollections[0];
+        _itemsForCollection.AddRange(itemsForCollection);
 
-        _collectionPanel.IsItemDelete += OnItemCollect;
+        if(_itemsForCollection.Count > 0)
+            _currentItemData = _itemsForCollection[0];
+
+        _collectionPanel.ItemSelected += OnItemSelected;
     }
 
-    private bool OnItemCollect(ItemForCollection item)
+    public void Dispose()
     {
-        if (_currentItem != item)
-            return false;
+        _collectionPanel.ItemSelected -= OnItemSelected;
+    }
 
-        if (_itemForCollections.Contains(item))
-            _itemForCollections.Remove(item);
+    private void OnItemSelected(ItemForCollectionView selectdItemView, ItemForCollection selectedItemData)
+    {
+        if (_currentItemData == null)
+            throw new InvalidOperationException("Нет текущего предмета в списки заданий по сбору.");
 
-        _currentItem = _itemForCollections.Count != 0 ? _itemForCollections[0] : null;
+        if (_currentItemData != selectedItemData)
+            return;
 
-        if (_currentItem == null)
-            OnQuestCompleted?.Invoke();
+        if (_itemsForCollection.Contains(selectedItemData))
+        {
+            _itemsForCollection.Remove(selectedItemData);
 
-        item.Acсept(this);
+            if (_itemsForCollection.Count != 0)
+                _currentItemData = _itemsForCollection[0];
+            else
+                QuestCompleted?.Invoke();
 
-        OnItemCollected?.Invoke(item);
+            selectedItemData.Acсept(this);
 
-        return true;
+            _collectionPanel.Delete(selectdItemView, selectedItemData);
+
+            ItemCollected?.Invoke(selectedItemData);
+        }
     }
 
     public void Visit(BackpackItem backpackItem)
