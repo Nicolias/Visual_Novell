@@ -32,29 +32,11 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISav
 
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
-
-        _backgroundView.OnPicturChangeStarted += TurnOffAllCharacters;
-        _backgroundView.OnPicturChanged += ShowAllCharacters;
     }
 
     private void OnDisable()
     {
-        _backgroundView.OnPicturChangeStarted -= TurnOffAllCharacters;
-        _backgroundView.OnPicturChanged -= ShowAllCharacters;
-
         Save();
-    }
-
-    private void TurnOffAllCharacters()
-    {
-        foreach (var character in _charactersList)
-            character.Image.DOColor(new(1, 1, 1, 0), _backgroundView.TurnOffDuratoin).Play();
-    }
-
-    private void ShowAllCharacters()
-    {
-        foreach (var character in _charactersList)
-            character.Image.DOColor(new(1, 1, 1, 1), _backgroundView.ShowDuration).Play();
     }
 
     public void Show(ICharacterPortraitModel character)

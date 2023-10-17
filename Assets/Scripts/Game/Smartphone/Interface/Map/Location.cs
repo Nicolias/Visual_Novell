@@ -33,7 +33,7 @@ public class Location : IDisposable
     public void Show()
     {
         _collectionPanel.HideItems();
-        _background.Replace(_backgroundSprite);
+        _background.Show(_backgroundSprite);
 
         _collectionPanel.ShowItems(_itemsOnLocationView);
         _collectionPanel.ItemDeleted += OnItemDelete;

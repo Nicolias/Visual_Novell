@@ -41,6 +41,7 @@ public class CollectionPanel : MonoBehaviour
             ItemForCollectionView itemView = Instantiate(itemData.Prefab, transform);
             itemView.Initialize(itemData);
             itemView.transform.localPosition = itemData.ItemAfterInstantiatePosition;
+            itemView.gameObject.SetActive(false);
 
             itemsView.Add(itemView);
         }
