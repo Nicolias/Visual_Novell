@@ -2,49 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectionQuestView : MonoBehaviour, IDisposable
+public class CollectionQuestView : MonoBehaviour
 {
     [SerializeField] private Transform _questsTextContainer;
     [SerializeField] private QuestText _textTemplate;
 
-    private CollectionQuest _currentQust;
-    private List<QuestText> _itemsForCollection;
+    private CollectionQuest _currentQuest;
+    private List<QuestText> _itemsNameForCollection = new List<QuestText>();
 
     public void Initialize(CollectionQuest currentQuest)
     {
         gameObject.SetActive(true);
 
-        _currentQust = currentQuest;
-        _itemsForCollection = new();
+        _currentQuest = currentQuest;
 
         foreach (var item in currentQuest.ItemsForCollection)
         {
             var itemQuest = Instantiate(_textTemplate, _questsTextContainer);
-            itemQuest.Initialize(item.Data);
-            _itemsForCollection.Add(itemQuest);
+            itemQuest.Initialize(item);
+            _itemsNameForCollection.Add(itemQuest);
         }
 
-        _currentQust.ItemCollected += OnItemCollect;
+        _currentQuest.ItemCollected += OnItemCollect;
+        _currentQuest.QuestCompleted += OnQuestComplete;
     }
 
-    public void Dispose()
+    private void OnQuestComplete()
     {
-        _currentQust.ItemCollected -= OnItemCollect;
+        _currentQuest.ItemCollected -= OnItemCollect;
+        _currentQuest.QuestCompleted -= OnQuestComplete;
+
+        _itemsNameForCollection = null;
+        _currentQuest = null;
+        gameObject.SetActive(false);
     }
 
     private void OnItemCollect(ItemForCollection item)
     {
-        var itemForCollectionText = _itemsForCollection.Find(x => x.ItemForCollection == item);
+        var itemForCollectionText = _itemsNameForCollection.Find(itemName => itemName.ItemForCollection == item);
         itemForCollectionText.Complete();
-        _itemsForCollection.Remove(itemForCollectionText);
-
-        if (_itemsForCollection.Count == 0)
-        {
-            _currentQust.ItemCollected -= OnItemCollect;
-
-            _itemsForCollection = null;
-            _currentQust = null;
-            gameObject.SetActive(false);
-        }
+        _itemsNameForCollection.Remove(itemForCollectionText);
     }
 }

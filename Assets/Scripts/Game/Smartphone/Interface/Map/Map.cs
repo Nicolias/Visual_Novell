@@ -207,7 +207,8 @@ public class Map : MonoBehaviour, ISaveLoadObject
             for (int k = 0; k < count; k++)
             {
                 _locations[i].SetQuest(_saveLoadServise.Load<SaveData.LocationData>($"{_saveKey}/{i}/{k}").Quest);
-                var item = _saveLoadServise.Load<SaveData.LocationData>($"{_saveKey}/{i}/{k}").Items;
+                var locationData = _saveLoadServise.Load<SaveData.LocationData>($"{_saveKey}/{i}/{k}");
+                var item = locationData.Items;
 
                 if (_locations[i].Items.Contains(item) == false)
                     _locations[i].Add(item);

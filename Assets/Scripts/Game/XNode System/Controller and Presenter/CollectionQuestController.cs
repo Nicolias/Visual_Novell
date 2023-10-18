@@ -30,9 +30,6 @@ public class CollectionQuestController : IController
     {
         _model.QuestCompleted -= CallBack;
 
-        _view.Dispose();
-        _model.Dispose();
-
         OnComplete?.Invoke();
     }
 }

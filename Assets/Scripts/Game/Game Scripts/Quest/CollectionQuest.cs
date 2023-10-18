@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class CollectionQuest : Quest, IItemCollector, IDisposable
+public class CollectionQuest : Quest, IItemCollector
 {
     private readonly CollectionPanel _collectionPanel;
 
     private readonly IInventory _inventory;
 
-    private List<ItemForCollectionView> _itemsForCollection = new();
+    private List<ItemForCollection> _itemsForCollection = new();
     private ItemForCollection _currentItemData;
 
-    public IEnumerable<ItemForCollectionView> ItemsForCollection => _itemsForCollection;
-    public bool IsQuestComplete { get; private set; }
+    public IEnumerable<ItemForCollection> ItemsForCollection => _itemsForCollection;
 
     public event Action QuestCompleted;
     public event Action<ItemForCollection> ItemCollected;
@@ -21,24 +20,18 @@ public class CollectionQuest : Quest, IItemCollector, IDisposable
         _collectionPanel = collectionPanel;
         _inventory = inventory;
 
-        _itemsForCollection = _collectionPanel.CreateItemsView(itemsForCollectionData);
-        _collectionPanel.ShowItems(_itemsForCollection);
+        _itemsForCollection.AddRange(itemsForCollectionData);
 
-        if(_itemsForCollection.Count > 0)
-            _currentItemData = _itemsForCollection[0].Data;
+        if(itemsForCollectionData.Count > 0)
+            _currentItemData = itemsForCollectionData[0];
 
         _collectionPanel.ItemSelected += OnItemSelected;
-    }
-
-    public void Dispose()
-    {
-        _collectionPanel.ItemSelected -= OnItemSelected;
     }
 
     private void OnItemSelected(ItemForCollectionView selectdItemView, ItemForCollection selectedItemData)
     {
         if (_currentItemData == null)
-            throw new InvalidOperationException("Нет текущего предмета в списки заданий по сбору.");
+            throw new InvalidOperationException("Нет предметов для сбора.");
 
         if (selectdItemView == null)
             throw new InvalidOperationException("Предмет уже удален");
@@ -46,24 +39,23 @@ public class CollectionQuest : Quest, IItemCollector, IDisposable
         if (_currentItemData != selectdItemView.Data)
             return;
 
-        if (_itemsForCollection.Contains(selectdItemView))
+        if (_itemsForCollection.Contains(selectedItemData))
         {
-            _itemsForCollection.Remove(selectdItemView);
+            ItemCollected?.Invoke(selectdItemView.Data);
 
-            if (_itemsForCollection.Count != 0)
-            {
-                _currentItemData = _itemsForCollection[0].Data;
-            }
-            else
-            {
-                QuestCompleted?.Invoke();
-                IsQuestComplete = true;
-            }
-
+            _itemsForCollection.Remove(selectedItemData);
             selectdItemView.Data.Acсept(this);
             _collectionPanel.Delete(selectdItemView, selectdItemView.Data);
 
-            ItemCollected?.Invoke(selectdItemView.Data);
+            if (_itemsForCollection.Count == 0)
+            {
+                _collectionPanel.ItemSelected -= OnItemSelected;
+                QuestCompleted?.Invoke();
+            }
+            else
+            {
+                _currentItemData = _itemsForCollection[0];
+            }
         }
     }
 

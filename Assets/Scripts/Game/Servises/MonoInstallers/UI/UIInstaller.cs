@@ -51,7 +51,7 @@ public class UIInstaller : MonoInstaller
         Container.Bind<Map>().FromInstance(_map).AsSingle();
         Container.Bind<BackgroundView>().FromInstance(_background).AsSingle();
         Container.Bind<CollectionPanel>().FromInstance(_collectionPanel).AsSingle();
-        Container.Bind<Inventory>().FromInstance(_inventory).AsSingle();
+        Container.Bind<IInventory>().FromInstance(_inventory).AsSingle();
         Container.Bind<ChapterCaption>().FromInstance(_chapterCaption).AsSingle();
     }
 }

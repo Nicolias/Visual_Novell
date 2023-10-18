@@ -41,7 +41,7 @@ public class ItemForCollectionView : MonoBehaviour
             _itemImage.sprite = itemData.ItemSpriteInScene;
     }
 
-    public void SelectItem()
+    public void SelecteItem()
     {
         ItemSelected?.Invoke(this, _itemData);
     }
