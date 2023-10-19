@@ -4,10 +4,10 @@ using UnityEngine.EventSystems;
 
 public class ClickerZone : MonoBehaviour, IPointerClickHandler
 {
-    public event Action OnClick;
+    public event Action Clicked;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnClick.Invoke();
+        Clicked.Invoke();
     }
 }

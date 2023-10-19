@@ -3,7 +3,7 @@ using UnityEngine;
 
 public interface ISpeechView
 {
-    public event Action OnClick;
+    public event Action Clicked;
 
     public ShowTextStatus ShowStatus { get; }
     public void ShowSmooth(ISpeechModel speechModel);

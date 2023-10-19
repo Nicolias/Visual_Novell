@@ -34,24 +34,23 @@ public class BackgroundView : MonoBehaviour, ISaveLoadObject
 
     public void Replace(Sprite sprite)
     {
+        if (sprite == null)
+            ChangeSprite(sprite, new Color(0, 0, 0, 0));
+        else
+            ChangeSprite(sprite, new Color(1, 1, 1, 1));
+    }
+
+    private void ChangeSprite(Sprite sprite, Color color)
+    {
         var sequnce = DOTween.Sequence();
 
-        if (sprite == null)
-        {
-            sequnce
-                .Append(DOVirtual.Float(0, 1, _closeDuration, v => _canvasGroup.alpha = v))
-                .AppendCallback(() => OnPicturChanged?.Invoke())
-                .Play();
-        }
-        else
-        {
-            sequnce
-                .Append(DOVirtual.Float(1, 0, _closeDuration, v => _canvasGroup.alpha = v))
-                .AppendCallback(() => _image.sprite = sprite)
-                .Append(DOVirtual.Float(0, 1, _closeDuration, v => _canvasGroup.alpha = v))
-                .AppendCallback(() => OnPicturChanged?.Invoke())
-                .Play();
-        }
+        sequnce
+            .Append(DOVirtual.Float(1, 0, _closeDuration, v => _canvasGroup.alpha = v))
+            .AppendCallback(() => _image.color = color)
+            .AppendCallback(() => _image.sprite = sprite)
+            .Append(DOVirtual.Float(0, 1, _closeDuration, v => _canvasGroup.alpha = v))
+            .AppendCallback(() => OnPicturChanged?.Invoke())
+            .Play();
     }
 
     public void Show(Sprite sprite)

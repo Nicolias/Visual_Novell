@@ -6,29 +6,21 @@ using UnityEngine;
 
 public abstract class SpeechView : MonoBehaviour, ISpeechView
 {
-    public event Action OnClick;
-
     [SerializeField] private Canvas _selfCanvas;
     [SerializeField] private ClickerZone _clickerZone;
 
+    [SerializeField] private float _skipShowAnimationCooldown;
     [SerializeField] private float _timeBetweenShowNewCharInDialog;
     [SerializeField] private TMP_Text _speechText;
 
     private ShowTextStatus _showStatus;
     private WaitForSeconds _waitForSeconds;
     private StringBuilder _stringBuilder;
+    private float _nextSkipShowAnimationTime;
 
     public ShowTextStatus ShowStatus => _showStatus;
 
-    private void OnEnable()
-    {
-        _clickerZone.OnClick += OnCallBack;
-    }
-
-    private void OnDisable()
-    {
-        _clickerZone.OnClick -= OnCallBack;
-    }
+    public event Action Clicked;
 
     private void Awake()
     {
@@ -36,8 +28,30 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
         _stringBuilder = new();
     }
 
+    private void OnEnable()
+    {
+        _clickerZone.Clicked += OnClick;
+    }
+
+    private void OnDisable()
+    {
+        _clickerZone.Clicked -= OnClick;
+    }
+
+    public virtual void ShowSmooth(ISpeechModel model)
+    {
+        _nextSkipShowAnimationTime = Time.time + _skipShowAnimationCooldown;
+
+        _selfCanvas.enabled = true;
+
+        StartCoroutine(ShowingSpeechSmooth(model.Text));
+    }
+
     public virtual void Show(ISpeechModel model)
     {
+        if (Time.time < _nextSkipShowAnimationTime)
+            return;
+
         _selfCanvas.enabled = true;
 
         _stringBuilder.Clear();
@@ -48,24 +62,17 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
         _speechText.text = model.Text;
     }
 
-    public virtual void ShowSmooth(ISpeechModel model)
-    {
-        _selfCanvas.enabled = true;
-
-        StartCoroutine(ShowingSpeechSmooth(model.Text));
-    }
-
     public void Hide()
     {
         _selfCanvas.enabled = false;
     }
 
-    private void OnCallBack()
+    private void OnClick()
     {
         if (ShowStatus == ShowTextStatus.Complete)
             Hide();
 
-        OnClick?.Invoke();
+        Clicked?.Invoke();
     }
 
     protected IEnumerator ShowingSpeechSmooth(string speechText)

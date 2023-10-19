@@ -20,7 +20,7 @@ public class SpeechPresentar : IPresentar
 
     public void Execute()
     {
-        _view.OnClick += OnCallBackView;
+        _view.Clicked += OnViewClick;
 
         if (_view.gameObject.activeInHierarchy)
         {
@@ -41,7 +41,7 @@ public class SpeechPresentar : IPresentar
         }
     }
 
-    private void OnCallBackView()
+    private void OnViewClick()
     {
         if (_view.ShowStatus == ShowTextStatus.Showing)
         {
@@ -60,7 +60,7 @@ public class SpeechPresentar : IPresentar
             }
         }
 
-        _view.OnClick -= OnCallBackView;
+        _view.Clicked -= OnViewClick;
         OnComplete?.Invoke();
     }
 
