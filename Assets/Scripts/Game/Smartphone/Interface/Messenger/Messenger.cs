@@ -1,5 +1,4 @@
-﻿using Factory.Messenger;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,26 +7,40 @@ using Zenject;
 
 public class Messenger : MonoBehaviour, ISaveLoadObject
 {
-    public event Action OnNewMessegeRecived;
-    public event Action OnAllMessegeRed;
-    public event Action<NodeGraph> OnChatRed;
-
-    [Inject] private SaveLoadServise _saveLoadServise;
-
-    [Inject] private ChatView _chatView;
-    [Inject] private ChatFactory _chatFactory;
-
-    [SerializeField] private MessengerWindow _messengerWindow;
     [SerializeField] private Button _openMesengerButton;
-
     [SerializeField] private GameObject _unreadChatIndicator;
 
-    private List<ContactElement> _contacts = new();
-    private List<Chat> _unreadChats = new();
+    private SaveLoadServise _saveLoadServise;
+    private IMessengerWindow _messengerWindow;
+    private IChatWindow _chatView;
 
-    private List<MessegeData> _messegeDatas = new();
-    private MessegeData _currentMessege;
-    private const string _saveKey = "MessengerSave";
+    private List<Chat> _unreadChats = new();
+    private List<MessegeData> _allMessages = new();
+
+    private readonly string _saveKey = "MessengerSave";
+
+    public IMessengerWindow MessengerWindow { get; private set; }
+    public List<Chat> UnreadChats => new List<Chat>(_unreadChats);
+
+    public event Action NewMessegeRecived;
+    public event Action AllMessegeRead;
+    public event Action<NodeGraph> ChatRead;
+
+    [Inject]
+    public void Construct(SaveLoadServise saveLoadServise, IChatWindow chatWindow, IMessengerWindow messengerWindow)
+    {
+        _saveLoadServise = saveLoadServise;
+        _chatView = chatWindow;
+        _messengerWindow = messengerWindow;
+    }
+
+    public void Construct(SaveLoadServise saveLoadServise, IChatWindow chatWindow, IMessengerWindow messengerWindow, GameObject unreadChatIndicator)
+    {
+        _saveLoadServise = saveLoadServise;
+        _chatView = chatWindow;
+        _messengerWindow = messengerWindow;
+        _unreadChatIndicator = unreadChatIndicator;
+    }
 
     private void OnEnable()
     {
@@ -43,74 +56,53 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
         Save();
     }
 
-    public void AddNewMessege(MessegeData newMessege)
+    public void AddNewMessage(MessegeData newMessage)
     {
-        _currentMessege = newMessege;
+        if (_allMessages.Contains(newMessage))
+            return;
 
-        Chat chat = CreateChat(newMessege);
+        Chat chat = _messengerWindow.CreateChat(newMessage);
+        _allMessages.Add(newMessage);
 
-        AddUnreadChat(chat);
+        AddToUnreadChat(chat);
 
-        OnNewMessegeRecived?.Invoke();
+        NewMessegeRecived?.Invoke();
     }
 
-    private Chat CreateChat(MessegeData newMessege)
-    {
-        ContactElement existContact = _contacts.Find(x => x.Name == newMessege.ContactName);
-        MessengerContact currentContactView = null;
-
-        if (existContact == null)
-        {
-            ContactElement newConatactData = new(newMessege.ContactName);
-            _contacts.Add(newConatactData);
-
-            currentContactView = _messengerWindow.CreateContactView(newConatactData);
-        }
-        else
-        {
-            currentContactView = _messengerWindow.GetExistContactView(existContact);
-        }
-
-        var chat = _chatFactory.Create(newMessege.Messege, currentContactView.ChatsContainer);
-
-        return chat;
-    }
-
-    private void AddUnreadChat(Chat chat)
+    private void AddToUnreadChat(Chat chat)
     {
         for (int i = 0; i < _unreadChats.Count; i++)
-            if (_unreadChats[i].Data == chat.Data) throw new InvalidOperationException("Чат уже существут");
+            if (_unreadChats[i].Data == chat.Data) 
+                throw new InvalidOperationException("Чат уже существут");
 
         _unreadChats.Add(chat);
-        _chatView.OnChatRed += OnChatRedCallBack;
+        _chatView.ChatRead += OnChatRead;
         _unreadChatIndicator.SetActive(true);
     }
 
-    private void OnChatRedCallBack(Chat chat)
+    private void OnChatRead(Chat chat)
     {
-        OnChatRed?.Invoke(chat.Data);
-        _chatView.OnChatRed -= OnChatRedCallBack;
+        ChatRead?.Invoke(chat.Data);
+        _chatView.ChatRead -= OnChatRead;
         _unreadChats.Remove(chat);
 
         if (_unreadChats.Count == 0)
         {
-            OnAllMessegeRed?.Invoke();
+            AllMessegeRead?.Invoke();
             _unreadChatIndicator.SetActive(false);
         }
-
-        _messegeDatas.Add(_currentMessege);
     }
 
     public void Save()
     {
-        _saveLoadServise.Save(_saveKey, new SaveData.IntData() { Int = _messegeDatas.Count });
+        _saveLoadServise.Save(_saveKey, new SaveData.IntData() { Int = _allMessages.Count });
 
-        for (int i = 0; i < _messegeDatas.Count; i++)
+        for (int i = 0; i < _allMessages.Count; i++)
         {
             _saveLoadServise.Save($"{_saveKey}/{i}", new SaveData.MessegeData()
             {
-                Messege = _messegeDatas[i].Messege,
-                ContactName = _messegeDatas[i].ContactName
+                Messege = _allMessages[i].Messege,
+                ContactName = _allMessages[i].ContactName
             });
         }
     }
@@ -124,8 +116,8 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
             var messegeData = _saveLoadServise.Load<SaveData.MessegeData>($"{_saveKey}/{i}");
             MessegeData messege = new(messegeData.ContactName, messegeData.Messege);
 
-            CreateChat(messege);
-            _messegeDatas.Add(messege);
+            _messengerWindow.CreateChat(messege);
+            _allMessages.Add(messege);
         }
     }
 }

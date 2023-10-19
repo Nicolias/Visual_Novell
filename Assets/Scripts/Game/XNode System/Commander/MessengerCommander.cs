@@ -3,7 +3,7 @@ using Zenject;
 
 public class MessengerCommander : Commander, ICommanderVisitor
 {
-    [Inject] private ChatView _chatView;
+    [Inject] private ChatWindow _chatView;
 
     private (ICommand command, Node node) _result;
 

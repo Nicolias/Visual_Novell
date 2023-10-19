@@ -5,7 +5,7 @@ public class MessegeFactory : MonoBehaviour
     [SerializeField] private Transform _messegeContainer;
     [SerializeField] private MessegeView _playerMessegeTemplate, _characterMessegeTemplate;
 
-    public void CreateMessege(Messege messege)
+    public void CreateMessegeView(Messege messege)
     {
         MessegeView newMessege;
 

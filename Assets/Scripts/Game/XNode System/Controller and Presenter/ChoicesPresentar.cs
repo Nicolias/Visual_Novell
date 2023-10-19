@@ -3,7 +3,7 @@ using XNode;
 
 public class ChoicesPresentar : IChoisePresenter
 {
-    public event Action OnComplete;
+    public event Action Complete;
 
     private IChoiceView _view;
     private IChoiceModel _model;
@@ -24,6 +24,6 @@ public class ChoicesPresentar : IChoisePresenter
     {
         _model.SetEndPort(node);
         _view.OnChoiceMade -= OnCallBackView;
-        OnComplete?.Invoke();
+        Complete?.Invoke();
     }
 }

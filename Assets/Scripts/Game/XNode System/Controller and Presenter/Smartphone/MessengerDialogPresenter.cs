@@ -3,14 +3,14 @@ using XNode;
 
 public class MessengerDialogPresenter : IPresentar
 {
-    public event Action OnComplete;
-
     private MessengerDialogSpeechModel _model;
-    private ChatView _view;
+    private IChatWindow _view;
 
     private Node _currentNode;
 
-    public MessengerDialogPresenter(MessengerDialogSpeechModel model, ChatView view, Node currentNode, StaticData staticData)
+    public event Action Complete;
+
+    public MessengerDialogPresenter(MessengerDialogSpeechModel model, IChatWindow view, Node currentNode, StaticData staticData)
     {
         _model = model;
         _view = view;
@@ -19,9 +19,9 @@ public class MessengerDialogPresenter : IPresentar
 
     public void Execute()
     {
-        Messege messege = new(_model.Avatar, _model.SpeakerName, _model.Text, _model.MessegeSenderType, _currentNode);
-        _view.CreateMessegeView(messege);
+        Messege newMessege = new(_model.Avatar, _model.SpeakerName, _model.Text, _model.MessegeSenderType, _currentNode);
+        _view.Add(newMessege);
         
-        OnComplete?.Invoke();
+        Complete?.Invoke();
     }
 }

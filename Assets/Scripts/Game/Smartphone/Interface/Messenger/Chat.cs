@@ -8,16 +8,18 @@ using Zenject;
 [RequireComponent(typeof(Button))]
 public class Chat : MonoBehaviour
 {
-    public event Action OnChatRed;
-
-    [Inject] private ChatView _chatView;
+    [Inject] private ChatWindow _chatView;
 
     private Button _selfButton;
 
-    private List<Messege> _messegesList = new();
+    private List<Messege> _messegasList = new();
     private Node _currentNode;
 
     public NodeGraph Data { get; private set; }
+    public IEnumerable<Messege> Messages => _messegasList;
+    public Node CurrentNode => _currentNode;
+
+    public event Action ChatRead;
 
     private void Awake()
     {
@@ -27,12 +29,14 @@ public class Chat : MonoBehaviour
     private void OnEnable()
     {
         _selfButton.onClick.AddListener(OpenChat);
+        _chatView.ChatRead += OnChatRead;
     }
 
     private void OnDisable()
     {
-        _chatView.Close();
         _selfButton.onClick.RemoveAllListeners();
+        _chatView.Close();
+        _chatView.ChatRead -= OnChatRead;
     }
 
     public void Initialize(NodeGraph chat)
@@ -41,15 +45,8 @@ public class Chat : MonoBehaviour
         _currentNode = chat.nodes[0];
     }
 
-    private void OpenChat()
+    public void SaveChatData(Node currentNode)
     {
-        _chatView.ShowChat(_messegesList, _currentNode, this, () => OnChatRed?.Invoke());
-    }
-
-    public void SaveChatData(List<Messege> chatMesseges, Node currentNode)
-    {
-        _messegesList = chatMesseges;
-
         NodePort port = currentNode.GetPort("_outPut").Connection;
         if (port == null)
         {
@@ -58,5 +55,22 @@ public class Chat : MonoBehaviour
         }
 
         _currentNode = port.node;
+    }
+
+    public void Add(Messege newMessage)
+    {
+        if (newMessage != null)
+            _messegasList.Add(newMessage);
+    }
+
+    private void OpenChat()
+    {
+        _chatView.Show(this);
+    }
+
+    private void OnChatRead(Chat chat)
+    {
+        if (chat == this)
+            ChatRead?.Invoke();
     }
 }

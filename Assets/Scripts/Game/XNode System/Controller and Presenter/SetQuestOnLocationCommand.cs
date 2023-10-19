@@ -2,7 +2,7 @@
 
 public class SetQuestOnLocationCommand : ICommand
 {
-    public event Action OnComplete;
+    public event Action Complete;
 
     private Map _view;
     private SetQuestOnLocationModel _model;
@@ -16,6 +16,6 @@ public class SetQuestOnLocationCommand : ICommand
     public void Execute()
     {
         _view.SetQuest(_model.LocationType, _model.Quest);
-        OnComplete?.Invoke();
+        Complete?.Invoke();
     }
 }

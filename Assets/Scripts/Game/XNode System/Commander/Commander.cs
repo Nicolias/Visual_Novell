@@ -5,7 +5,7 @@ using Zenject;
 
 public abstract class Commander : MonoBehaviour, ISaveLoadObject
 {
-    public event Action OnDialogEnd;
+    public event Action DialogEnded;
 
     [Inject] protected readonly SaveLoadServise SaveLoadServise;
     [Inject] protected readonly StaticData StaticData;
@@ -21,7 +21,7 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
     private void OnDisable()
     {
         if (_curent.command != null)
-            _curent.command.OnComplete -= Next;
+            _curent.command.Complete -= Next;
 
         Save();
     }
@@ -29,7 +29,7 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
     public void PackAndExecuteCommand(Node node)
     {
         _curent = Packing(node);
-        _curent.command.OnComplete += Next;
+        _curent.command.Complete += Next;
         _curent.command.Execute();
     }
 
@@ -37,14 +37,14 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
     {
         if (_curent.command != null)
         {
-            _curent.command.OnComplete -= Next;
+            _curent.command.Complete -= Next;
         }
 
         NodePort port = _curent.node.GetPort("_outPut").Connection;
 
         if (port == null)
         {
-            OnDialogEnd?.Invoke();
+            DialogEnded?.Invoke();
             return;
         }
 

@@ -22,8 +22,8 @@ public class MessengeIndicator : MonoBehaviour, ISaveLoadObject
 
     private void OnEnable()
     {
-        _smartphone.OnNewMessegeRecived += PlayNewMessegeIndicator;
-        _smartphone.OnAllMessegeRed += StopPlayIndicator;
+        _smartphone.NewMessegeRecived += PlayNewMessegeIndicator;
+        _smartphone.AllMessegeRead += StopPlayIndicator;
 
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
@@ -31,8 +31,8 @@ public class MessengeIndicator : MonoBehaviour, ISaveLoadObject
 
     private void OnDisable()
     {
-        _smartphone.OnNewMessegeRecived -= PlayNewMessegeIndicator;
-        _smartphone.OnAllMessegeRed -= StopPlayIndicator;
+        _smartphone.NewMessegeRecived -= PlayNewMessegeIndicator;
+        _smartphone.AllMessegeRead -= StopPlayIndicator;
 
         Save();
     }

@@ -2,7 +2,7 @@
 
 public class ChapterCaptionCommand : ICommand
 {
-    public event Action OnComplete;
+    public event Action Complete;
 
     private readonly ChapterCaption _view;
     private readonly ChapterCaptionModel _model;
@@ -22,6 +22,6 @@ public class ChapterCaptionCommand : ICommand
     private void OnCaptionShowed()
     {
         _view.OnCaptionShowed -= OnCaptionShowed;
-        OnComplete?.Invoke();
+        Complete?.Invoke();
     }
 }

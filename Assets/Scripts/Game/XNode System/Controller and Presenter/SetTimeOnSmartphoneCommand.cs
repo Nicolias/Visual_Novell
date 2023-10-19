@@ -2,7 +2,7 @@
 
 public class SetTimeOnSmartphoneCommand : ICommand
 {
-    public event Action OnComplete;
+    public event Action Complete;
 
     private SetTimeOnSmartphoneWatchModel _model;
     private Smartphone _smartphone;
@@ -16,6 +16,6 @@ public class SetTimeOnSmartphoneCommand : ICommand
     public void Execute()
     {
         _smartphone.SetTime(_model.Hour, _model.Minute);
-        OnComplete?.Invoke();
+        Complete?.Invoke();
     }
 }

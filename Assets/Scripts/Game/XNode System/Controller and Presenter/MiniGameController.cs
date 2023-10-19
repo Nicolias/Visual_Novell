@@ -3,7 +3,7 @@ using Zenject;
 
 public class MiniGameController : IController
 {
-    public event Action OnComplete;
+    public event Action Complete;
 
     [Inject] private Battery _battery;
 
@@ -28,7 +28,7 @@ public class MiniGameController : IController
         {
             _view.OnGameEnded -= CallBack;
             _view.CloseMiniGamesSelection();
-            OnComplete?.Invoke();
+            Complete?.Invoke();
         }
     }
 }

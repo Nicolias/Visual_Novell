@@ -4,8 +4,6 @@ using Zenject;
 
 namespace Factory.Messenger
 {
-
-
     public class ChatFactory : MonoBehaviour
     {
         [Inject] private DiContainer _di;

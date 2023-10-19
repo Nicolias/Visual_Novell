@@ -2,7 +2,7 @@
 
 public class SpawnItemCommand : ICommand
 {
-    public event Action OnComplete;
+    public event Action Complete;
 
     private Map _map;
     private CollectionPanel _collectionPanel;
@@ -21,6 +21,6 @@ public class SpawnItemCommand : ICommand
     {
         _map.Add(_item, _locationType);
         _collectionPanel.ShowItems(_collectionPanel.CreateItemsView(new() { _item }));
-        OnComplete?.Invoke();
+        Complete?.Invoke();
     }
 }
