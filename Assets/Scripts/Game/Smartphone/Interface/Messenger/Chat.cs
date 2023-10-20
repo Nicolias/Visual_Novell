@@ -15,7 +15,7 @@ public class Chat : MonoBehaviour
     private List<Messege> _messegasList = new();
     private Node _currentNode;
 
-    public NodeGraph Data { get; private set; }
+    public virtual NodeGraph Data { get; private set; }
     public IEnumerable<Messege> Messages => _messegasList;
     public Node CurrentNode => _currentNode;
 

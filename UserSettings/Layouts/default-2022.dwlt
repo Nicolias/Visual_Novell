@@ -47,7 +47,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 136
+  controlID: 114
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 137
+  controlID: 115
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -162,7 +162,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 855.2
+    width: 1134.4
     height: 730.8
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
@@ -172,7 +172,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 12}
   m_Selected: 2
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,14 +190,14 @@ MonoBehaviour:
   - {fileID: 11}
   m_Position:
     serializedVersion: 2
-    x: 855.2
+    x: 1134.4
     y: 0
-    width: 366.39996
+    width: 135.19995
     height: 730.8
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 79
+  controlID: 45
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,9 +213,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1221.6
+    x: 1269.6
     y: 0
-    width: 314.40002
+    width: 266.40002
     height: 730.8
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
@@ -241,8 +241,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 366.39996
-    height: 321.6
+    width: 135.19995
+    height: 318.4
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
@@ -266,9 +266,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 321.6
-    width: 366.39996
-    height: 409.19998
+    y: 318.4
+    width: 135.19995
+    height: 412.4
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 14}
@@ -298,7 +298,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 854.2
+    width: 1133.4
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 235
+    ID: 124
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -378,7 +378,7 @@ MonoBehaviour:
       name: The Fortune
       fullName: The Fortune
       resultStatus: 1
-      duration: 0.4141236
+      duration: 0.6396919
       messages: 
       output: 
       stacktrace: 
@@ -394,7 +394,7 @@ MonoBehaviour:
       name: Tests.dll
       fullName: D:/UnityProject/Visual Novell/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.3105393
+      duration: 0.5389221
       messages: 
       output: 
       stacktrace: 
@@ -472,13 +472,59 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: Tests.dll/[Tests][CollectionSystem][suite]
-    m_ResultText: WhenStartingQuest_AndItemSelected_ThenQuestComplete (0,030s)
+    - id: 1005
+      uniqueId: Tests.dll/[Tests][MessengerTests][suite]
+      name: MessengerTests
+      fullName: MessengerTests
+      resultStatus: 1
+      duration: 0.5343172
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1007
+      parentUniqueId: '[Tests][D:/UnityProject/Visual Novell/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1006
+      uniqueId: Tests.dll/MessengerTests/[Tests][MessengerTests.WhenCreatedNewMessage_AndChatAdded_ThenUnreadChatsCountShouldBe1]
+      name: WhenCreatedNewMessage_AndChatAdded_ThenUnreadChatsCountShouldBe1
+      fullName: MessengerTests.WhenCreatedNewMessage_AndChatAdded_ThenUnreadChatsCountShouldBe1
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: Tests.dll/[Tests][MessengerTests][suite]
+    m_ResultText: 'WhenCreatedNewMessage_AndChatCreated_ThenUnreadChatsCountShouldBe1
+      (0,499s)
+
+      ---
+
+      You are trying to create a MonoBehaviour using the
+      ''new'' keyword.  This is not allowed.  MonoBehaviours can only be added using
+      AddComponent(). Alternatively, your script can inherit from ScriptableObject
+      or no base class at all
+
+      You are trying to create a MonoBehaviour using
+      the ''new'' keyword.  This is not allowed.  MonoBehaviours can only be added
+      using AddComponent(). Alternatively, your script can inherit from ScriptableObject
+      or no base class at all'
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 69d1c3da
-      m_LastClickedID: -624701079
-      m_ExpandedIDs: 037666ee4676a961f44a0679ffffff7f
+      m_SelectedIDs: fded7b23
+      m_LastClickedID: 595324413
+      m_ExpandedIDs: 4b81f99e037666eef44a0679ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -524,9 +570,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1221.6
+    x: 1269.6
     y: 73.6
-    width: 313.40002
+    width: 265.40002
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -571,10 +617,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 855.2
-    y: 395.2
-    width: 364.39996
-    height: 388.19998
+    x: 1134.4
+    y: 392
+    width: 133.19995
+    height: 391.4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -596,7 +642,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Data Scriptable Objects/Dialogs Data
+    - Assets/Resources/Data Scriptable Objects/Dialogs Data/Smartphone Chats
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -613,7 +659,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 50750000
     m_LastClickedID: 30032
-    m_ExpandedIDs: 00000000d26f0000e06f0000c6780000da7800006a7900000e7a0000107a0000127a0000147a0000167a0000187a00001a7a00001c7a00001e7a0000207a0000227a0000247a0000267a0000287a00002a7a00002c7a00002e7a0000307a0000327a0000347a0000367a0000387a00003a7a00003c7a00003e7a0000407a0000427a0000447a0000467a0000487a00004a7a00004c7a00004e7a0000507a0000527a0000547a0000567a0000
+    m_ExpandedIDs: 00000000b46f0000c26f0000c8780000dc7800006c790000067a0000087a00000a7a00000c7a00000e7a0000107a0000127a0000147a0000167a0000187a00001a7a00001c7a00001e7a0000207a0000227a0000247a0000267a0000287a00002a7a00002c7a00002e7a0000307a0000327a0000347a0000367a0000387a00003a7a00003c7a00003e7a0000407a0000427a0000447a0000467a0000487a00004a7a00004c7a00004e7a0000507a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -641,7 +687,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000d26f0000e06f0000c6780000da7800006a7900000e7a0000107a0000127a0000147a0000167a0000187a00001a7a00001c7a00001e7a0000207a0000227a0000247a0000267a0000287a00002a7a00002c7a00002e7a0000307a0000327a0000347a0000367a0000387a00003a7a00003c7a00003e7a0000407a0000427a0000447a0000467a0000487a00004a7a00004c7a0000507a0000527a0000547a0000567a00009a7a0000265c0100
+    m_ExpandedIDs: ffffffff00000000b46f0000c8780000dc7800006c790000067a0000087a00000a7a00000c7a00000e7a0000107a0000127a0000147a0000167a0000187a00001a7a00001c7a00001e7a0000207a0000227a0000247a0000267a0000287a00002a7a00002c7a00002e7a0000307a0000327a0000347a0000367a0000387a00003a7a00003c7a00003e7a0000407a0000427a0000447a0000467a0000487a00004a7a00004e7a0000507a0000967a0000a67a0000a87a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -719,7 +765,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 854.2
+    width: 1133.4
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -773,10 +819,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 854.2
+      width: 1133.4
       height: 688.8
-    m_Scale: {x: 0.5561198, y: 0.5561198}
-    m_Translation: {x: 427.1, y: 344.4}
+    m_Scale: {x: 0.73789066, y: 0.73789066}
+    m_Translation: {x: 566.7, y: 344.4}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -784,12 +830,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -768
-      y: -619.291
+      y: -466.7358
       width: 1536
-      height: 1238.582
+      height: 933.4716
     m_MinimalGUI: 1
-  m_defaultScale: 0.5561198
-  m_LastWindowPixelSize: {x: 1067.75, y: 887.25}
+  m_defaultScale: 0.73789066
+  m_LastWindowPixelSize: {x: 1416.75, y: 887.25}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -817,7 +863,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 854.2
+    width: 1133.4
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1164,9 +1210,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.2002319, y: -1.4243479, z: 0.03176941}
+    m_Target: {x: -0.84729826, y: -0.46543205, z: 0.02238637}
     speed: 2
-    m_Value: {x: 0.2002319, y: -1.4243479, z: 0.03176941}
+    m_Value: {x: -0.84729826, y: -0.46543205, z: 0.02238637}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1216,9 +1262,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.879112
+    m_Target: 8.960885
     speed: 2
-    m_Value: 9.879112
+    m_Value: 8.960885
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1263,10 +1309,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 855.2
+    x: 1134.4
     y: 73.6
-    width: 364.39996
-    height: 300.6
+    width: 133.19995
+    height: 297.4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1280,9 +1326,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a6780100
-      m_LastClickedID: 96422
-      m_ExpandedIDs: e849ffffb668fffffe68ffff4669fffffa6affff8c76ffff1677ffff429fffff749fffffcaa0ffff76a1ffffd4a2ffff88a4fffff6a5ffff9aa6ffff94a7ffff44d8ffffc2d8ffff7edaffff28deffff52e4ffffb4e7ffff1ee9ffffeee9ffff30ecffff0ef0ffff5cf1fffffef4ffff5cf6ffff0cf7ffffc0f7ffff7ef8ffff5cfaffff86cd0000accf000040d10000c43e010014410100a842010042430100887601001c780100
+      m_SelectedIDs: 8e6a0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 0825ffff3627ffff9c28ffff0a2affffce2dffff0032ffffb633ffff4e34fffff234ffff4439ffffcc3affff0c3dffff16fbffff88720000ce72000022730000767300008c73000072750000607600000a770000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

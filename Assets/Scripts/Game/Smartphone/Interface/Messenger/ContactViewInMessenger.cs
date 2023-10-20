@@ -5,17 +5,17 @@ using System.Collections.Generic;
 using TMPro;
 
 [RequireComponent(typeof(Button))]
-public class MessengerContact : MonoBehaviour
+public class ContactViewInMessenger : MonoBehaviour
 {
     [SerializeField] private Transform _chatsContainer;
     [SerializeField] private TMP_Text _contactNameText;
 
     private Button _selfButton;
 
-    private ContactElement _contactData;
     private List<Chat> _chatsList = new();
 
     public Transform ChatsContainer => _chatsContainer;
+    public int ChatsCount => _chatsList.Count;
 
     private void Awake()
     {
@@ -33,21 +33,11 @@ public class MessengerContact : MonoBehaviour
         _selfButton.onClick.RemoveAllListeners();
     }
 
-    private void OnDestroy()
+    public void Initialize(ContactData contact)
     {
-        if(_contactData != null)
-            _contactData.OnNewChatAdded -= AddNewChatView;
-    }
-
-    public void Initialize(ContactElement contactElement)
-    {
-        _contactData = contactElement;
-
-        _contactData.OnNewChatAdded += AddNewChatView;
-
         _chatsContainer.SetParent(transform.parent);
 
-        _contactNameText.text = contactElement.Name;
+        _contactNameText.text = contact.Name;
     }
 
     public void Hide()
@@ -55,7 +45,7 @@ public class MessengerContact : MonoBehaviour
         _chatsContainer.gameObject.SetActive(!_chatsContainer.gameObject.activeInHierarchy);
     }
 
-    private void AddNewChatView(Chat newChat)
+    public void Add(Chat newChat)
     {
         foreach (var chat in _chatsList)
         {

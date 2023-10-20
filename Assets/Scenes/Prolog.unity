@@ -16146,7 +16146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472cb53efe900e947adbe654bed179fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _messengerWindow: {fileID: 718309303}
   _openMesengerButton: {fileID: 2019745665}
   _unreadChatIndicator: {fileID: 1905247698}
 --- !u!1 &2039147382

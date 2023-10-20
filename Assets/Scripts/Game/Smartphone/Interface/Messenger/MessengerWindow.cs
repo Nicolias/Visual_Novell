@@ -10,11 +10,20 @@ public class MessengerWindow : MonoBehaviour, IMessengerWindow
     [SerializeField] private Canvas _selfCanvas;
     [SerializeField] private Button _closeButton;
 
-    [Inject] private ContactFactory _contactFactory;
-    [Inject] private ChatFactory _chatFactory;
+    private ContactFactory _contactFactory;
+    private ChatFactory _chatFactory;
 
-    private List<ContactElement> _contacts = new();
-    private Dictionary<ContactElement, MessengerContact> _contactsView = new();
+    private List<ContactData> _contacts = new();
+    private Dictionary<ContactData, ContactViewInMessenger> _contactsView = new();
+
+    public event Action<ContactViewInMessenger> NewContactViewCreated;
+
+    [Inject]
+    public void Construct(ContactFactory contactFactory, ChatFactory chatFactory)
+    {
+        _contactFactory = contactFactory;
+        _chatFactory = chatFactory;
+    }
 
     private void OnEnable()
     {
@@ -33,40 +42,44 @@ public class MessengerWindow : MonoBehaviour, IMessengerWindow
 
     public Chat CreateChat(MessegeData newMessege)
     {
-        ContactElement existContact = _contacts.Find(x => x.Name == newMessege.ContactName);
-        MessengerContact currentContactView;
+        if (TryGetContactView(newMessege.ContactName, out ContactViewInMessenger contactView) == false)
+            contactView = CreateContactView(newMessege.ContactName);
 
-        if (existContact == null)
-        {
-            ContactElement newConatactData = new(newMessege.ContactName);
-            _contacts.Add(newConatactData);
-
-            currentContactView = CreateContactView(newConatactData);
-        }
-        else
-        {
-            currentContactView = GetExistContactView(existContact);
-        }
-
-        var chat = _chatFactory.Create(newMessege.Messege, currentContactView.ChatsContainer);
+        Chat chat = _chatFactory.Create(newMessege.Messege, contactView.ChatsContainer);
+        contactView.Add(chat);
 
         return chat;
     }
 
-    private MessengerContact CreateContactView(ContactElement contactElement)
+    public bool TryGetContactView(string contactName, out ContactViewInMessenger contactView)
     {
-        var contactView = _contactFactory.CreateNewContactView(contactElement);
-        _contactsView.Add(contactElement, contactView);
+        bool isContactExist = _contacts.Exists(contactElement => contactElement.Name == contactName);
+        contactView = null;
 
-        return contactView;
+        if (isContactExist)
+        {
+            ContactData contactElement = _contacts.Find(contactElement => contactElement.Name == contactName);
+
+            if (contactElement == null)
+                throw new InvalidOperationException("Не существует контакта с таким именем.");
+
+            contactView = _contactsView[contactElement];
+        }
+
+        return isContactExist;
     }
 
-    private MessengerContact GetExistContactView(ContactElement contactElement)
+    private ContactViewInMessenger CreateContactView(string contactName)
     {
-        if (_contactsView.ContainsKey(contactElement) == false)
-            throw new ArgumentOutOfRangeException("Такого контакта не существует.");
+        ContactData newConatactData = new(contactName);
+        _contacts.Add(newConatactData);
 
-        return _contactsView[contactElement];
+        ContactViewInMessenger contactView = _contactFactory.CreateNewContactView(newConatactData);
+        _contactsView.Add(newConatactData, contactView);
+
+        NewContactViewCreated?.Invoke(contactView);
+
+        return contactView;
     }
 
     private void Hide()

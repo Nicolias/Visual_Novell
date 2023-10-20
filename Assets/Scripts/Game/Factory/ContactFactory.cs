@@ -8,11 +8,11 @@ namespace Factory.Messenger
         [Inject] private DiContainer _di;
 
         [SerializeField] private Transform _contactsContainer;
-        [SerializeField] private MessengerContact _contactTemplate;
+        [SerializeField] private ContactViewInMessenger _contactTemplate;
 
-        public MessengerContact CreateNewContactView(ContactElement ContactElement)
+        public virtual ContactViewInMessenger CreateNewContactView(ContactData ContactElement)
         {
-            var newContact = _di.InstantiatePrefabForComponent<MessengerContact>(_contactTemplate, _contactsContainer);
+            var newContact = _di.InstantiatePrefabForComponent<ContactViewInMessenger>(_contactTemplate, _contactsContainer);
             newContact.Initialize(ContactElement);
             return newContact;
         }

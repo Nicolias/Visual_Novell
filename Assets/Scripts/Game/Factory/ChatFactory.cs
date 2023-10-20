@@ -10,7 +10,7 @@ namespace Factory.Messenger
 
         [SerializeField] private Chat _chatButtonTemplate;
 
-        public Chat Create(NodeGraph newMessege, Transform chatsContainer)
+        public virtual Chat Create(NodeGraph newMessege, Transform chatsContainer)
         {
             var newChat = _di.InstantiatePrefabForComponent<Chat>(_chatButtonTemplate, chatsContainer);
             newChat.Initialize(newMessege);
