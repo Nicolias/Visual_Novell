@@ -12,12 +12,12 @@ public class RequirementOpenPhoneCommand : ICommand
 
     public void Execute()
     {
-        _smartphone.OnClosed += CallBack;
+        _smartphone.Closed += CallBack;
     }
 
     private void CallBack()
     {
-        _smartphone.OnClosed -= CallBack;
+        _smartphone.Closed -= CallBack;
         Complete?.Invoke();
     }
 }

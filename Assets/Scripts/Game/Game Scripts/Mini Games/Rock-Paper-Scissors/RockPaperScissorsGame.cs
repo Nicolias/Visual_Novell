@@ -4,11 +4,11 @@ using Zenject;
 
 namespace Game.RockPaperScissors
 {
-    public class RockPaperScissorsGame
+    public class RockPaperScissorsGame : AbstractMiniGame
     {
-        public event Action OnDrawn;
-        public event Action OnCharacterWon;
-        public event Action OnCharacterLost;
+        public override event Action Drawn;
+        public override event Action CharacterWon;
+        public override event Action CharacterLost;
 
         [Inject] private ChoicePanel _choisePanel;
         [Inject] private CoroutineServise _coroutineServise;
@@ -51,7 +51,7 @@ namespace Game.RockPaperScissors
             {
                 if (playerGesture == enemyGesture)
                 {
-                    OnDrawn?.Invoke();
+                    Drawn?.Invoke();
                     return;
                 }
 
@@ -60,10 +60,10 @@ namespace Game.RockPaperScissors
                     switch (enemyGesture)
                     {
                         case RockPaperScissorsType.Paper:
-                            OnCharacterLost?.Invoke();
+                            CharacterLost?.Invoke();
                             break;
                         case RockPaperScissorsType.Scissors:
-                            OnCharacterWon?.Invoke();
+                            CharacterWon?.Invoke();
                             break;
                     }
                 }
@@ -73,10 +73,10 @@ namespace Game.RockPaperScissors
                     switch (enemyGesture)
                     {
                         case RockPaperScissorsType.Rock:
-                            OnCharacterWon?.Invoke();
+                            CharacterWon?.Invoke();
                             break;
                         case RockPaperScissorsType.Scissors:
-                            OnCharacterLost?.Invoke();
+                            CharacterLost?.Invoke();
                             break;
                     }
                 }
@@ -86,10 +86,10 @@ namespace Game.RockPaperScissors
                     switch (enemyGesture)
                     {
                         case RockPaperScissorsType.Rock:
-                            OnCharacterLost?.Invoke();
+                            CharacterLost?.Invoke();
                             break;
                         case RockPaperScissorsType.Paper:
-                            OnCharacterWon?.Invoke();
+                            CharacterWon?.Invoke();
                             break;
                     }
                 }

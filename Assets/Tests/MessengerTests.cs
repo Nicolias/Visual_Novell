@@ -108,3 +108,8 @@ public class MessengerTests
         return new GameObject().AddComponent<T>();
     }
 }
+
+public class ChatWindowTest
+{
+
+}

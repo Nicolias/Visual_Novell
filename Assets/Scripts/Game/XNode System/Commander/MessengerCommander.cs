@@ -3,11 +3,18 @@ using Zenject;
 
 public class MessengerCommander : Commander, ICommanderVisitor
 {
-    [Inject] private ChatWindow _chatView;
+    private IChatWindow _chatView;
 
     private (ICommand command, Node node) _result;
 
     protected override string SaveKey => "MessengerCommander";
+
+
+    [Inject]
+    public void Construct(IChatWindow chatWindow)
+    {
+        _chatView = chatWindow;
+    }
 
     protected override (ICommand, Node) Packing(Node node)
     {
@@ -30,7 +37,7 @@ public class MessengerCommander : Commander, ICommanderVisitor
     public void Visit(MessengerDialogSpeechModel dialogSpeech)
     {
         dialogSpeech.Initialize(StaticData);
-        _result.command = new MessengerDialogPresenter(dialogSpeech, _chatView, _result.node, StaticData);
+        _result.command = new MessengerDialogPresenter(dialogSpeech, _chatView, _result.node);
     }
 
     public void Visit(FAQModel faqModel)

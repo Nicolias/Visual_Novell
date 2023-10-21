@@ -8,7 +8,7 @@ using Zenject;
 [RequireComponent(typeof(Button))]
 public class Chat : MonoBehaviour
 {
-    [Inject] private ChatWindow _chatView;
+    [Inject] private IChatWindow _chatView;
 
     private Button _selfButton;
 

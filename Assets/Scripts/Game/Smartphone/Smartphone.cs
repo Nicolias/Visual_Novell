@@ -2,17 +2,11 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
 public class Smartphone : MonoBehaviour, ISaveLoadObject
 {
-    public event Action OnClosed;
-
-    [Inject] private SaveLoadServise _saveLoadServise;
-    [Inject] private Map _map;
-
     [SerializeField] private Button _openButton, _closeButton;
     [SerializeField] private Canvas _selfCanvas;
 
@@ -23,12 +17,24 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
 
     [SerializeField] private TMP_Text _clockText;
 
+    private SaveLoadServise _saveLoadServise;
+    private Map _map;
+
     private bool _isDUXTutorialShow = false;
     private DateTime _currentTime = new(1,1,1,23,34,0);
     private const string _saveKey = "SmartphoneSave";
 
     public Messenger Messenger => _messenger;
     public Canvas SelfCanvas => _selfCanvas;
+
+    public event Action Closed;
+
+    [Inject]
+    public void Construct(SaveLoadServise saveLoadServise, Map map)
+    {
+        _saveLoadServise = saveLoadServise;
+        _map = map;
+    }
 
     private void OnEnable()
     {
@@ -99,7 +105,7 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
         _selfCanvas.enabled = false;
         _openButton.image.color = new(1, 1, 1, 1);
         _dialogSpeechView.gameObject.SetActive(true);
-        OnClosed?.Invoke();
+        Closed?.Invoke();
     }
 
     public void Save()

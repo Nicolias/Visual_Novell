@@ -18,14 +18,14 @@ public class AccureStoregeValueCommand : ICommand
     public void Execute()
     {
         if (_smarphone.SelfCanvas.enabled)
-            _smarphone.OnClosed += SmartphoneCloseCallBack;
+            _smarphone.Closed += SmartphoneCloseCallBack;
         else
             SmartphoneCloseCallBack();
     }
 
     private void SmartphoneCloseCallBack()
     {
-        _smarphone.OnClosed -= SmartphoneCloseCallBack;
+        _smarphone.Closed -= SmartphoneCloseCallBack;
 
         _view.OnAccureCompleted += CallBack;
         _view.Accure(_model.Value);

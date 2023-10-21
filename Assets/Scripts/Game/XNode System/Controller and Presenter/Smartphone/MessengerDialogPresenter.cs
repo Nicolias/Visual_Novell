@@ -10,7 +10,7 @@ public class MessengerDialogPresenter : IPresentar
 
     public event Action Complete;
 
-    public MessengerDialogPresenter(MessengerDialogSpeechModel model, IChatWindow view, Node currentNode, StaticData staticData)
+    public MessengerDialogPresenter(MessengerDialogSpeechModel model, IChatWindow view, Node currentNode)
     {
         _model = model;
         _view = view;
@@ -20,7 +20,7 @@ public class MessengerDialogPresenter : IPresentar
     public void Execute()
     {
         Messege newMessege = new(_model.Avatar, _model.SpeakerName, _model.Text, _model.MessegeSenderType, _currentNode);
-        _view.Add(newMessege);
+        _view.Recieve(newMessege);
         
         Complete?.Invoke();
     }

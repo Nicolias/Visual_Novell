@@ -16,7 +16,9 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
         {3, 200 }
     };
 
+    [field: SerializeField] public bool IsSkipDialog { get; private set; }
     [field: SerializeField] public string SpecWordForNickName { get; private set; }
+
     public string Nickname => _nickname;
     public List<QuizElement> QuizQuestion => _quizQuestion;
 

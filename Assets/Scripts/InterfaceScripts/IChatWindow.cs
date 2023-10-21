@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using XNode;
 
 public interface IChatWindow
 {
@@ -10,5 +8,5 @@ public interface IChatWindow
 
     public void Close();
 
-    public void Add(Messege newMessage);
+    public void Recieve(Messege newMessage);
 }

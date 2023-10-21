@@ -43,14 +43,14 @@ public class ChatWindow : MonoBehaviour, IChatWindow
         gameObject.SetActive(false);
     }
 
-    public void Add(Messege newMessege)
+    public void Recieve(Messege newMessage)
     {
-        _curruntChat.Add(newMessege);
+        _curruntChat.Add(newMessage);
 
-        _currentMessegeNode = newMessege.CurrentNode;
+        _currentMessegeNode = newMessage.CurrentNode;
         _curruntChat.SaveChatData(_currentMessegeNode);
 
-        _messageFactory.CreateMessegeView(newMessege);
+        _messageFactory.CreateMessegeView(newMessage);
     }
 
     private void ShowInChat(IEnumerable<Messege> messages)

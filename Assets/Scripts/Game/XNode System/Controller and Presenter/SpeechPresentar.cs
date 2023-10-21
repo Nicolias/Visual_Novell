@@ -20,6 +20,13 @@ public class SpeechPresentar : IPresentar
 
     public void Execute()
     {
+        if (_staticData.IsSkipDialog)
+        {
+            _view.Show(_model);
+            Complete?.Invoke();
+            return;
+        }
+
         _view.Clicked += OnViewClick;
 
         if (_view.gameObject.activeInHierarchy)

@@ -7,6 +7,7 @@ public class UIInstaller : MonoInstaller
     [SerializeField] private MessegeFactory _messegeFactory;
     [SerializeField] private MessengerCommander _messengerCommander;
     [SerializeField] private Messenger _messenger;
+    [SerializeField] private MessengerWindow _messengerWindow;
     [SerializeField] private ChoicePanel _choisePanel;
     [SerializeField] private Map _map;
     [SerializeField] private Smartphone _smartphone;
@@ -28,7 +29,7 @@ public class UIInstaller : MonoInstaller
             AsSingle();
 
         Container.
-            Bind<ChatWindow>().
+            Bind<IChatWindow>().
             FromInstance(_chatView).
             AsSingle();
 
@@ -40,6 +41,11 @@ public class UIInstaller : MonoInstaller
         Container.
             Bind<MessengerCommander>().
             FromInstance(_messengerCommander).
+            AsSingle();
+
+        Container.
+            Bind<IMessengerWindow>().
+            FromInstance(_messengerWindow).
             AsSingle();
 
         Container.

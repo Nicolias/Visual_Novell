@@ -22,12 +22,12 @@ public class RequirementOpenDUXCommand : ICommand
     private void DuxCloseCallBack()
     {
         _duxWindow.OnClosed -= DuxCloseCallBack;
-        _smartphone.OnClosed += SmartphoneCloseCallBack;
+        _smartphone.Closed += SmartphoneCloseCallBack;
     }
 
     private void SmartphoneCloseCallBack()
     {
-        _smartphone.OnClosed -= SmartphoneCloseCallBack;
+        _smartphone.Closed -= SmartphoneCloseCallBack;
         Complete?.Invoke();
     }
 }

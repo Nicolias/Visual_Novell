@@ -1,20 +1,19 @@
 ﻿using System;
-using UnityEngine;
 using Zenject;
 
 namespace Game.GuessNumber
 {
-    public class GuessNumberGame
+    public class GuessNumberGame : AbstractMiniGame
     {
-        public event Action OnDrawn;
-        public event Action OnCharacterWon;
-        public event Action OnCharacterLost;
-
         [Inject] private readonly CoroutineServise _coroutineServise;
         [Inject] private readonly ChoicePanel _choicePanel;
 
         private GuessNumberPanel _guessNumberPanel;
         private (int, int) _numberBounds;
+
+        public override event Action Drawn;
+        public override event Action CharacterWon;
+        public override event Action CharacterLost;
 
         public void StartGame(GuessNumberPanel guessNumberPanel, (int, int) numberBounds)
         {
@@ -36,9 +35,9 @@ namespace Game.GuessNumber
             _coroutineServise.WaitForSecondsAndInvoke(1.5f, () =>
             {
                 if (enemyNumber == playerNumber)
-                    OnCharacterWon?.Invoke();
+                    CharacterWon?.Invoke();
                 else
-                    OnCharacterLost?.Invoke();
+                    CharacterLost?.Invoke();
             });
         }
     }
