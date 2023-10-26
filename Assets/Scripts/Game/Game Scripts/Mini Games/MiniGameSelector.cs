@@ -14,9 +14,9 @@ public class MiniGameSelector : MonoBehaviour
     [Inject] private readonly CharactersLibrary _charactersLibrary;
     [Inject] private readonly Battery _battery;
 
-    [SerializeField]private TMP_Text _sympathyCounter;
+    [SerializeField] private TMP_Text _sympathyCounter;
     [SerializeField] private TMP_Text _chargeCounter;
-    [SerializeField] private List<MiniGame> _miniGames;
+    [SerializeField] private List<MiniGame<AbstractMiniGame>> _miniGames;
     [SerializeField] private int _startGameCost;
 
     private Character _currentCharacter;
@@ -25,9 +25,9 @@ public class MiniGameSelector : MonoBehaviour
     {
         foreach (var miniGame in _miniGames)
         {
-            miniGame.OnGameEnded += OnGameEnd;
-            miniGame.OnGameClosed += CloseMiniGamesSelection;
-            miniGame.OnGameRestarted += OnGameRestart;
+            miniGame.GameEnded += OnGameEnd;
+            miniGame.GameClosed += CloseMiniGamesSelection;
+            miniGame.GameRestarted += OnGameRestart;
         }            
     }
 
@@ -35,9 +35,9 @@ public class MiniGameSelector : MonoBehaviour
     {
         foreach (var miniGame in _miniGames)
         {
-            miniGame.OnGameEnded -= OnGameEnd;
-            miniGame.OnGameClosed -= CloseMiniGamesSelection;
-            miniGame.OnGameRestarted -= OnGameRestart;
+            miniGame.GameEnded -= OnGameEnd;
+            miniGame.GameClosed -= CloseMiniGamesSelection;
+            miniGame.GameRestarted -= OnGameRestart;
         }
     }
 

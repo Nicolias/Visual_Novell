@@ -7,13 +7,17 @@ public class CharacterPortraitData
     public Image Image { get; private set; }
     public CharacterPortraitPosition Position { get; private set; }
     public CharacterType CharacterType { get; private set; }
+    public Vector2 PositionOffset { get; private set; }
+    public Vector3 ScalseOffset { get; private set; }
 
     public CharacterPortraitData(ICharacterPortraitModel characterPortrait, Image characterImage)
     {
         Name = characterPortrait.Name;
         Image = characterImage;
-        Position = characterPortrait.Position;
+        Position = characterPortrait.PositionType;
         CharacterType = characterPortrait.CharacterType;
+        PositionOffset = characterPortrait.PositionOffset;
+        ScalseOffset = characterPortrait.ScaleOffset;
     }
 
     public void SetPosition(CharacterPortraitPosition newPosition)

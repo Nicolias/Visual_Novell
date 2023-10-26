@@ -101,7 +101,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: b1686ab877caa3441995c4951348f1c2, type: 3}
-  <Position>k__BackingField: 1
+  <PositionType>k__BackingField: 1
 --- !u!114 &-8860348230538687097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,7 +846,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: a86bcd7171c0d1d4b9bc6eb7d33a0299, type: 3}
-  <Position>k__BackingField: 1
+  <PositionType>k__BackingField: 1
 --- !u!114 &-1410634871180399218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,7 +1526,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 18eafab953cb5cb48bb64a9fed11688c, type: 3}
-  <Position>k__BackingField: 1
+  <PositionType>k__BackingField: 1
 --- !u!114 &3053898006343099455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,7 +1732,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: b1686ab877caa3441995c4951348f1c2, type: 3}
-  <Position>k__BackingField: 1
+  <PositionType>k__BackingField: 1
 --- !u!114 &5384879034358453647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1937,7 +1937,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: b1686ab877caa3441995c4951348f1c2, type: 3}
-  <Position>k__BackingField: 1
+  <PositionType>k__BackingField: 1
 --- !u!114 &6730449854598115563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,7 +2195,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 4d8cc91cac433254b8d0560e1dc87455, type: 3}
-  <Position>k__BackingField: 1
+  <PositionType>k__BackingField: 1
 --- !u!114 &8733087704999732613
 MonoBehaviour:
   m_ObjectHideFlags: 0

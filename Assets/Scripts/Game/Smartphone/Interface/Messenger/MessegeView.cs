@@ -19,8 +19,8 @@ public class MessegeView : MonoBehaviour
         _name.text = messege.Name;
         _messege.text = messege.MessegeText;
 
-        StartCoroutine(WaitFrameAndInvoke(() => _selfRect.sizeDelta = new Vector2
-        (_selfRect.sizeDelta.x, _messege.rectTransform.sizeDelta.y + _sizeOffset)));
+        StartCoroutine(WaitFrameAndInvoke(() => 
+            _selfRect.sizeDelta = new Vector2(_selfRect.sizeDelta.x, _messege.rectTransform.sizeDelta.y + _sizeOffset)));
     }
 
 

@@ -48,7 +48,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: b7bafd254a98ef940a7888c5029e991a, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &-8977813434935861825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: b7bafd254a98ef940a7888c5029e991a, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &-8741595446033226963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: b7bafd254a98ef940a7888c5029e991a, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &-8500977172074230916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,7 +1476,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &-5014169900959940506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1629,7 +1629,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &-3850074631494537126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1937,7 +1937,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 0}
-  <Position>k__BackingField: 3
+  <PositionType>k__BackingField: 3
 --- !u!114 &-3297393794948633410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2090,7 +2090,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &-2955964236382642147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,7 +2238,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: b7bafd254a98ef940a7888c5029e991a, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &-2678346399692412297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,7 +2571,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &-2109638381786130086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2931,7 +2931,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &-1092055939104964537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3027,7 +3027,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
-  <Position>k__BackingField: 3
+  <PositionType>k__BackingField: 4
 --- !u!114 &-791580025996938667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3895,7 +3895,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &2617120211546141178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4158,7 +4158,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 11a2ba11c44436546a8db0715c713c3f, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &3581048115882957563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4256,7 +4256,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &4235820103966631472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4501,7 +4501,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &4731575390765233044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5313,7 +5313,7 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4
 --- !u!114 &8841204487555040664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5409,4 +5409,4 @@ MonoBehaviour:
   <CharacterType>k__BackingField: 0
   <Name>k__BackingField: "\u0414\u0435\u044F"
   <Sprite>k__BackingField: {fileID: 21300000, guid: 3d5f2b95d8fbe2e4491f538ded139899, type: 3}
-  <Position>k__BackingField: 4
+  <PositionType>k__BackingField: 4

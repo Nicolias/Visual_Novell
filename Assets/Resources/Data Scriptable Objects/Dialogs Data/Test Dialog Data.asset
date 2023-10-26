@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7382418862840603594
+--- !u!114 &-8973908946766726686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,30 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 776c94b67f2600f4c97edf47f0a4ed33, type: 3}
-  m_Name: Background Model
+  m_Script: {fileID: 11500000, guid: f886da0be8bf631489f4b0a0ffb68dc7, type: 3}
+  m_Name: New Dialog In Smartphone Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1176, y: 4392}
+  position: {x: 207.42816, y: 86.84581}
   ports:
     keys:
     - _inPut
     - _outPut
     values:
     - _fieldName: _inPut
-      _node: {fileID: -7382418862840603594}
+      _node: {fileID: -8973908946766726686}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: _outPut
-        node: {fileID: 6028025486673686286}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: _outPut
-      _node: {fileID: -7382418862840603594}
+      _node: {fileID: -8973908946766726686}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -42,7 +39,9 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <Sprite>k__BackingField: {fileID: 0}
+  <NewDialog>k__BackingField:
+    <ContactName>k__BackingField: Mama
+    <Messege>k__BackingField: {fileID: 11400000, guid: ddd8714396070c34cbbfb1d5c7a20aa0, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,48 +55,4 @@ MonoBehaviour:
   m_Name: Test Dialog Data
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 6028025486673686286}
-  - {fileID: -7382418862840603594}
---- !u!114 &6028025486673686286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 776c94b67f2600f4c97edf47f0a4ed33, type: 3}
-  m_Name: Background Model
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -1422.6642, y: 4405.318}
-  ports:
-    keys:
-    - _inPut
-    - _outPut
-    values:
-    - _fieldName: _inPut
-      _node: {fileID: 6028025486673686286}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: _outPut
-      _node: {fileID: 6028025486673686286}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: _inPut
-        node: {fileID: -7382418862840603594}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  _inPut: 0
-  _outPut: 0
-  <Sprite>k__BackingField: {fileID: 21300000, guid: c3fd5d9649ad8104f8c1c6e371112baf, type: 3}
+  - {fileID: -8973908946766726686}

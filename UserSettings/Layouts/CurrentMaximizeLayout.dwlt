@@ -14,17 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 3}
-  - {fileID: 14}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 30
     width: 1536
     height: 730.8
-  m_MinSize: {x: 300, y: 150}
-  m_MaxSize: {x: 24288, y: 24288}
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 16
+  controlID: 1527
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -34,21 +33,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
-    m_Text: Game
-    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
+    m_Text: Project
+    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 73.6
-    width: 853.4
-    height: 551.8
+    x: 816
+    y: 550.4
+    width: 334.80005
+    height: 233
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -59,70 +58,117 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  m_SerializedViewNames: []
-  m_SerializedViewValues: []
-  m_PlayModeViewName: GameView
-  m_ShowGizmos: 0
-  m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1920, y: 1080}
-  m_TextureFilterMode: 0
-  m_TextureHideFlags: 61
-  m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
-  m_UseMipMap: 0
-  m_VSyncEnabled: 0
-  m_Gizmos: 0
-  m_Stats: 0
-  m_SelectedSizes: 00000000000000000000000006000000000000000000000000000000000000000000000000000000
-  m_ZoomArea:
-    m_HRangeLocked: 0
-    m_VRangeLocked: 0
-    hZoomLockedByDefault: 0
-    vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -768
-    m_HBaseRangeMax: 768
-    m_VBaseRangeMin: -432
-    m_VBaseRangeMax: 432
-    m_HAllowExceedBaseRangeMin: 1
-    m_HAllowExceedBaseRangeMax: 1
-    m_VAllowExceedBaseRangeMin: 1
-    m_VAllowExceedBaseRangeMax: 1
-    m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
-    m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
-    m_EnableSliderZoomHorizontal: 0
-    m_EnableSliderZoomVertical: 0
-    m_UniformScale: 1
-    m_UpDirection: 1
-    m_DrawArea:
-      serializedVersion: 2
-      x: 0
-      y: 21
-      width: 853.4
-      height: 530.8
-    m_Scale: {x: 0.555599, y: 0.555599}
-    m_Translation: {x: 426.7, y: 265.4}
-    m_MarginLeft: 0
-    m_MarginRight: 0
-    m_MarginTop: 0
-    m_MarginBottom: 0
-    m_LastShownAreaInsideMargins:
-      serializedVersion: 2
-      x: -768
-      y: -477.68265
-      width: 1536
-      height: 955.3653
-    m_MinimalGUI: 1
-  m_defaultScale: 0.555599
-  m_LastWindowPixelSize: {x: 1066.75, y: 689.75}
-  m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 00000000000000000000
-  m_XRRenderMode: 0
-  m_RenderTexture: {fileID: 0}
+  m_SearchFilter:
+    m_NameFilter: 
+    m_ClassNames: []
+    m_AssetLabels: []
+    m_AssetBundleNames: []
+    m_ReferencingInstanceIDs: 
+    m_SceneHandles: 
+    m_ShowAllHits: 0
+    m_SkipHidden: 0
+    m_SearchArea: 1
+    m_Folders: []
+    m_Globs: []
+    m_OriginalText: 
+    m_ImportLogFlags: 0
+    m_FilterByTypeIntersection: 0
+  m_ViewMode: 0
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: D:\UnityProject\Visual Novell
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 50750000
+    m_LastClickedID: 30032
+    m_ExpandedIDs: ffffffff000000003c70000020710000667a0000407b0000e27b0000e47b0000e67b0000e87b0000ea7b0000ec7b0000ee7b0000f07b0000f27b0000f47b0000f67b0000f87b0000fa7b0000fc7b0000fe7b0000007c0000027c0000047c0000067c0000087c00000a7c00000c7c00000e7c0000107c0000127c0000147c0000167c0000187c00001a7c00001c7c00001e7c0000207c0000227c0000247c0000267c0000287c00002a7c00002c7c0000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_AssetTreeState:
+    scrollPos: {x: 0, y: 485}
+    m_SelectedIDs: 407bffff
+    m_LastClickedID: -33984
+    m_ExpandedIDs: ffffffff00000000e86b0000387000003c7000000c710000667a0000407b0000e27b0000e47b0000e67b0000e87b0000ea7b0000ec7b0000ee7b0000f07b0000f27b0000f47b0000f67b0000f87b0000fa7b0000fc7b0000fe7b0000007c0000027c0000047c0000067c0000087c00000a7c00000c7c00000e7c0000107c0000127c0000167c0000187c00001c7c00001e7c0000207c0000227c0000267c0000287c00002a7c00002c7c0000807c0000847c0000aae50000b2e50000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 9 Dialog In Kitchene
+      m_OriginalName: 9 Dialog In Kitchene
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 27878
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 0
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 12}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_ListAreaState:
+    m_SelectedInstanceIDs: 407bffff
+    m_LastClickedInstanceID: -33984
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c6230000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+    m_NewAssetIndexInList: -1
+    m_ScrollPosition: {x: 0, y: 1019}
+    m_GridSize: 64
+  m_SkipHiddenPackages: 0
+  m_DirectoriesAreaWidth: 115
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -137,18 +183,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 4}
-  - {fileID: 7}
-  - {fileID: 12}
+  - {fileID: 9}
+  - {fileID: 13}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1536
-    height: 572.8
+    height: 730.8
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 17
+  controlID: 1528
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -159,24 +205,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: NodeEditorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 854.4
-    height: 572.8
-  m_MinSize: {x: 201, y: 221}
+    width: 816
+    height: 730.8
+  m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 2}
+  m_ActualView: {fileID: 7}
   m_Panes:
   - {fileID: 5}
-  - {fileID: 2}
   - {fileID: 6}
-  m_Selected: 1
-  m_LastSelected: 2
+  - {fileID: 7}
+  - {fileID: 8}
+  m_Selected: 2
+  m_LastSelected: 1
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -199,7 +246,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 1133.4
+    width: 815
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -215,8 +262,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -160, y: -26.400024}
+      snapOffset: {x: -170.39996, y: -26.400024}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -535,6 +582,19 @@ MonoBehaviour:
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 48, y: 48}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: UnityEditor.SceneViewCameraOverlay
+      index: 12
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
     m_OverlaysVisible: 1
   m_WindowGUID: 6d463198bb5a1b9448aa347b065a820a
   m_Gizmos: 1
@@ -546,9 +606,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.4224309, y: -1.753268, z: 0.038057514}
+    m_Target: {x: 0.5269685, y: -1.0173521, z: -2.235121}
     speed: 2
-    m_Value: {x: -1.4224309, y: -1.753268, z: 0.038057514}
+    m_Value: {x: 0.5269685, y: -1.0173521, z: -2.235121}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -598,9 +658,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.9600034
+    m_Target: 4.44572
     speed: 2
-    m_Value: 7.9600034
+    m_Value: 4.44572
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -633,6 +693,2269 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Game
+    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73.6
+    width: 815
+    height: 709.8
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_SerializedViewNames: []
+  m_SerializedViewValues: []
+  m_PlayModeViewName: GameView
+  m_ShowGizmos: 0
+  m_TargetDisplay: 0
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetSize: {x: 1920, y: 1080}
+  m_TextureFilterMode: 0
+  m_TextureHideFlags: 61
+  m_RenderIMGUI: 1
+  m_EnterPlayModeBehavior: 0
+  m_UseMipMap: 0
+  m_VSyncEnabled: 0
+  m_Gizmos: 0
+  m_Stats: 0
+  m_SelectedSizes: 00000000000000000000000006000000000000000000000000000000000000000000000000000000
+  m_ZoomArea:
+    m_HRangeLocked: 0
+    m_VRangeLocked: 0
+    hZoomLockedByDefault: 0
+    vZoomLockedByDefault: 0
+    m_HBaseRangeMin: -768
+    m_HBaseRangeMax: 768
+    m_VBaseRangeMin: -432
+    m_VBaseRangeMax: 432
+    m_HAllowExceedBaseRangeMin: 1
+    m_HAllowExceedBaseRangeMax: 1
+    m_VAllowExceedBaseRangeMin: 1
+    m_VAllowExceedBaseRangeMax: 1
+    m_ScaleWithWindow: 0
+    m_HSlider: 0
+    m_VSlider: 0
+    m_IgnoreScrollWheelUntilClicked: 0
+    m_EnableMouseInput: 1
+    m_EnableSliderZoomHorizontal: 0
+    m_EnableSliderZoomVertical: 0
+    m_UniformScale: 1
+    m_UpDirection: 1
+    m_DrawArea:
+      serializedVersion: 2
+      x: 0
+      y: 21
+      width: 815
+      height: 688.8
+    m_Scale: {x: 0.53059894, y: 0.53059894}
+    m_Translation: {x: 407.5, y: 344.4}
+    m_MarginLeft: 0
+    m_MarginRight: 0
+    m_MarginTop: 0
+    m_MarginBottom: 0
+    m_LastShownAreaInsideMargins:
+      serializedVersion: 2
+      x: -768
+      y: -649.0778
+      width: 1536
+      height: 1298.1556
+    m_MinimalGUI: 1
+  m_defaultScale: 0.53059894
+  m_LastWindowPixelSize: {x: 1018.75, y: 887.25}
+  m_ClearInEditMode: 1
+  m_NoCameraWarning: 1
+  m_LowResolutionForAspectRatios: 00000000000000000000
+  m_XRRenderMode: 0
+  m_RenderTexture: {fileID: 0}
+--- !u!114 &7
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce2bf59ec7a25c4ba691cad7819bf38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: xNode
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73.6
+    width: 815
+    height: 709.8
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  _references:
+  - _node: {fileID: 569997584234396602, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 569997584234396602, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7866674563881041417, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7866674563881041417, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5715776864843507879, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5715776864843507879, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7758728818671625880, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7758728818671625880, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8821050309764255554, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8821050309764255554, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6361338622488742333, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6361338622488742333, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3242735865646773557, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3242735865646773557, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5917198472289652725, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5917198472289652725, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6632154689821889626, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6632154689821889626, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3753741008587362722, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3753741008587362722, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2616392084538706283, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2616392084538706283, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2371107265952303171, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2371107265952303171, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8697174322628154128, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8697174322628154128, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3725190782103545430, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3725190782103545430, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2597513190941674926, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2597513190941674926, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6934486047247468799, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6934486047247468799, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3110013086324628207, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3110013086324628207, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3356470534838168989, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3356470534838168989, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2690991932865368717, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2690991932865368717, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5820935484781644453, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5820935484781644453, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2536768571075002652, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _textChoices 1
+  - _node: {fileID: -2536768571075002652, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _textChoices 0
+  - _node: {fileID: -2536768571075002652, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2536768571075002652, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 4206619725245805436, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4206619725245805436, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7414026402595667539, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7414026402595667539, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3062583358611380708, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3062583358611380708, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1044058259753333210, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1044058259753333210, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2390750741128993060, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2390750741128993060, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3311121192599519461, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3311121192599519461, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3209437588045677569, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3209437588045677569, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6495190814596906850, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6495190814596906850, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5907467650671287537, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5907467650671287537, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 103314594853871301, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 103314594853871301, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5705418908663037232, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5705418908663037232, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8994770909520644316, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8994770909520644316, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2037803073128832380, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2037803073128832380, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -5416796757198270921, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -5416796757198270921, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6141868960095100064, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6141868960095100064, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8473270300563185191, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8473270300563185191, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8613339055767970096, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8613339055767970096, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5064529570063997187, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5064529570063997187, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 718318497715592371, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 718318497715592371, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6106147573818921861, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6106147573818921861, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6957564951207738333, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6957564951207738333, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -5881719106512178134, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -5881719106512178134, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 348441058758361914, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 348441058758361914, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1031988547564662965, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1031988547564662965, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7333330685953433463, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7333330685953433463, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2183847087985514996, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2183847087985514996, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2157474100875008531, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2157474100875008531, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -4170042940430273355, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4170042940430273355, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1505357518796423193, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1505357518796423193, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -5260074296924058410, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -5260074296924058410, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8430191635772304532, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8430191635772304532, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8249893046384390267, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8249893046384390267, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2717838063610535779, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2717838063610535779, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -320969133896866640, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -320969133896866640, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8973908946766726686, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8973908946766726686, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5602946068598377415, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5602946068598377415, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8020232173300468125, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8020232173300468125, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 4615564585199394263, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4615564585199394263, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8337514173116467278, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8337514173116467278, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8161898828188493420, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8161898828188493420, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 529565622910799852, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 529565622910799852, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 187569039504515083, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: 187569039504515083, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7700184911714431501, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7700184911714431501, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1982953393120005375, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1982953393120005375, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3594653919516647565, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3594653919516647565, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8395861982113150583, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8395861982113150583, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 4761498977825877363, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4761498977825877363, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: -5988161655690996085, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -5988161655690996085, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1587229802810450535, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1587229802810450535, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8513946851527048542, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8513946851527048542, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1155923295862810459, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1155923295862810459, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5826640693783869142, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5826640693783869142, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 105568474271088124, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 105568474271088124, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8048108413002137981, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8048108413002137981, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7806158773281961292, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7806158773281961292, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: -559637408731293108, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -559637408731293108, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3889553492406239535, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3889553492406239535, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6993969301417932673, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6993969301417932673, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1728493389390377842, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1728493389390377842, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3704323327117313592, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3704323327117313592, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+    _name: _inPut
+  - _node: {fileID: 0}
+    _name: _outPut
+  - _node: {fileID: 0}
+    _name: _inPut
+  - _node: {fileID: 4120665635823854329, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4120665635823854329, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3810660642304138491, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3810660642304138491, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1569489959175288629, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1569489959175288629, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -4346189981688644299, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4346189981688644299, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1923962581019749849, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1923962581019749849, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 4941163095885792722, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4941163095885792722, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 7152711105787552095, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 7152711105787552095, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 4872379736561612202, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4872379736561612202, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8232750776742382429, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8232750776742382429, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8356635683761619343, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8356635683761619343, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3603693019391015896, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3603693019391015896, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2068811889078768526, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2068811889078768526, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6654619392646643950, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6654619392646643950, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1091023768231309232, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1091023768231309232, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8127410957615266623, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8127410957615266623, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3028838405290689984, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3028838405290689984, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5364988159135912071, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5364988159135912071, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3829097980498733350, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3829097980498733350, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2381178578327830076, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2381178578327830076, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -4443374124631596065, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4443374124631596065, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 607041081086265267, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 607041081086265267, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 424444194154175597, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 424444194154175597, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -379657024462430162, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -379657024462430162, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2991104495062432707, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2991104495062432707, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8267450285869208854, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8267450285869208854, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8585681383705837633, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8585681383705837633, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -691341687929328497, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -691341687929328497, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1881891966677290059, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1881891966677290059, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3956322413121889375, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3956322413121889375, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8607978434265417602, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8607978434265417602, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8512967320398134802, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8512967320398134802, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8215915938682808928, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8215915938682808928, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 4258207536126161835, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4258207536126161835, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3603631020342289057, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3603631020342289057, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1214249958822325159, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1214249958822325159, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6669906176708221819, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6669906176708221819, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 4905918943193199795, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4905918943193199795, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3149671595621554901, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3149671595621554901, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6072832186023566657, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6072832186023566657, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8126606001117296529, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8126606001117296529, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1109356412781360778, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1109356412781360778, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -225751660378573399, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -225751660378573399, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5977217841832674466, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5977217841832674466, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2250909036537444107, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2250909036537444107, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -44131040540684743, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -44131040540684743, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8062642579775286385, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8062642579775286385, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2285533838127791523, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2285533838127791523, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3651361733613295751, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3651361733613295751, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -4779596411484929095, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4779596411484929095, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 7314161717023188644, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 7314161717023188644, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8976819831585033785, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8976819831585033785, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3531194427279664539, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3531194427279664539, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6397101834001167239, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6397101834001167239, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2374415051469885058, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2374415051469885058, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8514003753803589530, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8514003753803589530, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8936597505066173615, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8936597505066173615, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3023469137337439915, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3023469137337439915, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6435438059573214708, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6435438059573214708, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7569347071088868604, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7569347071088868604, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2794150141252313403, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2794150141252313403, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5726566346312967241, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5726566346312967241, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5354265930010962000, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5354265930010962000, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1740257022370669375, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1740257022370669375, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -372555839362341801, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -372555839362341801, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5286821926266547656, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5286821926266547656, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2286009736412470596, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2286009736412470596, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3313879461601620385, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3313879461601620385, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8647151148317237399, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8647151148317237399, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6355062714598351868, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6355062714598351868, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
+    _name: _inPut
+  _rects:
+  - serializedVersion: 2
+    x: 192
+    y: 56
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 0
+    y: 36
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 424
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 320
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 8
+    y: 300
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 320
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 300
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 320
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 424
+    y: 300
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 632
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 320
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 632
+    y: 300
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 576
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 8
+    y: 556
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 576
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 556
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 576
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 632
+    y: 556
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 576
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 424
+    y: 556
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 840
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 320
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 840
+    y: 300
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 576
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 840
+    y: 556
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1048
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 576
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1048
+    y: 556
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 832
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 8
+    y: 812
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 832
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 812
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -264
+    y: 912
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -456
+    y: 892
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -681
+    y: 1125
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -681
+    y: 1072
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -680
+    y: 1008
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -872
+    y: 988
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -392
+    y: 1168
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -584
+    y: 1148
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -184
+    y: 1168
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -376
+    y: 1148
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 184
+    y: 1152
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -8
+    y: 1132
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 1152
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 1132
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 1152
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 1132
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 1152
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 1132
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 1152
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 1132
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 1152
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 1132
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 184
+    y: 1408
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -8
+    y: 1388
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 1408
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 1388
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 1408
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 1388
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 1408
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 1388
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 1408
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 1388
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 1408
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 1388
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 1408
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 1388
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 184
+    y: 1664
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -8
+    y: 1644
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 1664
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 1644
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 1664
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 1644
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 2176
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 2156
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 1664
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 1644
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 1664
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 1644
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 1664
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 1644
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 1664
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 1644
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 184
+    y: 1920
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -8
+    y: 1900
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 1920
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 1900
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 1920
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 1900
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 1920
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 1900
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 1920
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 1900
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 1920
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 1900
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 1920
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 1900
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 184
+    y: 2176
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -8
+    y: 2156
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 2176
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 2156
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 2176
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 2156
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 2176
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 2156
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 399.42816
+    y: 142.84581
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 207.42816
+    y: 122.84581
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 192
+    y: 56
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 0
+    y: 36
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -24
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: -216
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 632
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1048
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 840
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 2176
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 2156
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 424
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 8
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 424
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 840
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 632
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1048
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 8
+    y: 540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 424
+    y: 540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 632
+    y: 540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 840
+    y: 540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1048
+    y: 540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 816
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 8
+    y: 796
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 816
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 796
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 816
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 424
+    y: 796
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 816
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 632
+    y: 796
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 816
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 840
+    y: 796
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 816
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1048
+    y: 796
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 376
+    y: -128
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 184
+    y: -148
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 584
+    y: -128
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: -148
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1640
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1448
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1640
+    y: 304
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1448
+    y: 284
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1640
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1448
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1640
+    y: 864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1448
+    y: 844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 1120
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 1100
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 1120
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 1100
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 1120
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 1100
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 1120
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 1100
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 1120
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 1100
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 1120
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 1100
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1640
+    y: 1120
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1448
+    y: 1100
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 1376
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 1356
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 1376
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 1356
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 1376
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 1356
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 1376
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 1356
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 1376
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 1356
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 1376
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 1356
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1640
+    y: 1376
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1448
+    y: 1356
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1640
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1448
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 1888
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 1868
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 1888
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 1868
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 1888
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 1868
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 1888
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 1868
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 1888
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 1868
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 1888
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 1868
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1640
+    y: 1888
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1448
+    y: 1868
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 2160
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 2140
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 2160
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 2140
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 2160
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 2140
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1016
+    y: 2160
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 824
+    y: 2140
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1224
+    y: 2160
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: 2140
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1432
+    y: 2160
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1240
+    y: 2140
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1640
+    y: 2160
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1448
+    y: 2140
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 392
+    y: 2416
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 2396
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 600
+    y: 2416
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 2396
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 192
+    y: 56
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 0
+    y: 36
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 408
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 44
+    width: 16
+    height: 16
+  graph: {fileID: 11400000, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
+--- !u!114 &8
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -647,7 +2970,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 1133.4
+    width: 943
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -660,7 +2983,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 125
+    ID: 14669
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -720,7 +3043,7 @@ MonoBehaviour:
       availableCategories: []
     m_SelectedOption: 0
   m_EditModeTestListGUI:
-    m_Window: {fileID: 6}
+    m_Window: {fileID: 8}
     m_NewResultList:
     - id: 1000
       uniqueId: '[The Fortune][suite]'
@@ -933,7 +3256,7 @@ MonoBehaviour:
       selectedCategoryMask: 0
       availableCategories:
       - Uncategorized
---- !u!114 &7
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -946,19 +3269,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 8}
   - {fileID: 10}
+  - {fileID: 12}
   m_Position:
     serializedVersion: 2
-    x: 854.4
+    x: 816
     y: 0
-    width: 292.79993
-    height: 572.8
+    width: 336.80005
+    height: 730.8
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 45
---- !u!114 &8
+  controlID: 1529
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -975,16 +3298,16 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 292.79993
-    height: 249.6
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 9}
+    width: 336.80005
+    height: 476.8
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 11}
   m_Panes:
-  - {fileID: 9}
+  - {fileID: 11}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &9
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1004,10 +3327,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 854.4
+    x: 816
     y: 73.6
-    width: 290.79993
-    height: 228.6
+    width: 334.80005
+    height: 455.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1021,9 +3344,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e06c0000
+      m_SelectedIDs: 407bffff
       m_LastClickedID: 0
-      m_ExpandedIDs: 32e6ffffe8e9ffff16fbffff80750000eca40000
+      m_ExpandedIDs: 16fbffff007700002a780000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1039,7 +3362,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 10}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1047,178 +3370,6 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 7070ba38aff76fa4ca78e0ca906d5633
---- !u!114 &10
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 249.6
-    width: 292.79993
-    height: 323.19998
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 11}
-  m_Panes:
-  - {fileID: 11}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &11
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
-  m_TitleContent:
-    m_Text: Project
-    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 854.4
-    y: 323.2
-    width: 290.79993
-    height: 302.19998
-  m_SerializedDataModeController:
-    m_DataMode: 0
-    m_PreferredDataMode: 0
-    m_SupportedDataModes: 
-    isAutomatic: 1
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_OverlaysVisible: 1
-  m_SearchFilter:
-    m_NameFilter: 
-    m_ClassNames: []
-    m_AssetLabels: []
-    m_AssetBundleNames: []
-    m_ReferencingInstanceIDs: 
-    m_SceneHandles: 
-    m_ShowAllHits: 0
-    m_SkipHidden: 0
-    m_SearchArea: 1
-    m_Folders:
-    - Assets/Resources/Data Scriptable Objects/Dialogs Data
-    m_Globs: []
-    m_OriginalText: 
-    m_ImportLogFlags: 0
-    m_FilterByTypeIntersection: 0
-  m_ViewMode: 0
-  m_StartGridSize: 64
-  m_LastFolders:
-  - Assets
-  m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\UnityProject\Visual Novell
-  m_LockTracker:
-    m_IsLocked: 0
-  m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 50750000
-    m_LastClickedID: 30032
-    m_ExpandedIDs: 00000000ba6f0000d6780000ea78000076790000107a0000127a0000147a0000167a0000187a00001a7a00001c7a00001e7a0000207a0000227a0000247a0000267a0000287a00002a7a00002c7a00002e7a0000307a0000327a0000347a0000367a0000387a00003a7a00003c7a00003e7a0000407a0000427a0000447a0000467a0000487a00004a7a00004c7a00004e7a0000507a0000527a0000547a0000567a0000587a00005a7a00005c7a00005e7a0000
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
-    m_SearchString: 
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-  m_AssetTreeState:
-    scrollPos: {x: 0, y: 120}
-    m_SelectedIDs: e06c0000
-    m_LastClickedID: 27872
-    m_ExpandedIDs: ffffffff00000000ba6f0000d6780000ea78000076790000107a0000127a0000147a0000167a0000187a00001c7a00001e7a0000207a0000227a0000247a0000287a00002c7a0000307a0000327a0000347a0000387a00003a7a00003c7a00003e7a0000407a0000427a0000447a0000467a0000487a00004a7a00004c7a00004e7a0000507a0000527a0000547a0000567a0000587a00005c840000
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 4}
-    m_SearchString: 
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-  m_ListAreaState:
-    m_SelectedInstanceIDs: e06c0000
-    m_LastClickedInstanceID: 27872
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-    m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 1019}
-    m_GridSize: 64
-  m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 115
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1234,18 +3385,44 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1147.2
-    y: 0
-    width: 388.80005
-    height: 572.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 13}
+    x: 0
+    y: 476.8
+    width: 336.80005
+    height: 254
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 2}
   m_Panes:
-  - {fileID: 13}
+  - {fileID: 2}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 1152.8
+    y: 0
+    width: 383.19995
+    height: 730.8
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 14}
+  m_Panes:
+  - {fileID: 14}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1265,10 +3442,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1147.2001
+    x: 1152.8
     y: 73.6
-    width: 387.80005
-    height: 551.8
+    width: 382.19995
+    height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1282,7 +3459,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: -160
+    m_CachedPref: 178
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
@@ -1292,63 +3469,3 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &14
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 572.8
-    width: 1536
-    height: 158
-  m_MinSize: {x: 100, y: 121}
-  m_MaxSize: {x: 4000, y: 4021}
-  m_ActualView: {fileID: 15}
-  m_Panes:
-  - {fileID: 15}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &15
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Console
-    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 646.4
-    width: 1536
-    height: 137
-  m_SerializedDataModeController:
-    m_DataMode: 0
-    m_PreferredDataMode: 0
-    m_SupportedDataModes: 
-    isAutomatic: 1
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_OverlaysVisible: 1

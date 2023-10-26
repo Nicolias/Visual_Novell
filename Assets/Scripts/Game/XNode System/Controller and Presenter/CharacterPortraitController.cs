@@ -15,13 +15,20 @@ public class CharacterPortraitController : ICommand
 
     public void Execute()
     {
+        if (_model.PositionType == CharacterPortraitPosition.Delete)
+        {
+            _view.Delete(_model);
+            Complete?.Invoke();
+            return;
+        }
+            
         _view.Show(_model);
-        _view.OnComplite += CallBack;
+        _view.Complite += CallBack;
     }
 
     private void CallBack()
     {
-        _view.OnComplite -= CallBack;
+        _view.Complite -= CallBack;
         Complete?.Invoke();
     }
 }

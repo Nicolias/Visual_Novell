@@ -14,5 +14,9 @@ namespace SaveData
         public Sprite Sprite;
 
         public CharacterPortraitPosition Position;
+
+        public Vector2 PositionOffset;
+
+        public Vector3 ScaleOffset;
     }
 }
