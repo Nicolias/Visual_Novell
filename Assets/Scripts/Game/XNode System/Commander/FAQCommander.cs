@@ -177,4 +177,9 @@ public class FAQCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(DeleteLocationFromMap deleteLocationFromMap)
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -208,4 +208,9 @@ public class GameCommander : Commander, ICommanderVisitor
     {
         _result.command = DI.Instantiate<ChapterCaptionCommand>(new object[] { chapterCaptionModel });
     }
+
+    public void Visit(DeleteLocationFromMap deleteLocationFromMap)
+    {
+        _result.command = DI.Instantiate<DeleteLocationFromMapCommand>(new object[] { deleteLocationFromMap.Locations });
+    }
 }

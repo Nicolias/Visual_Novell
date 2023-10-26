@@ -84,7 +84,7 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
             switch (windowEnabled.Item1)
             {
                 case SmartphoneWindows.Map:
-                    _map.SetEnabled(windowEnabled.Item2);
+                    _map.SetEnable(windowEnabled.Item2);
                     break;
                 case SmartphoneWindows.DUX:
                     _dux.SetEnabled(windowEnabled.Item2);

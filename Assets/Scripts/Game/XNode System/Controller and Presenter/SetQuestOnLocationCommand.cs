@@ -2,20 +2,18 @@
 
 public class SetQuestOnLocationCommand : ICommand
 {
-    public event Action Complete;
-
-    private Map _view;
     private SetQuestOnLocationModel _model;
 
-    public SetQuestOnLocationCommand(Map view, SetQuestOnLocationModel model)
+    public SetQuestOnLocationCommand(SetQuestOnLocationModel model)
     {
-        _view = view;
         _model = model;
     }
 
+    public event Action Complete;
+
     public void Execute()
     {
-        _view.SetQuest(_model.LocationType, _model.Quest);
+        _model.Location.Set(_model.Quest);
         Complete?.Invoke();
     }
 }

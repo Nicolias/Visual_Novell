@@ -10,6 +10,7 @@
     void Visit(BackgroundModel background);
     void Visit(ChangeLocationModel changeLocationModel);
     void Visit(ICharacterPortraitModel portrait);
+    void Visit(DeleteLocationFromMap deleteLocationFromMap);
     void Visit(SpawnItemModel spawnItemModel);
     void Visit(ChapterCaptionModel chapterCaptionModel);
     void Visit(SwitchSceneModel switchSceneModel);

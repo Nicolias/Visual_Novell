@@ -53,17 +53,6 @@ public class BackgroundView : MonoBehaviour, ISaveLoadObject
             .Play();
     }
 
-    public void Show(Sprite sprite)
-    {
-        _canvasGroup.alpha = 0;
-        _image.sprite = sprite;
-
-        DOTween.Sequence()
-            .Append(DOVirtual.Float(0, 1, _closeDuration, v => _canvasGroup.alpha = v))
-            .AppendCallback(() => OnPicturChanged?.Invoke())
-            .Play();
-    }
-
     public void Save()
     {
         _saveLoadServise.Save<SaveData.ImageData>(_saveKey, new() { Sprite = _image.sprite });
