@@ -185,7 +185,7 @@ public class MessengerCommander : Commander, ICommanderVisitor
         throw new System.NotImplementedException();
     }
 
-    public void Visit(DeleteLocationFromMap deleteLocationFromMap)
+    public void Visit(RemoveOrAddLocation deleteLocationFromMap)
     {
         throw new System.NotImplementedException();
     }

@@ -8993,12 +8993,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameCommander: {fileID: 1814440475}
-  _choicePanel: {fileID: 1648804638}
-  _locations:
-  - {fileID: 11400000, guid: bf85709b809aff342a7184fad427b132, type: 2}
-  - {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
-  - {fileID: 11400000, guid: 1330c5bf8320c264199c021649382a19, type: 2}
-  - {fileID: 11400000, guid: a23b9db4080cf724b95fc1b484dbea9f, type: 2}
   _locationCellContainer: {fileID: 860184873}
   _closeButton: {fileID: 655249167}
   _openButton: {fileID: 572216650}
@@ -11967,6 +11961,11 @@ MonoBehaviour:
   _collectionQuestView: {fileID: 28396944}
   _fAQCommander: {fileID: 1212958845}
   _chapterCaption: {fileID: 553121960}
+  _allLocations:
+  - {fileID: 11400000, guid: bf85709b809aff342a7184fad427b132, type: 2}
+  - {fileID: 11400000, guid: a23b9db4080cf724b95fc1b484dbea9f, type: 2}
+  - {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
+  - {fileID: 11400000, guid: 1330c5bf8320c264199c021649382a19, type: 2}
 --- !u!4 &1501848719
 Transform:
   m_ObjectHideFlags: 0
