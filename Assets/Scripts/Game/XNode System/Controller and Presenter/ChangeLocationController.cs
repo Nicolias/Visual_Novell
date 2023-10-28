@@ -18,7 +18,7 @@ public class ChangeLocationController : ICommand
     public void Execute()
     {
         _backgroundView.OnPicturChanged += CallBack;
-        _view.ChangeLocation(_model.LocationType);
+        _view.ChangeLocation(_model.Location);
     }
 
     private void CallBack()

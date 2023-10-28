@@ -11,7 +11,7 @@ public class CollectionPanel : MonoBehaviour
     public event Action<ItemForCollectionView, ItemForCollection> ItemSelected;
     public event Action<ItemForCollection> ItemDeleted;
 
-    public List<ItemForCollectionView> CreateItemsView(List<ItemForCollection> itemsData)
+    public List<ItemForCollectionView> CreateItemsView(IEnumerable<ItemForCollection> itemsData)
     {
         List<ItemForCollectionView> itemsView = new List<ItemForCollectionView>();
 
@@ -40,7 +40,7 @@ public class CollectionPanel : MonoBehaviour
         ItemDeleted?.Invoke(itemData);
     }
 
-    public void ShowItems(List<ItemForCollectionView> itemsView)
+    public void ShowItems(IEnumerable<ItemForCollectionView> itemsView)
     {
         HideItems();
 

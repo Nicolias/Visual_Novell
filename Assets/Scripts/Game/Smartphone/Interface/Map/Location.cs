@@ -3,66 +3,83 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-[Serializable]
-public class Location : IDisposable
+[CreateAssetMenu(fileName = "New location", menuName = "Location")]
+public class Location : ScriptableObject, IDisposable, ISaveLoadObject
 {
-    [SerializeField] private BackgroundView _background;
-    [SerializeField] private CollectionPanel _collectionPanel;
-
     [SerializeField] private Sprite _backgroundSprite;
     [SerializeField] private List<ItemForCollection> _itemsOnLocation;
 
     [SerializeField] private Node _questOnLocation;
+    [SerializeField] private bool _isAvilable = true;
 
-    [field: SerializeField] public LocationType LocationType { get; private set; }
+    private BackgroundView _background;
+    private CollectionPanel _collectionPanel;
+    private List<ItemForCollectionView> _itemsView = new List<ItemForCollectionView>();
+
+
     [field: SerializeField] public string Name { get; private set; }
 
-    private List<ItemForCollectionView> _itemsOnLocationView = new List<ItemForCollectionView>(); 
+    public bool IsAvilable => _isAvilable;
 
-    public Node QuestOnLocation => _questOnLocation;
-    public List<ItemForCollection> Items => _itemsOnLocation;
+    public IEnumerable<ItemForCollection> Items => _itemsOnLocation;
+    public IEnumerable<ItemForCollectionView> ItemsView => _itemsView;
+
+    public event Action<Node> QuestStarted;
 
     public void Initialize(BackgroundView background, CollectionPanel collectionPanel)
     {
         _background = background;
         _collectionPanel = collectionPanel;
 
-        _itemsOnLocationView = collectionPanel.CreateItemsView(_itemsOnLocation);
+        _itemsView = collectionPanel.CreateItemsView(Items);
     }
 
     public void Show()
     {
-        _background.Show(_backgroundSprite);
+        if (_questOnLocation != null)
+            QuestStarted?.Invoke(_questOnLocation);
 
-        _collectionPanel.ShowItems(_itemsOnLocationView);
+        _background.Replace(_backgroundSprite);
+
+        _collectionPanel.ShowItems(_itemsView);
         _collectionPanel.ItemDeleted += OnItemDelete;
     }
 
     public void Dispose()
     {
-        if(_collectionPanel != null)
+        if (_collectionPanel != null)
             _collectionPanel.ItemDeleted -= OnItemDelete;
-    }
-
-    public void SetQuest(Node questOnLocation)
-    {
-        _questOnLocation = questOnLocation;
     }
 
     public void Add(ItemForCollection item)
     {
         _itemsOnLocation.Add(item);
-        _itemsOnLocationView.AddRange(_collectionPanel.CreateItemsView(new() { item }));
+        _itemsView.AddRange(_collectionPanel.CreateItemsView(new List<ItemForCollection>() { item }));
     }
 
-    public void StartQuest()
+    public void Set(Node questOnLocation)
     {
-        _questOnLocation = null;
+        _questOnLocation = questOnLocation;
+    }
+
+    public void Disable()
+    {
+        _isAvilable = false;
     }
 
     private void OnItemDelete(ItemForCollection itemData)
     {
         _itemsOnLocation.Remove(itemData);
-        _itemsOnLocationView.RemoveAll(x => x == null);
+        _itemsView.RemoveAll(x => x == null);
+    }
+
+    public void Save()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Load()
+    {
+        throw new NotImplementedException();
     }
 }

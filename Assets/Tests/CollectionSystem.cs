@@ -24,7 +24,7 @@ public class CollectionSystem
         bool isItemSelected = false;
 
         _collectionPanel.ItemSelected += (itemView, itemData) => isItemSelected = true;
-        _collectionPanel.ShowItems(new() { itemView });
+        _collectionPanel.ShowItems(new List<ItemForCollectionView>() { itemView });
 
         // Act.
         itemView.SelecteItem();
@@ -32,7 +32,6 @@ public class CollectionSystem
         // Assert.
         isItemSelected.Should().BeTrue();   
     }
-
 
     [Test]
     public void WhenItemHiding_AndItemSelected_ThenColectionPanelDontKnownIt()
@@ -43,8 +42,8 @@ public class CollectionSystem
         bool isItemSelected = false;
 
         _collectionPanel.ItemSelected += (itemView, itemData) => isItemSelected = true;
-        _collectionPanel.ShowItems(new() { hidedItemView });
-        _collectionPanel.ShowItems(new() { showedItemView });
+        _collectionPanel.ShowItems(new List<ItemForCollectionView>() { hidedItemView });
+        _collectionPanel.ShowItems(new List<ItemForCollectionView>() { showedItemView });
 
         // Act.
         hidedItemView.SelecteItem();
@@ -63,7 +62,7 @@ public class CollectionSystem
         ItemForCollectionView itemViewForQuestCollection = _collectionPanel.CreateItemsView(itemsForCollection)[0];
 
         CollectionQuest collectionQuest = new CollectionQuest(itemsForCollection, _collectionPanel, _inventory);
-        _collectionPanel.ShowItems(new() { itemViewForQuestCollection });
+        _collectionPanel.ShowItems(new List<ItemForCollectionView>() { itemViewForQuestCollection });
         collectionQuest.QuestCompleted += () => isQuestComplete = true;
 
         // Act.

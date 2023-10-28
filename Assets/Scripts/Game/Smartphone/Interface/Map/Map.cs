@@ -1,5 +1,3 @@
-using Factory.CellLocation;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,58 +6,58 @@ using Zenject;
 
 public class Map : MonoBehaviour, ISaveLoadObject
 {
-    [Inject] private SaveLoadServise _saveLoadServise;
-
-    [Inject] private LocationCellFactory _locationCellFactory;
-
-    [Inject] private BackgroundView _background;
-    [Inject] private CollectionPanel _collectionPanel;
-
-    [Inject] private Smartphone _smartphone;
-
     [SerializeField] private GameCommander _gameCommander;
-    [SerializeField] private ChoicePanel _choicePanel;
 
-    [SerializeField] private List<Location> _locations;
     [SerializeField] private Transform _locationCellContainer;
-
     [SerializeField] private Button _closeButton, _openButton;
-
     [SerializeField] private Canvas _selfCanvas;
 
     [SerializeField] private GameObject _guidPanel;
     private bool _guidComplete;
 
-    private List<LocationCell> _locationCells = new();
+    private SaveLoadServise _saveLoadServise;
+    private ILocationCellsFactory _locationCellFactory;
+    private Smartphone _smartphone;
+    private ChoicePanel _choicePanel;
+    private LocationsManager _locationsManager;
+
+    private List<LocationCell> _locationCells = new List<LocationCell>();
+    private List<Location> _locations = new List<Location>();
     private Location _currentLocation;
 
     private const string _saveKey = "MapSave";
 
-    private void Awake()
+    public int LocationsCount => _locations.Count;
+    public int LocationCellsCount => _locationCells.Count;
+
+    [Inject]
+    public void Construct(SaveLoadServise saveLoadServise, ILocationCellsFactory locationCellFactory,
+        Smartphone smartphone, ChoicePanel choicePanel, LocationsManager locationsManager)
     {
-        for (int i = 0; i < _locations.Count; i++)
-            _locations[i].Initialize(_background, _collectionPanel);
+        _saveLoadServise = saveLoadServise;
+        _locationCellFactory = locationCellFactory;
+        _smartphone = smartphone;
+        _choicePanel = choicePanel;
+        _locationsManager = locationsManager;
     }
 
     private void OnEnable()
     {
+        _locationsManager.ConstructMap();
+
         _closeButton.onClick.AddListener(Hide);
-        _openButton.onClick.AddListener(Show);
-
-        _locationCells = _locationCellFactory.CreateNewLocationCell(_locations, _locationCellContainer);
-
-        foreach (var locationCell in _locationCells)
-            locationCell.OnLocationSelected += OnLocationSelect;
+        _openButton.onClick.AddListener(Show);        
 
         if (_saveLoadServise.HasSave(_saveKey))
         {
             Load();
+
             if (_currentLocation != null)
-                ChangeLocation(_currentLocation.LocationType);
+                ChangeLocation(_currentLocation);
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         Save();
 
@@ -67,10 +65,12 @@ public class Map : MonoBehaviour, ISaveLoadObject
             Destroy(locationCell.gameObject);
 
         foreach (var locationCell in _locationCells)
-            locationCell.OnLocationSelected -= OnLocationSelect;
+            locationCell.LocationSelected -= OnLocationSelected;
 
         _openButton.onClick.RemoveAllListeners();
         _closeButton.onClick.RemoveAllListeners();
+
+        _locationsManager.Save();
     }
 
     public void Show()
@@ -81,29 +81,7 @@ public class Map : MonoBehaviour, ISaveLoadObject
         _selfCanvas.enabled = true;
     }
 
-    private void Hide()
-    {
-        _selfCanvas.enabled = false;
-        _choicePanel.Hide();
-    }
-
-    public void Add(ItemForCollection item, LocationType location)
-    {
-        _locations.Find(x => x.LocationType == location).Add(item);
-    }
-
-    public void SetQuest(LocationType locationType, Node quest)
-    {
-        _locations.Find(x => x.LocationType == locationType).SetQuest(quest);
-    }
-
-    public void ExitFromAllLocations()
-    {
-        _currentLocation = null;
-        enabled = false;
-    }
-
-    public void SetEnabled(bool eneble)
+    public void SetEnable(bool eneble)
     {
         _openButton.enabled = eneble;
 
@@ -114,79 +92,101 @@ public class Map : MonoBehaviour, ISaveLoadObject
         }
     }
 
-    public void ChangeLocation(LocationType locationType)
+    public void ChangeLocation(Location location)
     {
         if (_currentLocation != null)
-            _currentLocation.Dispose();
-
-        _currentLocation = _locations.Find(x => x.LocationType == locationType);
-        _currentLocation.Show();
-
-        if (_currentLocation.QuestOnLocation != null)
         {
-            _gameCommander.PackAndExecuteCommand(_currentLocation.QuestOnLocation);
-            _currentLocation.StartQuest();
+            _currentLocation.Dispose();
+            _currentLocation.QuestStarted -= OnQuestStarted;
+        }
+
+        _currentLocation = location;
+        _currentLocation.QuestStarted += OnQuestStarted;
+
+        _currentLocation.Show();
+    }
+
+    public void Add(IEnumerable<Location> locations)
+    {
+        List<LocationCell> newCells = _locationCellFactory.CreateNewLocationCell(locations, _locationCellContainer);
+
+        _locations.AddRange(locations);
+        _locationCells.AddRange(newCells);
+
+        foreach (var locationCell in _locationCells)
+            locationCell.LocationSelected += OnLocationSelected;
+    }
+
+    public void Remove(IEnumerable<Location> locations)
+    {
+        foreach (var location in locations)
+        {
+            location.Disable();
+            LocationCell locationCell = _locationCells.Find(locationCell => locationCell.Location == location);
+            locationCell.LocationSelected -= OnLocationSelected;
+
+            _locations.Remove(location);
+            _locationCells.Remove(locationCell);
+            DestroyImmediate(locationCell.gameObject);
         }
     }
 
-    private void OnLocationSelect(Location location, Action action)
+    private void OnLocationSelected(Location location)
     {
-        _choicePanel.Show($"Ïåðåéòè íà ëîêàöèþ {location.Name}", new()
+        _choicePanel.Show($"ÐŸÐµÑ€ÐµÐ¹Ñ‚Ð¸ Ð½Ð° Ð»Ð¾ÐºÐ°Ñ†Ð¸ÑŽ {location.Name}", new List<ChoiseElement>()
         {
-            new("Ïîäâåðäèòü", () => 
+            new ChoiseElement("ÐŸÐ¾Ð´Ð²ÐµÑ€Ð´Ð¸Ñ‚ÑŒ", () => 
             {
-                if (_currentLocation != null)
-                    _currentLocation.Dispose();
+                ChangeLocation(location);
 
-                action?.Invoke();
                 Hide();
                 _choicePanel.Hide();
                 _smartphone.Hide();
-                _currentLocation = location;
-
-                if (_currentLocation.QuestOnLocation != null)
-                {
-                    _gameCommander.PackAndExecuteCommand(_currentLocation.QuestOnLocation);
-                    _currentLocation.StartQuest();
-                }
             })
         });
     }
 
+    private void Hide()
+    {
+        _selfCanvas.enabled = false;
+        _choicePanel.Hide();
+    }
+
+    private void OnQuestStarted(Node quest)
+    {
+        _gameCommander.PackAndExecuteCommand(quest);
+    }
+
     public void Save()
     {
-        for (int i = 0; i < _locations.Count; i++)
-        {
-            _saveLoadServise.Save($"{_saveKey}/{i}", new SaveData.IntData() { Int = _locations[i].Items.Count });
+        //for (int i = 0; i < _locations.Count; i++)
+        //{
+        //    List<ItemForCollection> itemsOnLocation = new();
+        //    itemsOnLocation.AddRange(_locations[i].Items);
 
-            for (int k = 0; k < _locations[i].Items.Count; k++)
-            {
-                _saveLoadServise.Save($"{_saveKey}/{i}/{k}", new SaveData.LocationData()
-                {
-                    Quest = _locations[i].QuestOnLocation,
-                    Items = _locations[i].Items[k]
-                });
-            }
-        }
+        //    _saveLoadServise.Save($"{_saveKey}/{i}", new SaveData.IntData() { Int = itemsOnLocation.Count });
+
+        //    for (int k = 0; k < itemsOnLocation.Count; k++)
+        //    {
+        //        _saveLoadServise.Save($"{_saveKey}/{i}/{k}", new SaveData.LocationData()
+        //        {
+        //            Quest = _locations[i].QuestOnLocation,
+        //            Items = itemsOnLocation[k]
+        //        });
+        //    }
+        //}
+
+        int currentLocatoinIndex = -1;
 
         if (_currentLocation != null)
+            currentLocatoinIndex = _locations.IndexOf(_currentLocation);
+
+        _saveLoadServise.Save(_saveKey, new SaveData.MapData()
         {
-            _saveLoadServise.Save(_saveKey, new SaveData.MapData()
-            {
-                Enabled = _openButton.enabled,
-                GuidComplete = _guidComplete,
-                CurrentLocationIndex = _locations.IndexOf(_currentLocation)
-            }) ;
-        }
-        else
-        {
-            _saveLoadServise.Save(_saveKey, new SaveData.MapData()
-            {
-                Enabled = _openButton.enabled,
-                GuidComplete = _guidComplete,
-                CurrentLocationIndex = -1
-            });
-        }
+            Enabled = _openButton.enabled,
+            GuidComplete = _guidComplete,
+            CurrentLocationIndex = currentLocatoinIndex
+        });
     }
 
     public void Load()
@@ -200,19 +200,19 @@ public class Map : MonoBehaviour, ISaveLoadObject
 
         _guidComplete = data.GuidComplete;
 
-        for (int i = 0; i < _locations.Count; i++)
-        {
-            int count = _saveLoadServise.Load<SaveData.IntData>($"{_saveKey}/{i}").Int;
+        //for (int i = 0; i < _locations.Count; i++)
+        //{
+        //    int count = _saveLoadServise.Load<SaveData.IntData>($"{_saveKey}/{i}").Int;
 
-            for (int k = 0; k < count; k++)
-            {
-                _locations[i].SetQuest(_saveLoadServise.Load<SaveData.LocationData>($"{_saveKey}/{i}/{k}").Quest);
-                var locationData = _saveLoadServise.Load<SaveData.LocationData>($"{_saveKey}/{i}/{k}");
-                var item = locationData.Items;
+        //    for (int k = 0; k < count; k++)
+        //    {
+        //        _locations[i].Set(_saveLoadServise.Load<SaveData.LocationData>($"{_saveKey}/{i}/{k}").Quest);
+        //        var locationData = _saveLoadServise.Load<SaveData.LocationData>($"{_saveKey}/{i}/{k}");
+        //        var item = locationData.Items;
 
-                if (_locations[i].Items.Contains(item) == false)
-                    _locations[i].Add(item);
-            }
-        }
+        //        if (_locations[i].Contains(item) == false)
+        //            _locations[i].Add(item);
+        //    }
+        //}
     }
 }

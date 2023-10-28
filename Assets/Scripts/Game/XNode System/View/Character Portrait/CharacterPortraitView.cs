@@ -42,16 +42,6 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISav
     {
         if (IsCharacterExist(character.CharacterType, out CharacterPortraitData characterData))
         {
-            characterData = Create(character);
-
-            DOTween.Sequence()
-                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 0), 0))
-                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 1), 0.5f))
-                .AppendCallback(() => Complite?.Invoke())
-                .Play();
-        }
-        else
-        {
             DOTween.Sequence()
                 .Append(characterData.Image.DOColor(new Color(1, 1, 1, 0), 0.2f))
                 .AppendCallback(() =>
@@ -61,6 +51,16 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISav
                     characterData.Image.transform.SetParent(_positions[(int)characterData.Position]);
                 })
                 .Append(characterData.Image.DOColor(new Color(1, 1, 1, 1), 0.2f))
+                .AppendCallback(() => Complite?.Invoke())
+                .Play();
+        }
+        else
+        {
+            characterData = Create(character);
+
+            DOTween.Sequence()
+                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 0), 0))
+                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 1), 0.5f))
                 .AppendCallback(() => Complite?.Invoke())
                 .Play();
         }
@@ -78,10 +78,6 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISav
             _charactersList.Remove(existCharacter);
             Destroy(existCharacter.Image.gameObject);
         }
-        else
-        {
-            throw new InvalidOperationException("Такого персонажа нет на сцене.");
-        }
     }
 
     private bool IsCharacterExist(CharacterType characterType, out CharacterPortraitData exist)
@@ -91,10 +87,10 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISav
         foreach (var character in _charactersList.Where(character => character.CharacterType == characterType))
         {
             exist = character;
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     private CharacterPortraitData Create(ICharacterPortraitModel character)

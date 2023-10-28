@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +18,8 @@ public class UIInstaller : MonoInstaller
     [SerializeField] private CollectionQuestView _collectionQuestView;
     [SerializeField] private FAQCommander _fAQCommander;
     [SerializeField] private ChapterCaption _chapterCaption;
+
+    [SerializeField] private List<Location> _allLocations;
 
     public override void InstallBindings()
     {
@@ -59,5 +62,12 @@ public class UIInstaller : MonoInstaller
         Container.Bind<CollectionPanel>().FromInstance(_collectionPanel).AsSingle();
         Container.Bind<IInventory>().FromInstance(_inventory).AsSingle();
         Container.Bind<ChapterCaption>().FromInstance(_chapterCaption).AsSingle();
+
+        LocationManagerBind();
+    }
+
+    private void LocationManagerBind()
+    {
+        Container.Bind<LocationsManager>().FromNew().AsSingle().WithArguments(_allLocations);
     }
 }

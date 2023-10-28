@@ -1,7 +1,6 @@
 ﻿using Factory.CellLocation;
 using Factory.Messenger;
 using Factory.Quiz;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -17,7 +16,7 @@ public class FactoryInstaller : MonoInstaller
     {
         Container.Bind<ChatFactory>().FromInstance(_chatFactory).AsSingle();
         Container.Bind<ContactFactory>().FromInstance(_contactFactory).AsSingle();
-        Container.Bind<LocationCellFactory>().FromInstance(_locationCellFactory).AsSingle();
+        Container.Bind<ILocationCellsFactory>().FromInstance(_locationCellFactory).AsSingle();
         Container.Bind<QuestionFactory>().FromMethod(QuestionFactoryBind).AsSingle();
     }
 

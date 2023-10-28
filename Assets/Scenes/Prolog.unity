@@ -8008,7 +8008,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906242254}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
@@ -8993,25 +8993,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameCommander: {fileID: 1814440475}
-  _choicePanel: {fileID: 1648804638}
-  _locations:
-  - _background: {fileID: 32273443}
-    _collectionPanel: {fileID: 1112251417}
-    _backgroundSprite: {fileID: 21300000, guid: 8a20b4f5118ad5a4bb541315d15302dc, type: 3}
-    _itemsOnLocation:
-    - {fileID: 11400000, guid: c4ca3221008331146a38cd198dbfe132, type: 2}
-    _questOnLocation: {fileID: 0}
-    <LocationType>k__BackingField: 0
-    <Name>k__BackingField: "\u0421\u043F\u0430\u043B\u044C\u043D\u044F"
-  - _background: {fileID: 32273443}
-    _collectionPanel: {fileID: 1112251417}
-    _backgroundSprite: {fileID: 21300000, guid: 38547555dfd5ed1499963f4bee9b6a95, type: 3}
-    _itemsOnLocation:
-    - {fileID: 11400000, guid: f211ef9f961634d43a75127279e5bd96, type: 2}
-    - {fileID: 11400000, guid: b203782e17303224aa7765504af9656e, type: 2}
-    _questOnLocation: {fileID: 0}
-    <LocationType>k__BackingField: 1
-    <Name>k__BackingField: "\u041A\u0443\u0445\u043D\u044F"
   _locationCellContainer: {fileID: 860184873}
   _closeButton: {fileID: 655249167}
   _openButton: {fileID: 572216650}
@@ -11980,6 +11961,11 @@ MonoBehaviour:
   _collectionQuestView: {fileID: 28396944}
   _fAQCommander: {fileID: 1212958845}
   _chapterCaption: {fileID: 553121960}
+  _allLocations:
+  - {fileID: 11400000, guid: bf85709b809aff342a7184fad427b132, type: 2}
+  - {fileID: 11400000, guid: a23b9db4080cf724b95fc1b484dbea9f, type: 2}
+  - {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
+  - {fileID: 11400000, guid: 1330c5bf8320c264199c021649382a19, type: 2}
 --- !u!4 &1501848719
 Transform:
   m_ObjectHideFlags: 0
@@ -14599,7 +14585,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 16
   m_TargetDisplay: 0
 --- !u!114 &1813958998
 MonoBehaviour:
@@ -14677,7 +14663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b351c29c801994d86ca486a36a11b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 11400000, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
+  _currentGraph: {fileID: 11400000, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}

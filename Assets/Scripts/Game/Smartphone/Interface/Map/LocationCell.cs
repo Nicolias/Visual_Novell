@@ -2,19 +2,18 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 [RequireComponent(typeof(Button))]
 public class LocationCell : MonoBehaviour
 {
-    public event Action<Location, Action> OnLocationSelected;
-
     [SerializeField] private TMP_Text _locationNameText;
 
     private Button _selfButton;
     private Location _selfLocation;
 
-    public LocationType LocationType => _selfLocation.LocationType;
+    public Location Location => _selfLocation;
+
+    public virtual event Action<Location> LocationSelected;
 
     private void Awake()
     {
@@ -24,7 +23,7 @@ public class LocationCell : MonoBehaviour
     private void OnEnable()
     {
         _selfButton.onClick.AddListener(
-            () => OnLocationSelected?.Invoke(_selfLocation, () => _selfLocation.Show()));
+            () => LocationSelected?.Invoke(_selfLocation));
     }
 
     private void OnDisable()
@@ -35,6 +34,8 @@ public class LocationCell : MonoBehaviour
     public void Initialize(Location location)
     {
         _selfLocation = location;
-        _locationNameText.text = location.Name;
+
+        if(_locationNameText != null)
+            _locationNameText.text = location.Name;
     }
 }

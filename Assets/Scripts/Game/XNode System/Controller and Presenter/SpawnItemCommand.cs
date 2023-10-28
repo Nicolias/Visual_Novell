@@ -1,26 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class SpawnItemCommand : ICommand
 {
+    private CollectionPanel _collectionPanel;
+    private Location _location;
+    private Item _item;
+
     public event Action Complete;
 
-    private Map _map;
-    private CollectionPanel _collectionPanel;
-    private Item _item;
-    private LocationType _locationType;
-
-    public SpawnItemCommand(Map map, CollectionPanel collectionPanel, SpawnItemModel model)
+    public SpawnItemCommand(CollectionPanel collectionPanel, SpawnItemModel model)
     {
-        _map = map;
         _collectionPanel = collectionPanel;
         _item = model.Item;
-        _locationType = model.Location;
+        _location = model.Location;
     }
 
     public void Execute()
     {
-        _map.Add(_item, _locationType);
-        _collectionPanel.ShowItems(_collectionPanel.CreateItemsView(new() { _item }));
+        _location.Add(_item);
+        _collectionPanel.ShowItems(_location.ItemsView);
         Complete?.Invoke();
     }
 }
