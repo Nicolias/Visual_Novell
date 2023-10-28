@@ -4,20 +4,20 @@ using Zenject;
 
 namespace Factory.CellLocation
 {
-    public class LocationCellFactory : MonoBehaviour
+    public class LocationCellFactory : MonoBehaviour, ILocationCellsFactory
     {
         [Inject] private DiContainer _di;
         [SerializeField] private LocationCell _locationCellTemplate;
 
-        public List<LocationCell> CreateNewLocationCell(List<Location> locations, Transform locationCellContainer)
+        public List<LocationCell> CreateNewLocationCell(IEnumerable<Location> locations, Transform locationCellContainer)
         {
-            List<LocationCell> locationCells = new();
+            List<LocationCell> locationCells = new List<LocationCell>();
 
             foreach (var location in locations)
             {
-                var newlocationCell = _di.InstantiatePrefabForComponent<LocationCell>(_locationCellTemplate, locationCellContainer);
-                newlocationCell.Initialize(location);
-                locationCells.Add(newlocationCell);
+                var newLocationCell = _di.InstantiatePrefabForComponent<LocationCell>(_locationCellTemplate, locationCellContainer);
+                newLocationCell.Initialize(location);
+                locationCells.Add(newLocationCell);
             }
 
             return locationCells;

@@ -14585,7 +14585,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 16
   m_TargetDisplay: 0
 --- !u!114 &1813958998
 MonoBehaviour:
@@ -14663,7 +14663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b351c29c801994d86ca486a36a11b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 11400000, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+  _currentGraph: {fileID: 11400000, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}

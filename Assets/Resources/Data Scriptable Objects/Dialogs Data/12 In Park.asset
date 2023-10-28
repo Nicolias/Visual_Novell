@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: Set Quest On Location Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 616, y: 2360}
+  position: {x: 1032, y: 2360}
   ports:
     keys:
     - _inPut
@@ -385,7 +385,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -3313879461601620385}
+        node: {fileID: -5268597319068530978}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -509,6 +509,53 @@ MonoBehaviour:
     \u043F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0434\u0438\u043B\u0430 \u043E\u0431\u043E
     \u0432\u0441\u0451\u043C? \u0418\u043B\u0438 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u0441\u044F,
     \u043A\u0430\u043A \u0441 \u043F\u0440\u043E\u0448\u043B\u044B\u043C?"
+--- !u!114 &-5268597319068530978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c841ecdf28f0c745ba00558a23de6ab, type: 3}
+  m_Name: Change Enabled Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 824, y: 2360}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -5268597319068530978}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 5967655004192254222}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -5268597319068530978}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -7408404680333124296}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _smartphoneWindows: 00000000
+  _smartphoneWindowsEnabled: 01
 --- !u!114 &-4779596411484929095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,7 +884,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -7408404680333124296}
+        node: {fileID: 5967655004192254222}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1487,6 +1534,8 @@ MonoBehaviour:
   - {fileID: -3313879461601620385}
   - {fileID: 3970915128723027829}
   - {fileID: -7408404680333124296}
+  - {fileID: 5967655004192254222}
+  - {fileID: -5268597319068530978}
 --- !u!114 &424444194154175597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2887,6 +2936,54 @@ MonoBehaviour:
   _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
   _speakerName: (G)
   _speechText: "\u0414\u044D\u044F, \u0442\u044B \u0437\u0434\u0435\u0441\u044C?"
+--- !u!114 &5967655004192254222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1323788ae964c5445a60ecc0900bce32, type: 3}
+  m_Name: Remove Or Add Location
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 616, y: 2360}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 5967655004192254222}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -3313879461601620385}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 5967655004192254222}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -5268597319068530978}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <LocationsForAdd>k__BackingField:
+  - {fileID: 11400000, guid: a23b9db4080cf724b95fc1b484dbea9f, type: 2}
+  <LocationsForRemove>k__BackingField: []
 --- !u!114 &5977217841832674466
 MonoBehaviour:
   m_ObjectHideFlags: 0

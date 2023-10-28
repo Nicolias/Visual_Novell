@@ -17,7 +17,7 @@ public class ChoicePanel : MonoBehaviour
 
         ClearContainer();
 
-        List<ChoiceButton> uncorrectButtons = new();
+        List<ChoiceButton> uncorrectButtons = new List<ChoiceButton>();
 
         for (int i = 0; i < choiseElements.Count; i++)
         {

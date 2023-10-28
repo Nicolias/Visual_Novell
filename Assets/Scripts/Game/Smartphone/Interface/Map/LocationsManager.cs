@@ -25,11 +25,9 @@ public class LocationsManager : ISaveLoadObject
 
         if(_saveLoadServise.HasSave(_saveKey))
             Load();
-
-        ConstructMap();
     }
     
-    private void ConstructMap()
+    public void ConstructMap()
     {
         foreach (var location in _locations)
             location.Initialize(_background, _collectionPanel);
@@ -40,7 +38,7 @@ public class LocationsManager : ISaveLoadObject
             if (_locations[i].IsAvilable == false)
                 locations.Remove(_locations[i]);
 
-        _map.Initialize(_locationsInMap);
+        _map.Add(_locationsInMap);
     }
 
     public void AddToMap(IEnumerable<Location> locations)

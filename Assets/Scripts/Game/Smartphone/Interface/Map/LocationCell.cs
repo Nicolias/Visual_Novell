@@ -13,7 +13,7 @@ public class LocationCell : MonoBehaviour
 
     public Location Location => _selfLocation;
 
-    public event Action<Location> LocationSelected;
+    public virtual event Action<Location> LocationSelected;
 
     private void Awake()
     {
@@ -34,6 +34,8 @@ public class LocationCell : MonoBehaviour
     public void Initialize(Location location)
     {
         _selfLocation = location;
-        _locationNameText.text = location.Name;
+
+        if(_locationNameText != null)
+            _locationNameText.text = location.Name;
     }
 }

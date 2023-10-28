@@ -1,4 +1,3 @@
-using Factory.CellLocation;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,12 +6,6 @@ using Zenject;
 
 public class Map : MonoBehaviour, ISaveLoadObject
 {
-    [Inject] private SaveLoadServise _saveLoadServise;
-    [Inject] private LocationCellFactory _locationCellFactory;
-    [Inject] private Smartphone _smartphone;
-    [Inject] private ChoicePanel _choicePanel;
-    [Inject] private LocationsManager _locationsManager;
-
     [SerializeField] private GameCommander _gameCommander;
 
     [SerializeField] private Transform _locationCellContainer;
@@ -22,21 +15,36 @@ public class Map : MonoBehaviour, ISaveLoadObject
     [SerializeField] private GameObject _guidPanel;
     private bool _guidComplete;
 
+    private SaveLoadServise _saveLoadServise;
+    private ILocationCellsFactory _locationCellFactory;
+    private Smartphone _smartphone;
+    private ChoicePanel _choicePanel;
+    private LocationsManager _locationsManager;
+
     private List<LocationCell> _locationCells = new List<LocationCell>();
-    private List<Location> _locations;
+    private List<Location> _locations = new List<Location>();
     private Location _currentLocation;
 
     private const string _saveKey = "MapSave";
 
-    public void Initialize(IEnumerable<Location> locations)
-    {
-        _locations = new List<Location>();
+    public int LocationsCount => _locations.Count;
+    public int LocationCellsCount => _locationCells.Count;
 
-        Add(locations);
+    [Inject]
+    public void Construct(SaveLoadServise saveLoadServise, ILocationCellsFactory locationCellFactory,
+        Smartphone smartphone, ChoicePanel choicePanel, LocationsManager locationsManager)
+    {
+        _saveLoadServise = saveLoadServise;
+        _locationCellFactory = locationCellFactory;
+        _smartphone = smartphone;
+        _choicePanel = choicePanel;
+        _locationsManager = locationsManager;
     }
 
     private void OnEnable()
     {
+        _locationsManager.ConstructMap();
+
         _closeButton.onClick.AddListener(Hide);
         _openButton.onClick.AddListener(Show);        
 
@@ -100,8 +108,10 @@ public class Map : MonoBehaviour, ISaveLoadObject
 
     public void Add(IEnumerable<Location> locations)
     {
+        List<LocationCell> newCells = _locationCellFactory.CreateNewLocationCell(locations, _locationCellContainer);
+
         _locations.AddRange(locations);
-        _locationCells = _locationCellFactory.CreateNewLocationCell(_locations, _locationCellContainer);
+        _locationCells.AddRange(newCells);
 
         foreach (var locationCell in _locationCells)
             locationCell.LocationSelected += OnLocationSelected;
@@ -117,15 +127,15 @@ public class Map : MonoBehaviour, ISaveLoadObject
 
             _locations.Remove(location);
             _locationCells.Remove(locationCell);
-            Destroy(locationCell.gameObject);
+            DestroyImmediate(locationCell.gameObject);
         }
     }
 
     private void OnLocationSelected(Location location)
     {
-        _choicePanel.Show($"Перейти на локацию {location.Name}", new()
+        _choicePanel.Show($"РџРµСЂРµР№С‚Рё РЅР° Р»РѕРєР°С†РёСЋ {location.Name}", new List<ChoiseElement>()
         {
-            new("Подвердить", () => 
+            new ChoiseElement("РџРѕРґРІРµСЂРґРёС‚СЊ", () => 
             {
                 ChangeLocation(location);
 
