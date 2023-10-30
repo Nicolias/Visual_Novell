@@ -31,6 +31,6 @@ public class ChoiceButton : MonoBehaviour
     public void Initialized(ChoiseElement choiseElement)
     {
         ActionWhenOnClick = choiseElement.ActionWhenOnClick;
-        _text.text = choiseElement.Text;
+        _text.text = choiseElement.TextOnButton;
     }
 }

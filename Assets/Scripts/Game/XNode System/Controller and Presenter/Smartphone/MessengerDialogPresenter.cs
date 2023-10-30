@@ -19,9 +19,7 @@ public class MessengerDialogPresenter : IPresentar
 
     public void Execute()
     {
-        Messege newMessege = new(_model.Avatar, _model.SpeakerName, _model.Text, _model.MessegeSenderType, _currentNode);
-        _view.Recieve(newMessege);
-        
-        Complete?.Invoke();
+        Messege newMessege = new Messege(_model.Avatar, _model.SpeakerName, _model.Text, _model.MessegeSenderType, _currentNode);
+        _view.Recieve(newMessege, Complete);
     }
 }

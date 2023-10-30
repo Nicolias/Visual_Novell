@@ -8,5 +8,5 @@ public interface IChatWindow
 
     public void Close();
 
-    public void Recieve(Messege newMessage);
+    public void Recieve(Messege newMessage, Action completeMessage);
 }

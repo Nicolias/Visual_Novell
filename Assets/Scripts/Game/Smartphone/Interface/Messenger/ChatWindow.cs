@@ -11,7 +11,6 @@ public class ChatWindow : MonoBehaviour, IChatWindow
     private MessegeFactory _messageFactory;
     private MessengerCommander _messengerCommander;
 
-    private Node _currentMessegeNode;
     private Chat _curruntChat;
 
     public event Action<Chat> ChatRead;
@@ -31,10 +30,8 @@ public class ChatWindow : MonoBehaviour, IChatWindow
 
         _curruntChat = chat;
 
-        foreach (Transform messege in _messegeContainer)
-            Destroy(messege.gameObject);
-
-        ShowInChat(_curruntChat.Messages);
+        _messageFactory.HidePreviouslyCreatedMessages();
+        _messageFactory.Show(chat.Messages);
         ContinueDialog(chat.CurrentNode);
     }
 
@@ -43,22 +40,13 @@ public class ChatWindow : MonoBehaviour, IChatWindow
         gameObject.SetActive(false);
     }
 
-    public void Recieve(Messege newMessage)
+    public void Recieve(Messege newMessage, Action completeMessage)
     {
         _curruntChat.Add(newMessage);
 
-        _currentMessegeNode = newMessage.CurrentNode;
-        _curruntChat.SaveChatData(_currentMessegeNode);
+        _curruntChat.SaveChatData(newMessage.CurrentNode);
 
-        _messageFactory.CreateMessegeView(newMessage);
-    }
-
-    private void ShowInChat(IEnumerable<Messege> messages)
-    {
-        gameObject.SetActive(true);
-
-        foreach (Messege messege in messages)
-            _messageFactory.CreateMessegeView(messege);
+        StartCoroutine(_messageFactory.Show(newMessage, completeMessage));
     }
 
     private void ContinueDialog(Node currentNodeInDialog)

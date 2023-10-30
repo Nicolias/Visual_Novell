@@ -1,16 +1,14 @@
 ﻿using System;
-using TMPro;
-using XNode;
 
 public class ChoiseElement
 {
-    public string Text { get; private set; }
+    public string TextOnButton { get; private set; }
 
     public Action ActionWhenOnClick { get; private set; }
 
-    public ChoiseElement(string text, Action actionWhenOnClick)
+    public ChoiseElement(string textOnButton, Action actionWhenOnClick)
     {
-        Text = text;
+        TextOnButton = textOnButton;
         ActionWhenOnClick = actionWhenOnClick;
     }
 }

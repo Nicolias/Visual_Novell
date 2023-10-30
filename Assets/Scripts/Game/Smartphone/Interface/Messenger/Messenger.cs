@@ -44,6 +44,7 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
 
     private void OnEnable()
     {
+        _chatView.ChatRead += OnChatRead;
         _openMesengerButton.onClick.AddListener(() => _messengerWindow.Show());
 
         if (_saveLoadServise.HasSave(_saveKey))
@@ -52,6 +53,7 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
 
     private void OnDisable()
     {
+        _chatView.ChatRead -= OnChatRead;
         _openMesengerButton.onClick.RemoveAllListeners();
         Save();
     }
@@ -76,14 +78,12 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
                 throw new InvalidOperationException("Чат уже существут");
 
         _unreadChats.Add(chat);
-        _chatView.ChatRead += OnChatRead;
         _unreadChatIndicator.SetActive(true);
     }
 
     private void OnChatRead(Chat chat)
     {
         ChatRead?.Invoke(chat.Data);
-        _chatView.ChatRead -= OnChatRead;
         _unreadChats.Remove(chat);
 
         if (_unreadChats.Count == 0)
@@ -116,8 +116,11 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
             var messegeData = _saveLoadServise.Load<SaveData.MessegeData>($"{_saveKey}/{i}");
             MessegeData messege = new(messegeData.ContactName, messegeData.Messege);
 
-            _messengerWindow.CreateChat(messege);
-            _allMessages.Add(messege);
+            if (_allMessages.Exists(existMessage => existMessage.Messege == messege.Messege) == false)
+            {
+                _messengerWindow.CreateChat(messege);
+                _allMessages.Add(messege);
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ public class Messege
 {
     public Sprite Avatar { get; private set; }
     public string Name { get; private set; }
-    public string MessegeText { get; private set; }
+    public string Text { get; private set; }
     public MessegeSenderType SenderType { get; private set; }
 
     public Node CurrentNode { get; private set; }
@@ -14,7 +14,7 @@ public class Messege
     {
         Avatar = avatar;
         Name = name;
-        MessegeText = messegeText;
+        Text = messegeText;
         SenderType = senderType;
 
         CurrentNode = currentNode;

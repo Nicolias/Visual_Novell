@@ -5,7 +5,6 @@ using Zenject;
 public class UIInstaller : MonoInstaller
 {
     [SerializeField] private ChatWindow _chatView;
-    [SerializeField] private MessegeFactory _messegeFactory;
     [SerializeField] private MessengerCommander _messengerCommander;
     [SerializeField] private Messenger _messenger;
     [SerializeField] private MessengerWindow _messengerWindow;
@@ -34,11 +33,6 @@ public class UIInstaller : MonoInstaller
         Container.
             Bind<IChatWindow>().
             FromInstance(_chatView).
-            AsSingle();
-
-        Container.
-            Bind<MessegeFactory>().
-            FromInstance(_messegeFactory).
             AsSingle();
 
         Container.

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using XNode;
 
 public class SmartphoneNewMessegePresenter : IPresentar
@@ -8,6 +9,8 @@ public class SmartphoneNewMessegePresenter : IPresentar
     private NewDialogInSmartphoneModel _model;
     private Messenger _view;
 
+    private List<MessegeData> _dialogsForPass;
+
     public SmartphoneNewMessegePresenter(NewDialogInSmartphoneModel model, Messenger view)
     {
         _model = model;
@@ -16,13 +19,20 @@ public class SmartphoneNewMessegePresenter : IPresentar
 
     public void Execute()
     {
-        _view.AddNewMessage(_model.NewDialog);
+        _dialogsForPass = new List<MessegeData>(_model.NewDialogs);
+
+        foreach (var newDialog in _model.NewDialogs)
+            _view.AddNewMessage(newDialog);
+
         _view.ChatRead += CallBack;
     }
 
     private void CallBack(NodeGraph messege)
     {
-        if (messege != _model.NewDialog.Messege)
+        if (_dialogsForPass.Exists(dialog => dialog.Messege == messege))
+            _dialogsForPass.RemoveAll(dialogForDelete => dialogForDelete.Messege == messege);
+
+        if (_dialogsForPass.Count > 0)
             return;
 
         _view.ChatRead -= CallBack;

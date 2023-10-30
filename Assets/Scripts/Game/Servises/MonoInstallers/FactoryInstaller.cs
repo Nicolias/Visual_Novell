@@ -9,6 +9,7 @@ public class FactoryInstaller : MonoInstaller
     [Inject] private StaticData _staticData;
 
     [SerializeField] private ChatFactory _chatFactory;
+    [SerializeField] private MessegeFactory _messegeFactory;
     [SerializeField] private ContactFactory _contactFactory;
     [SerializeField] private LocationCellFactory _locationCellFactory;
 
@@ -18,6 +19,10 @@ public class FactoryInstaller : MonoInstaller
         Container.Bind<ContactFactory>().FromInstance(_contactFactory).AsSingle();
         Container.Bind<ILocationCellsFactory>().FromInstance(_locationCellFactory).AsSingle();
         Container.Bind<QuestionFactory>().FromMethod(QuestionFactoryBind).AsSingle();
+        Container.
+            Bind<MessegeFactory>().
+            FromInstance(_messegeFactory).
+            AsSingle();
     }
 
     private QuestionFactory QuestionFactoryBind()

@@ -13,16 +13,25 @@ public class MessegeView : MonoBehaviour
 
     [SerializeField] private float _sizeOffset;
 
-    public void Initialize(Messege messege)
+    public MessegeSenderType Sender { get; private set; }
+
+    public void Show(Messege messege)
     {
+        gameObject.SetActive(true);
+
         _avatar.sprite = messege.Avatar;
         _name.text = messege.Name;
-        _messege.text = messege.MessegeText;
+        _messege.text = messege.Text;
+        Sender = messege.SenderType;
 
         StartCoroutine(WaitFrameAndInvoke(() => 
             _selfRect.sizeDelta = new Vector2(_selfRect.sizeDelta.x, _messege.rectTransform.sizeDelta.y + _sizeOffset)));
     }
 
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
 
     private IEnumerator WaitFrameAndInvoke(Action action)
     {
