@@ -9,5 +9,4 @@ public interface ICharacterPortraitModel
 
     public Vector2 PositionOffset { get; }
     public Vector3 ScaleOffset { get; }
-
 }

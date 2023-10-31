@@ -29,7 +29,7 @@ public class QuizView : MonoBehaviour
     {
         _canvas.enabled = false;
         _choisePanel.Hide();
-        _currentCharacter.OnSympathyPointsChanged -= UpdateSympathyPointsText;
+        _currentCharacter.SympathyPointsChanged -= UpdateSympathyPointsText;
     }
 
     public void ShowQuestion(Character character)
@@ -37,10 +37,10 @@ public class QuizView : MonoBehaviour
         _canvas.enabled = true;
         _currentCharacter = character;
 
-        _currentCharacter.OnSympathyPointsChanged += UpdateSympathyPointsText;
+        _currentCharacter.SympathyPointsChanged += UpdateSympathyPointsText;
         _currentSympathyText.text = _currentCharacter.SympathyPoints.ToString();
 
-        QuizElement quizElement = _questionFactory.GetQuestion(character.CharacterType);
+        QuizElement quizElement = _questionFactory.GetQuestion(character.Type);
         _uncorrectButtons = _choisePanel.ShowAndGetUncorrectButtons(quizElement.Qustion, GenerateChoicElements(quizElement));
     }
 

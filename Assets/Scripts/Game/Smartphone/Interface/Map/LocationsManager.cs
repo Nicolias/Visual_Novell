@@ -5,6 +5,7 @@ public class LocationsManager : ISaveLoadObject
 {
     private readonly SaveLoadServise _saveLoadServise;
 
+    private readonly CharactersPortraitView _charactersPortraitView;
     private readonly BackgroundView _background;
     private readonly CollectionPanel _collectionPanel;
     private readonly Map _map;
@@ -14,10 +15,12 @@ public class LocationsManager : ISaveLoadObject
 
     private string _saveKey = "locationManagerKey";
 
-    public LocationsManager(SaveLoadServise saveLoadServise, BackgroundView background, CollectionPanel collectionPanel, Map map, List<Location> locations)
+    public LocationsManager(SaveLoadServise saveLoadServise, BackgroundView background,
+        CollectionPanel collectionPanel, CharactersPortraitView charactersPortraitView, Map map, List<Location> locations)
     {
         _saveLoadServise = saveLoadServise;
 
+        _charactersPortraitView = charactersPortraitView;
         _background = background;
         _collectionPanel = collectionPanel;
         _map = map;
@@ -30,7 +33,7 @@ public class LocationsManager : ISaveLoadObject
     public void ConstructMap()
     {
         foreach (var location in _locations)
-            location.Initialize(_background, _collectionPanel);
+            location.Initialize(_background, _collectionPanel, _charactersPortraitView);
 
         List<Location> locations = new List<Location>(_locationsInMap);
 

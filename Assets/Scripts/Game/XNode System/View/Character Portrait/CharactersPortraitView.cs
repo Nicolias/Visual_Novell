@@ -6,29 +6,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISaveLoadObject
+public class CharactersPortraitView : MonoBehaviour, ICharacterPortraitView, ISaveLoadObject
 {
     [Inject] private SaveLoadServise _saveLoadServise;
 
+    [SerializeField] private Transform _containerForFreePosition;
     [SerializeField] private Image _prefab;
     [SerializeField] private Transform[] _positions;
 
-    private List<CharacterPortraitData> _charactersList;
-    private Color[] _colors;
+    private List<CharacterPortraitData> _charactersList = new List<CharacterPortraitData>();
+    private Color[] _colors = new Color[2] { new Color(1, 1, 1, 1), new Color(1, 1, 1, 0) };
 
     private const string _saveKey = "CharacterPortrait";
 
     public event Action Complite;
 
-    private void Awake()
-    {
-        _colors = new Color[2] { new Color(1, 1, 1, 1), new Color(1, 1, 1, 0) };
-    }
-
     private void OnEnable()
     {
-        _charactersList = new List<CharacterPortraitData>();
-
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
     }
@@ -120,7 +114,7 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISav
     
     private Image Instantiate(Sprite sprite, Vector2 positionOffset, Vector3 scaleOffset)
     {
-        Image newCharacterImage = Instantiate(_prefab, transform);
+        Image newCharacterImage = Instantiate(_prefab, _containerForFreePosition);
 
         RectTransform newCharacterTransform = newCharacterImage.rectTransform;
         newCharacterTransform.localPosition = positionOffset;

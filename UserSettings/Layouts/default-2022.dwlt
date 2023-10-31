@@ -20,11 +20,37 @@ MonoBehaviour:
     height: 780.8
   m_ShowMode: 4
   m_Title: Game
-  m_RootView: {fileID: 2}
+  m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: ProjectBrowser
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 408
+    width: 270.40002
+    height: 322.8
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 12}
+  m_Panes:
+  - {fileID: 12}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,9 +63,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 3}
-  - {fileID: 5}
   - {fileID: 4}
+  - {fileID: 6}
+  - {fileID: 5}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -52,7 +78,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &3
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &4
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +121,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &5
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 6}
+  - {fileID: 7}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -118,8 +144,8 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 99
---- !u!114 &6
+  controlID: 103
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,8 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 7}
   - {fileID: 8}
+  - {fileID: 9}
   - {fileID: 11}
   m_Position:
     serializedVersion: 2
@@ -144,8 +170,8 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 100
---- !u!114 &7
+  controlID: 104
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +188,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 873.6
+    width: 856
     height: 730.8
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
@@ -173,8 +199,8 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 16}
   m_Selected: 1
-  m_LastSelected: 0
---- !u!114 &8
+  m_LastSelected: 2
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,19 +213,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 9}
   - {fileID: 10}
+  - {fileID: 2}
   m_Position:
     serializedVersion: 2
-    x: 873.6
+    x: 856
     y: 0
-    width: 279.20007
+    width: 270.40002
     height: 730.8
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
   controlID: 42
---- !u!114 &9
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,39 +242,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 279.20007
-    height: 392.8
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+    width: 270.40002
+    height: 408
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &10
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 392.8
-    width: 279.20007
-    height: 338
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 12}
-  m_Panes:
-  - {fileID: 12}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &11
@@ -266,12 +266,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1152.8
+    x: 1126.4
     y: 0
-    width: 383.19995
+    width: 409.59998
     height: 730.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -297,10 +297,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 873.60004
-    y: 466.4
-    width: 277.20007
-    height: 317
+    x: 856
+    y: 481.6
+    width: 268.40002
+    height: 301.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -321,8 +321,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Scripts/Game/Smartphone/Interface/Map
+    m_Folders: []
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -339,7 +338,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 50750000
     m_LastClickedID: 30032
-    m_ExpandedIDs: 00000000f06b0000467000009a7a0000787b0000167c0000187c00001a7c00001c7c00001e7c0000207c0000227c0000247c0000267c0000287c00002a7c00002c7c00002e7c0000307c0000327c0000347c0000367c0000387c00003a7c00003c7c00003e7c0000407c0000427c0000447c0000467c0000487c00004a7c00004c7c00004e7c0000507c0000527c0000547c0000567c0000587c00005a7c00005c7c00005e7c0000
+    m_ExpandedIDs: 00000000ea6b00003c700000347b00009e7b0000407c0000427c0000447c0000467c0000487c00004a7c00004c7c00004e7c0000507c0000527c0000547c0000567c0000587c00005a7c00005c7c00005e7c0000607c0000627c0000647c0000667c0000687c00006a7c00006c7c00006e7c0000707c0000727c0000747c0000767c0000787c00007a7c00007c7c00007e7c0000807c0000827c0000847c0000867c0000887c00008a7c00008c7c00008e7c0000907c0000927c0000947c0000967c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -364,10 +363,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 180}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000f06b0000467000009a7a0000787b0000167c0000187c00001a7c00001c7c00001e7c0000207c0000227c0000247c0000267c0000287c00002a7c00002c7c00002e7c0000307c0000327c0000347c0000367c0000387c00003a7c00003c7c00003e7c0000407c0000427c0000447c0000467c0000487c00004a7c00004c7c00004e7c0000507c0000527c0000547c0000567c0000587c00005a7c00005c7c00005e7c0000a67c0000
+    m_ExpandedIDs: ffffffff00000000ea6b00003c700000347b00009e7b0000407c0000427c0000447c0000467c0000487c00004a7c00004c7c00004e7c0000507c0000527c0000547c0000567c0000587c00005a7c00005c7c00005e7c0000607c0000627c0000647c0000667c0000687c00006a7c00006c7c00006e7c0000707c0000727c0000747c0000767c0000787c00007a7c00007c7c00007e7c0000807c0000827c0000847c0000867c0000887c00008a7c00008c7c00008e7c0000907c0000927c0000947c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -383,7 +382,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 2}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -445,7 +444,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 872.6
+    width: 855
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -805,9 +804,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.4192019, y: -0.6791569, z: -2.248237}
+    m_Target: {x: 0.89376366, y: -2.1910453, z: -2.2437787}
     speed: 2
-    m_Value: {x: 2.3093631, y: -0.7248905, z: -2.2448988}
+    m_Value: {x: 0.89376366, y: -2.1910453, z: -2.2437787}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -857,9 +856,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.751954
+    m_Target: 7.7592583
     speed: 2
-    m_Value: 7.418138
+    m_Value: 7.7592583
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -906,7 +905,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 872.6
+    width: 855
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -960,10 +959,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 872.6
+      width: 855
       height: 688.8
-    m_Scale: {x: 0.56809896, y: 0.56809896}
-    m_Translation: {x: 436.3, y: 344.40002}
+    m_Scale: {x: 0.5566406, y: 0.5566406}
+    m_Translation: {x: 427.5, y: 344.4}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -971,12 +970,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -768
-      y: -606.2324
+      y: -618.71155
       width: 1536
-      height: 1212.4648
+      height: 1237.4231
     m_MinimalGUI: 1
-  m_defaultScale: 0.56809896
-  m_LastWindowPixelSize: {x: 1090.75, y: 887.25}
+  m_defaultScale: 0.5566406
+  m_LastWindowPixelSize: {x: 1068.75, y: 887.25}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -1004,7 +1003,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 872.6
+    width: 855
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1241,10 +1240,6 @@ MonoBehaviour:
     _name: _outPut
   - _node: {fileID: -320969133896866640, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
     _name: _inPut
-  - _node: {fileID: -8973908946766726686, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
-    _name: _outPut
-  - _node: {fileID: -8973908946766726686, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
-    _name: _inPut
   - _node: {fileID: 5602946068598377415, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
     _name: _outPut
   - _node: {fileID: 5602946068598377415, guid: 8595e5aa4c53a354bbb42f9152b0206e, type: 2}
@@ -2324,6 +2319,22 @@ MonoBehaviour:
   - _node: {fileID: -5908449137931639994, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
     _name: _outPut
   - _node: {fileID: -5908449137931639994, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2937037143022718999, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2937037143022718999, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
+    _name: _inPut
+  - _node: {fileID: -649728417611460994, guid: 011aa2ced32848a48bd4d4e7d82d2a27, type: 2}
+    _name: _outPut
+  - _node: {fileID: -649728417611460994, guid: 011aa2ced32848a48bd4d4e7d82d2a27, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7942352492572262113, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7942352492572262113, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
+    _name: _inPut
+  - _node: {fileID: 4596942639930660829, guid: c322353ededf4f542afad4c7a6702c88, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4596942639930660829, guid: c322353ededf4f542afad4c7a6702c88, type: 2}
     _name: _inPut
   _rects:
   - serializedVersion: 2
@@ -2884,16 +2895,6 @@ MonoBehaviour:
   - serializedVersion: 2
     x: 616
     y: 2156
-    width: 16
-    height: 16
-  - serializedVersion: 2
-    x: 399.42816
-    y: 142.84581
-    width: 16
-    height: 16
-  - serializedVersion: 2
-    x: 207.42816
-    y: 122.84581
     width: 16
     height: 16
   - serializedVersion: 2
@@ -5596,7 +5597,47 @@ MonoBehaviour:
     y: 28
     width: 16
     height: 16
-  graph: {fileID: 11400000, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+  - serializedVersion: 2
+    x: 200
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 8
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 24
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 424
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 232
+    y: 44
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 216
+    y: 64
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 24
+    y: 44
+    width: 16
+    height: 16
+  graph: {fileID: 11400000, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -5619,7 +5660,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 815
+    width: 1088.6
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -5632,7 +5673,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 13198
+    ID: 838
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -5699,7 +5740,7 @@ MonoBehaviour:
       name: The Fortune
       fullName: The Fortune
       resultStatus: 1
-      duration: 0.6092024
+      duration: 0.3453355
       messages: 
       output: 
       stacktrace: 
@@ -5715,7 +5756,7 @@ MonoBehaviour:
       name: Tests.dll
       fullName: D:/UnityProject/Visual Novell/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.4775197
+      duration: 0.2867187
       messages: 
       output: 
       stacktrace: 
@@ -5731,7 +5772,7 @@ MonoBehaviour:
       name: CollectionSystem
       fullName: CollectionSystem
       resultStatus: 1
-      duration: 0.2716689
+      duration: 0.0073939
       messages: 
       output: 
       stacktrace: 
@@ -5747,7 +5788,7 @@ MonoBehaviour:
       name: WhenItemHiding_AndItemSelected_ThenColectionPanelDontKnownIt
       fullName: CollectionSystem.WhenItemHiding_AndItemSelected_ThenColectionPanelDontKnownIt
       resultStatus: 1
-      duration: 0.2186224
+      duration: 0.0013488
       messages: 
       output: 
       stacktrace: 
@@ -5764,7 +5805,7 @@ MonoBehaviour:
       name: WhenShowingItems_AndItemSelected_ThenCollectionPanelKnownIt
       fullName: CollectionSystem.WhenShowingItems_AndItemSelected_ThenCollectionPanelKnownIt
       resultStatus: 1
-      duration: 0.0037955
+      duration: 0.0010397
       messages: 
       output: 
       stacktrace: 
@@ -5781,7 +5822,7 @@ MonoBehaviour:
       name: WhenStartingQuest_AndItemSelected_ThenQuestComplete
       fullName: CollectionSystem.WhenStartingQuest_AndItemSelected_ThenQuestComplete
       resultStatus: 1
-      duration: 0.0189962
+      duration: 0.0015659
       messages: 
       output: 
       stacktrace: 
@@ -5798,7 +5839,7 @@ MonoBehaviour:
       name: MessengerTests
       fullName: MessengerTests
       resultStatus: 1
-      duration: 0.1983397
+      duration: 0.0627064
       messages: 
       output: 
       stacktrace: 
@@ -5814,7 +5855,7 @@ MonoBehaviour:
       name: WhenCreatingChats_AndInMessengerWindowItNewContacts_ThenChatsCountInCountactShouldBe1
       fullName: MessengerTests.WhenCreatingChats_AndInMessengerWindowItNewContacts_ThenChatsCountInCountactShouldBe1
       resultStatus: 1
-      duration: 0.1174391
+      duration: 0.0193883
       messages: 
       output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
         This is not allowed.  MonoBehaviours can only be added using AddComponent().
@@ -5851,7 +5892,7 @@ MonoBehaviour:
       name: WhenCreatingChats_AndInMessengerWindowItOneContacts_ThenChatsCountInCountactShouldBe2
       fullName: MessengerTests.WhenCreatingChats_AndInMessengerWindowItOneContacts_ThenChatsCountInCountactShouldBe2
       resultStatus: 1
-      duration: 0.0199122
+      duration: 0.017707
       messages: 
       output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
         This is not allowed.  MonoBehaviours can only be added using AddComponent().
@@ -5888,7 +5929,7 @@ MonoBehaviour:
       name: WhenSendNewMessage_AndChatAddedToMessenger_ThenUnreadChatsCountShouldBe1
       fullName: MessengerTests.WhenSendNewMessage_AndChatAddedToMessenger_ThenUnreadChatsCountShouldBe1
       resultStatus: 1
-      duration: 0.0382111
+      duration: 0.0157276
       messages: 
       output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
         This is not allowed.  MonoBehaviours can only be added using AddComponent().
@@ -5920,26 +5961,113 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1005
       parentUniqueId: Tests.dll/[Tests][MessengerTests][suite]
-    m_ResultText: 'WhenCreatedNewMessage_AndChatCreated_ThenUnreadChatsCountShouldBe1
-      (0,499s)
-
-      ---
-
-      You are trying to create a MonoBehaviour using the
-      ''new'' keyword.  This is not allowed.  MonoBehaviours can only be added using
-      AddComponent(). Alternatively, your script can inherit from ScriptableObject
-      or no base class at all
-
-      You are trying to create a MonoBehaviour using
-      the ''new'' keyword.  This is not allowed.  MonoBehaviours can only be added
-      using AddComponent(). Alternatively, your script can inherit from ScriptableObject
-      or no base class at all'
+    - id: 1012
+      uniqueId: Tests.dll/[Tests][suite]
+      name: Tests
+      fullName: Tests
+      resultStatus: 1
+      duration: 0.2852097
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1011
+      parentUniqueId: '[Tests][D:/UnityProject/Visual Novell/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1009
+      uniqueId: Tests.dll/Tests/[Tests][Tests.MapTest][suite]
+      name: MapTest
+      fullName: Tests.MapTest
+      resultStatus: 1
+      duration: 0.2826038
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1012
+      parentUniqueId: Tests.dll/[Tests][suite]
+    - id: 1012
+      uniqueId: Tests.dll/Tests/MapTest/[Tests][Tests.MapTest.WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe][suite]
+      name: WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe
+      fullName: Tests.MapTest.WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe
+      resultStatus: 1
+      duration: 0.2661532
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1009
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.MapTest][suite]
+    - id: 1010
+      uniqueId: Tests.dll/Tests/MapTest/WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe/[Tests][Tests.MapTest.WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe(1)]
+      name: WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe(1)
+      fullName: Tests.MapTest.WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe(1)
+      resultStatus: 1
+      duration: 0.2358819
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: Tests.dll/Tests/MapTest/[Tests][Tests.MapTest.WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe][suite]
+    - id: 1011
+      uniqueId: Tests.dll/Tests/MapTest/WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe/[Tests][Tests.MapTest.WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe(2)]
+      name: WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe(2)
+      fullName: Tests.MapTest.WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe(2)
+      resultStatus: 1
+      duration: 0.0036235
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: Tests.dll/Tests/MapTest/[Tests][Tests.MapTest.WhenLocationAdded_AndLocationInMapEmpty_ThenLocationCellsInMapShoulBe][suite]
+    - id: 1013
+      uniqueId: Tests.dll/Tests/MapTest/[Tests][Tests.MapTest.WhenLocationRemoved_AndWasOneLocation_ThenLocationCountShouldEmpty]
+      name: WhenLocationRemoved_AndWasOneLocation_ThenLocationCountShouldEmpty
+      fullName: Tests.MapTest.WhenLocationRemoved_AndWasOneLocation_ThenLocationCountShouldEmpty
+      resultStatus: 1
+      duration: 0.2577451
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: Tests.dll/Tests/[Tests][Tests.MapTest][suite]
+    m_ResultText: WhenLocationRemoved_AndWasOneLocation_ThenLocationCountShouldEmpty
+      (0,258s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: fded7b23
-      m_LastClickedID: 595324413
-      m_ExpandedIDs: 037666eef44a0679ffffff7f
+      m_SelectedIDs: bc80f802
+      m_LastClickedID: 49840316
+      m_ExpandedIDs: 4bdc8d89445383b7037666ee8359db41f44a0679ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -5985,10 +6113,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 873.60004
+    x: 856
     y: 73.6
-    width: 277.20007
-    height: 371.8
+    width: 268.40002
+    height: 387
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -6002,9 +6130,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 36780000
-      m_LastClickedID: 30774
-      m_ExpandedIDs: ecfaffff607300001475000038770000
+      m_SelectedIDs: 9c740000
+      m_LastClickedID: 29852
+      m_ExpandedIDs: 16fbffff6e7300004c770000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -6020,7 +6148,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 9}
+        m_ClientGUIView: {fileID: 10}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -6048,9 +6176,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1152.8
+    x: 1126.4
     y: 73.6
-    width: 382.19995
+    width: 408.59998
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0

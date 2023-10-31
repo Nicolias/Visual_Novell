@@ -39,14 +39,11 @@ public class Map : MonoBehaviour, ISaveLoadObject
         _smartphone = smartphone;
         _choicePanel = choicePanel;
         _locationsManager = locationsManager;
-    }
 
-    private void OnEnable()
-    {
         _locationsManager.ConstructMap();
 
         _closeButton.onClick.AddListener(Hide);
-        _openButton.onClick.AddListener(Show);        
+        _openButton.onClick.AddListener(Show);
 
         if (_saveLoadServise.HasSave(_saveKey))
         {

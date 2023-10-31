@@ -84,7 +84,7 @@ public class MiniGameSelector : MonoBehaviour
     }
     private void OnGameRestart()
     {
-        ShowMiniGameSelectoin(_currentCharacter.CharacterType);
+        ShowMiniGameSelectoin(_currentCharacter.Type);
     }
 
     private void UpdateSympathyView(int sympathyPoints)

@@ -101,7 +101,7 @@ public class MessegeFactory : MonoBehaviour
 
     private string GetTextForAnswerButton(string messageText)
     {
-        int resultLength = 10;
+        int resultLength = 25;
         StringBuilder stringBuilder = new StringBuilder();
 
         for (int i = 0; i < resultLength; i++)

@@ -15,7 +15,7 @@ public class GameCommander : Commander, ICommanderVisitor
 
     [SerializeField] private ChoiceView _choicesView;
 
-    [SerializeField] private CharacterPortraitView _portraitView;
+    [SerializeField] private CharactersPortraitView _portraitView;
 
     [SerializeField] private BackgroundView _backgroundView;
 

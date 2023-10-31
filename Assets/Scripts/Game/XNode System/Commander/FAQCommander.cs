@@ -4,7 +4,7 @@ using XNode;
 public class FAQCommander : Commander, ICommanderVisitor
 {
     [SerializeField] private DialogSpeechView _dialogSpeechView;
-    [SerializeField] private CharacterPortraitView _portraitView;
+    [SerializeField] private CharactersPortraitView _portraitView;
 
     private (ICommand command, Node node) _result;
 

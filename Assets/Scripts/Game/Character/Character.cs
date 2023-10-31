@@ -3,38 +3,40 @@ using UnityEngine;
 
 namespace Characters
 {
-    [Serializable]
-    public class Character
+    [CreateAssetMenu(fileName = "Character", menuName = "Characters")]
+    public class Character : ScriptableObject
     {
-        public event Action<int> OnSympathyPointsChanged;
-
+        [SerializeField] private string _name;
         [SerializeField] private CharacterSympathy _sympathy;
-
         [SerializeField] private CharacterType _characterType;
 
-        public CharacterType CharacterType => _characterType;
+        [field: SerializeField] public CharacterImages Images { get; private set; } 
+        public CharacterType Type => _characterType;
         public int SympathyPoints => _sympathy.Points;
         public int SympathyLevel => _sympathy.Level;
+        public string Name => _name;
 
-        public Character(int sympathyPoints, int sympathyLevel, StaticData staticData, CharacterType characterType)
-        {
-            _sympathy = new(sympathyPoints, sympathyLevel, staticData);
-            _characterType = characterType;
-        }
+        public event Action<int> SympathyPointsChanged;
 
         public void AccureSympathyPoints(int points)
         {
             if (points <= 0) throw new InvalidOperationException();
             _sympathy.AddPoints(points);
 
-            OnSympathyPointsChanged?.Invoke(_sympathy.Points);
+            SympathyPointsChanged?.Invoke(_sympathy.Points);
         }
 
         public void DecreesSympathyPoints(int points)
         {
             _sympathy.DecreesPoints(_sympathy.Points < points ? _sympathy.Points : points);
 
-            OnSympathyPointsChanged?.Invoke(_sympathy.Points);
+            SympathyPointsChanged?.Invoke(_sympathy.Points);
         }
+    }
+
+    [Serializable]
+    public class CharacterImages
+    {
+        [field: SerializeField] public Sprite SittingBench { get; private set; }
     }
 }
