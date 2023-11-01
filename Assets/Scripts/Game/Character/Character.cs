@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Dictionary;
 
 namespace Characters
 {
@@ -10,7 +11,7 @@ namespace Characters
         [SerializeField] private CharacterSympathy _sympathy;
         [SerializeField] private CharacterType _characterType;
 
-        [field: SerializeField] public CharacterImages Images { get; private set; } 
+        [field: SerializeField] public Dictionary<CharacterPoseType, Sprite> Images { get; private set; } 
         public CharacterType Type => _characterType;
         public int SympathyPoints => _sympathy.Points;
         public int SympathyLevel => _sympathy.Level;
@@ -34,9 +35,9 @@ namespace Characters
         }
     }
 
-    [Serializable]
-    public class CharacterImages
-    {
-        [field: SerializeField] public Sprite SittingBench { get; private set; }
+    public enum CharacterPoseType
+    { 
+        sitting = 1,
+        staying = 2
     }
 }

@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d515bfbc6e9a60443b612ffa8d952561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _location: {fileID: 11400000, guid: 2e2bc2dc2bcd4ae4d8e05f0ea70b5de9, type: 2}
+  _location: {fileID: 11400000, guid: 1330c5bf8320c264199c021649382a19, type: 2}
   _contacts:
   - {fileID: 11400000, guid: a44bc97d67ac5964bab047ad1f763c9c, type: 2}
 --- !u!114 &176644444
@@ -3918,6 +3918,7 @@ GameObject:
   - component: {fileID: 415884105}
   - component: {fileID: 415884104}
   - component: {fileID: 415884106}
+  - component: {fileID: 415884107}
   m_Layer: 5
   m_Name: Character Portrait View
   m_TagString: Untagged
@@ -4002,15 +4003,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc812341266ce9419fc900407f73d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterViewFactory: {fileID: 415884107}
+--- !u!114 &415884107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415884102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154a8733f4bbca34bb98fb882119ac11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _containerForFreePosition: {fileID: 415884103}
-  _prefab: {fileID: 729924187574673638, guid: 3fdf374877cd97a489dd6a2ea19f1e3e, type: 3}
+  _prefab: {fileID: -3995415090265274972, guid: 3fdf374877cd97a489dd6a2ea19f1e3e, type: 3}
   _positions:
   - {fileID: 1855380361}
   - {fileID: 906242255}
   - {fileID: 1128035798}
-  - {fileID: 5557666}
   - {fileID: 1377341204}
   - {fileID: 599841764}
+  - {fileID: 5557666}
 --- !u!1 &425287239
 GameObject:
   m_ObjectHideFlags: 0
@@ -14010,6 +14024,14 @@ MonoBehaviour:
   _lowBetterySprite: {fileID: 21300000, guid: e8b0861a19f42c2439c2d97a232d7b85, type: 3}
   _midleBetterySprite: {fileID: 21300000, guid: e9ed1907b7c5f5f4aa806a52fa782aac, type: 3}
   _fullBetterySprite: {fileID: 21300000, guid: e16ef6fa4cc5a664a9d34bfe3b858c1b, type: 3}
+  _batterySprites:
+    _dictionary:
+    - <Key>k__BackingField: {x: 0, y: 24}
+      <Value>k__BackingField: {fileID: 21300000, guid: e8b0861a19f42c2439c2d97a232d7b85, type: 3}
+    - <Key>k__BackingField: {x: 25, y: 74}
+      <Value>k__BackingField: {fileID: 21300000, guid: e9ed1907b7c5f5f4aa806a52fa782aac, type: 3}
+    - <Key>k__BackingField: {x: 75, y: 1000}
+      <Value>k__BackingField: {fileID: 21300000, guid: e16ef6fa4cc5a664a9d34bfe3b858c1b, type: 3}
 --- !u!1 &1652980045
 GameObject:
   m_ObjectHideFlags: 0

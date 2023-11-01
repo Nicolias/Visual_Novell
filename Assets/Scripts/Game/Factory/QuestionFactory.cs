@@ -1,52 +1,48 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using System;
 
 namespace Factory.Quiz
 {
     public class QuestionFactory
     {
-        private Dictionary<CharacterType, Queue<QuizElement>> _characterQuizQustions = new();
+        Random _random = new Random();
+        private Dictionary<CharacterType, Queue<QuizQuestion>> _charactersQuizQustions;
 
-        public QuizElement GetQuestion(CharacterType characterType)
+        public QuestionFactory()
         {
-            var result = _characterQuizQustions[characterType].Dequeue();
-            _characterQuizQustions[characterType].Enqueue(result);
+            _charactersQuizQustions = new Dictionary<CharacterType, Queue<QuizQuestion>>()
+            {
+                {CharacterType.Dey, new Queue<QuizQuestion>() },
+                {CharacterType.Liza, new Queue<QuizQuestion>() }
+            };
+        }
 
-            if (Random.Range(0, _characterQuizQustions[characterType].Count) == 0)
+        public QuizQuestion GetQuestion(CharacterType characterType)
+        {
+            var result = _charactersQuizQustions[characterType].Dequeue();
+            _charactersQuizQustions[characterType].Enqueue(result);
+
+            if (_random.Next(0, _charactersQuizQustions[characterType].Count) == 0)
                 Shuffle(characterType);
 
             return result;
         }
 
-        public void AddQuestionElement(QuizElement quizElement)
+        public void AddQuestionElement(QuizQuestion quizElement)
         {
-            if (_characterQuizQustions.ContainsKey(quizElement.CharacterType))
-            {
-                _characterQuizQustions[quizElement.CharacterType].Enqueue(quizElement);
-            }
+            if (_charactersQuizQustions.ContainsKey(quizElement.CharacterType))
+                _charactersQuizQustions[quizElement.CharacterType].Enqueue(quizElement);
             else
-            {
-                if (quizElement.CharacterType != CharacterType.All)
-                {
-                    Queue<QuizElement> quizeQueue = new();
-                    quizeQueue.Enqueue(quizElement);
-                    _characterQuizQustions.Add(quizElement.CharacterType, quizeQueue);
-                }
-                else
-                {
-                    foreach (var key in _characterQuizQustions.Keys)
-                        _characterQuizQustions[key].Enqueue(quizElement);
-                }
-            }
+                foreach (CharacterType character in _charactersQuizQustions.Keys)
+                    _charactersQuizQustions[character].Enqueue(quizElement);
         }
 
         private void Shuffle(CharacterType characterType)
         {
-            List<QuizElement> questionList = _characterQuizQustions[characterType].ToList();
+            List<QuizQuestion> questionList = _charactersQuizQustions[characterType].ToList();
 
-            var rnd = new System.Random();
-            _characterQuizQustions[characterType] = new(questionList.OrderBy(c => rnd.NextDouble()).ToList());
+            _charactersQuizQustions[characterType] = new(questionList.OrderBy(c => _random.NextDouble()).ToList());
         }
     }
 }

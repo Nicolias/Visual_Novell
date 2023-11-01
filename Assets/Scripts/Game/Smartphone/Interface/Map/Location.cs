@@ -13,6 +13,12 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject
     [SerializeField] private Node _questOnLocation;
     [SerializeField] private bool _isAvilable = true;
 
+    [Header("Настройки положения персонажа на локации")]
+    [SerializeField] private Vector2 _characterPosition;
+    [SerializeField] private Vector3 _characterScale;
+
+    [SerializeField] public CharacterPoseType _characterPoseType;
+
     private CharacterOnLocationData _characterOnLocation;
 
     private CharactersPortraitView _charactersViewServise;
@@ -77,9 +83,13 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject
         _charactersViewServise.Show(Get(character));
     }
 
-    protected virtual CharacterOnLocationData Get(Character character)
+    private CharacterOnLocationData Get(Character character)
     {
-        throw new InvalidProgramException("Нужно создать отдельный тип для локации");
+        if (character.Images.TryGet(_characterPoseType, out Sprite characterSprite))
+            return new CharacterOnLocationData(character.Type, character.Name, characterSprite,
+                    CharacterPortraitPosition.FreePosition, _characterPosition, _characterScale);
+        else
+            throw new InvalidProgramException("Эта локация не предназначена для приглашения.");
     }
 
     private void OnItemDelete(ItemForCollection itemData)

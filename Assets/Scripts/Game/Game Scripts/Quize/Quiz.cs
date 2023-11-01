@@ -1,10 +1,9 @@
 using Characters;
+using QuizSystem;
 using System;
 
 public class Quiz
 {
-    public event Action<int> OnCharacterSympathyPointsChanged;
-
     private CharactersLibrary _characterLibrary;
     private Character _currentCharacter;
 
@@ -13,7 +12,10 @@ public class Quiz
     private QuizView _quizView;
 
     private int _sympathyPointsByWin = 2;
+
     private int _sympathyPointsByLose = 1;
+
+    public event Action<int> CharacterSympathyPointsChanged;
 
     public Quiz(CharactersLibrary characterLibrary, QuizView quizView)
     {
@@ -21,8 +23,8 @@ public class Quiz
 
         _quizView = quizView;
 
-        _quizView.OnAnswerCorrected += AccureSympathy;
-        _quizView.OnAnswerUncorrected += DecreesSympathy;
+        _quizView.AnswerCorrected += AccureSympathy;
+        _quizView.AnswerUncorrected += DecreesSympathy;
     }
 
     public void HideQuiz()
@@ -43,7 +45,7 @@ public class Quiz
 
         _quizView.ShowQuestion(_currentCharacter);
 
-        OnCharacterSympathyPointsChanged?.Invoke(_currentCharacter.SympathyPoints);
+        CharacterSympathyPointsChanged?.Invoke(_currentCharacter.SympathyPoints);
     }
 
     private void DecreesSympathy()
@@ -52,6 +54,6 @@ public class Quiz
 
         _quizView.ShowQuestion(_currentCharacter);
 
-        OnCharacterSympathyPointsChanged?.Invoke(_currentCharacter.SympathyPoints);
+        CharacterSympathyPointsChanged?.Invoke(_currentCharacter.SympathyPoints);
     }
 }

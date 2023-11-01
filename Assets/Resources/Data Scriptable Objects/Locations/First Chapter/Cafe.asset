@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698d689397b5ee04e90c31cd73d200cc, type: 3}
-  m_Name: Kafe
+  m_Script: {fileID: 11500000, guid: adc30059b62abb649b0a8c76f102c9cf, type: 3}
+  m_Name: Cafe
   m_EditorClassIdentifier: 
-  _backgroundSprite: {fileID: 21300000, guid: e54d4fcc67bc9974887a49cf354de662, type: 3}
+  _backgroundSprite: {fileID: 21300000, guid: 3b4bbc377eb75e14c983435e557cf81d, type: 3}
   _itemsOnLocation: []
   _questOnLocation: {fileID: 0}
   _isAvilable: 1
-  <Name>k__BackingField: "\u041F\u0430\u0440\u043A"
-  _characterPosition: {x: -170, y: -80}
-  _characterScale: {x: 0.45, y: 0.45, z: 0.45}
+  _characterPosition: {x: 6, y: 90}
+  _characterScale: {x: 0.8, y: 0.8, z: 0.8}
+  _characterPoseType: 1
+  <Name>k__BackingField: "\u041A\u0430\u0444\u0435"

@@ -1,6 +1,7 @@
 ﻿using Factory.CellLocation;
 using Factory.Messenger;
 using Factory.Quiz;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -27,10 +28,15 @@ public class FactoryInstaller : MonoInstaller
 
     private QuestionFactory QuestionFactoryBind()
     {
+        List<QuizQuestion> questions = new List<QuizQuestion>();
+
+        foreach (var quizQuestion in _staticData.QuizQuestion)
+            questions.Add(quizQuestion);
+
         QuestionFactory questionFactory = new();
 
-        for (int i = 0; i < _staticData.QuizQuestion.Count; i++)
-            questionFactory.AddQuestionElement(_staticData.QuizQuestion[i]);
+        for (int i = 0; i < questions.Count; i++)
+            questionFactory.AddQuestionElement(questions[i]);
 
         return questionFactory;
     }

@@ -3,23 +3,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 public class CharactersPortraitView : MonoBehaviour, ICharacterPortraitView, ISaveLoadObject
 {
     [Inject] private SaveLoadServise _saveLoadServise;
 
-    [SerializeField] private Transform _containerForFreePosition;
-    [SerializeField] private Image _prefab;
-    [SerializeField] private Transform[] _positions;
+    [SerializeField] private CharacterViewFactory _characterViewFactory;
 
+    private List<Transform> _positions = new List<Transform>();
     private List<CharacterPortraitData> _charactersList = new List<CharacterPortraitData>();
-    private Color[] _colors = new Color[2] { new Color(1, 1, 1, 1), new Color(1, 1, 1, 0) };
 
     private const string _saveKey = "CharacterPortrait";
 
     public event Action Complite;
+
+    private void Awake()
+    {
+        foreach (var position in _characterViewFactory.Positions)
+            _positions.Add(position);
+    }
 
     private void OnEnable()
     {
@@ -34,27 +37,23 @@ public class CharactersPortraitView : MonoBehaviour, ICharacterPortraitView, ISa
 
     public void Show(ICharacterPortraitModel character)
     {
-        if (IsCharacterExist(character.CharacterType, out CharacterPortraitData characterData))
+        if (IsCharacterExist(character.CharacterType, out CharacterPortraitData characterData) == false)
         {
+            CharacterPortraitData newCharacterView = _characterViewFactory.Create(character);
+            _charactersList.Add(newCharacterView);
+
             DOTween.Sequence()
-                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 0), 0.2f))
-                .AppendCallback(() =>
-                {
-                    characterData.Image.sprite = character.Sprite;
-                    characterData.SetPosition(character.PositionType);
-                    characterData.Image.transform.SetParent(_positions[(int)characterData.Position]);
-                })
-                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 1), 0.2f))
+                .Append(newCharacterView.Image.DOColor(new Color(1, 1, 1, 0), 0))
+                .Append(newCharacterView.Image.DOColor(new Color(1, 1, 1, 1), 0.5f))
                 .AppendCallback(() => Complite?.Invoke())
                 .Play();
         }
         else
         {
-            characterData = Create(character);
-
             DOTween.Sequence()
-                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 0), 0))
-                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 1), 0.5f))
+                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 0), 0.2f))
+                .AppendCallback(() => ChangePosition(characterData, character))
+                .Append(characterData.Image.DOColor(new Color(1, 1, 1, 1), 0.2f))
                 .AppendCallback(() => Complite?.Invoke())
                 .Play();
         }
@@ -87,41 +86,11 @@ public class CharactersPortraitView : MonoBehaviour, ICharacterPortraitView, ISa
         return false;
     }
 
-    private CharacterPortraitData Create(ICharacterPortraitModel character)
+    private void ChangePosition(CharacterPortraitData characterData, ICharacterPortraitModel character)
     {
-        Image newCharacterImage; 
-        
-        if (character.PositionType == CharacterPortraitPosition.FreePosition)
-            newCharacterImage = Instantiate(character.Sprite, character.PositionOffset, character.ScaleOffset);
-        else
-            newCharacterImage = Instantiate(character.PositionType);
-        
-        newCharacterImage.name = character.Name;
-        newCharacterImage.sprite = character.Sprite;
-        newCharacterImage.color = _colors[0];
-        
-        CharacterPortraitData newCharacterPortraitData = new CharacterPortraitData(character, newCharacterImage);
-        _charactersList.Add(newCharacterPortraitData);
-
-        return newCharacterPortraitData;
-    }
-
-    private Image Instantiate(CharacterPortraitPosition positionType)
-    {
-        Image newCharacterImage = Instantiate(_prefab, _positions[(int)positionType]);
-        return newCharacterImage;
-    }
-    
-    private Image Instantiate(Sprite sprite, Vector2 positionOffset, Vector3 scaleOffset)
-    {
-        Image newCharacterImage = Instantiate(_prefab, _containerForFreePosition);
-
-        RectTransform newCharacterTransform = newCharacterImage.rectTransform;
-        newCharacterTransform.localPosition = positionOffset;
-        newCharacterTransform.localScale = scaleOffset;
-        newCharacterTransform.sizeDelta = new Vector2(sprite.rect.width, sprite.rect.height);
-
-        return newCharacterImage;
+        characterData.Image.sprite = character.Sprite;
+        characterData.SetPosition(character.PositionType);
+        characterData.Image.transform.SetParent(_positions[(int)characterData.Position]);
     }
 
     public void Save()
