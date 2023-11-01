@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using Dictionary;
+using System;
 
 public class BatteryView : MonoBehaviour
 {
@@ -13,7 +13,8 @@ public class BatteryView : MonoBehaviour
     [SerializeField] private TMP_Text _chargeValueText;
 
     [SerializeField] private Sprite _lowBetterySprite, _midleBetterySprite, _fullBetterySprite;
-    
+
+    [SerializeField] private Dictionary<Vector2, Sprite> _batterySprites;
 
     private void OnEnable()
     {
@@ -26,21 +27,20 @@ public class BatteryView : MonoBehaviour
         _battery.OnValueChanged -= UpdateUI;
     }
 
-    private void UpdateUI(int value)
+    private void UpdateUI(int chargyValue)
     {
-        switch (_battery.ChargeLevel)
+        for (int i = 0; i < _batterySprites.Count; i++)
         {
-            case >= 75:
-                _batteryImage.sprite = _fullBetterySprite;
-                break;
-            case >= 25:
-                _batteryImage.sprite = _midleBetterySprite;
-                break;
-            case >= 0:
-                _batteryImage.sprite = _lowBetterySprite;
-                break;
+            Vector2 chargeRange = _batterySprites.GetKey(i);
+
+            if (chargeRange.x > chargeRange.y)
+                throw new InvalidProgramException("В диапазоне зарядов минмальный больше максимального");
+
+            if (_battery.ChargeLevel >= chargeRange.x)
+                if(_battery.ChargeLevel <= chargeRange.y)
+                    _batteryImage.sprite = _batterySprites.GetValue(i);
         }
 
-        _chargeValueText.text = $"{value}%";
+        _chargeValueText.text = $"{chargyValue}%";
     }
 }

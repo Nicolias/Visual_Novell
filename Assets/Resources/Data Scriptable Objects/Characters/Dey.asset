@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c7b64bb9e7a524fb4241cde77b1d12, type: 3}
   m_Name: Dey
   m_EditorClassIdentifier: 
-  _name: 
+  _name: "\u0414\u0435\u044F"
   _sympathy:
-    _staticData: {fileID: 0}
+    _staticData: {fileID: 2296899151798057738, guid: e6db747f68570ce4a812c6df77df7332, type: 3}
     _amountPoints: 0
     _level: 0
   _characterType: 0
