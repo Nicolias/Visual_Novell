@@ -148,5 +148,7 @@ public class CharactersPortraitView : MonoBehaviour, ICharacterPortraitView, ISa
         public Vector2 PositionOffset { get; set; }
 
         public Vector3 ScaleOffset { get; set; }
+
+        public Location Location {get; private set;}
     }
 }

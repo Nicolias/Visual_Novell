@@ -1,5 +1,6 @@
 ﻿using System;
 
+[Serializable]
 public class ChoiseElement
 {
     public string TextOnButton { get; private set; }

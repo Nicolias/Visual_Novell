@@ -15,7 +15,7 @@ public class QuizPresenter : ICommand
 
     public void Execute()
     {
-        _quiz.StartQuiz(_quizModel.CharacterType);
+        _quiz.Enter(_quizModel.CharacterType, false);
         _quiz.CharacterSympathyPointsChanged += CallBack;
     }
 

@@ -32,18 +32,18 @@ public class ChoicePanel : MonoBehaviour
         return uncorrectButtons;
     }
 
-    public void Show(string question, List<ChoiseElement> choiseElements)
+    public void Show(string question, IEnumerable<ChoiseElement> choiseElements)
     {
         _selfCanvas.enabled = true;
         _questionText.text = question;
 
         ClearContainer();
 
-        for (int i = 0; i < choiseElements.Count; i++)
+        foreach (var choiseElement in choiseElements)
         {
             ChoiceButton choiceButton = Instantiate(_choiseButtonTemplate, _container);
 
-            choiceButton.Initialized(choiseElements[i]);
+            choiceButton.Initialized(choiseElement);
         }
     }
 

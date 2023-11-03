@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace QuizSystem
@@ -21,17 +22,20 @@ namespace QuizSystem
         [SerializeField] private float _showTime;
         [SerializeField] private Sprite _uncorrectButtonSprite;
 
-        [SerializeField] private GameObject _background;
+        [SerializeField] private Button _closeButton;
 
         private Character _currentCharacter;
         private List<ChoiceButton> _uncorrectButtons;
+
+        public Button CloseButton => _closeButton;
 
         public event Action AnswerCorrected;
         public event Action AnswerUncorrected;
 
         public void HideCanvas()
         {
-            _background.SetActive(false);
+            _closeButton.gameObject.SetActive(false);
+
             _canvas.enabled = false;
             _choisePanel.Hide();
             _currentCharacter.SympathyPointsChanged -= UpdateSympathyPointsText;
@@ -39,7 +43,6 @@ namespace QuizSystem
 
         public void ShowQuestion(Character character)
         {
-            _background.SetActive(true);
             _canvas.enabled = true;
             _currentCharacter = character;
 
@@ -48,6 +51,11 @@ namespace QuizSystem
 
             QuizQuestion quizElement = _questionFactory.GetQuestion(character.Type);
             _uncorrectButtons = _choisePanel.ShowAndGetUncorrectButtons(quizElement.Qustion, GenerateChoicElements(quizElement));
+        }
+
+        public void ShowCloseButton()
+        {
+            _closeButton.gameObject.SetActive(true);
         }
 
         private List<(AnswerType, ChoiseElement)> GenerateChoicElements(QuizQuestion quizElement)

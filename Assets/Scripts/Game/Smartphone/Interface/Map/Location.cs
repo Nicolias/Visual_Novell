@@ -17,7 +17,9 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject
     [SerializeField] private Vector2 _characterPosition;
     [SerializeField] private Vector3 _characterScale;
 
-    [SerializeField] public CharacterPoseType _characterPoseType;
+    [SerializeField] private CharacterPoseType _characterPoseType;
+
+    [SerializeField] private List<PastimeOnLocationType> _actionsOnLocation;
 
     private CharacterOnLocationData _characterOnLocation;
 
@@ -32,6 +34,7 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject
 
     public IEnumerable<ItemForCollection> Items => _itemsOnLocation;
     public IEnumerable<ItemForCollectionView> ItemsView => _itemsView;
+    public IEnumerable<PastimeOnLocationType> ActionsList => _actionsOnLocation;
 
     public event Action<Node> QuestStarted;
 
@@ -86,10 +89,10 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject
     private CharacterOnLocationData Get(Character character)
     {
         if (character.Images.TryGet(_characterPoseType, out Sprite characterSprite))
-            return new CharacterOnLocationData(character.Type, character.Name, characterSprite,
+            return new CharacterOnLocationData(character.Type, character.Name, characterSprite, this,
                     CharacterPortraitPosition.FreePosition, _characterPosition, _characterScale);
         else
-            throw new InvalidProgramException("Эта локация не предназначена для приглашения.");
+            throw new InvalidOperationException("Эта локация не предназначена для приглашения.");
     }
 
     private void OnItemDelete(ItemForCollection itemData)
@@ -107,30 +110,4 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject
     {
         throw new NotImplementedException();
     }
-}
-
-public class CharacterOnLocationData : ICharacterPortraitModel
-{
-    public CharacterOnLocationData(CharacterType characterType, string name, Sprite sprite, 
-        CharacterPortraitPosition positionType, Vector2 positionOffset, Vector3 scaleOffset)
-    {
-        CharacterType = characterType;
-        Name = name;
-        Sprite = sprite;
-        PositionType = positionType;
-        PositionOffset = positionOffset;
-        ScaleOffset = scaleOffset;
-    }
-
-    public CharacterType CharacterType { get; private set; }
-
-    public string Name { get; private set; }
-
-    public Sprite Sprite { get; private set; }
-
-    public CharacterPortraitPosition PositionType { get; private set; }
-
-    public Vector2 PositionOffset { get; private set; }
-
-    public Vector3 ScaleOffset { get; private set; }
 }

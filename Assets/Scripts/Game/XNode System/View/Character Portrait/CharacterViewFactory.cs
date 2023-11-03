@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class CharacterViewFactory : MonoBehaviour
 {
@@ -9,17 +8,11 @@ public class CharacterViewFactory : MonoBehaviour
     [SerializeField] private CharacterView _prefab;
     [SerializeField] private Transform[] _positions;
 
-    public IEnumerable<Transform> Positions => _positions;
-
-    private Quiz _quiz;
+    [SerializeField] private Meeting _meeting;
 
     private Color[] _colors = new Color[2] { new Color(1, 1, 1, 1), new Color(1, 1, 1, 0) };
 
-    [Inject]
-    public void Construct(Quiz quiz)
-    {
-        _quiz = quiz;
-    }
+    public IEnumerable<Transform> Positions => _positions;
 
     public CharacterPortraitData Create(ICharacterPortraitModel character)
     {
@@ -52,7 +45,7 @@ public class CharacterViewFactory : MonoBehaviour
             newCharacterView = Instantiate(_prefab, _positions[(int)character.PositionType]);
         }
 
-        newCharacterView.Initialize(character.CharacterType, _quiz);
+        newCharacterView.Initialize(character.CharacterType, _meeting, character.Location);
 
         return newCharacterView.Image;
     }

@@ -2,7 +2,7 @@ using Characters;
 using QuizSystem;
 using System;
 
-public class Quiz
+public class Quiz : ICloseable
 {
     private CharactersLibrary _characterLibrary;
     private Character _currentCharacter;
@@ -16,6 +16,7 @@ public class Quiz
     private int _sympathyPointsByLose = 1;
 
     public event Action<int> CharacterSympathyPointsChanged;
+    public event Action Closed;
 
     public Quiz(CharactersLibrary characterLibrary, QuizView quizView)
     {
@@ -30,10 +31,18 @@ public class Quiz
     public void HideQuiz()
     {
         _quizView.HideCanvas();
+        Closed?.Invoke();
+        _quizView.CloseButton.onClick.RemoveListener(HideQuiz);
     }
 
-    public void StartQuiz(CharacterType characterType)
+    public void Enter(CharacterType characterType, bool canBeClose)
     {
+        if (canBeClose)
+        {
+            _quizView.ShowCloseButton();
+            _quizView.CloseButton.onClick.AddListener(HideQuiz);
+        }
+
         _characterType = characterType;
         _currentCharacter = _characterLibrary.GetCharacter(characterType);
         _quizView.ShowQuestion(_currentCharacter);

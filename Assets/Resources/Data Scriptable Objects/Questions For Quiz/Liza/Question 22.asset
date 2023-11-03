@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bca068896a015741a66d2bdf8232515, type: 3}
   m_Name: Question 22
   m_EditorClassIdentifier: 
-  <CharacterType>k__BackingField: 0
-  <Qustion>k__BackingField: 
-  <CorrectAnswerText>k__BackingField: 
-  <UncorrectedAnswerText>k__BackingField: []
+  <CharacterType>k__BackingField: 3
+  <Qustion>k__BackingField: Faflafkjaf
+  <CorrectAnswerText>k__BackingField: afafa
+  <UncorrectedAnswerText>k__BackingField:
+  - fadfa
+  - adfsdf
+  - afsdaf

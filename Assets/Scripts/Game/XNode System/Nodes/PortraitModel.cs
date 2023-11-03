@@ -12,14 +12,10 @@ public class PortraitModel : XnodeModel, ICharacterPortraitModel
 
     public Vector3 ScaleOffset => new Vector3();
 
+    public Location Location => null;
+
     public override void Accept(ICommanderVisitor visitor)
     {
         visitor.Visit(this);
     }
-
-    //public void Set(CharacterType ch)
-    //{
-    //    if(ch == CharacterType.Dey)
-    //        PositionType = CharacterPortraitPosition.Center;
-    //}
 }

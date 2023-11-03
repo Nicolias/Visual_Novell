@@ -18,16 +18,16 @@ public class MiniGameController : IController
 
     public void Execute()
     {
-        _view.ShowMiniGameSelectoin(_model.CharacterType);
-        _view.OnGameEnded += CallBack;
+        _view.Enter(_model.CharacterType);
+        _view.Closed += CallBack;
     }
 
     private void CallBack()
     {
         if (_battery.ChargeLevel <= _model.BettaryChargeLevelCondition)
         {
-            _view.OnGameEnded -= CallBack;
-            _view.CloseMiniGamesSelection();
+            _view.Closed -= CallBack;
+            _view.Close();
             Complete?.Invoke();
         }
     }

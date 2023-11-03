@@ -1,5 +1,4 @@
-﻿using Characters;
-using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,14 +9,18 @@ public class CharacterView : MonoBehaviour
     private Button _selfButton;
     private CharacterType _characterType;
 
-    private Quiz _quiz;
+    private Meeting _meeting;
+    private IEnumerable<PastimeOnLocationType> _actionsVariation;
 
     public Image Image => _selfImage;
+    public CharacterType Type => _characterType;
+    public IEnumerable<PastimeOnLocationType> AvailablePastimes => _actionsVariation;
 
-    public void Initialize(CharacterType character, Quiz quiz)
+    public void Initialize(CharacterType character, Meeting meeting, Location location)
     {
         _characterType = character;
-        _quiz = quiz;
+        _meeting = meeting;
+        _actionsVariation = location.ActionsList;
     }
 
     private void Awake()
@@ -36,8 +39,13 @@ public class CharacterView : MonoBehaviour
         _selfButton.onClick.RemoveListener(OnClicked);
     }
 
+    public void SetInteractable(bool isInteractable)
+    {
+        _selfButton.interactable = isInteractable;
+    }
+
     private void OnClicked()
     {
-        _quiz.StartQuiz(_characterType);
+        _meeting.Enter(this);
     }
 }

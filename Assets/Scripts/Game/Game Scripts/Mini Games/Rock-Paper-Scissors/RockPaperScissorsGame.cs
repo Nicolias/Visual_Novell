@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Zenject;
 
-namespace Game.RockPaperScissors
+namespace MiniGameNamespace
 {
     public class RockPaperScissorsGame : AbstractMiniGame
     {
@@ -45,7 +45,7 @@ namespace Game.RockPaperScissors
         {
             RockPaperScissorsType enemyGesture = (RockPaperScissorsType)UnityEngine.Random.Range(0, _rpsArray.Length);
 
-            _choisePanel.Show(_turnName[(int)enemyGesture], new());
+            _choisePanel.Show(_turnName[(int)enemyGesture], new List<ChoiseElement>());
 
             _coroutineServise.WaitForSecondsAndInvoke(1f, () =>
             {

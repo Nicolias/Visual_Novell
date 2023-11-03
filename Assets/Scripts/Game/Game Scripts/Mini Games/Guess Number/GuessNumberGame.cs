@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Zenject;
 
-namespace Game.GuessNumber
+namespace MiniGameNamespace
 {
     public class GuessNumberGame : AbstractMiniGame
     {
@@ -30,7 +31,7 @@ namespace Game.GuessNumber
             _guessNumberPanel.OnValueSelected -= Compare;
             int enemyNumber = UnityEngine.Random.Range(_numberBounds.Item1, _numberBounds.Item2);
 
-            _choicePanel.Show($"Соперник выбрал число {enemyNumber}", new());
+            _choicePanel.Show($"Соперник выбрал число {enemyNumber}", new List<ChoiseElement>());
 
             _coroutineServise.WaitForSecondsAndInvoke(1.5f, () =>
             {

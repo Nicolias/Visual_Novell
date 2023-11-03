@@ -1,20 +1,33 @@
-﻿using Game.RockPaperScissors;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class RockPaperScissors : MiniGame<RockPaperScissorsGame>
+namespace MiniGameNamespace
 {
-    [Inject] private CoroutineServise _coroutineServise;
 
-    [SerializeField] private string _winSpeech, _loseSpeech, _drawnSpeech;
-
-    protected override string WinSpeech => _winSpeech;
-    protected override string LoseSpeech => _loseSpeech;
-    protected override string DrawnSpeech => _drawnSpeech;
-
-    protected override void SetUpGame()
+    public class RockPaperScissors : MiniGame
     {
-        ChoicePanel.Show("Давай сыграем в Камень, Ножницы, Бумага", new());
-        _coroutineServise.WaitForSecondsAndInvoke(1f, Game.StartGame);        
-    }    
+        [Inject] private CoroutineServise _coroutineServise;
+
+        [SerializeField] private string _winSpeech, _loseSpeech, _drawnSpeech;
+
+        private RockPaperScissorsGame _rockPaperScissorsGame;
+
+        protected override AbstractMiniGame Game => _rockPaperScissorsGame;
+        protected override string WinSpeech => _winSpeech;
+        protected override string LoseSpeech => _loseSpeech;
+        protected override string DrawnSpeech => _drawnSpeech;
+
+
+        private void Awake()
+        {
+            _rockPaperScissorsGame = Di.Instantiate<RockPaperScissorsGame>();
+        }
+
+        protected override void SetUpGame()
+        {
+            ChoicePanel.Show("Давай сыграем в Камень, Ножницы, Бумага", new List<ChoiseElement>());
+            _coroutineServise.WaitForSecondsAndInvoke(1f, _rockPaperScissorsGame.StartGame);
+        }
+    }
 }

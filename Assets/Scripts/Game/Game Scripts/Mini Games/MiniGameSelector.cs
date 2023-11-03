@@ -1,53 +1,45 @@
 using Characters;
+using MiniGameNamespace;
 using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class MiniGameSelector : MonoBehaviour
+public class MiniGameSelector : MonoBehaviour, ICloseable
 {
-    public event Action OnGameClosed;
-    public event Action OnGameEnded;
-
     [Inject] private readonly ChoicePanel _choicePanel;
     [Inject] private readonly CharactersLibrary _charactersLibrary;
     [Inject] private readonly Battery _battery;
 
     [SerializeField] private TMP_Text _sympathyCounter;
     [SerializeField] private TMP_Text _chargeCounter;
-    [SerializeField] private List<MiniGame<AbstractMiniGame>> _miniGames;
+    [SerializeField] private List<MiniGame> _miniGames;
     [SerializeField] private int _startGameCost;
 
     private Character _currentCharacter;
 
+    public event Action Closed;
+
     private void OnEnable()
     {
         foreach (var miniGame in _miniGames)
-        {
-            miniGame.GameEnded += OnGameEnd;
-            miniGame.GameClosed += CloseMiniGamesSelection;
-            miniGame.GameRestarted += OnGameRestart;
-        }            
+            miniGame.GameEnded += OnGameEnded;
     }
 
     private void OnDisable()
     {
         foreach (var miniGame in _miniGames)
-        {
-            miniGame.GameEnded -= OnGameEnd;
-            miniGame.GameClosed -= CloseMiniGamesSelection;
-            miniGame.GameRestarted -= OnGameRestart;
-        }
+            miniGame.GameEnded -= OnGameEnded;
     }
 
-    public void ShowMiniGameSelectoin(CharacterType character)
+    public void Enter(CharacterType character)
     {
         if (_battery.ChargeLevel < _startGameCost)
         {
-            _choicePanel.Show("Недостаточно энергии", new()
+            _choicePanel.Show("Недостаточно энергии", new List<ChoiseElement>()
             {
-                new("Принять", () => CloseMiniGamesSelection())
+                new ChoiseElement("Принять", () => Close())
             });
             return;
         }
@@ -60,10 +52,11 @@ public class MiniGameSelector : MonoBehaviour
         UpdateSympathyView(_currentCharacter.SympathyPoints);
     }
 
-    public void CloseMiniGamesSelection()
+    public void Close()
     {
         _choicePanel.Hide();
         gameObject.SetActive(false);
+        Closed?.Invoke();
     }
 
     private List<ChoiseElement> GetChoiceElements()
@@ -71,20 +64,19 @@ public class MiniGameSelector : MonoBehaviour
         List<ChoiseElement> choiseElements = new();
 
         foreach (var miniGame in _miniGames)
-            choiseElements.Add(new(miniGame.GameName, () => miniGame.StartGame(_currentCharacter)));
+            choiseElements.Add(new ChoiseElement(miniGame.GameName, () => miniGame.StartGame(_currentCharacter)));
+
+        choiseElements.Add(new ChoiseElement("Закончить игры.", Close));
 
         return choiseElements;
     }
 
-    private void OnGameEnd()
+    private void OnGameEnded()
     {
         _battery.Decreese(_startGameCost);
-        OnGameEnded?.Invoke();
         UpdateSympathyView(_currentCharacter.SympathyPoints);
-    }
-    private void OnGameRestart()
-    {
-        ShowMiniGameSelectoin(_currentCharacter.Type);
+
+        Enter(_currentCharacter.Type);
     }
 
     private void UpdateSympathyView(int sympathyPoints)
