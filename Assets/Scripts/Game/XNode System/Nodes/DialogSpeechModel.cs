@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DialogSpeechModel : XnodeModel, ISpeechModel
+public class DialogSpeechModel : XnodeModel, IDialogSpeechModel
 {
     [SerializeField] private bool _isImmediatelyNextNode;
 

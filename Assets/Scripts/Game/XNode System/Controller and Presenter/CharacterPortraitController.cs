@@ -5,9 +5,9 @@ public class CharacterPortraitController : ICommand
     public event Action Complete;
 
     private ICharacterPortraitModel _model;
-    private ICharacterPortraitView _view;
+    private CharacterRenderer _view;
 
-    public CharacterPortraitController(ICharacterPortraitModel model, ICharacterPortraitView view)
+    public CharacterPortraitController(ICharacterPortraitModel model, CharacterRenderer view)
     {
         _model = model;
         _view = view;

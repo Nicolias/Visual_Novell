@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class CharactersPortraitView : MonoBehaviour, ICharacterPortraitView, ISaveLoadObject
+public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
 {
     [Inject] private SaveLoadServise _saveLoadServise;
 

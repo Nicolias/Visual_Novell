@@ -5,8 +5,10 @@ using UnityEngine.UI;
 public class CharacterViewFactory : MonoBehaviour
 {
     [SerializeField] private Transform _containerForFreePosition;
-    [SerializeField] private CharacterView _prefab;
     [SerializeField] private Transform[] _positions;
+
+    [SerializeField] private CharacterViewForMeeting _characterViewForMeetingPrefab;
+    [SerializeField] private CharacterViwe _characterViewPrefab;
 
     [SerializeField] private Meeting _meeting;
 
@@ -16,7 +18,10 @@ public class CharacterViewFactory : MonoBehaviour
 
     public CharacterPortraitData Create(ICharacterPortraitModel character)
     {
-        Image newCharacterImage = Instantiate(character);
+        Image newCharacterImage;
+
+        newCharacterImage = character.Location == null ? 
+            Instantiate(character, _characterViewPrefab) : Instantiate(character, _characterViewForMeetingPrefab);
 
         newCharacterImage.name = character.Name;
         newCharacterImage.sprite = character.Sprite;
@@ -27,13 +32,13 @@ public class CharacterViewFactory : MonoBehaviour
         return newCharacterPortraitData;
     }
 
-    private Image Instantiate(ICharacterPortraitModel character)
+    private Image Instantiate(ICharacterPortraitModel character, ICharacterView characterPrefab)
     {
-        CharacterView newCharacterView;
+        ICharacterView newCharacterView;
 
         if (character.PositionType == CharacterPortraitPosition.FreePosition)
         {
-            newCharacterView = Instantiate(_prefab, _containerForFreePosition);
+            newCharacterView = Instantiate(characterPrefab.GameObject, _containerForFreePosition).GetComponent<ICharacterView>();
 
             RectTransform newCharacterTransform = newCharacterView.Image.rectTransform;
             newCharacterTransform.localPosition = character.PositionOffset;
@@ -42,7 +47,7 @@ public class CharacterViewFactory : MonoBehaviour
         }
         else
         {
-            newCharacterView = Instantiate(_prefab, _positions[(int)character.PositionType]);
+            newCharacterView = Instantiate(characterPrefab.GameObject, _positions[(int)character.PositionType]).GetComponent<ICharacterView>();
         }
 
         newCharacterView.Initialize(character.CharacterType, _meeting, character.Location);

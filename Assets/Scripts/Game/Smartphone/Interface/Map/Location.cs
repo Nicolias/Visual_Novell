@@ -23,7 +23,7 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject
 
     private CharacterOnLocationData _characterOnLocation;
 
-    private CharactersPortraitView _charactersViewServise;
+    private CharacterRenderer _characterRenderer;
     private BackgroundView _background;
     private CollectionPanel _collectionPanel;
     private List<ItemForCollectionView> _itemsView = new List<ItemForCollectionView>();
@@ -38,11 +38,11 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject
 
     public event Action<Node> QuestStarted;
 
-    public void Initialize(BackgroundView background, CollectionPanel collectionPanel, CharactersPortraitView charactersPortraitView)
+    public void Initialize(BackgroundView background, CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView)
     {
         _background = background;
         _collectionPanel = collectionPanel;
-        _charactersViewServise = charactersPortraitView;
+        _characterRenderer = charactersPortraitView;
 
         _itemsView = collectionPanel.CreateItemsView(Items);
     }
@@ -83,7 +83,7 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject
     public void Invite(Character character)
     {
         Show();
-        _charactersViewServise.Show(Get(character));
+        _characterRenderer.Show(Get(character));
     }
 
     private CharacterOnLocationData Get(Character character)

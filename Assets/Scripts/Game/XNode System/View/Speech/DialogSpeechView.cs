@@ -7,28 +7,25 @@ public class DialogSpeechView : SpeechView
     [SerializeField] private TMP_Text _speakerName;
     [SerializeField] private Image _speakerAvatar;
 
-    public override void Show(ISpeechModel speechModel)
+    public void Show(IDialogSpeechModel speechModel)
     {
         base.Show(speechModel);
-        var model = (DialogSpeechModel)speechModel;
 
-        _speakerName.text = model.SpeakerName;
+        _speakerName.text = speechModel.SpeakerName;
 
-        ShowAvatar(model);
+        ShowAvatar(speechModel);
     }
 
-    public override void ShowSmooth(ISpeechModel speechModel)
+    public void ShowSmooth(IDialogSpeechModel speechModel)
     {
         base.ShowSmooth(speechModel);
 
-        var model = (DialogSpeechModel)speechModel;
+        _speakerName.text = speechModel.SpeakerName;
 
-        _speakerName.text = model.SpeakerName;
-
-        ShowAvatar(model);
+        ShowAvatar(speechModel);
     }
 
-    private void ShowAvatar(DialogSpeechModel model)
+    private void ShowAvatar(IDialogSpeechModel model)
     {
         if (model.Avatar != null)
         {

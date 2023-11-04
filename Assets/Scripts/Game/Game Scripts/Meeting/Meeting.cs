@@ -4,16 +4,24 @@ using Zenject;
 
 public class Meeting : MonoBehaviour
 {
-    private PastimeSelectionFactory _pastimeSelectionFactory;
-    private ChoicePanel _choicePanel;
+    [SerializeField] private StaticData _staticData;
+    [SerializeField] private Smartphone _smartphone;
+    [SerializeField] private DialogSpeechView _dialogSpeechView;
 
-    private CharacterView _characterView;
+    private ChoicePanel _choicePanel;
+    private CharactersLibrary _charactersLibrary;
+
+    private PastimeSelectionFactory _pastimeSelectionFactory;
     private AbstractPastime _currentPastime;  
+    private CharacterViewForMeeting _characterView;
+
+    private DialogSpeechPresenter _dialogSpeechPresenter;
 
     [Inject]
-    public void Construct(MiniGameSelector miniGameSelector, Quiz quiz, ChoicePanel choicePanel)
+    public void Construct(MiniGameSelector miniGameSelector, Quiz quiz, ChoicePanel choicePanel, CharactersLibrary charactersLibrary)
     {
         _choicePanel = choicePanel;
+        _charactersLibrary = charactersLibrary;
 
         _pastimeSelectionFactory = new PastimeSelectionFactory(this, choicePanel,
             new Dictionary<PastimeOnLocationType, AbstractPastime>()
@@ -23,13 +31,17 @@ public class Meeting : MonoBehaviour
             });
     }
 
-    public void Enter(CharacterView characterView)
+    public void Enter(CharacterViewForMeeting characterView)
     {
+        ChangeEnableInSmartphone(false);
+
         _characterView = characterView;
         characterView.SetInteractable(false);
 
         _pastimeSelectionFactory.Show(characterView.AvailablePastimes);
         _pastimeSelectionFactory.PastimeSelected += OnPastimeSelected;
+
+        _dialogSpeechPresenter = null;
     }
 
     public void Exit()
@@ -38,8 +50,20 @@ public class Meeting : MonoBehaviour
             _currentPastime.Ended -= OnPastimeEnded;
 
         _pastimeSelectionFactory.PastimeSelected -= OnPastimeSelected;
-        _characterView.SetInteractable(true);
         _choicePanel.Hide();
+
+        _dialogSpeechPresenter = new DialogSpeechPresenter(_charactersLibrary.GetCharacter(_characterView.Type).DialogAfterMeeting, _dialogSpeechView, _staticData);
+        _dialogSpeechPresenter.Complete += DialogAfterMeetingCompleted;
+        _dialogSpeechPresenter.Execute();
+    }
+
+    private void ChangeEnableInSmartphone(bool isEnabled)
+    {
+        _smartphone.ChangeEnabled(new List<(SmartphoneWindows, bool)>()
+        {
+            (SmartphoneWindows.DUX, isEnabled),
+            (SmartphoneWindows.Map, isEnabled)
+        });
     }
 
     private void OnPastimeSelected(AbstractPastime pastime)
@@ -55,5 +79,15 @@ public class Meeting : MonoBehaviour
         _currentPastime.Ended -= OnPastimeEnded;
 
         _pastimeSelectionFactory.Show(_characterView.AvailablePastimes);
+    }
+
+    private void DialogAfterMeetingCompleted()
+    {
+        _dialogSpeechPresenter.Complete -= DialogAfterMeetingCompleted;
+
+        _dialogSpeechView.Hide();
+        Destroy(_characterView.gameObject);
+        ChangeEnableInSmartphone(true);
+        _characterView.SetInteractable(true);
     }
 }

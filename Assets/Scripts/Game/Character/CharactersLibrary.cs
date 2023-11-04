@@ -9,24 +9,10 @@ public class CharactersLibrary : MonoBehaviour
 {
     [Inject] private StaticData _staticData;
     [Inject] private SaveLoadServise _saveLoadServise;
+
     [SerializeField] private List<Character> _allCharacters;
 
     private const string _saveKey = "CharacterLibrarySave";
-
-    //[Inject]
-    //public void Construct()
-    //{
-    //    if (_saveLoadServise.HasSave(_saveKey))
-    //    {
-    //        _allCharacters = new();
-    //        Load();
-    //    }
-    //}
-
-    //private void OnDestroy()
-    //{
-    //    Save();
-    //}
 
     public Character GetCharacter(CharacterType characterType)
     {

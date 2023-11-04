@@ -5,7 +5,7 @@ public class LocationsManager : ISaveLoadObject
 {
     private readonly SaveLoadServise _saveLoadServise;
 
-    private readonly CharactersPortraitView _charactersPortraitView;
+    private readonly CharacterRenderer _charactersPortraitView;
     private readonly BackgroundView _background;
     private readonly CollectionPanel _collectionPanel;
     private readonly Map _map;
@@ -16,7 +16,7 @@ public class LocationsManager : ISaveLoadObject
     private string _saveKey = "locationManagerKey";
 
     public LocationsManager(SaveLoadServise saveLoadServise, BackgroundView background,
-        CollectionPanel collectionPanel, CharactersPortraitView charactersPortraitView, Map map, List<Location> locations)
+        CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView, Map map, List<Location> locations)
     {
         _saveLoadServise = saveLoadServise;
 

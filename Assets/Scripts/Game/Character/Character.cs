@@ -10,12 +10,15 @@ namespace Characters
         [SerializeField] private string _name;
         [SerializeField] private CharacterSympathy _sympathy;
         [SerializeField] private CharacterType _characterType;
+        [SerializeField] private DialogSpeechForMeeting _dialogSpeech;
 
         [field: SerializeField] public Dictionary<CharacterPoseType, Sprite> Images { get; private set; } 
         public CharacterType Type => _characterType;
         public int SympathyPoints => _sympathy.Points;
         public int SympathyLevel => _sympathy.Level;
         public string Name => _name;
+        public DialogSpeechForMeeting DialogAfterMeeting => _dialogSpeech;
+
 
         public event Action<int> SympathyPointsChanged;
 

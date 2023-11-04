@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using Zenject;
 
-public class SpeechPresentar : IPresentar 
+public abstract class SpeechPresentar : IPresentar 
 {
-    public event Action Complete;
-
-    protected ISpeechModel _model;
-    protected SpeechView _view;
     private StaticData _staticData;
+
+    private ISpeechModel _model;
+    private SpeechView _view;
 
     public SpeechPresentar(ISpeechModel model, SpeechView view, StaticData staticData)
     {
@@ -18,11 +16,13 @@ public class SpeechPresentar : IPresentar
         _staticData = staticData;
     }    
 
+    public event Action Complete;
+
     public void Execute()
     {
         if (_staticData.IsSkipDialog)
         {
-            _view.Show(_model);
+            ShowSpeech();
             Complete?.Invoke();
             return;
         }
@@ -31,7 +31,7 @@ public class SpeechPresentar : IPresentar
 
         if (_view.gameObject.activeInHierarchy)
         {
-            _view.ShowSmooth(_model);
+            ShowSpeechSmooth();
 
             if (_model.IsImmediatelyNextNode)
                 Complete?.Invoke();
@@ -40,7 +40,7 @@ public class SpeechPresentar : IPresentar
         {
             _staticData.StartCoroutine(WaitUntilAndInvoke(() =>
             {
-                _view.ShowSmooth(_model);
+                ShowSpeechSmooth();
 
                 if (_model.IsImmediatelyNextNode)
                     Complete?.Invoke();
@@ -54,14 +54,14 @@ public class SpeechPresentar : IPresentar
         {
             if (_view.gameObject.activeInHierarchy)
             {
-                _view.Show(_model);
+                ShowSpeech();
                 return;
             }
             else
             {
                 _staticData.StartCoroutine(WaitUntilAndInvoke(() =>
                 {
-                    _view.Show(_model);
+                    ShowSpeech();
                     return;
                 }));
             }
@@ -70,6 +70,9 @@ public class SpeechPresentar : IPresentar
         _view.Clicked -= OnViewClick;
         Complete?.Invoke();
     }
+
+    protected abstract void ShowSpeechSmooth();
+    protected abstract void ShowSpeech();
 
     private IEnumerator WaitUntilAndInvoke(Action action)
     {

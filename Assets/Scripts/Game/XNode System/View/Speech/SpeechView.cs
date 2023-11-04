@@ -38,7 +38,7 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
         _clickerZone.Clicked -= OnClick;
     }
 
-    public virtual void ShowSmooth(ISpeechModel model)
+    public void ShowSmooth(ISpeechModel model)
     {
         _nextSkipShowAnimationTime = Time.time + _skipShowAnimationCooldown;
 
@@ -47,7 +47,7 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
         StartCoroutine(ShowingSpeechSmooth(model.Text));
     }
 
-    public virtual void Show(ISpeechModel model)
+    public void Show(ISpeechModel model)
     {
         if (Time.time < _nextSkipShowAnimationTime)
             return;

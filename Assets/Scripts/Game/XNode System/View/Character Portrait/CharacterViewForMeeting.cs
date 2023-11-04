@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image), typeof(Button))]
-public class CharacterView : MonoBehaviour
+public class CharacterViewForMeeting : MonoBehaviour, ICharacterView
 {
     private Image _selfImage;
     private Button _selfButton;
@@ -15,6 +15,7 @@ public class CharacterView : MonoBehaviour
     public Image Image => _selfImage;
     public CharacterType Type => _characterType;
     public IEnumerable<PastimeOnLocationType> AvailablePastimes => _actionsVariation;
+    public GameObject GameObject => gameObject;
 
     public void Initialize(CharacterType character, Meeting meeting, Location location)
     {

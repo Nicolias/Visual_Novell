@@ -18,7 +18,7 @@ public class UIInstaller : MonoInstaller
     [SerializeField] private FAQCommander _fAQCommander;
     [SerializeField] private ChapterCaption _chapterCaption;
 
-    [SerializeField] private CharactersPortraitView _charactersPortraitView;
+    [SerializeField] private CharacterRenderer _charactersPortraitView;
     [SerializeField] private List<Location> _allLocations;
     public override void InstallBindings()
     {
@@ -57,7 +57,7 @@ public class UIInstaller : MonoInstaller
         Container.Bind<IInventory>().FromInstance(_inventory).AsSingle();
         Container.Bind<ChapterCaption>().FromInstance(_chapterCaption).AsSingle();
 
-        Container.Bind<CharactersPortraitView>().FromInstance(_charactersPortraitView).AsSingle();
+        Container.Bind<CharacterRenderer>().FromInstance(_charactersPortraitView).AsSingle();
 
         LocationManagerBind();
     }

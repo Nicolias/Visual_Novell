@@ -15,7 +15,7 @@ public class GameCommander : Commander, ICommanderVisitor
 
     [SerializeField] private ChoiceView _choicesView;
 
-    [SerializeField] private CharactersPortraitView _portraitView;
+    [SerializeField] private CharacterRenderer _portraitView;
 
     [SerializeField] private BackgroundView _backgroundView;
 
@@ -58,12 +58,13 @@ public class GameCommander : Commander, ICommanderVisitor
     public void Visit(DialogSpeechModel dialogSpeech)
     {
         dialogSpeech.Initialize(StaticData);
-        _result.command = DI.Instantiate<SpeechPresentar>(new object[] { dialogSpeech, _dialogSpeechView});
+        _result.command = DI.Instantiate<DialogSpeechPresenter>(new object[] { dialogSpeech, _dialogSpeechView});
     }
+
     public void Visit(MonologSpeechModel speech)
     {
         speech.Initialize(StaticData);
-        _result.command = DI.Instantiate<SpeechPresentar>(new object[] { speech, _monologSpeechView });
+        _result.command = DI.Instantiate<MonologSpeechPresenter>(new object[] { speech, _monologSpeechView });
     }
 
     public void Visit(ICharacterPortraitModel portrait)

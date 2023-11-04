@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MonologSpeechModel : XnodeModel, ISpeechModel
+public class MonologSpeechModel : XnodeModel, IMonologSpeechModel
 {
     [SerializeField] private bool _isImmediatelyNextNode;
     [SerializeField, TextArea(5, 10)] private string _speechText;
