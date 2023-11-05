@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-[RequireComponent(typeof(ChoicePanel))]
 public class ChoiceView : MonoBehaviour, IChoiceView
 {
     public virtual event Action<Node> OnChoiceMade;
 
-    private ChoicePanel _choisePanel;
-
-    private void Awake()
-    {
-        _choisePanel = GetComponent<ChoicePanel>();
-    }
+    [SerializeField] private ChoicePanel _choisePanel;
 
     public void Show(IChoiceModel model)
     {

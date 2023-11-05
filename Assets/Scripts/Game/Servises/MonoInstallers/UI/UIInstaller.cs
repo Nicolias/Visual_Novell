@@ -4,11 +4,11 @@ using Zenject;
 
 public class UIInstaller : MonoInstaller
 {
+    [SerializeField] private ChoicePanel _choicePanel;
     [SerializeField] private ChatWindow _chatView;
     [SerializeField] private MessengerCommander _messengerCommander;
     [SerializeField] private Messenger _messenger;
     [SerializeField] private MessengerWindow _messengerWindow;
-    [SerializeField] private ChoicePanel _choisePanel;
     [SerializeField] private Map _map;
     [SerializeField] private Smartphone _smartphone;
     [SerializeField] private BackgroundView _background;
@@ -31,6 +31,11 @@ public class UIInstaller : MonoInstaller
             AsSingle();
 
         Container.
+            Bind<ChoicePanel>().
+            FromInstance(_choicePanel).
+            AsSingle();
+
+        Container.
             Bind<IChatWindow>().
             FromInstance(_chatView).
             AsSingle();
@@ -50,7 +55,6 @@ public class UIInstaller : MonoInstaller
             FromInstance(_messenger).
             AsSingle();
 
-        Container.Bind<ChoicePanel>().FromInstance(_choisePanel).AsSingle();
         Container.Bind<Map>().FromInstance(_map).AsSingle();
         Container.Bind<BackgroundView>().FromInstance(_background).AsSingle();
         Container.Bind<CollectionPanel>().FromInstance(_collectionPanel).AsSingle();

@@ -1,3 +1,4 @@
+using Factory.Cells;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,34 +17,40 @@ public class Map : MonoBehaviour, ISaveLoadObject
     private bool _guidComplete;
 
     private SaveLoadServise _saveLoadServise;
-    private ILocationCellsFactory _locationCellFactory;
+    private ICellsFactory<Location> _locationCellFactory;
     private Smartphone _smartphone;
     private ChoicePanel _choicePanel;
     private LocationsManager _locationsManager;
 
-    private List<LocationCell> _locationCells = new List<LocationCell>();
+    private List<Cell<Location>> _cells = new List<Cell<Location>>();
     private List<Location> _locations = new List<Location>();
     private Location _currentLocation;
 
     private const string _saveKey = "MapSave";
 
     public int LocationsCount => _locations.Count;
-    public int LocationCellsCount => _locationCells.Count;
+    public int LocationCellsCount => _cells.Count;
 
     [Inject]
-    public void Construct(SaveLoadServise saveLoadServise, ILocationCellsFactory locationCellFactory,
-        Smartphone smartphone, ChoicePanel choicePanel, LocationsManager locationsManager)
+    public void Construct(SaveLoadServise saveLoadServise, CellsFactoryCreater cellFactoryCreater,
+        Smartphone smartphone, IChoicePanelFactory choicePanelFactory, LocationsManager locationsManager)
     {
         _saveLoadServise = saveLoadServise;
-        _locationCellFactory = locationCellFactory;
         _smartphone = smartphone;
-        _choicePanel = choicePanel;
         _locationsManager = locationsManager;
+        _locationCellFactory = cellFactoryCreater.CreateCellsFactory<Location>();
+        _choicePanel = choicePanelFactory.CreateChoicePanel(transform);
+    }
 
+    private void Awake()
+    {
         _locationsManager.ConstructMap();
 
-        _closeButton.onClick.AddListener(Hide);
-        _openButton.onClick.AddListener(Show);
+        if (_closeButton != null && _openButton != null)
+        {
+            _closeButton.onClick.AddListener(Hide);
+            _openButton.onClick.AddListener(Show);
+        }
 
         if (_saveLoadServise.HasSave(_saveKey))
         {
@@ -61,7 +68,7 @@ public class Map : MonoBehaviour, ISaveLoadObject
         foreach (Transform locationCell in _locationCellContainer)
             Destroy(locationCell.gameObject);
 
-        foreach (var locationCell in _locationCells)
+        foreach (var locationCell in _cells)
             locationCell.LocationSelected -= OnLocationSelected;
 
         _openButton.onClick.RemoveAllListeners();
@@ -105,12 +112,12 @@ public class Map : MonoBehaviour, ISaveLoadObject
 
     public void Add(IEnumerable<Location> locations)
     {
-        List<LocationCell> newCells = _locationCellFactory.CreateNewLocationCell(locations, _locationCellContainer);
+        List<Cell<Location>> newCells = _locationCellFactory.CreateCellsView(locations, _locationCellContainer);
 
         _locations.AddRange(locations);
-        _locationCells.AddRange(newCells);
+        _cells.AddRange(newCells);
 
-        foreach (var locationCell in _locationCells)
+        foreach (var locationCell in _cells)
             locationCell.LocationSelected += OnLocationSelected;
     }
 
@@ -119,12 +126,12 @@ public class Map : MonoBehaviour, ISaveLoadObject
         foreach (var location in locations)
         {
             location.Disable();
-            LocationCell locationCell = _locationCells.Find(locationCell => locationCell.Location == location);
+            Cell<Location> locationCell = _cells.Find(locationCell => locationCell.Data == location);
             locationCell.LocationSelected -= OnLocationSelected;
 
             _locations.Remove(location);
-            _locationCells.Remove(locationCell);
-            DestroyImmediate(locationCell.gameObject);
+            _cells.Remove(locationCell);
+            locationCell.Dispose();
         }
     }
 

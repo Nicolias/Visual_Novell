@@ -5,7 +5,7 @@ using UnityEngine;
 using XNode;
 
 [CreateAssetMenu(fileName = "New location", menuName = "Location/Location")]
-public class Location : ScriptableObject, IDisposable, ISaveLoadObject
+public class Location : ScriptableObject, IDisposable, ISaveLoadObject, IDataForCell
 {
     [SerializeField] private Sprite _backgroundSprite;
     [SerializeField] private List<ItemForCollection> _itemsOnLocation;

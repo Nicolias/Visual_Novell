@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Factory.CellLocation;
+using Factory.Cells;
 using FluentAssertions;
 using NSubstitute;
 using NUnit.Framework;
@@ -10,14 +10,17 @@ namespace Tests
     public class MapTest
     {
         private Map _map;
-        private ILocationCellsFactory _locationCellFactory;
+        private ICellsFactory<Location> _locationCellsFactory;
 
         [SetUp]
         public void SetUp()
         {
+            _locationCellsFactory = Substitute.For<ICellsFactory<Location>>();
+            CellsFactoryCreater cellsFactoryCreater = Substitute.For<CellsFactoryCreater>();
+            cellsFactoryCreater.CreateCellsFactory<Location>().Returns(_locationCellsFactory);
+
             _map = new GameObject().AddComponent<Map>();
-            _locationCellFactory = Substitute.For<ILocationCellsFactory>();
-            _map.Construct(null, _locationCellFactory, null, null, null);
+            _map.Construct(null, cellsFactoryCreater, null, Substitute.For<IChoicePanelFactory>(), null);
         }
 
         [TestCase(1), TestCase(2)]
@@ -28,11 +31,11 @@ namespace Tests
             // Act.
             for (int i = 0; i < locationCount; i++)
             {
-                IEnumerable<Location> locations = new List<Location>();
-                List<LocationCell> locationCells = new List<LocationCell>();
+                List<Location> locations = new List<Location>();
+                locations.Add(ScriptableObject.CreateInstance<Location>());
 
-                locationCells.Add(new GameObject().AddComponent<LocationCell>());
-                _locationCellFactory.CreateNewLocationCell(locations, null).Returns(locationCells);
+                StubCells(1, locations);
+
                 _map.Add(locations);
             }
 
@@ -48,11 +51,8 @@ namespace Tests
             List<Location> locations = new List<Location>();
             locations.Add(ScriptableObject.CreateInstance<Location>());
 
-            List<LocationCell> locationCells = new List<LocationCell>();
-            locationCells.Add(new GameObject().AddComponent<LocationCell>());
-            _locationCellFactory.CreateNewLocationCell(locations, null).Returns(locationCells);
-
-            locationCells[0].Initialize(locations[0]);
+            StubCells(1, locations);
+            
             _map.Add(locations);
 
             // Act.
@@ -61,6 +61,18 @@ namespace Tests
             // Assert.
             _map.LocationCellsCount.Should().Be(0);
             _map.LocationsCount.Should().Be(0);
+        }
+
+        public void StubCells(int cellsCount, List<Location> locations)
+        {
+            List<Cell<Location>> locationCells = new List<Cell<Location>>();
+
+            for (int i = 0; i < cellsCount; i++)
+            {
+                Cell<Location> cell = new Cell<Location>(locations[i], new GameObject().AddComponent<CellView>());
+                locationCells.Add(cell);
+                _locationCellsFactory.CreateCellsView(locations, null).Returns(locationCells);
+            }
         }
     }
 }

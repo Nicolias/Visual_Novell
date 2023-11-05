@@ -5,7 +5,7 @@ using Dictionary;
 namespace Characters
 {
     [CreateAssetMenu(fileName = "Character", menuName = "Characters")]
-    public class Character : ScriptableObject
+    public class Character : ScriptableObject, IDataForCell
     {
         [SerializeField] private string _name;
         [SerializeField] private CharacterSympathy _sympathy;

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,11 +7,10 @@ public class ChoicePanel : MonoBehaviour
     [SerializeField] private Transform _container;
     [SerializeField] private ChoiceButton _choiseButtonTemplate;
     [SerializeField] private TMP_Text _questionText;
-    [SerializeField] private Canvas _selfCanvas;
 
     public List<ChoiceButton> ShowAndGetUncorrectButtons(string question, List<(AnswerType, ChoiseElement)> choiseElements)
     {
-        _selfCanvas.enabled = true;
+        gameObject.SetActive(true);
         _questionText.text = question;
 
         ClearContainer();
@@ -34,7 +32,7 @@ public class ChoicePanel : MonoBehaviour
 
     public void Show(string question, IEnumerable<ChoiseElement> choiseElements)
     {
-        _selfCanvas.enabled = true;
+        gameObject.SetActive(true);
         _questionText.text = question;
 
         ClearContainer();
@@ -49,7 +47,7 @@ public class ChoicePanel : MonoBehaviour
 
     public void Hide()
     {
-        _selfCanvas.enabled = false;
+        gameObject.SetActive(false);
     }
 
     private void ClearContainer()

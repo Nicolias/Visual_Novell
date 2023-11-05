@@ -2,25 +2,44 @@
 using UnityEngine;
 using Zenject;
 
-namespace Factory.CellLocation
+namespace Factory.Cells
 {
-    public class LocationCellFactory : MonoBehaviour, ILocationCellsFactory
+    public class CellsFactoryCreater : MonoBehaviour
     {
         [Inject] private DiContainer _di;
-        [SerializeField] private LocationCell _locationCellTemplate;
+        [SerializeField] private CellView _cellViewTemplate;
 
-        public List<LocationCell> CreateNewLocationCell(IEnumerable<Location> locations, Transform locationCellContainer)
+        public virtual ICellsFactory<T> CreateCellsFactory<T>() where T : IDataForCell
         {
-            List<LocationCell> locationCells = new List<LocationCell>();
+            return new CellsFactory<T>(_di, _cellViewTemplate);
+        }
 
-            foreach (var location in locations)
+        private class CellsFactory<T> : ICellsFactory<T> where T : IDataForCell
+        {
+            private DiContainer _di;
+            private CellView _cellViewTemplate;
+
+            public CellsFactory(DiContainer di, CellView cellViewTemplate)
             {
-                var newLocationCell = _di.InstantiatePrefabForComponent<LocationCell>(_locationCellTemplate, locationCellContainer);
-                newLocationCell.Initialize(location);
-                locationCells.Add(newLocationCell);
+                _di = di;
+                _cellViewTemplate = cellViewTemplate;
             }
 
-            return locationCells;
+            public List<Cell<T>> CreateCellsView(IEnumerable<T> dataForCells, Transform cellsContainer)
+            {
+                List<Cell<T>> cells = new List<Cell<T>>();
+
+                foreach (var dataForCell in dataForCells)
+                {
+                    CellView newCellView = _di.InstantiatePrefabForComponent<CellView>(_cellViewTemplate, cellsContainer);
+                    newCellView.Initialize(dataForCell.Name);
+
+                    Cell<T> cell = new Cell<T>(dataForCell, newCellView);
+                    cells.Add(cell);
+                }
+
+                return cells;
+            }
         }
     }
 }
