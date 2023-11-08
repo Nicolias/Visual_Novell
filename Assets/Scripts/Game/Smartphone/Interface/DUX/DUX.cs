@@ -1,49 +1,17 @@
 ﻿using DG.Tweening;
-using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
-[RequireComponent(typeof(Button))]
-public class DUX : MonoBehaviour, ISaveLoadObject
+public class DUX : WindowInSmartphone
 {
-    [Inject] private SaveLoadServise _saveLoadServise;
     [Inject] private DUXWindow _duxWindow;
 
-    private Button _openDUXButton;
+    private string _saveKey = "DUXSave";
 
     private Sequence _sequence;
 
-    private const string _saveKey = "DUXSave";
-
-    private void Awake()
-    {
-        _openDUXButton = GetComponent<Button>();
-    }
-
-    private void OnEnable()
-    {
-        _openDUXButton.onClick.AddListener(() =>
-        {
-            _duxWindow.Open();
-
-            if(_sequence != null)
-                _sequence.Pause();
-        });
-
-        if (_saveLoadServise.HasSave(_saveKey))
-            Load();
-    }
-
-    private void OnDisable()
-    {
-        _openDUXButton.onClick.RemoveAllListeners();
-
-        Save();
-    }
-
     public void OpenAccesToDUX()
     {
-        _openDUXButton.enabled = true;
+        SetEnabled(true);
 
         _sequence = DOTween.Sequence();
 
@@ -54,18 +22,32 @@ public class DUX : MonoBehaviour, ISaveLoadObject
             .Play();
     }
 
-    public void SetEnabled(bool enabled)
-    {
-        _openDUXButton.enabled = enabled;
-    }
-
     public void Save()
     {
-        _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = _openDUXButton.enabled });
+        SaveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = OpenButton.enabled });
     }
 
     public void Load()
     {
-        _openDUXButton.enabled = _saveLoadServise.Load<SaveData.BoolData>(_saveKey).Bool;
+        OpenButton.enabled = SaveLoadServise.Load<SaveData.BoolData>(_saveKey).Bool;
+    }
+
+    protected override void OnEnabled()
+    {
+        if (SaveLoadServise.HasSave(_saveKey))
+            Load();
+    }
+
+    protected override void OnDisabled()
+    {
+        Save();
+    }
+
+    protected override void OnOpenButtonClicked()
+    {
+        _duxWindow.Open();
+
+        if (_sequence != null)
+            _sequence.Pause();
     }
 }

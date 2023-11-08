@@ -554,8 +554,10 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  _smartphoneWindows: 00000000
-  _smartphoneWindowsEnabled: 01
+  <Windows>k__BackingField:
+    _dictionary:
+    - <Key>k__BackingField: 0
+      <Value>k__BackingField: 1
 --- !u!114 &-4779596411484929095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,8 +2481,10 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  _smartphoneWindows: 00000000
-  _smartphoneWindowsEnabled: 00
+  <Windows>k__BackingField:
+    _dictionary:
+    - <Key>k__BackingField: 0
+      <Value>k__BackingField: 0
 --- !u!114 &4120665635823854329
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,9 +4,6 @@ public class LocationsManager : ISaveLoadObject
 {
     private readonly SaveLoadServise _saveLoadServise;
 
-    private readonly CharacterRenderer _charactersPortraitView;
-    private readonly BackgroundView _background;
-    private readonly CollectionPanel _collectionPanel;
     private readonly Map _map;
     private readonly List<Location> _locations;
 
@@ -19,21 +16,18 @@ public class LocationsManager : ISaveLoadObject
     {
         _saveLoadServise = saveLoadServise;
 
-        _charactersPortraitView = charactersPortraitView;
-        _background = background;
-        _collectionPanel = collectionPanel;
         _map = map;
         _locations = locations;
 
         if(_saveLoadServise.HasSave(_saveKey))
             Load();
+
+        foreach (var location in _locations)
+            location.Initialize(background, collectionPanel, charactersPortraitView);
     }
     
     public void ConstructMap()
     {
-        foreach (var location in _locations)
-            location.Initialize(_background, _collectionPanel, _charactersPortraitView);
-
         List<Location> locations = new List<Location>(_locationsInMap);
 
         for (int i = 0; i < _locations.Count; i++)

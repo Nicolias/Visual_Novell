@@ -7,21 +7,25 @@ public class CharacterViewForMeeting : MonoBehaviour, ICharacterView
 {
     private Image _selfImage;
     private Button _selfButton;
+
     private CharacterType _characterType;
+    private ICharacterPortraitModel _characterData;
 
     private Meeting _meeting;
     private IEnumerable<PastimeOnLocationType> _actionsVariation;
 
     public Image Image => _selfImage;
     public CharacterType Type => _characterType;
+    public ICharacterPortraitModel Data => _characterData;
     public IEnumerable<PastimeOnLocationType> AvailablePastimes => _actionsVariation;
     public GameObject GameObject => gameObject;
 
-    public void Initialize(CharacterType character, Meeting meeting, Location location)
+    public void Initialize(ICharacterPortraitModel characterData, Meeting meeting)
     {
-        _characterType = character;
+        _characterData = characterData;
+        _characterType = characterData.CharacterType;
+        _actionsVariation = characterData.Location.ActionsList;
         _meeting = meeting;
-        _actionsVariation = location.ActionsList;
     }
 
     private void Awake()

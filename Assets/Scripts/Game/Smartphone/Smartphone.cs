@@ -12,6 +12,8 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
 
     [SerializeField] private DialogSpeechView _dialogSpeechView;
 
+    [SerializeField] public List<WindowInSmartphone> _apps;
+
     [SerializeField] private Messenger _messenger;
     [SerializeField] private DUX _dux;
 
@@ -77,19 +79,14 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
         _isDUXTutorialShow = true;
     }
 
-    public void ChangeEnabled(List<(SmartphoneWindows, bool)> windowsEnabled)
+    public void ChangeEnabled(Dictionary.Dictionary<SmartphoneWindows, bool> windowsEnabled)
     {
-        foreach (var windowEnabled in windowsEnabled)
+        for (int i = 0; i < windowsEnabled.Count; i++)
         {
-            switch (windowEnabled.Item1)
-            {
-                case SmartphoneWindows.Map:
-                    _map.SetEnable(windowEnabled.Item2);
-                    break;
-                case SmartphoneWindows.DUX:
-                    _dux.SetEnabled(windowEnabled.Item2);
-                    break;
-            }
+            SmartphoneWindows appType = windowsEnabled.GetKey(i);
+
+            if (_apps.Exists(app => app.Type == appType))
+                _apps.Find(app => app.Type == appType).SetEnabled(windowsEnabled.GetValue(i));
         }
     }
 

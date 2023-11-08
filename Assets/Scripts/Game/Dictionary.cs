@@ -7,9 +7,19 @@ namespace Dictionary
     [Serializable]
     public class Dictionary<K, V>
     {
-        [SerializeField] private List<DictionaryElement> _dictionary;
+        [SerializeField] private List<DictionaryElement> _dictionary = new List<DictionaryElement>();
 
         public int Count => _dictionary.Count;
+
+        public Dictionary<K, V> GetCopyOfDictionary()
+        {
+            Dictionary<K, V> dictionary = new Dictionary<K, V>();
+
+            for (int i = 0; i < Count; i++)
+                dictionary.Add(GetKey(i), GetValue(i));
+
+            return dictionary;
+        }
 
         public void Add(K key, V value)
         {

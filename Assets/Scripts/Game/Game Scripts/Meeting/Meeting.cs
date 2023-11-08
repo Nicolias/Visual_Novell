@@ -4,6 +4,7 @@ using Zenject;
 
 public class Meeting : MonoBehaviour
 {
+    [SerializeField] private CharacterRenderer _characterRenderer;
     [SerializeField] private StaticData _staticData;
     [SerializeField] private Smartphone _smartphone;
     [SerializeField] private DialogSpeechView _dialogSpeechView;
@@ -59,11 +60,13 @@ public class Meeting : MonoBehaviour
 
     private void ChangeEnableInSmartphone(bool isEnabled)
     {
-        _smartphone.ChangeEnabled(new List<(SmartphoneWindows, bool)>()
-        {
-            (SmartphoneWindows.DUX, isEnabled),
-            (SmartphoneWindows.Map, isEnabled)
-        });
+        Dictionary.Dictionary<SmartphoneWindows, bool> appsForChangeEnable = new Dictionary.Dictionary<SmartphoneWindows, bool>();
+
+        appsForChangeEnable.Add(SmartphoneWindows.Map, isEnabled);
+        appsForChangeEnable.Add(SmartphoneWindows.DUX, isEnabled);
+        appsForChangeEnable.Add(SmartphoneWindows.Contacts, isEnabled);
+
+        _smartphone.ChangeEnabled(appsForChangeEnable);
     }
 
     private void OnPastimeSelected(AbstractPastime pastime)
@@ -86,7 +89,7 @@ public class Meeting : MonoBehaviour
         _dialogSpeechPresenter.Complete -= DialogAfterMeetingCompleted;
 
         _dialogSpeechView.Hide();
-        Destroy(_characterView.gameObject);
+        _characterRenderer.Delete(_characterView.Data);
         ChangeEnableInSmartphone(true);
         _characterView.SetInteractable(true);
     }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CharacterViewFactory : MonoBehaviour
 {
     [SerializeField] private Transform _containerForFreePosition;
-    [SerializeField] private Transform[] _positions;
+    [SerializeField] private Dictionary.Dictionary<CharacterPortraitPosition, Transform> _positions;
 
     [SerializeField] private CharacterViewForMeeting _characterViewForMeetingPrefab;
     [SerializeField] private CharacterViwe _characterViewPrefab;
@@ -14,7 +14,7 @@ public class CharacterViewFactory : MonoBehaviour
 
     private Color[] _colors = new Color[2] { new Color(1, 1, 1, 1), new Color(1, 1, 1, 0) };
 
-    public IEnumerable<Transform> Positions => _positions;
+    public Dictionary.Dictionary<CharacterPortraitPosition, Transform> Positions => _positions.GetCopyOfDictionary();
 
     public CharacterPortraitData Create(ICharacterPortraitModel character)
     {
@@ -34,7 +34,7 @@ public class CharacterViewFactory : MonoBehaviour
 
     private Image Instantiate(ICharacterPortraitModel character, ICharacterView characterPrefab)
     {
-        ICharacterView newCharacterView;
+        ICharacterView newCharacterView = null;
 
         if (character.PositionType == CharacterPortraitPosition.FreePosition)
         {
@@ -47,10 +47,11 @@ public class CharacterViewFactory : MonoBehaviour
         }
         else
         {
-            newCharacterView = Instantiate(characterPrefab.GameObject, _positions[(int)character.PositionType]).GetComponent<ICharacterView>();
+            if (_positions.TryGet(character.PositionType, out Transform transformForSpawn))
+                newCharacterView = Instantiate(characterPrefab.GameObject, transformForSpawn).GetComponent<ICharacterView>();
         }
 
-        newCharacterView.Initialize(character.CharacterType, _meeting, character.Location);
+        newCharacterView.Initialize(character, _meeting);
 
         return newCharacterView.Image;
     }

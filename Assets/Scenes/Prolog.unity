@@ -396,6 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49eaf957c14d934597a0deb551ef6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterRenderer: {fileID: 415884106}
   _staticData: {fileID: 2296899151798057738, guid: e6db747f68570ce4a812c6df77df7332, type: 3}
   _smartphone: {fileID: 68010062}
   _dialogSpeechView: {fileID: 368888865}
@@ -1037,6 +1038,10 @@ MonoBehaviour:
   _closeButton: {fileID: 1181029199}
   _selfCanvas: {fileID: 68010064}
   _dialogSpeechView: {fileID: 368888865}
+  _apps:
+  - {fileID: 176644443}
+  - {fileID: 1062876907}
+  - {fileID: 1992101982}
   _messenger: {fileID: 2019745668}
   _dux: {fileID: 1992101982}
   _clockText: {fileID: 1556579005}
@@ -2019,8 +2024,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d515bfbc6e9a60443b612ffa8d952561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _smartphoneWindowType: 2
+  <OpenButton>k__BackingField: {fileID: 1018865292}
+  _smartphone: {fileID: 68010062}
+  _closeButton: {fileID: 1084765054}
   _locationForMeeting:
-  - {fileID: 11400000, guid: 1330c5bf8320c264199c021649382a19, type: 2}
+  - {fileID: 11400000, guid: 79dcaf98b8cf0e545aba76acb542a20a, type: 2}
+  - {fileID: 11400000, guid: 2e2bc2dc2bcd4ae4d8e05f0ea70b5de9, type: 2}
   _contacts:
   - {fileID: 11400000, guid: a44bc97d67ac5964bab047ad1f763c9c, type: 2}
   _characterCellsContainer: {fileID: 542983952}
@@ -4114,12 +4124,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _containerForFreePosition: {fileID: 415884103}
   _positions:
-  - {fileID: 1855380361}
-  - {fileID: 906242255}
-  - {fileID: 1128035798}
-  - {fileID: 1377341204}
-  - {fileID: 599841764}
-  - {fileID: 5557666}
+    _dictionary:
+    - <Key>k__BackingField: 0
+      <Value>k__BackingField: {fileID: 1855380361}
+    - <Key>k__BackingField: 1
+      <Value>k__BackingField: {fileID: 906242255}
+    - <Key>k__BackingField: 2
+      <Value>k__BackingField: {fileID: 1128035798}
+    - <Key>k__BackingField: 4
+      <Value>k__BackingField: {fileID: 1377341204}
+    - <Key>k__BackingField: 5
+      <Value>k__BackingField: {fileID: 599841764}
   _characterViewForMeetingPrefab: {fileID: 1410946371429303148, guid: 3fdf374877cd97a489dd6a2ea19f1e3e, type: 3}
   _characterViewPrefab: {fileID: 4190544936590460193, guid: b2af9c0a873a8124184439fddf0f441f, type: 3}
   _meeting: {fileID: 22411512}
@@ -9174,7 +9189,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018865290}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -9509,10 +9524,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b3fcc1bd2338648964ff1529680891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _smartphoneWindowType: 0
+  <OpenButton>k__BackingField: {fileID: 572216650}
   _gameCommander: {fileID: 1814440475}
   _locationCellContainer: {fileID: 860184873}
   _closeButton: {fileID: 655249167}
-  _openButton: {fileID: 572216650}
   _selfCanvas: {fileID: 1062876904}
   _guidPanel: {fileID: 209580086}
 --- !u!1 &1084765052
@@ -12998,6 +13014,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bf85709b809aff342a7184fad427b132, type: 2}
   - {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
   - {fileID: 11400000, guid: 1330c5bf8320c264199c021649382a19, type: 2}
+  - {fileID: 11400000, guid: 79dcaf98b8cf0e545aba76acb542a20a, type: 2}
   - {fileID: 11400000, guid: 2e2bc2dc2bcd4ae4d8e05f0ea70b5de9, type: 2}
 --- !u!4 &1501848719
 Transform:
@@ -15633,7 +15650,7 @@ MonoBehaviour:
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}
-  _choicesView: {fileID: 0}
+  _choicesView: {fileID: 754770227}
   _portraitView: {fileID: 415884106}
   _backgroundView: {fileID: 32273443}
   _smartphoneGuideView: {fileID: 2075525032}
@@ -16857,6 +16874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36ef5976dd98bc49919db01fb499792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _smartphoneWindowType: 1
+  <OpenButton>k__BackingField: {fileID: 1992101979}
 --- !u!1 &2010641881
 GameObject:
   m_ObjectHideFlags: 0

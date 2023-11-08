@@ -23,7 +23,7 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject, IDataFor
 
     private CharacterOnLocationData _characterOnLocation;
 
-    private CharacterRenderer _characterRenderer;
+    private CharacterRenderer _charactersRenderer;
     private BackgroundView _background;
     private CollectionPanel _collectionPanel;
     private List<ItemForCollectionView> _itemsView = new List<ItemForCollectionView>();
@@ -36,13 +36,13 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject, IDataFor
     public IEnumerable<ItemForCollectionView> ItemsView => _itemsView;
     public IEnumerable<PastimeOnLocationType> ActionsList => _actionsOnLocation;
 
-    public event Action<Node> QuestStarted;
+    public event Action<Location, Node> QuestStarted;
 
     public void Initialize(BackgroundView background, CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView)
     {
         _background = background;
         _collectionPanel = collectionPanel;
-        _characterRenderer = charactersPortraitView;
+        _charactersRenderer = charactersPortraitView;
 
         _itemsView = collectionPanel.CreateItemsView(Items);
     }
@@ -55,7 +55,7 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject, IDataFor
     public void Show()
     {
         if (_questOnLocation != null)
-            QuestStarted?.Invoke(_questOnLocation);
+            QuestStarted?.Invoke(this, _questOnLocation);
 
         _background.Replace(_backgroundSprite);
 
@@ -80,10 +80,16 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject, IDataFor
         _questOnLocation = questOnLocation;
     }
 
+    public void RemoveQuest()
+    {
+        _questOnLocation = null;
+    }
+
     public void Invite(Character character)
     {
+        _charactersRenderer.DeleteAllCharacters();
         Show();
-        _characterRenderer.Show(Get(character));
+        _charactersRenderer.Show(Get(character));
     }
 
     private CharacterOnLocationData Get(Character character)

@@ -4,6 +4,6 @@ using UnityEngine.UI;
 public interface ICharacterView
 {
     public Image Image { get; }
-    public void Initialize(CharacterType character, Meeting meeting, Location location);
+    public void Initialize(ICharacterPortraitModel characterData, Meeting meeting);
     public GameObject GameObject { get; }
 }

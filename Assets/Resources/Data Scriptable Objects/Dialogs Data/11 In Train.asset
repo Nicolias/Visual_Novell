@@ -767,7 +767,8 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <Locations>k__BackingField:
+  <LocationsForAdd>k__BackingField: []
+  <LocationsForRemove>k__BackingField:
   - {fileID: 11400000, guid: bf85709b809aff342a7184fad427b132, type: 2}
   - {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
 --- !u!114 &-5881719106512178134
@@ -1280,7 +1281,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 5820935484781644453}
+        node: {fileID: 4206619725245805436}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -2485,6 +2486,9 @@ MonoBehaviour:
       - fieldName: _textChoices 1
         node: {fileID: -2536768571075002652}
         reroutePoints: []
+      - fieldName: _outPut
+        node: {fileID: -2536768571075002652}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -2733,9 +2737,6 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _textChoices 0
-        node: {fileID: -2536768571075002652}
-        reroutePoints: []
-      - fieldName: _outPut
         node: {fileID: -2536768571075002652}
         reroutePoints: []
       _direction: 0

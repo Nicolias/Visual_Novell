@@ -11,7 +11,7 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
 
     [SerializeField] private CharacterViewFactory _characterViewFactory;
 
-    private List<Transform> _positions = new List<Transform>();
+    private Dictionary.Dictionary<CharacterPortraitPosition, Transform> _positions;
     private List<CharacterPortraitData> _charactersList = new List<CharacterPortraitData>();
 
     private const string _saveKey = "CharacterPortrait";
@@ -20,8 +20,7 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
 
     private void Awake()
     {
-        foreach (var position in _characterViewFactory.Positions)
-            _positions.Add(position);
+         _positions = _characterViewFactory.Positions;
     }
 
     private void OnEnable()
@@ -73,6 +72,15 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
         }
     }
 
+    public void DeleteAllCharacters()
+    {
+
+        foreach (var character in _charactersList)
+            Destroy(character.Image.gameObject);
+
+        _charactersList.Clear();
+    }
+
     private bool IsCharacterExist(CharacterType characterType, out CharacterPortraitData exist)
     {
         exist = null;
@@ -90,7 +98,9 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
     {
         characterData.Image.sprite = character.Sprite;
         characterData.SetPosition(character.PositionType);
-        characterData.Image.transform.SetParent(_positions[(int)characterData.Position]);
+
+        if(_positions.TryGet(character.PositionType, out Transform transformForSpawn))
+            characterData.Image.transform.SetParent(transformForSpawn);
     }
 
     public void Save()
@@ -111,7 +121,7 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
                 Position = portraitData.Position,
                 Name = portraitData.Name,
                 PositionOffset = portraitData.PositionOffset,
-                ScaleOffset = portraitData.ScalseOffset
+                ScaleOffset = portraitData.ScaleOffset
             });
         }
     }

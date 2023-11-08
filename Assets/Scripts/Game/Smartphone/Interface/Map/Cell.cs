@@ -14,7 +14,7 @@ public class Cell<T> : IDisposable
 
     public T Data => _selfData;
 
-    public event Action<T> LocationSelected;
+    public event Action<T> Clicked;
 
     public void Dispose()
     {
@@ -24,6 +24,6 @@ public class Cell<T> : IDisposable
 
     private void OnCellClicked()
     {
-        LocationSelected?.Invoke(_selfData);
+        Clicked?.Invoke(_selfData);
     }
 }

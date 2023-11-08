@@ -12,9 +12,9 @@ public class CharacterViwe : MonoBehaviour, ICharacterView
 
     public GameObject GameObject => gameObject;
 
-    public void Initialize(CharacterType character, Meeting meeting, Location location)
+    public void Initialize(ICharacterPortraitModel characterData, Meeting meeting)
     {
-        _characterType = character;
+        _characterType = characterData.CharacterType;
     }
 
     private void Awake()
