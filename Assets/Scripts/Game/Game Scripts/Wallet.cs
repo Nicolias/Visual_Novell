@@ -4,15 +4,18 @@ using Zenject;
 
 public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
 {
-    public event Action OnAccureCompleted;
-
     [Inject] private SaveLoadServise _saveLoadServise;
 
     [SerializeField] private AccureMoneyPanel _accureMoneyPanel;
 
-    private int _amountMoney;
+    [SerializeField] private int _amountMoney;
 
-    private const string _saveKey = "WalletSave";
+    private string _saveKey = "WalletSave";
+
+    public int MoneyCount => _amountMoney;
+
+    public event Action AccureCompleted;
+    public event Action<int> MoneyChanged;
 
     private void OnEnable()
     {
@@ -35,6 +38,8 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
         _accureMoneyPanel.PrintAccureMoney(money);
 
         _amountMoney += money;
+
+        MoneyChanged?.Invoke(_amountMoney);
     }
 
     public void Decreese(int money)
@@ -43,11 +48,13 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
         if (_amountMoney <= 0) throw new InvalidOperationException("Недостаточно средств");
 
         _amountMoney -= money;
+
+        MoneyChanged?.Invoke(_amountMoney);
     }
 
     private void CallBack()
     {
-        OnAccureCompleted?.Invoke();
+        AccureCompleted?.Invoke();
     }
 
     public void Save()

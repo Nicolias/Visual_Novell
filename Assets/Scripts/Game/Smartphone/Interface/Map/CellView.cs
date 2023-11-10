@@ -13,7 +13,6 @@ public class CellView : MonoBehaviour
 
     private void Awake()
     {
-        _textOnCell = GetComponentInChildren<TMP_Text>();
         _selfButton = GetComponent<Button>();
     }
 
@@ -29,6 +28,9 @@ public class CellView : MonoBehaviour
 
     public void Initialize(string textOnCell)
     {
+        if(_textOnCell == null)
+            _textOnCell = GetComponentInChildren<TMP_Text>();
+
         _textOnCell.text = textOnCell;
     }
 

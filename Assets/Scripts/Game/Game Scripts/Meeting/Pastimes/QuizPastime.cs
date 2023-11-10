@@ -11,6 +11,5 @@
     public override void Enter(CharacterType character)
     {
         _quiz.Enter(character, true);
-        _quiz.Closed += Exit;
     }
 }

@@ -32,7 +32,7 @@ namespace Factory.Cells
                 foreach (var dataForCell in dataForCells)
                 {
                     CellView newCellView = _di.InstantiatePrefabForComponent<CellView>(_cellViewTemplate, cellsContainer);
-                    newCellView.Initialize(dataForCell.Name);
+                    newCellView.Initialize(dataForCell.ToString());
 
                     Cell<T> cell = new Cell<T>(dataForCell, newCellView);
                     cells.Add(cell);

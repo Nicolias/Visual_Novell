@@ -5,7 +5,7 @@ using Zenject;
 
 public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 {
-    public event Action OnAccureCompleted;
+    public event Action AccureCompleted;
     public event Action<int> OnValueChanged;
 
     [Inject] private SaveLoadServise _saveLoadServise;
@@ -39,7 +39,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         if (_chargeLeve > 100)
             _chargeLeve = 100;
 
-        OnAccureCompleted?.Invoke();
+        AccureCompleted?.Invoke();
         OnValueChanged?.Invoke(_chargeLeve);
     }
 

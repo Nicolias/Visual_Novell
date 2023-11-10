@@ -58,7 +58,6 @@ MonoBehaviour:
     \u043D\u0435 \u043F\u0440\u0438\u0436\u0438\u043B\u043E\u0441\u044C, \u0443\u043A\u043E\u0440\u0435\u043D\u0438\u043B\u043E\u0441\u044C
     \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \xAB\u041F\u0443\u0448\u043A\u0438\u043D\u0441\u043A\u0430\u044F
     \u043D\u0430\u0431\u0435\u0440\u0435\u0436\u043D\u0430\u044F\xBB."
-  <CategoryName>k__BackingField: "\u041A\u0430\u043C\u0435\u043D\u043D\u0430\u044F
-    \u043B\u0435\u0441\u0442\u043D\u0438\u0446\u0430"
+  <CategoryName>k__BackingField: "\u041D\u0430\u0431\u0435\u0440\u0435\u0436\u043D\u0430\u044F"
   <Subcategories>k__BackingField: []
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 4f70d2c5a727aae49834756fe2778164, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 5c0c7e8d40710b84d8fc0e98a8f68eb7, type: 3}

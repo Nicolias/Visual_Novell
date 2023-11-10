@@ -116,4 +116,9 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject, IDataFor
     {
         throw new NotImplementedException();
     }
+
+    public override string ToString()
+    {
+        return Name;
+    }
 }

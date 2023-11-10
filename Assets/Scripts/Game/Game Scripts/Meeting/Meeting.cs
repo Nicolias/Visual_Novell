@@ -4,6 +4,8 @@ using Zenject;
 
 public class Meeting : MonoBehaviour
 {
+    [SerializeField] private Eating _eating;
+
     [SerializeField] private CharacterRenderer _characterRenderer;
     [SerializeField] private StaticData _staticData;
     [SerializeField] private Smartphone _smartphone;
@@ -28,7 +30,8 @@ public class Meeting : MonoBehaviour
             new Dictionary<PastimeOnLocationType, AbstractPastime>()
             {
                 { PastimeOnLocationType.Quiz, new QuizPastime(quiz, choicePanel) },
-                { PastimeOnLocationType.MiniGame, new MiniGamePastime(miniGameSelector, choicePanel) }
+                { PastimeOnLocationType.MiniGame, new MiniGamePastime(miniGameSelector, choicePanel) },
+                {PastimeOnLocationType.Cafe, new EatingPastime(_eating, _choicePanel, _charactersLibrary) }
             });
     }
 

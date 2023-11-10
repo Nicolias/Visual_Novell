@@ -3,7 +3,7 @@ using System;
 
 public interface IStorageView
 {
-    public event Action OnAccureCompleted;
+    public event Action AccureCompleted;
 
     public void Accure(int value);
 

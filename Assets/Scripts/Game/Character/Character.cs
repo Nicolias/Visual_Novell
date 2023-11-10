@@ -36,11 +36,10 @@ namespace Characters
 
             SympathyPointsChanged?.Invoke(_sympathy.Points);
         }
-    }
 
-    public enum CharacterPoseType
-    { 
-        sitting = 1,
-        staying = 2
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

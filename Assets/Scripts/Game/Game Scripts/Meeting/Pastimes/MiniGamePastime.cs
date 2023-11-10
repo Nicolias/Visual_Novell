@@ -11,6 +11,5 @@
     public override void Enter(CharacterType character)
     {
         _miniGameSelector.Enter(character);
-        _miniGameSelector.Closed += Exit;
     }
 }
