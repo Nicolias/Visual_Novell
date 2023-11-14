@@ -15,16 +15,36 @@ public class NameInputView : MonoBehaviour, ITextInputView
 
     public event Action<string> TextInput;
 
+    private void OnEnable()
+    {
+        _completeNicknameButton.onClick.AddListener(ComplteNickname);
+    }
+
     private void OnDisable()
     {
-        _completeNicknameButton.onClick.RemoveAllListeners();
+        _completeNicknameButton.onClick.RemoveListener(ComplteNickname);
+    }
+
+    private void Update()
+    {
+        if(_keyboard != null)
+            _nameInputField.text = _keyboard.text;
     }
 
     public void Show()
     {
-        ShowCanvas();
+        gameObject.SetActive(true);
+    }
 
-        _completeNicknameButton.onClick.AddListener(ComplteNickname);     
+    public void ShowKeyBoard()
+    {
+        _keyboard = TouchScreenKeyboard.Open("");
+    }
+
+    public void CloseKeyBoard()
+    {
+        _keyboard.active = false;
+        _keyboard = null;
     }
 
     private void ComplteNickname()
@@ -37,24 +57,6 @@ public class NameInputView : MonoBehaviour, ITextInputView
 
         TextInput?.Invoke(_nameInputField.text);
 
-        HideCanvas();
-    }
-
-    public void ShowKeyBoard()
-    {
-        _keyboard = TouchScreenKeyboard.Open("");
-    }
-
-    public void CloseKeyBoard()
-    {
-        _nameInputField.text = _keyboard.text;
-        _keyboard.active = false;
-    }
-
-    private void ShowCanvas() => _selfCanvas.enabled = true;
-
-    private void HideCanvas()
-    {
-        _selfCanvas.enabled = false;
+        gameObject.SetActive(false);
     }
 }

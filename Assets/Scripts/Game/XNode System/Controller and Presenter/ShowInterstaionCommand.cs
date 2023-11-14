@@ -13,10 +13,8 @@ public class ShowInterstaionCommand : ICommand
 
     public void Execute()
     {
-        //_adsServise.OnShowInterstitialButtonClick();
-        //_adsServise.AdsShowed += OnShowed;
-
-        OnShowed();
+        _adsServise.OnShowInterstitialButtonClick();
+        _adsServise.AdsShowed += OnShowed;
     }
 
     private void OnShowed()

@@ -2414,10 +2414,10 @@ RectTransform:
   - {fileID: 1474776616}
   m_Father: {fileID: 142055842}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 382.46005, y: -113.75669}
+  m_SizeDelta: {x: 325.08, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &210081911
 MonoBehaviour:
@@ -4894,7 +4894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527931464
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4955,7 +4955,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527931463}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
