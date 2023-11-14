@@ -25,7 +25,7 @@ public class ContactViewInMessenger : MonoBehaviour
     private void OnEnable()
     {
         if (_selfButton != null & _chatsContainer != null)
-            _selfButton.onClick.AddListener(Hide);            
+            _selfButton.onClick.AddListener(ChangeChatsVisualization);            
     }
 
     private void OnDisable()
@@ -40,7 +40,7 @@ public class ContactViewInMessenger : MonoBehaviour
         _contactNameText.text = contact.Name;
     }
 
-    public void Hide()
+    public void ChangeChatsVisualization()
     {
         _chatsContainer.gameObject.SetActive(!_chatsContainer.gameObject.activeInHierarchy);
     }

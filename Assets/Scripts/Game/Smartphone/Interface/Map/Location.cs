@@ -5,7 +5,7 @@ using UnityEngine;
 using XNode;
 
 [CreateAssetMenu(fileName = "New location", menuName = "Location/Location")]
-public class Location : ScriptableObject, IDisposable, ISaveLoadObject, IDataForCell
+public class Location : ScriptableObject, IDisposable, IDataForCell
 {
     [SerializeField] private Sprite _backgroundSprite;
     [SerializeField] private List<ItemForCollection> _itemsOnLocation;
@@ -29,6 +29,7 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject, IDataFor
     private List<ItemForCollectionView> _itemsView = new List<ItemForCollectionView>();
 
     [field: SerializeField] public string Name { get; private set; }
+    [field: SerializeField] public Superlocation Superlocation { get; private set; }
 
     public bool IsAvilable => _isAvilable;
 
@@ -107,15 +108,17 @@ public class Location : ScriptableObject, IDisposable, ISaveLoadObject, IDataFor
         _itemsView.RemoveAll(x => x == null);
     }
 
-    public void Save()
+    public override string ToString()
     {
-        throw new NotImplementedException();
+        return Name;
     }
+}
 
-    public void Load()
-    {
-        throw new NotImplementedException();
-    }
+
+[CreateAssetMenu(fileName = "Superlocation", menuName = "Location/Superlocation")]
+public class Superlocation : ScriptableObject, IDataForCell
+{
+    [field: SerializeField] public string Name { get; private set; }
 
     public override string ToString()
     {

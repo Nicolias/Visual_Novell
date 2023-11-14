@@ -87,6 +87,6 @@ public class MessengerWindow : MonoBehaviour, IMessengerWindow
         _selfCanvas.enabled = false;
 
         foreach (var contact in _contactsView)
-            contact.Value.Hide();
+            contact.Value.ChangeChatsVisualization();
     }
 }

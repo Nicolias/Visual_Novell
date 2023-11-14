@@ -68,6 +68,6 @@ public class UIInstaller : MonoInstaller
 
     private void LocationManagerBind()
     {
-        Container.Bind<LocationsManager>().FromNew().AsSingle().WithArguments(_allLocations);
+        Container.Bind<LocationsManager>().FromNew().AsSingle().WithArguments(_allLocations).NonLazy();
     }
 }

@@ -24,8 +24,10 @@ public class LocationsManager : ISaveLoadObject
 
         foreach (var location in _locations)
             location.Initialize(background, collectionPanel, charactersPortraitView);
-    }
-    
+
+        ConstructMap();
+    }      
+
     public void ConstructMap()
     {
         List<Location> locations = new List<Location>(_locationsInMap);
@@ -46,6 +48,8 @@ public class LocationsManager : ISaveLoadObject
         _map.Add(locations);
 
         _locationsInMap.AddRange(locations);
+
+        Save();
     }
 
     public void RemoveFromMap(IEnumerable<Location> locations)
@@ -54,6 +58,8 @@ public class LocationsManager : ISaveLoadObject
 
         foreach (var location in locations)
             _locationsInMap.Remove(location);
+
+        Save();
     }
 
     public void Save()
@@ -61,12 +67,7 @@ public class LocationsManager : ISaveLoadObject
         _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = true });
 
         for (int i = 0; i < _locations.Count; i++)
-        {
-            if(_locationsInMap.Contains(_locations[i]))
-                _saveLoadServise.Save(_saveKey + i, new SaveData.BoolData() { Bool = true});
-            else
-                _saveLoadServise.Save(_saveKey + i, new SaveData.BoolData() { Bool = false });
-        }
+            _saveLoadServise.Save(_saveKey + i, new SaveData.BoolData() { Bool = _locationsInMap.Contains(_locations[i]) });
     }
 
     public void Load()

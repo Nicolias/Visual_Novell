@@ -1,15 +1,19 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
 public class CellView : MonoBehaviour
 {
+    [SerializeField] private Transform _subCellsContainer;
+
     private TMP_Text _textOnCell;
     private Button _selfButton;
 
-    public event Action Clicked;
+    public Transform SubcellsContainer => _subCellsContainer;
+
+    public event UnityAction Clicked;
 
     private void Awake()
     {
@@ -18,12 +22,15 @@ public class CellView : MonoBehaviour
 
     private void OnEnable()
     {
-        _selfButton.onClick.AddListener(() => Clicked?.Invoke());
+        _selfButton.onClick.AddListener(OnClicked);
+
+        if(_subCellsContainer.gameObject.activeInHierarchy)
+            SwitchSubcellsEnable();
     }
 
     private void OnDisable()
     {
-        _selfButton.onClick.RemoveAllListeners();
+        _selfButton.onClick.RemoveListener(OnClicked);
     }
 
     public void Initialize(string textOnCell)
@@ -37,5 +44,20 @@ public class CellView : MonoBehaviour
     public void Destory()
     {
         DestroyImmediate(gameObject);
+    }
+
+    public void SwitchSubcellsEnable()
+    {
+        _subCellsContainer.gameObject.SetActive(!_subCellsContainer.gameObject.activeInHierarchy);
+    }
+
+    public void ChangeSubcellsEnable(bool isEnabled)
+    {
+        _subCellsContainer.gameObject.SetActive(isEnabled);
+    }
+
+    private void OnClicked()
+    {
+        Clicked?.Invoke();
     }
 }

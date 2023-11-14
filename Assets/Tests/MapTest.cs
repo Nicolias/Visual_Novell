@@ -20,7 +20,7 @@ namespace Tests
             cellsFactoryCreater.CreateCellsFactory<Location>().Returns(_locationCellsFactory);
 
             _map = new GameObject().AddComponent<Map>();
-            _map.Construct(null, cellsFactoryCreater, null, Substitute.For<IChoicePanelFactory>(), null);
+            _map.Construct(null, cellsFactoryCreater, null, Substitute.For<IChoicePanelFactory>());
         }
 
         [TestCase(1), TestCase(2)]

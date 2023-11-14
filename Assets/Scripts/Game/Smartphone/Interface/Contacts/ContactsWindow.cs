@@ -33,10 +33,6 @@ public class ContactsWindow : WindowInSmartphone
         _closeButton.onClick.AddListener(Hide);
     }
 
-    protected override void OnEnabled()
-    {
-    }
-
     protected override void OnDisabled()
     {
         _closeButton.onClick.RemoveListener(Hide);

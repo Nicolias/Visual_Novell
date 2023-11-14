@@ -35,11 +35,11 @@ public abstract class WindowInSmartphone : MonoBehaviour
     public virtual void SetEnabled(bool enabled)
     {
         OpenButton.enabled = enabled;
-    }    
+    }
 
-    protected abstract void OnEnabled();
+    protected virtual void OnEnabled(){ }
 
-    protected abstract void OnDisabled();
+    protected virtual void OnDisabled() { }
 
     protected abstract void OnOpenButtonClicked();
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -31,14 +32,29 @@ namespace Factory.Cells
 
                 foreach (var dataForCell in dataForCells)
                 {
-                    CellView newCellView = _di.InstantiatePrefabForComponent<CellView>(_cellViewTemplate, cellsContainer);
-                    newCellView.Initialize(dataForCell.ToString());
+                    CellView newCellView = CreateCellView(cellsContainer, dataForCell);
 
                     Cell<T> cell = new Cell<T>(dataForCell, newCellView);
                     cells.Add(cell);
                 }
 
                 return cells;
+            }
+
+            public SupperCell<T> CreateSupperCellView(T dataForCell, Transform cellsContainer)
+            {
+                CellView newCellView = CreateCellView(cellsContainer, dataForCell);
+                SupperCell<T> supperCell = new SupperCell<T>(dataForCell, newCellView);
+                newCellView.ChangeSubcellsEnable(false);
+
+                return supperCell;
+            }
+
+            private CellView CreateCellView(Transform cellsContainer, T dataForCell)
+            {
+                CellView newCellView = _di.InstantiatePrefabForComponent<CellView>(_cellViewTemplate, cellsContainer);
+                newCellView.Initialize(dataForCell.ToString());
+                return newCellView;
             }
         }
     }

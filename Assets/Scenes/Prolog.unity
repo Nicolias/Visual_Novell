@@ -10254,8 +10254,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _smartphoneWindowType: 0
   <OpenButton>k__BackingField: {fileID: 572216650}
+  _containerForCells: {fileID: 860184873}
   _gameCommander: {fileID: 1814440475}
-  _locationCellContainer: {fileID: 860184873}
   _closeButton: {fileID: 655249167}
   _selfCanvas: {fileID: 1062876904}
   _guidPanel: {fileID: 209580086}
@@ -14748,6 +14748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _accureMoneyPanel: {fileID: 1022039785}
+  _amountMoney: 0
 --- !u!4 &1630095574
 Transform:
   m_ObjectHideFlags: 0
