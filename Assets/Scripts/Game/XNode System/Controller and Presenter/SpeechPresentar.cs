@@ -5,7 +5,7 @@ using Zenject;
 
 public class SpeechPresentar : IPresentar 
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     protected ISpeechModel _model;
     protected SpeechView _view;
@@ -27,7 +27,7 @@ public class SpeechPresentar : IPresentar
             _view.ShowSmooth(_model);
 
             if (_model.IsImmediatelyNextNode)
-                OnComplete?.Invoke();
+                Completed?.Invoke();
         }
         else
         {
@@ -36,7 +36,7 @@ public class SpeechPresentar : IPresentar
                 _view.ShowSmooth(_model);
 
                 if (_model.IsImmediatelyNextNode)
-                    OnComplete?.Invoke();
+                    Completed?.Invoke();
             }));
         }
     }
@@ -61,7 +61,7 @@ public class SpeechPresentar : IPresentar
         }
 
         _view.OnClick -= OnCallBackView;
-        OnComplete?.Invoke();
+        Completed?.Invoke();
     }
 
     private IEnumerator WaitUntilAndInvoke(Action action)

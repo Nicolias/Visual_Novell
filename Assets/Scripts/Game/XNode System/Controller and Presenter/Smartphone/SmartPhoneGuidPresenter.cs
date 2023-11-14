@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SmartPhoneGuidPresenter : IPresentar
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     private SmartphoneGuideView _smartphoneGuideView;
 
@@ -21,6 +21,6 @@ public class SmartPhoneGuidPresenter : IPresentar
     private void CallBack()
     {
         _smartphoneGuideView.OnComplete -= CallBack;
-        OnComplete?.Invoke();
+        Completed?.Invoke();
     }
 }

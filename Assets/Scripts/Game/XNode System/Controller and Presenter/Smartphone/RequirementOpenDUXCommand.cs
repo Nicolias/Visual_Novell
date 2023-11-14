@@ -2,7 +2,7 @@
 
 public class RequirementOpenDUXCommand : ICommand
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     private DUXWindow _duxWindow;
     private Smartphone _smartphone;
@@ -28,6 +28,6 @@ public class RequirementOpenDUXCommand : ICommand
     private void SmartphoneCloseCallBack()
     {
         _smartphone.OnClosed -= SmartphoneCloseCallBack;
-        OnComplete?.Invoke();
+        Completed?.Invoke();
     }
 }

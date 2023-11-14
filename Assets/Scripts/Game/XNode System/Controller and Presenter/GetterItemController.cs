@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GetterItemController : IController
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     private AccureItemPanel _view;
 
@@ -22,6 +22,6 @@ public class GetterItemController : IController
     {
         _view.OnClosed -= OnPanelClose;
 
-        OnComplete?.Invoke();
+        Completed?.Invoke();
     }
 }

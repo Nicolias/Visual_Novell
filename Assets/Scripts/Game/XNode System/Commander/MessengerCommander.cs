@@ -177,4 +177,14 @@ public class MessengerCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(ShowInterstationModel showInterstationModel)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Visit(ContinueStoryModel continueStoryModel)
+    {
+        throw new System.NotImplementedException();
+    }
 }

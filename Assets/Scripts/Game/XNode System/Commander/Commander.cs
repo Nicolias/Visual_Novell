@@ -21,7 +21,7 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
     private void OnDisable()
     {
         if (_curent.command != null)
-            _curent.command.OnComplete -= Next;
+            _curent.command.Completed -= Next;
 
         Save();
     }
@@ -29,7 +29,7 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
     public void PackAndExecuteCommand(Node node)
     {
         _curent = Packing(node);
-        _curent.command.OnComplete += Next;
+        _curent.command.Completed += Next;
         _curent.command.Execute();
     }
 
@@ -37,7 +37,7 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
     {
         if (_curent.command != null)
         {
-            _curent.command.OnComplete -= Next;
+            _curent.command.Completed -= Next;
         }
 
         NodePort port = _curent.node.GetPort("_outPut").Connection;

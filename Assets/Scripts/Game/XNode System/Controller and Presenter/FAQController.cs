@@ -4,7 +4,7 @@ using XNode;
 
 public class FAQController : IController
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     private IChoiceModel _model;
     private FAQView _view;
@@ -29,7 +29,7 @@ public class FAQController : IController
         if (_question.Count == 0)
         {
             _FAQCommander.OnDialogEnd -= Execute;
-            OnComplete?.Invoke();
+            Completed?.Invoke();
             return;
         }
 

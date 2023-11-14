@@ -8,6 +8,8 @@
     void Visit(IChoiceModel choice);
     void Visit(QuizModel quizModel);
     void Visit(BackgroundModel background);
+    void Visit(ContinueStoryModel continueStoryModel);
+    void Visit(ShowInterstationModel showInterstationModel);
     void Visit(ChangeLocationModel changeLocationModel);
     void Visit(ICharacterPortraitModel portrait);
     void Visit(SpawnItemModel spawnItemModel);

@@ -19,7 +19,7 @@ public class QuitGamePanel : MonoBehaviour
         if (_exitButton != null)
         {
             _exitButton.onClick.AddListener(Show);
-            _completeExiteButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+            _completeExiteButton.onClick.AddListener(() => SceneManager.LoadScene(1));
         }
         else
         {

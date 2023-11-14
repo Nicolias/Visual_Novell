@@ -405,6 +405,51 @@ MonoBehaviour:
     \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0441\u044F, \u0447\u0442\u043E
     \u0441\u0435\u0439\u0447\u0430\u0441 \u043D\u0435 \u043E\u0431\u0449\u0430\u043B\u0441\u044F
     \u0431\u044B \u0441 \u0442\u043E\u0431\u043E\u0439."
+--- !u!114 &-6511585328090015787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62199d75b62afd47863d00573b1740f, type: 3}
+  m_Name: Show Interstation Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 104, y: 1704}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -6511585328090015787}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -5784515039932664566}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -6511585328090015787}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 379707590186911978}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
 --- !u!114 &-6222406547283121679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +593,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 379707590186911978}
+        node: {fileID: -6511585328090015787}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1530,6 +1575,7 @@ MonoBehaviour:
   - {fileID: 4660307469047072597}
   - {fileID: 379707590186911978}
   - {fileID: -5784515039932664566}
+  - {fileID: -6511585328090015787}
 --- !u!114 &363121938153069814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,7 +1641,7 @@ MonoBehaviour:
   m_Name: Set Quest On Location Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 104, y: 1704}
+  position: {x: 312, y: 1704}
   ports:
     keys:
     - _inPut
@@ -1607,10 +1653,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 0}
-        reroutePoints: []
-      - fieldName: _outPut
-        node: {fileID: -5784515039932664566}
+        node: {fileID: -6511585328090015787}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

@@ -13,6 +13,6 @@ public class ServiseInstaller : MonoInstaller
         Container.Bind<StaticData>().FromComponentInNewPrefab(_staticData).AsSingle();
         Container.Bind<CharactersLibrary>().FromInstance(_charactersLibrary).AsSingle().NonLazy();
         Container.Bind<DUXWindow>().FromComponentsInNewPrefab(_dUXWindow).AsSingle().NonLazy();
-        Container.Bind<CoroutineServise>().FromComponentsInNewPrefab(_coroutineServise).AsSingle();        
+        Container.Bind<CoroutineServise>().FromComponentsInNewPrefab(_coroutineServise).AsSingle();
     }
 }

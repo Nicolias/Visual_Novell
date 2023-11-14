@@ -2,7 +2,7 @@
 
 public class BackgroundController : ICommand
 {
-    public event Action OnComplete;
+    public event Action Completed;
     private BackgroundView _view;
     private BackgroundModel _model;
     private CollectionPanel _collectionPanel;
@@ -24,6 +24,6 @@ public class BackgroundController : ICommand
     private void CallBack()
     {
         _view.OnPicturChanged -= CallBack;
-        OnComplete?.Invoke();
+        Completed?.Invoke();
     }
 }

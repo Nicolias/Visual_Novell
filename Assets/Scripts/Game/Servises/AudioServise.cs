@@ -2,6 +2,7 @@
 using UnityEngine;
 using System;
 using Zenject;
+using Agava.WebUtility;
 
 public class AudioServise : MonoBehaviour, ISaveLoadObject
 {
@@ -17,6 +18,16 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
 
     public AudioSource CurrentMusic { get; private set; }
     public AudioSource CurrentSound { get; private set; }
+
+    private void OnEnable()
+    {
+        WebApplication.InBackgroundChangeEvent += Silence;
+    }
+
+    private void OnDisable()
+    {
+        WebApplication.InBackgroundChangeEvent -= Silence;
+    }
 
     public void PlaySound(AudioClip audioClip)
     {
@@ -83,6 +94,13 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
         foreach (var audio in audioSources)
             audio.volume = valumeLevel;
     }
+
+    public void Silence(bool silence)
+    {
+        AudioListener.pause = silence;
+        AudioListener.volume = silence ? 0 : 1;
+    }
+
     public void Save()
     {
         SaveAudio(_allMusic, _musicSaveKey);

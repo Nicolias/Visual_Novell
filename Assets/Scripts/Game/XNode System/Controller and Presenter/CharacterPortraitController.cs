@@ -2,7 +2,7 @@
 
 public class CharacterPortraitController : ICommand
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     private ICharacterPortraitModel _model;
     private ICharacterPortraitView _view;
@@ -22,6 +22,6 @@ public class CharacterPortraitController : ICommand
     private void CallBack()
     {
         _view.OnComplite -= CallBack;
-        OnComplete?.Invoke();
+        Completed?.Invoke();
     }
 }

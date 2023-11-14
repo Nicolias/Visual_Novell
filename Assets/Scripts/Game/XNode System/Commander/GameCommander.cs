@@ -208,4 +208,14 @@ public class GameCommander : Commander, ICommanderVisitor
     {
         _result.command = DI.Instantiate<ChapterCaptionCommand>(new object[] { chapterCaptionModel });
     }
+
+    public void Visit(ShowInterstationModel showInterstationModel)
+    {
+        _result.command = DI.Instantiate<ShowInterstaionCommand>();
+    }
+
+    public void Visit(ContinueStoryModel continueStoryModel)
+    {
+        _result.command = DI.Instantiate<ContinueStoryCommand>(new object[] { continueStoryModel });
+    }
 }

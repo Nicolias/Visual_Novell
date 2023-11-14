@@ -2,7 +2,7 @@
 
 public class EnebledController : IController
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     private readonly Smartphone _view;
     private readonly ChangeEnabledModel _model;
@@ -17,6 +17,6 @@ public class EnebledController : IController
     {
         _view.ChangeEnabled(_model.Windows);
 
-        OnComplete?.Invoke();
+        Completed?.Invoke();
     }
 }

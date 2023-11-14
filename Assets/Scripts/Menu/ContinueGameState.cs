@@ -14,7 +14,7 @@ public class ContinueGameState : BaseState
 
     public override void Entry()
     {
-        _newGameButton.Initialized(new("Продолжить", () => SceneManager.LoadScene(1)));
+        _newGameButton.Initialized(new("Продолжить", () => SceneManager.LoadScene(2)));
         _menuButtons.SetActive(true);
     }
 

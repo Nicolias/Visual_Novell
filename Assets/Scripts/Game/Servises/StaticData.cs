@@ -1,40 +1,26 @@
-using UnityEngine;
 using System.Collections.Generic;
-using Zenject;
+using UnityEngine;
 
-public class StaticData : MonoBehaviour, ISaveLoadObject
+public class StaticData : MonoBehaviour
 {
-    [Inject] private SaveLoadServise _saveLoadServise;
-
     [SerializeField] private List<QuizElement> _quizQuestion;
 
     private Dictionary<int, int> _needPointsToRichLevel = new()
     {
-        {2, 100},
-        {3, 200 }
+        { 2, 100 },
+        { 3, 200 }
     };
 
-    private const string _saveKey = "StaticDataSave";
+    private int _currentAdsShowCount;
+    private int _maxAdsShowCount = 20;
+
+    private string _nickName = "Везунчик";
 
     [field: SerializeField] public string SpecWordForNickName { get; private set; }
-    public string Nickname { get; private set; }
+    public string Nickname => _nickName;
+    public int CurrentAdsShowCount => _currentAdsShowCount;
     public List<QuizElement> QuizQuestion => _quizQuestion;
-
-    private void Awake()
-    {
-        Nickname = "Везунчик";
-    }
-
-    private void OnEnable()
-    {
-        if (_saveLoadServise.HasSave(_saveKey))
-            Load();
-    }
-
-    private void OnDisable()
-    {
-        Save();
-    }
+    public bool ShowNextStory => _currentAdsShowCount >= _maxAdsShowCount;
 
     public int HowManyPointesNeedForReach(int level)
     {
@@ -43,17 +29,17 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
 
     public void SetNickname(string nickname)
     {
-        Nickname = nickname;
+        _nickName = nickname;
     }
 
-    public void Save()
+    public void OnAdsShowed()
     {
-        _saveLoadServise.Save(_saveKey, new SaveData.StringData() { String = Nickname});
+        _currentAdsShowCount++;
     }
 
-    public void Load()
+    public void Load(SaveData.BaseData data)
     {
-        var data = _saveLoadServise.Load<SaveData.StringData>(_saveKey);
-        Nickname = data.String;
+        _nickName = data.String;
+        _currentAdsShowCount = data.Int;
     }
 }

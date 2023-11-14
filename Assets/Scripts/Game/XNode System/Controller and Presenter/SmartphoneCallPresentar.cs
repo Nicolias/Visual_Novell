@@ -3,7 +3,7 @@ using XNode;
 
 public class SmartphoneCallPresentar : IChoisePresenter
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     private ISmartphoneCallView _view;
     private ICallModel _model;
@@ -28,7 +28,7 @@ public class SmartphoneCallPresentar : IChoisePresenter
     {
         _model.SetEndPort(node);
         _view.OnChoiceMade -= OnCallBackView;
-        OnComplete?.Invoke();
+        Completed?.Invoke();
         _audioServise.CallSound.Stop();
     }
 }

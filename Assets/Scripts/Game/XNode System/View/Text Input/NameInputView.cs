@@ -1,17 +1,19 @@
 ﻿using System;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class NameInputView : MonoBehaviour, ITextInputView
 {
-    public event Action<string> OnTextInput;
-
     [SerializeField] private Canvas _selfCanvas;
 
     [SerializeField] private TMP_InputField _nameInputField;
 
     [SerializeField] private Button _completeNicknameButton;
+
+    private TouchScreenKeyboard _keyboard;
+
+    public event Action<string> TextInput;
 
     private void OnDisable()
     {
@@ -33,9 +35,20 @@ public class NameInputView : MonoBehaviour, ITextInputView
         if (nickname == "")
             return;
 
-        OnTextInput?.Invoke(_nameInputField.text);
+        TextInput?.Invoke(_nameInputField.text);
 
         HideCanvas();
+    }
+
+    public void ShowKeyBoard()
+    {
+        _keyboard = TouchScreenKeyboard.Open("");
+    }
+
+    public void CloseKeyBoard()
+    {
+        _nameInputField.text = _keyboard.text;
+        _keyboard.active = false;
     }
 
     private void ShowCanvas() => _selfCanvas.enabled = true;

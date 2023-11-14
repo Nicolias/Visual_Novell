@@ -6,11 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Load.unity
+    guid: dd6f37316156ad142a987f308e90885b
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
     path: Assets/Scenes/Prolog.unity
     guid: a03ab6e6c60921b40be2c5a591eebbe1
   m_configObjects:
-    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 8524899ee27b14f48967b3f3ae2852f0, type: 2}
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 863a35d264a6b854f95ba654c11d39df, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 80715034d07c5a44284c97eec449b7a1, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 62175719e4fafe14b92d6b6ee93f57ed, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c68a122f5070fdb49ac2e5cefbf4b63d, type: 2}

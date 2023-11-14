@@ -3,7 +3,7 @@ using XNode;
 
 public class SmartphoneNewMessegePresenter : IPresentar
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     private NewDialogInSmartphoneModel _model;
     private Messenger _view;
@@ -26,6 +26,6 @@ public class SmartphoneNewMessegePresenter : IPresentar
             return;
 
         _view.OnChatRed -= CallBack;
-        OnComplete?.Invoke();
+        Completed?.Invoke();
     }
 }

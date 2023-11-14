@@ -30,8 +30,6 @@ public class MenuWindow : MonoBehaviour
         _settingButton.onClick.AddListener(_menuBehaviour.OpenSetting);
         _quitButton.onClick.AddListener(_menuBehaviour.Quit);
 
-
-
         _audioServise.PlaySound(null);
         _audioServise.PlaySound(_menuMusic);
     }

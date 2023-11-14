@@ -49,8 +49,6 @@ public class MenuBehaviour : ISaveLoadObject
     {
         if (_currentState is SettingState)
             OpenMainMenu();
-        else
-            _quitGamePanel.Show();
     }
 
     private void Switch<T>() where T : BaseState

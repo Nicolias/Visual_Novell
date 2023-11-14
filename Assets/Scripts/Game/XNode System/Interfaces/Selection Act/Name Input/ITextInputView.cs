@@ -3,7 +3,7 @@ using XNode;
 
 public interface ITextInputView
 {
-    public event Action<string> OnTextInput;
+    public event Action<string> TextInput;
 
     public void Show();
 }

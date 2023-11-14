@@ -25,7 +25,7 @@ public class NewGameState : BaseState
         {
             _saveLoadServise.ClearAllSave();
             _saveAction.Invoke();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }));
         _menuButtons.SetActive(true);
     }

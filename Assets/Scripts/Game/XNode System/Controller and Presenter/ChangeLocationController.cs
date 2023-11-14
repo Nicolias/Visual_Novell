@@ -2,7 +2,7 @@
 
 public class ChangeLocationController : ICommand
 {
-    public event Action OnComplete;
+    public event Action Completed;
 
     private Map _view;
     private ChangeLocationModel _model;
@@ -24,6 +24,6 @@ public class ChangeLocationController : ICommand
     private void CallBack()
     {
         _backgroundView.OnPicturChanged -= CallBack;
-        OnComplete?.Invoke();
+        Completed?.Invoke();
     }
 }
