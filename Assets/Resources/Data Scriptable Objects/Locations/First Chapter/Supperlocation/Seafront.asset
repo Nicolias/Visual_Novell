@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8cd08650e2c7c8c458195a72e8f81a72, type: 3}
   m_Name: Seafront
-  m_EditorClassIdentifier: VisualNovell::Superlocation
+  m_EditorClassIdentifier: 
   <Name>k__BackingField: "\u041D\u0430\u0431\u0435\u0440\u0435\u0436\u043D\u0430\u044F"

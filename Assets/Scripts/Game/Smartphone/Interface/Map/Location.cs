@@ -7,6 +7,7 @@ using XNode;
 [CreateAssetMenu(fileName = "New location", menuName = "Location/Location")]
 public class Location : ScriptableObject, IDisposable, IDataForCell
 {
+    [SerializeField] private Dictionary.Dictionary<TimesOfDayType, Sprite> _locationSpritesByDeyTime;
     [SerializeField] private Sprite _backgroundSprite;
     [SerializeField] private List<ItemForCollection> _itemsOnLocation;
 
@@ -107,18 +108,6 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         _itemsOnLocation.Remove(itemData);
         _itemsView.RemoveAll(x => x == null);
     }
-
-    public override string ToString()
-    {
-        return Name;
-    }
-}
-
-
-[CreateAssetMenu(fileName = "Superlocation", menuName = "Location/Superlocation")]
-public class Superlocation : ScriptableObject, IDataForCell
-{
-    [field: SerializeField] public string Name { get; private set; }
 
     public override string ToString()
     {

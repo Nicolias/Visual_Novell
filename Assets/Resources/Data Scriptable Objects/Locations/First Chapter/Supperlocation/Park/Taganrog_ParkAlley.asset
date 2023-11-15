@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc30059b62abb649b0a8c76f102c9cf, type: 3}
+  m_Name: Taganrog_ParkAlley
+  m_EditorClassIdentifier: 
+  _locationSpritesByDeyTime:
+    _dictionary:
+    - <Key>k__BackingField: 0
+      <Value>k__BackingField: {fileID: 21300000, guid: 7864bb962fa409c44a2ee67cd9b450c1, type: 3}
+    - <Key>k__BackingField: 2
+      <Value>k__BackingField: {fileID: 21300000, guid: 452395831a3ae194d89223f07f5b8d31, type: 3}
+    - <Key>k__BackingField: 3
+      <Value>k__BackingField: {fileID: 21300000, guid: 4593c0a74c7beb44c8b2f7384e0512f8, type: 3}
+  _backgroundSprite: {fileID: 21300000, guid: 7864bb962fa409c44a2ee67cd9b450c1, type: 3}
+  _itemsOnLocation: []
+  _questOnLocation: {fileID: 0}
+  _isAvilable: 1
+  _characterPosition: {x: 0, y: 0}
+  _characterScale: {x: 0, y: 0, z: 0}
+  _characterPoseType: 2
+  _actionsOnLocation: 0100000002000000
+  <Name>k__BackingField: "\u0410\u043B\u043B\u0435\u044F 2"
+  <Superlocation>k__BackingField: {fileID: 11400000, guid: 83811c24ef18fdb45b2db8fa8a9bdbeb, type: 2}

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8cd08650e2c7c8c458195a72e8f81a72, type: 3}
   m_Name: Peter1st
-  m_EditorClassIdentifier: VisualNovell::Superlocation
-  <Name>k__BackingField: "\u041F\u0430\u043C\u044F\u0442\u043D\u0438\u043A \u041F\u0451\u0442\u0440
-    1"
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: "\u041F\u0430\u043C\u044F\u0442\u043D\u0438\u043A \u041F\u0435\u0442\u0440\u0430
+    \u043F\u0435\u0440\u0432\u043E\u0433\u043E"
