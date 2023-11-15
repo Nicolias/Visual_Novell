@@ -20,7 +20,7 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
     private LocationCellsContainer _cellsCreater;
     private SaveLoadServise _saveLoadServise;
-        
+
     private const string _saveKey = "MapSave";
 
     private List<Location> _locations = new List<Location>();
@@ -36,7 +36,7 @@ public class Map : WindowInSmartphone, ISaveLoadObject
         _cellsCreater = new LocationCellsContainer(choicePanelFactory.CreateChoicePanel(transform), smartphone);
 
         _saveLoadServise = saveLoadServise;
-        _cellsCreater.SetCellsFactory(cellFactoryCreater.CreateCellsFactory<Location>(), _containerForCells);
+        _cellsCreater.SetCellsFactory(cellFactoryCreater, _containerForCells);
     }
 
     private void Awake()
@@ -137,7 +137,7 @@ public class Map : WindowInSmartphone, ISaveLoadObject
         _cellsCreater.CellClicked -= ChangeLocation;
 
         Save();
-    }    
+    }
 
     private void Show()
     {
@@ -145,6 +145,8 @@ public class Map : WindowInSmartphone, ISaveLoadObject
             return;
 
         _selfCanvas.enabled = true;
+
+        _cellsCreater.HideAllSubcells();
     }
 
     private void Hide()
@@ -163,13 +165,16 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 public class LocationCellsContainer
 {
     private ICellsFactory<Location> _cellsFactory;
+    private ISuppercellsFactory<Superlocation> _supperCellsFactory;
     private Transform _cellsContainer;
 
-    private Dictionary<Superlocation, CellView> _supperLocations = new Dictionary<Superlocation, CellView>();
+    private Dictionary<Superlocation, SupperCell<Superlocation>> _supperlocationCells = new Dictionary<Superlocation, SupperCell<Superlocation>>();
     private List<Cell<Location>> _locationCells = new List<Cell<Location>>();
 
     private ChoicePanel _choicePanel;
     private Smartphone _smartphone;
+
+    private CellView _currentOpenedSuppercell;
 
     public LocationCellsContainer(ChoicePanel choicePanel, Smartphone smartphone)
     {
@@ -181,9 +186,10 @@ public class LocationCellsContainer
 
     public event Action<Location> CellClicked;
 
-    public void SetCellsFactory(ICellsFactory<Location> cellsFactory, Transform cellsContainer)
+    public void SetCellsFactory(CellsFactoryCreater cellsFactoryCreater, Transform cellsContainer)
     {
-        _cellsFactory = cellsFactory;
+        _cellsFactory = cellsFactoryCreater.CreateCellsFactory<Location>();
+        _supperCellsFactory = cellsFactoryCreater.CreateSuppercellsFactory<Superlocation>();
         _cellsContainer = cellsContainer;
     }
 
@@ -194,6 +200,9 @@ public class LocationCellsContainer
             locationCell.Clicked -= OnLocationSelected;
             locationCell.Dispose();
         }
+
+        foreach (var suppercell in _supperlocationCells)
+            suppercell.Value.Clicked -= OnSuppercellCliced;
     }
 
     public void HideChoicePanel()
@@ -201,10 +210,10 @@ public class LocationCellsContainer
         _choicePanel.Hide();
     }
 
-    public void ShowAllCells()
+    public void HideAllSubcells()
     {
-        foreach (var supperLocation in _supperLocations)
-            supperLocation.Value.ChangeSubcellsEnable(false);
+        foreach (var supperLocation in _supperlocationCells)
+            supperLocation.Value.View.ChangeSubcellsEnable(false);
     }
 
     public void Add(IEnumerable<Location> locations)
@@ -213,8 +222,10 @@ public class LocationCellsContainer
         {
             TryCreateSupppercell(location);
 
-            Cell<Location> newLocationCell = CreateCellView(location, location.Superlocation != null ? 
-                _supperLocations[location.Superlocation].SubcellsContainer : _cellsContainer);
+            Cell<Location> newLocationCell = CreateCellView(location, location.Superlocation != null ?
+                _supperlocationCells[location.Superlocation].View.SubcellsContainer : _cellsContainer);
+
+            newLocationCell.SetInteractable(location.IsAvilable);
 
             _locationCells.Add(newLocationCell);
         }
@@ -227,14 +238,13 @@ public class LocationCellsContainer
     {
         foreach (var location in locations)
         {
-            location.Disable();
+            location.Dispose();
             Cell<Location> locationCell = _locationCells.Find(locationCell => locationCell.Data == location);
 
             if (locationCell != null)
             {
                 locationCell.Clicked -= OnLocationSelected;
 
-                
                 _locationCells.Remove(locationCell);
                 locationCell.Dispose();
             }
@@ -245,10 +255,13 @@ public class LocationCellsContainer
     {
         if (location.Superlocation != null)
         {
-            SupperCell<Location> supperCell = _cellsFactory.CreateSupperCellView(location, _cellsContainer);
+            if (_supperlocationCells.ContainsKey(location.Superlocation) == false)
+            {
+                SupperCell<Superlocation> supperCell = _supperCellsFactory.CreateSupperCellView(location.Superlocation, _cellsContainer);
 
-            if (_supperLocations.ContainsKey(location.Superlocation) == false)
-                _supperLocations.Add(location.Superlocation, supperCell.Veiw);
+                _supperlocationCells.Add(location.Superlocation, supperCell);
+                supperCell.Clicked += OnSuppercellCliced;
+            }
 
             return true;
         }
@@ -259,6 +272,20 @@ public class LocationCellsContainer
     private Cell<Location> CreateCellView(Location location, Transform cellContainer)
     {
         return _cellsFactory.CreateCellsView(new List<Location>() { location }, cellContainer)[0];
+    }
+
+    private void OnSuppercellCliced(CellView suppercellView)
+    {
+        if (_currentOpenedSuppercell == suppercellView)
+        {
+            _currentOpenedSuppercell.SwitchSubcellsEnable();
+            return;
+        }
+
+        _currentOpenedSuppercell = suppercellView;
+
+        HideAllSubcells();
+        suppercellView.ChangeSubcellsEnable(true);
     }
 
     private void OnLocationSelected(Location location)

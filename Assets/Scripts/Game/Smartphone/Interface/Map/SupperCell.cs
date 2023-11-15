@@ -1,4 +1,6 @@
-﻿public class SupperCell<T> : AbstractCell<T>
+﻿using System;
+
+public class SupperCell<T> : AbstractCell<T>
 {
     private CellView _cellView;
 
@@ -7,10 +9,12 @@
         _cellView = cellView;
     }
 
-    public CellView Veiw => _cellView;
+    public CellView View => _cellView;
+
+    public event Action<CellView> Clicked;
 
     protected override void OnCellClicked()
     {
-        _cellView.SwitchSubcellsEnable();
+        Clicked?.Invoke(_cellView);
     }
 }

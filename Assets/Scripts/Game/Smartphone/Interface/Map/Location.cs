@@ -8,7 +8,6 @@ using XNode;
 public class Location : ScriptableObject, IDisposable, IDataForCell
 {
     [SerializeField] private Dictionary.Dictionary<TimesOfDayType, Sprite> _locationSpritesByDeyTime;
-    [SerializeField] private Sprite _backgroundSprite;
     [SerializeField] private List<ItemForCollection> _itemsOnLocation;
 
     [SerializeField] private Node _questOnLocation;
@@ -27,12 +26,14 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
     private CharacterRenderer _charactersRenderer;
     private BackgroundView _background;
     private CollectionPanel _collectionPanel;
+    private TimesOfDayServise _timesOfDayServise;
+
     private List<ItemForCollectionView> _itemsView = new List<ItemForCollectionView>();
 
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public Superlocation Superlocation { get; private set; }
 
-    public bool IsAvilable => _isAvilable;
+    public bool IsAvilable => _locationSpritesByDeyTime.Contains(_timesOfDayServise.GetCurrentTimesOfDay());
 
     public IEnumerable<ItemForCollection> Items => _itemsOnLocation;
     public IEnumerable<ItemForCollectionView> ItemsView => _itemsView;
@@ -40,18 +41,15 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
 
     public event Action<Location, Node> QuestStarted;
 
-    public void Initialize(BackgroundView background, CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView)
+    public void Initialize(BackgroundView background, CollectionPanel collectionPanel,
+        CharacterRenderer charactersPortraitView, TimesOfDayServise timesOfDayServise)
     {
         _background = background;
         _collectionPanel = collectionPanel;
         _charactersRenderer = charactersPortraitView;
+        _timesOfDayServise = timesOfDayServise;
 
         _itemsView = collectionPanel.CreateItemsView(Items);
-    }
-
-    public void Disable()
-    {
-        _isAvilable = false;
     }
 
     public void Show()
@@ -59,7 +57,8 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         if (_questOnLocation != null)
             QuestStarted?.Invoke(this, _questOnLocation);
 
-        _background.Replace(_backgroundSprite);
+        if (_locationSpritesByDeyTime.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out Sprite sprite))
+            _background.Replace(sprite);
 
         _collectionPanel.ShowItems(_itemsView);
         _collectionPanel.ItemDeleted += OnItemDelete;

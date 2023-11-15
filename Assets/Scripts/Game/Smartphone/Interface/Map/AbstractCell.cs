@@ -3,12 +3,12 @@
 public abstract class AbstractCell<T> : IDisposable
 {
     private readonly T _selfData;
-    private readonly CellView CellView;
+    private readonly CellView View;
 
     public AbstractCell(T data, CellView cellView)
     {
         _selfData = data;
-        CellView = cellView;
+        View = cellView;
         cellView.Clicked += OnCellClicked;
     }
 
@@ -16,8 +16,13 @@ public abstract class AbstractCell<T> : IDisposable
 
     public void Dispose()
     {
-        CellView.Clicked -= OnCellClicked;
-        CellView.Destory();
+        View.Clicked -= OnCellClicked;
+        View.Destory();
+    }
+
+    public void SetInteractable(bool isInteractable)
+    {
+        View.SetInteractable(isInteractable);
     }
 
     protected abstract void OnCellClicked();

@@ -17,7 +17,8 @@ public class CellView : MonoBehaviour
 
     private void Awake()
     {
-        _selfButton = GetComponent<Button>();
+        if (_selfButton == null)
+            _selfButton = gameObject.GetComponent<Button>();
     }
 
     private void OnEnable()
@@ -38,7 +39,12 @@ public class CellView : MonoBehaviour
         if(_textOnCell == null)
             _textOnCell = GetComponentInChildren<TMP_Text>();
 
+        if (_selfButton == null)
+            _selfButton = gameObject.GetComponent<Button>();
+
         _textOnCell.text = textOnCell;
+
+        _subCellsContainer.SetParent(transform.parent);
     }
 
     public void Destory()
@@ -46,9 +52,14 @@ public class CellView : MonoBehaviour
         DestroyImmediate(gameObject);
     }
 
+    public void SetInteractable(bool isEnabled)
+    {
+        _selfButton.interactable = isEnabled;
+    }
+
     public void SwitchSubcellsEnable()
     {
-        _subCellsContainer.gameObject.SetActive(!_subCellsContainer.gameObject.activeInHierarchy);
+        ChangeSubcellsEnable(!_subCellsContainer.gameObject.activeInHierarchy);
     }
 
     public void ChangeSubcellsEnable(bool isEnabled)

@@ -51,6 +51,15 @@ namespace Dictionary
             return _dictionary[index].Value;
         }
 
+        public bool Contains(K key)
+        {
+            foreach (var item in _dictionary)
+                if (item.Key.Equals(key))
+                    return true;
+
+            return false;
+        }
+
         [Serializable]
         private class DictionaryElement
         {

@@ -10,12 +10,17 @@ namespace Factory.Cells
         [Inject] private DiContainer _di;
         [SerializeField] private CellView _cellViewTemplate;
 
-        public virtual ICellsFactory<T> CreateCellsFactory<T>() where T : IDataForCell
+        public ICellsFactory<T> CreateCellsFactory<T>() where T : IDataForCell
         {
             return new CellsFactory<T>(_di, _cellViewTemplate);
         }
 
-        private class CellsFactory<T> : ICellsFactory<T> where T : IDataForCell
+        public ISuppercellsFactory<T> CreateSuppercellsFactory<T>() where T : IDataForCell
+        {
+            return new CellsFactory<T>(_di, _cellViewTemplate);
+        }
+
+        private class CellsFactory<T> : ICellsFactory<T>, ISuppercellsFactory<T> where T : IDataForCell
         {
             private DiContainer _di;
             private CellView _cellViewTemplate;

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 public class LocationsManager : ISaveLoadObject
 {
@@ -11,7 +12,7 @@ public class LocationsManager : ISaveLoadObject
 
     private string _saveKey = "locationManagerKey";
 
-    public LocationsManager(SaveLoadServise saveLoadServise, BackgroundView background,
+    public LocationsManager(TimesOfDayServise timesOfDayServise, SaveLoadServise saveLoadServise, BackgroundView background,
         CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView, Map map, List<Location> locations)
     {
         _saveLoadServise = saveLoadServise;
@@ -23,7 +24,12 @@ public class LocationsManager : ISaveLoadObject
             Load();
 
         foreach (var location in _locations)
-            location.Initialize(background, collectionPanel, charactersPortraitView);
+        {
+            if (location == null)
+                throw new InvalidOperationException("Локация не проинициализированна");
+
+            location.Initialize(background, collectionPanel, charactersPortraitView, timesOfDayServise);
+        }
 
         ConstructMap();
     }      
@@ -39,14 +45,15 @@ public class LocationsManager : ISaveLoadObject
         _map.Add(_locationsInMap);
     }
 
-    public void AddToMap(IEnumerable<Location> locations)
+    public void AddToMap(IEnumerable<Location> newLocations)
     {
-        foreach (var location in locations)
-            if (_locationsInMap.Contains(location))
-                return;
+        List<Location> locations = new List<Location>();
+
+        foreach (var location in newLocations)
+            if (_locationsInMap.Contains(location) == false)
+                locations.Add(location);
 
         _map.Add(locations);
-
         _locationsInMap.AddRange(locations);
 
         Save();
