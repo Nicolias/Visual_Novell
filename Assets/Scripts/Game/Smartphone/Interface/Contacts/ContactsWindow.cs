@@ -7,6 +7,10 @@ using Zenject;
 
 public class ContactsWindow : WindowInSmartphone
 {
+    [SerializeField] private Map _map;
+    [SerializeField] private CharacterRenderer _charactersRenderer;
+
+    [SerializeField] private Meeting _meeting;
     [SerializeField] private Smartphone _smartphone;
     [SerializeField] private Button _closeButton;
 
@@ -33,6 +37,12 @@ public class ContactsWindow : WindowInSmartphone
     {
         _selfCanvas = GetComponent<Canvas>();
         _closeButton.onClick.AddListener(Hide);
+    }
+
+    private void OnDisable()
+    {
+        ChangeEnableInSmartphone(true);
+        _smartphone.Save();
     }
 
     protected override void OnDisabled()
@@ -86,8 +96,30 @@ public class ContactsWindow : WindowInSmartphone
 
     private void MoveTo(Character character, Location location)
     {
-        location.Invite(character);
-        _smartphone.Hide();
+        _map.ChangeLocation(location);
+        _charactersRenderer.Show(location.Get(character));
+
         Hide();
+        _smartphone.Hide();
+
+        ChangeEnableInSmartphone(false);
+        _meeting.Ended += OnMeetingEnded;
+    }
+ 
+    private void OnMeetingEnded()
+    {
+        _meeting.Ended -= OnMeetingEnded;
+        ChangeEnableInSmartphone(true);
+    }
+
+    private void ChangeEnableInSmartphone(bool isEnabled)
+    {
+        Dictionary.Dictionary<SmartphoneWindows, bool> appsForChangeEnable = new Dictionary.Dictionary<SmartphoneWindows, bool>();
+
+        appsForChangeEnable.Add(SmartphoneWindows.Map, isEnabled);
+        appsForChangeEnable.Add(SmartphoneWindows.DUX, isEnabled);
+        appsForChangeEnable.Add(SmartphoneWindows.Contacts, isEnabled);
+
+        _smartphone.ChangeEnabled(appsForChangeEnable);
     }
 }

@@ -24,8 +24,10 @@ public class CharacterViewForMeeting : MonoBehaviour, ICharacterView
     {
         _characterData = characterData;
         _characterType = characterData.CharacterType;
-        _actionsVariation = characterData.Location.ActionsList;
         _meeting = meeting;
+
+        if(characterData.Location != null)
+            _actionsVariation = characterData.Location.ActionsList;
     }
 
     private void Awake()

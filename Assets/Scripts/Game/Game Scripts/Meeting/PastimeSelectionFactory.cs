@@ -3,19 +3,18 @@ using System.Collections.Generic;
 
 public class PastimeSelectionFactory
 {
-    private readonly Meeting _meeting;
     private readonly ChoicePanel _choicePanel;
 
     private Dictionary<PastimeOnLocationType, AbstractPastime> _pastimesVariations;
 
-    public PastimeSelectionFactory(Meeting meeting, ChoicePanel choicePanel, Dictionary<PastimeOnLocationType, AbstractPastime> pastimesVariations)
+    public PastimeSelectionFactory(ChoicePanel choicePanel, Dictionary<PastimeOnLocationType, AbstractPastime> pastimesVariations)
     {
-        _meeting = meeting;
         _choicePanel = choicePanel;
         _pastimesVariations = pastimesVariations;
     }
 
     public event Action<AbstractPastime> PastimeSelected;
+    public event Action EndMeetingSelected;
 
     public void Show(IEnumerable<PastimeOnLocationType> availablePastimesType)
     {
@@ -25,7 +24,7 @@ public class PastimeSelectionFactory
             if (_pastimesVariations.ContainsKey(availablePastimeType))
                 availablePastimes.Add(CreateChoiceElement(_pastimesVariations[availablePastimeType]));
 
-        availablePastimes.Add(new ChoiseElement("Закончить встречю.", () => _meeting.Exit()));
+        availablePastimes.Add(new ChoiseElement("Закончить встречю.", () => EndMeetingSelected?.Invoke()));
 
         _choicePanel.Show("Чем займемся?", availablePastimes);
     }

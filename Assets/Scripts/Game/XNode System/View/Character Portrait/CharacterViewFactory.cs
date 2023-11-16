@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using SaveData;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,21 +18,20 @@ public class CharacterViewFactory : MonoBehaviour
 
     public CharacterPortraitData Create(ICharacterPortraitModel character)
     {
-        Image newCharacterImage;
+        ICharacterView newCharacterView = Instantiate(character, _characterViewForMeetingPrefab);
 
-        newCharacterImage = character.Location == null ? 
-            Instantiate(character, _characterViewPrefab) : Instantiate(character, _characterViewForMeetingPrefab);
+        Image newCharacterImage = newCharacterView.Image;
 
         newCharacterImage.name = character.Name;
         newCharacterImage.sprite = character.Sprite;
         newCharacterImage.color = _colors[0];
 
-        CharacterPortraitData newCharacterPortraitData = new CharacterPortraitData(character, newCharacterImage);
+        CharacterPortraitData newCharacterPortraitData = ContstructCharacterData(character, newCharacterImage);
 
         return newCharacterPortraitData;
     }
 
-    private Image Instantiate(ICharacterPortraitModel character, ICharacterView characterPrefab)
+    private ICharacterView Instantiate(ICharacterPortraitModel character, ICharacterView characterPrefab)
     {
         ICharacterView newCharacterView = null;
 
@@ -53,6 +52,22 @@ public class CharacterViewFactory : MonoBehaviour
 
         newCharacterView.Initialize(character, _meeting);
 
-        return newCharacterView.Image;
+        return newCharacterView;
+    }
+
+    private CharacterPortraitData ContstructCharacterData(ICharacterPortraitModel characterModel, Image characterImage)
+    {
+        CharacterPortraitData characterPortraitData = new CharacterPortraitData();
+
+        characterPortraitData.CharacterType = characterModel.CharacterType;
+        characterPortraitData.Name = characterModel.Name;
+        characterPortraitData.Sprite = characterModel.Sprite;
+        characterPortraitData.Image = characterImage;
+        characterPortraitData.Position = characterModel.PositionType;
+        characterPortraitData.PositionOffset = characterModel.PositionOffset;
+        characterPortraitData.ScaleOffset = characterModel.ScaleOffset;
+        characterPortraitData.Location = characterModel.Location;
+
+        return characterPortraitData;
     }
 }

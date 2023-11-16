@@ -42,9 +42,6 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
     {
         _closeButton.onClick.AddListener(Hide);
         _openButton.onClick.AddListener(Show);
-
-        if (_saveLoadServise.HasSave(_saveKey))
-            Load();
     }
 
     private void OnDisable()
@@ -57,8 +54,11 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
 
     private void Start()
     {
+        if (_saveLoadServise.HasSave(_saveKey))
+            Load();
+
         if(_saveLoadServise.HasSave(_saveKey) == false)
-            SetTime(_currentTime.Hour, _currentTime.Minute);   
+            SetTime(_currentTime.Hour, _currentTime.Minute);
     }
 
     public void SetTime(int hour, int minute)
@@ -86,7 +86,7 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
             SmartphoneWindows appType = windowsEnabled.GetKey(i);
 
             if (_apps.Exists(app => app.Type == appType))
-                _apps.Find(app => app.Type == appType).SetEnabled(windowsEnabled.GetValue(i));
+                _apps.Find(app => app.Type == appType).SetOpenButtonEnabled(windowsEnabled.GetValue(i));
         }
     }
 
@@ -113,6 +113,9 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
             Minuts = _currentTime.Minute,
             IsDuxTutorialComplete = _isDUXTutorialShow
         });
+
+        for (int i = 0; i < _apps.Count; i++)
+            _saveLoadServise.Save(_saveKey + i, new SaveData.BoolData() { Bool = _apps[i].OpenButtonEnable });
     }
 
     public void Load()
@@ -121,5 +124,8 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
 
         SetTime(data.Hors, data.Minuts);
         _isDUXTutorialShow = data.IsDuxTutorialComplete;
+
+        for (int i = 0; i < _apps.Count; i++)
+            _apps[i].SetOpenButtonEnabled(_saveLoadServise.Load<SaveData.BoolData>(_saveKey + i).Bool);
     }
 }

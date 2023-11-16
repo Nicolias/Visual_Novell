@@ -45,6 +45,7 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
         if (port == null)
         {
             DialogEnded?.Invoke();
+            _curent.node = null;
             return;
         }
 
@@ -63,7 +64,8 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
         var data = SaveLoadServise.Load<SaveData.NodeData>(SaveKey);
         _curent.node = data.Node;
 
-        PackAndExecuteCommand(_curent.node);
+        if (data.Node != null)
+            PackAndExecuteCommand(_curent.node);
     }
 
     private SaveData.NodeData GetSaveSnapshot()

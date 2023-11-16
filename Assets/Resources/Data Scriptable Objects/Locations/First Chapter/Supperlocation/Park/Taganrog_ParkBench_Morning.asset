@@ -20,13 +20,12 @@ MonoBehaviour:
       <Value>k__BackingField: {fileID: 21300000, guid: 04ef798bcc885414eac66de3e98a3347, type: 3}
     - <Key>k__BackingField: 3
       <Value>k__BackingField: {fileID: 21300000, guid: 81b4fd4e942a7ef428691130265815cd, type: 3}
-  _backgroundSprite: {fileID: 21300000, guid: e54d4fcc67bc9974887a49cf354de662, type: 3}
   _itemsOnLocation: []
   _questOnLocation: {fileID: 0}
   _isAvilable: 1
   _characterPosition: {x: -170, y: -80}
   _characterScale: {x: 0.45, y: 0.45, z: 0.45}
-  _characterPoseType: 1
+  _characterPoseType: 3
   _actionsOnLocation: 0100000002000000
   <Name>k__BackingField: "\u041B\u0430\u0432\u043E\u0447\u043A\u0430 \u0432 \u043F\u0430\u0440\u043A\u0435"
   <Superlocation>k__BackingField: {fileID: 11400000, guid: 83811c24ef18fdb45b2db8fa8a9bdbeb, type: 2}

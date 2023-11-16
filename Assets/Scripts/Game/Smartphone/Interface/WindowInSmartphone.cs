@@ -6,12 +6,14 @@ public abstract class WindowInSmartphone : MonoBehaviour
 {
     [SerializeField] private SmartphoneWindows _smartphoneWindowType;
 
-    [field: SerializeField] protected Button OpenButton { get; private set; }
+    [SerializeField] private Button _openButton;
 
-    public SmartphoneWindows Type => _smartphoneWindowType;
     protected SaveLoadServise SaveLoadServise { get; private set; }
 
     protected Transform SelfTransform { get; private set; }
+
+    public SmartphoneWindows Type => _smartphoneWindowType;
+    public bool OpenButtonEnable => _openButton.enabled;
 
     [Inject]
     public void Construct(SaveLoadServise saveLoadServise)
@@ -22,19 +24,19 @@ public abstract class WindowInSmartphone : MonoBehaviour
 
     private void OnEnable()
     {
-        OpenButton.onClick.AddListener(OnOpenButtonClicked);
+        _openButton.onClick.AddListener(OnOpenButtonClicked);
         OnEnabled();        
     }
 
     private void OnDisable()
     {
-        OpenButton.onClick.RemoveListener(OnOpenButtonClicked);
+        _openButton.onClick.RemoveListener(OnOpenButtonClicked);
         OnDisabled();
     }
 
-    public virtual void SetEnabled(bool enabled)
+    public virtual void SetOpenButtonEnabled(bool enabled)
     {
-        OpenButton.enabled = enabled;
+        _openButton.enabled = enabled;
     }
 
     protected virtual void OnEnabled(){ }

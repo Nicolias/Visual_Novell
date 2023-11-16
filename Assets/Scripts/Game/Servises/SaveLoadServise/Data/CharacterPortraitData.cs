@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SaveData
 {
     [Serializable]
-    public class CharactersPortraiteData
+    public class CharacterPortraitData
     {
         public CharacterType CharacterType;
 
@@ -13,10 +13,16 @@ namespace SaveData
 
         public Sprite Sprite;
 
+        public Image Image;
+
         public CharacterPortraitPosition Position;
 
         public Vector2 PositionOffset;
 
         public Vector3 ScaleOffset;
+
+        public bool IsIntaractable;
+
+        public Location Location;
     }
 }

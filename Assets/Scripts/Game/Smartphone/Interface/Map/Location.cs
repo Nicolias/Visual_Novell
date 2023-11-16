@@ -54,11 +54,18 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
 
     public void Show()
     {
+        _charactersRenderer.DeleteAllCharacters();
+
         if (_questOnLocation != null)
             QuestStarted?.Invoke(this, _questOnLocation);
 
         if (_locationSpritesByDeyTime.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out Sprite sprite))
+        {
             _background.Replace(sprite);
+
+            if (_characterOnLocation != null)
+                _charactersRenderer.Show(_characterOnLocation);
+        }
 
         _collectionPanel.ShowItems(_itemsView);
         _collectionPanel.ItemDeleted += OnItemDelete;
@@ -86,14 +93,7 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         _questOnLocation = null;
     }
 
-    public void Invite(Character character)
-    {
-        _charactersRenderer.DeleteAllCharacters();
-        Show();
-        _charactersRenderer.Show(Get(character));
-    }
-
-    private CharacterOnLocationData Get(Character character)
+    public CharacterOnLocationData Get(Character character)
     {
         if (character.Images.TryGet(_characterPoseType, out Sprite characterSprite))
             return new CharacterOnLocationData(character.Type, character.Name, characterSprite, this,

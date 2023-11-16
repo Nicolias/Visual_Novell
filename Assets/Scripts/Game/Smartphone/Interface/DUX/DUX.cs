@@ -5,13 +5,11 @@ public class DUX : WindowInSmartphone
 {
     [Inject] private DUXWindow _duxWindow;
 
-    private string _saveKey = "DUXSave";
-
     private Sequence _sequence;
 
     public void OpenAccesToDUX()
     {
-        SetEnabled(true);
+        SetOpenButtonEnabled(true);
 
         _sequence = DOTween.Sequence();
 
@@ -20,27 +18,6 @@ public class DUX : WindowInSmartphone
             .Append(transform.DOScale(1, 1.5f))
             .SetLoops(-1)
             .Play();
-    }
-
-    public void Save()
-    {
-        SaveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = OpenButton.enabled });
-    }
-
-    public void Load()
-    {
-        OpenButton.enabled = SaveLoadServise.Load<SaveData.BoolData>(_saveKey).Bool;
-    }
-
-    protected override void OnEnabled()
-    {
-        if (SaveLoadServise.HasSave(_saveKey))
-            Load();
-    }
-
-    protected override void OnDisabled()
-    {
-        Save();
     }
 
     protected override void OnOpenButtonClicked()

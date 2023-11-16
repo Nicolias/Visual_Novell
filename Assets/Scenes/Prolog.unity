@@ -648,7 +648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 784bf91e61952a54d9fe215842ff7d43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2eb0f38c3b60cab47aa0f08eda815575, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1966,7 +1966,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _smartphoneWindowType: 2
-  <OpenButton>k__BackingField: {fileID: 1018865292}
+  _openButton: {fileID: 1018865292}
+  _map: {fileID: 1062876907}
+  _charactersRenderer: {fileID: 415884106}
+  _meeting: {fileID: 22411512}
   _smartphone: {fileID: 68010062}
   _closeButton: {fileID: 1084765054}
   _contacts:
@@ -10052,7 +10055,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018865290}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -10463,9 +10466,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _smartphoneWindowType: 0
-  <OpenButton>k__BackingField: {fileID: 572216650}
+  _openButton: {fileID: 572216650}
   _containerForCells: {fileID: 860184873}
   _gameCommander: {fileID: 1814440475}
+  _characterRenderer: {fileID: 415884106}
   _closeButton: {fileID: 655249167}
   _selfCanvas: {fileID: 1062876904}
   _guidPanel: {fileID: 209580086}
@@ -18459,7 +18463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _smartphoneWindowType: 1
-  <OpenButton>k__BackingField: {fileID: 1992101979}
+  _openButton: {fileID: 1992101979}
 --- !u!1 &2010641881
 GameObject:
   m_ObjectHideFlags: 0

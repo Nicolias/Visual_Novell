@@ -17,6 +17,11 @@ public class CharacterViwe : MonoBehaviour, ICharacterView
         _characterType = characterData.CharacterType;
     }
 
+    public void SetInteractable(bool isInteractable)
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void Awake()
     {
         _selfImage = GetComponent<Image>();

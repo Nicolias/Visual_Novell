@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
+using SaveData;
 
 public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
 {
@@ -74,7 +75,6 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
 
     public void DeleteAllCharacters()
     {
-
         foreach (var character in _charactersList)
             Destroy(character.Image.gameObject);
 
@@ -97,7 +97,7 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
     private void ChangePosition(CharacterPortraitData characterData, ICharacterPortraitModel character)
     {
         characterData.Image.sprite = character.Sprite;
-        characterData.SetPosition(character.PositionType);
+        characterData.Position = character.PositionType;
 
         if(_positions.TryGet(character.PositionType, out Transform transformForSpawn))
             characterData.Image.transform.SetParent(transformForSpawn);
@@ -105,44 +105,24 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
 
     public void Save()
     {
-        _saveLoadServise.Save(_saveKey, new SaveData.IntData()
+        _saveLoadServise.Save(_saveKey, new IntData()
         {
             Int = _charactersList.Count
         });
 
         for (int i = 0; i < _charactersList.Count; i++)
-        {
-            var portraitData = _charactersList[i];
-
-            _saveLoadServise.Save($"{_saveKey}/{i}", new SaveData.CharactersPortraiteData()
-            {
-                CharacterType = portraitData.CharacterType,
-                Sprite = portraitData.Image.sprite,
-                Position = portraitData.Position,
-                Name = portraitData.Name,
-                PositionOffset = portraitData.PositionOffset,
-                ScaleOffset = portraitData.ScaleOffset
-            });
-        }
+                _saveLoadServise.Save($"{_saveKey}/{i}", _charactersList[i]);
     }
 
     public void Load()
     {
-        int characterCount = _saveLoadServise.Load<SaveData.IntData>(_saveKey).Int;
+        int characterCount = _saveLoadServise.Load<IntData>(_saveKey).Int;
 
         for (int i = 0; i < characterCount; i++)
         {
-            var character = _saveLoadServise.Load<SaveData.CharactersPortraiteData>($"{_saveKey}/{i}");
+            var characterData = _saveLoadServise.Load<CharacterPortraitData>($"{_saveKey}/{i}");
 
-            CharacterModel characterModel = new CharacterModel()
-                {
-                    CharacterType = character.CharacterType,
-                    Name = character.Name,
-                    Sprite = character.Sprite,
-                    PositionType = character.Position,
-                    PositionOffset = character.PositionOffset,
-                    ScaleOffset = character.ScaleOffset
-                };
+            CharacterModel characterModel = new CharacterModel(characterData);
 
             Show(characterModel);
         }
@@ -150,15 +130,27 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
 
     private class CharacterModel : ICharacterPortraitModel
     {
-        public CharacterType CharacterType { get; set; }
-        public string Name { get; set; }
-        public Sprite Sprite { get; set; }
-        public CharacterPortraitPosition PositionType { get; set; }
+        public CharacterType CharacterType { get; private set; }
+        public string Name { get; private set; }
+        public Sprite Sprite { get; private set; }
+        public CharacterPortraitPosition PositionType { get; private set; }
 
-        public Vector2 PositionOffset { get; set; }
+        public Vector2 PositionOffset { get; private set; }
 
-        public Vector3 ScaleOffset { get; set; }
+        public Vector3 ScaleOffset { get; private set; }
 
-        public Location Location {get; private set;}
+        public Location Location { get; private set;}
+
+        public CharacterModel(CharacterPortraitData characterData)
+        {
+            CharacterType = characterData.CharacterType;
+            Name = characterData.Name;
+            Sprite = characterData.Sprite;
+            PositionType = characterData.Position;
+            PositionOffset = characterData.PositionOffset;
+            ScaleOffset = characterData.ScaleOffset;
+
+            Location = characterData.Location;
+        }
     }
 }

@@ -11,6 +11,7 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     [SerializeField] private Transform _containerForCells;
 
     [SerializeField] private GameCommander _gameCommander;
+    [SerializeField] private CharacterRenderer _characterRenderer;
 
     [SerializeField] private Button _closeButton;
     [SerializeField] private Canvas _selfCanvas;
@@ -54,7 +55,7 @@ public class Map : WindowInSmartphone, ISaveLoadObject
                 ChangeLocation(_currentLocation);
         }
 
-        _cellsCreater.CellClicked += ChangeLocation;
+        _cellsCreater.CellClicked += OnCellClicked;
     }
 
     public void Add(IEnumerable<Location> locations)
@@ -71,9 +72,9 @@ public class Map : WindowInSmartphone, ISaveLoadObject
         _cellsCreater.Remove(locations);
     }
 
-    public override void SetEnabled(bool enabled)
+    public override void SetOpenButtonEnabled(bool enabled)
     {
-        base.SetEnabled(enabled);
+        base.SetOpenButtonEnabled(enabled);
 
         if (_guidComplete == false)
         {
@@ -107,7 +108,6 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
         _saveLoadServise.Save(_saveKey, new SaveData.MapData()
         {
-            Enabled = OpenButton.enabled,
             GuidComplete = _guidComplete,
             CurrentLocationIndex = currentLocatoinIndex
         });
@@ -116,8 +116,6 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     public void Load()
     {
         var data = _saveLoadServise.Load<SaveData.MapData>(_saveKey);
-
-        OpenButton.enabled = data.Enabled;
 
         if (data.CurrentLocationIndex != -1)
             _currentLocation = _locations[data.CurrentLocationIndex];
@@ -134,7 +132,7 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     {
         _cellsCreater.Dispose();
         _closeButton.onClick.RemoveAllListeners();
-        _cellsCreater.CellClicked -= ChangeLocation;
+        _cellsCreater.CellClicked -= OnCellClicked;
 
         Save();
     }
@@ -159,6 +157,11 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     {
         _gameCommander.PackAndExecuteCommand(quest);
         location.RemoveQuest();
+    }
+
+    private void OnCellClicked(Location location)
+    {
+        ChangeLocation(location);
     }
 }
 
