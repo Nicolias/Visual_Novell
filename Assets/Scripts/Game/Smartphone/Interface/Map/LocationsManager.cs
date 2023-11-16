@@ -15,8 +15,13 @@ public class LocationsManager : ISaveLoadObject
     public IEnumerable<Location> Locations => _locations; 
 
     public LocationsManager(TimesOfDayServise timesOfDayServise, SaveLoadServise saveLoadServise, BackgroundView background,
-        CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView, Map map, List<Location> locations)
+        CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView, Map map, CharactersLibrary charactersLibrary,
+        List<Location> locations)
     {
+        foreach (var character in charactersLibrary.AllCharacters)
+            if (character.CurrentLocation.TryGet(timesOfDayServise.GetCurrentTimesOfDay(), out Location location))
+                location.Set(character);
+
         _saveLoadServise = saveLoadServise;
 
         _map = map;

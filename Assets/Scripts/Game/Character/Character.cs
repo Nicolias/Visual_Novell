@@ -13,6 +13,8 @@ namespace Characters
         [SerializeField] private DialogSpeechForMeeting _dialogSpeech;
 
         [field: SerializeField] public Dictionary<CharacterPoseType, Sprite> Images { get; private set; } 
+        [field: SerializeField] public Dictionary<TimesOfDayType, Location> CurrentLocation { get; private set; }
+
         public CharacterType Type => _characterType;
         public int SympathyPoints => _sympathy.Points;
         public int SympathyLevel => _sympathy.Level;

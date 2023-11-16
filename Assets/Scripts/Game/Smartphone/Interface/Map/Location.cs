@@ -21,7 +21,7 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
 
     [SerializeField] private List<PastimeOnLocationType> _actionsOnLocation;
 
-    private CharacterOnLocationData _characterOnLocation;
+    private Character _characterOnLocation;
 
     private CharacterRenderer _charactersRenderer;
     private BackgroundView _background;
@@ -29,6 +29,8 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
     private TimesOfDayServise _timesOfDayServise;
 
     private List<ItemForCollectionView> _itemsView = new List<ItemForCollectionView>();
+
+    private bool _isInitialized = false;
 
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public Superlocation Superlocation { get; private set; }
@@ -50,6 +52,9 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         _timesOfDayServise = timesOfDayServise;
 
         _itemsView = collectionPanel.CreateItemsView(Items);
+
+        CheckCorrectCharacterOnLocation();
+        _isInitialized = true;
     }
 
     public void Show()
@@ -63,8 +68,11 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         {
             _background.Replace(sprite);
 
+            if (_isInitialized == false)
+                CheckCorrectCharacterOnLocation();
+
             if (_characterOnLocation != null)
-                _charactersRenderer.Show(_characterOnLocation);
+                _charactersRenderer.Show(Get(_characterOnLocation));
         }
 
         _collectionPanel.ShowItems(_itemsView);
@@ -75,12 +83,19 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
     {
         if (_collectionPanel != null)
             _collectionPanel.ItemDeleted -= OnItemDelete;
+
+        _isInitialized = false;
     }
 
     public void Add(ItemForCollection item)
     {
         _itemsOnLocation.Add(item);
         _itemsView.AddRange(_collectionPanel.CreateItemsView(new List<ItemForCollection>() { item }));
+    }
+
+    public void Set(Character character)
+    {
+        _characterOnLocation = character;
     }
 
     public void Set(Node questOnLocation)
@@ -107,6 +122,17 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
     {
         _itemsOnLocation.Remove(itemData);
         _itemsView.RemoveAll(x => x == null);
+    }
+
+    private void CheckCorrectCharacterOnLocation()
+    {
+        if (_characterOnLocation != null)
+        {
+            _characterOnLocation.CurrentLocation.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out Location location);
+
+            if (location != this)
+                _characterOnLocation = null;
+        }
     }
 
     public override string ToString()

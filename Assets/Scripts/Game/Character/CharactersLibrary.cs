@@ -2,17 +2,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
-
 
 public class CharactersLibrary : MonoBehaviour
 {
-    [Inject] private StaticData _staticData;
-    [Inject] private SaveLoadServise _saveLoadServise;
-
     [SerializeField] private List<Character> _allCharacters;
 
-    private const string _saveKey = "CharacterLibrarySave";
+    public IEnumerable<Character> AllCharacters => _allCharacters;
 
     public Character GetCharacter(CharacterType characterType)
     {

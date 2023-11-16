@@ -31,3 +31,13 @@ MonoBehaviour:
       <Value>k__BackingField: {fileID: 21300000, guid: fdad411e5057d824b8bbe82aabfd150f, type: 3}
     - <Key>k__BackingField: 1
       <Value>k__BackingField: {fileID: 21300000, guid: 9a5904da495e60941ab508de6e35c2a7, type: 3}
+  <CurrentLocation>k__BackingField:
+    _dictionary:
+    - <Key>k__BackingField: 0
+      <Value>k__BackingField: {fileID: 11400000, guid: 61c152ce61da6e448ad9a00e7f80e1e3, type: 2}
+    - <Key>k__BackingField: 1
+      <Value>k__BackingField: {fileID: 11400000, guid: c59c86381b6672f408e4df88c71a11f5, type: 2}
+    - <Key>k__BackingField: 2
+      <Value>k__BackingField: {fileID: 11400000, guid: 0d928599eb9265c489e73b7b6b3fed09, type: 2}
+    - <Key>k__BackingField: 3
+      <Value>k__BackingField: {fileID: 11400000, guid: 56b15a3c231d0dd4ba3304e208729e25, type: 2}

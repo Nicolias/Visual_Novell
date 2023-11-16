@@ -11,7 +11,7 @@ public class ServiseInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<StaticData>().FromComponentInNewPrefab(_staticData).AsSingle().NonLazy();
-        Container.Bind<CharactersLibrary>().FromInstance(_charactersLibrary).AsSingle().NonLazy();
+        Container.Bind<CharactersLibrary>().FromComponentInNewPrefab(_charactersLibrary).AsSingle().NonLazy();
         Container.Bind<DUXWindow>().FromComponentsInNewPrefab(_dUXWindow).AsSingle().NonLazy();
         Container.Bind<CoroutineServise>().FromComponentsInNewPrefab(_coroutineServise).AsSingle();        
     }
