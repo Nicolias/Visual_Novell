@@ -10,21 +10,23 @@ public class ContactsWindow : WindowInSmartphone
     [SerializeField] private Smartphone _smartphone;
     [SerializeField] private Button _closeButton;
 
-    [SerializeField] private List<Location> _locationForMeeting;
-
     [SerializeField] private List<Character> _contacts = new List<Character>();
     [SerializeField] private Transform _characterCellsContainer;
 
     private Canvas _selfCanvas;
     private ChoicePanel _choicePanel;
 
+    private LocationsManager _locationsManager;
+
     private List<Cell<Character>> _characterCells = new List<Cell<Character>>();
 
     [Inject]
-    public void Construct(CellsFactoryCreater cellsFactoryCreater, IChoicePanelFactory choicePanelFactory)
+    public void Construct(LocationsManager locationsManager, CellsFactoryCreater cellsFactoryCreater, IChoicePanelFactory choicePanelFactory)
     {
          _characterCells = cellsFactoryCreater.CreateCellsFactory<Character>().CreateCellsView(_contacts, _characterCellsContainer);
         _choicePanel = choicePanelFactory.CreateChoicePanel(transform);
+
+        _locationsManager = locationsManager;
     }
 
     private void Awake()
@@ -70,10 +72,13 @@ public class ContactsWindow : WindowInSmartphone
     {
         List<ChoiseElement> choiseElements = new List<ChoiseElement>();
 
-        foreach (var locationForMeeting in _locationForMeeting)
+        foreach (var locationForMeeting in _locationsManager.Locations)
         {
-            ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => MoveTo(selectedCharacter, locationForMeeting));
-            choiseElements.Add(choiseElement);
+            if (locationForMeeting.IsAvilable)
+            {
+                ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => MoveTo(selectedCharacter, locationForMeeting));
+                choiseElements.Add(choiseElement);
+            }
         }
 
         return choiseElements;

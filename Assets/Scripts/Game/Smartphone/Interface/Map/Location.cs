@@ -97,7 +97,8 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
     {
         if (character.Images.TryGet(_characterPoseType, out Sprite characterSprite))
             return new CharacterOnLocationData(character.Type, character.Name, characterSprite, this,
-                    CharacterPortraitPosition.FreePosition, _characterPosition, _characterScale);
+                    _characterPoseType == CharacterPoseType.Staying ? CharacterPortraitPosition.Right : CharacterPortraitPosition.FreePosition,
+                    _characterPosition, _characterScale);
         else
             throw new InvalidOperationException("Эта локация не предназначена для приглашения.");
     }

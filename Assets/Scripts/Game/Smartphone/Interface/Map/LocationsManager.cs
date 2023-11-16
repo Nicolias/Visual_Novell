@@ -12,6 +12,8 @@ public class LocationsManager : ISaveLoadObject
 
     private string _saveKey = "locationManagerKey";
 
+    public IEnumerable<Location> Locations => _locations; 
+
     public LocationsManager(TimesOfDayServise timesOfDayServise, SaveLoadServise saveLoadServise, BackgroundView background,
         CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView, Map map, List<Location> locations)
     {
