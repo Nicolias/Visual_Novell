@@ -7,6 +7,7 @@ using XNode;
 [CreateAssetMenu(fileName = "New location", menuName = "Location/Location")]
 public class Location : ScriptableObject, IDisposable, IDataForCell
 {
+    [SerializeField] private Dictionary.Dictionary<TimesOfDayType, Vector2> _locationOffsetByDeyTime;
     [SerializeField] private Dictionary.Dictionary<TimesOfDayType, Sprite> _locationSpritesByDeyTime;
     [SerializeField] private List<ItemForCollection> _itemsOnLocation;
 
@@ -110,12 +111,21 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
 
     public CharacterOnLocationData Get(Character character)
     {
+        Vector2 characterOffset = _characterPosition;
+
+        if (_locationOffsetByDeyTime.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out Vector2 characterOffsetByDayTime))
+            characterOffset += characterOffsetByDayTime;
+
         if (character.Images.TryGet(_characterPoseType, out Sprite characterSprite))
+        {
             return new CharacterOnLocationData(character.Type, character.Name, characterSprite, this,
                     _characterPoseType == CharacterPoseType.Staying ? CharacterPortraitPosition.Right : CharacterPortraitPosition.FreePosition,
-                    _characterPosition, _characterScale);
+                    characterOffset, _characterScale);
+        }
         else
+        {
             throw new InvalidOperationException("Эта локация не предназначена для приглашения.");
+        }
     }
 
     private void OnItemDelete(ItemForCollection itemData)
