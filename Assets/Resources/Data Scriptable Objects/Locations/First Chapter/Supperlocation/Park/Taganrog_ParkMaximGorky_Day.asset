@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc30059b62abb649b0a8c76f102c9cf, type: 3}
   m_Name: Taganrog_ParkMaximGorky_Day
   m_EditorClassIdentifier: 
+  _locationOffsetByDeyTime:
+    _dictionary: []
   _locationSpritesByDeyTime:
     _dictionary:
     - <Key>k__BackingField: 1
       <Value>k__BackingField: {fileID: 21300000, guid: a0fcb7cb86ff6794bbb1c3affc566d9a, type: 3}
-  _backgroundSprite: {fileID: 21300000, guid: a0fcb7cb86ff6794bbb1c3affc566d9a, type: 3}
+  _artifactPositionVariations:
+  - {x: 55, y: 55}
   _itemsOnLocation: []
   _questOnLocation: {fileID: 0}
   _isAvilable: 1

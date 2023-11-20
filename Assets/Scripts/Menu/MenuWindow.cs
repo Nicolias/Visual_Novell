@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace MiniGameNamespace
+namespace MainMenu
 {
     public class MenuWindow : MonoBehaviour
     {

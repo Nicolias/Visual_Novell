@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc30059b62abb649b0a8c76f102c9cf, type: 3}
   m_Name: Taganrog_ThreeColumns
   m_EditorClassIdentifier: 
+  _locationOffsetByDeyTime:
+    _dictionary: []
   _locationSpritesByDeyTime:
     _dictionary:
     - <Key>k__BackingField: 1
       <Value>k__BackingField: {fileID: 21300000, guid: c80bd79131b8dd34aa95b40ba07c8885, type: 3}
     - <Key>k__BackingField: 2
       <Value>k__BackingField: {fileID: 21300000, guid: a859e59d9afa3544a80f686b5b4dabea, type: 3}
-  _backgroundSprite: {fileID: 21300000, guid: 9564b6727e993694d9dcd9d53a7a6b05, type: 3}
+  _artifactPositionVariations:
+  - {x: 55, y: 55}
   _itemsOnLocation: []
   _questOnLocation: {fileID: 0}
   _isAvilable: 1

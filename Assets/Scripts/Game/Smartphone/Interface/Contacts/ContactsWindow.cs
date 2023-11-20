@@ -82,13 +82,10 @@ public class ContactsWindow : WindowInSmartphone
     {
         List<ChoiseElement> choiseElements = new List<ChoiseElement>();
 
-        foreach (var locationForMeeting in _locationsManager.Locations)
+        foreach (var locationForMeeting in _locationsManager.AvailableLocations)
         {
-            if (locationForMeeting.IsAvilable)
-            {
-                ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => MoveTo(selectedCharacter, locationForMeeting));
-                choiseElements.Add(choiseElement);
-            }
+            ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => MoveTo(selectedCharacter, locationForMeeting));
+            choiseElements.Add(choiseElement);
         }
 
         return choiseElements;

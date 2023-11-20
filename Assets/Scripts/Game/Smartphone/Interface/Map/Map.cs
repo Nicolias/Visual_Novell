@@ -228,7 +228,7 @@ public class LocationCellsContainer
             Cell<Location> newLocationCell = CreateCellView(location, location.Superlocation != null ?
                 _supperlocationCells[location.Superlocation].View.SubcellsContainer : _cellsContainer);
 
-            newLocationCell.SetInteractable(location.IsAvilable);
+            newLocationCell.SetInteractable(location.IsAvailable);
 
             _locationCells.Add(newLocationCell);
         }

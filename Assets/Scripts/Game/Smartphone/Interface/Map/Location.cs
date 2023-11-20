@@ -9,7 +9,9 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
 {
     [SerializeField] private Dictionary.Dictionary<TimesOfDayType, Vector2> _locationOffsetByDeyTime;
     [SerializeField] private Dictionary.Dictionary<TimesOfDayType, Sprite> _locationSpritesByDeyTime;
-    [SerializeField] private List<ItemForCollection> _itemsOnLocation;
+
+    [SerializeField] private List<Vector2> _artifactPositionVariations;
+    [SerializeField] private List<ItemForCollection> _itemsOnLocation = new List<ItemForCollection>();
 
     [SerializeField] private Node _questOnLocation;
     [SerializeField] private bool _isAvilable = true;
@@ -36,9 +38,8 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public Superlocation Superlocation { get; private set; }
 
-    public bool IsAvilable => _locationSpritesByDeyTime.Contains(_timesOfDayServise.GetCurrentTimesOfDay());
+    public bool IsAvailable => _locationSpritesByDeyTime.Contains(_timesOfDayServise.GetCurrentTimesOfDay());
 
-    public IEnumerable<ItemForCollection> Items => _itemsOnLocation;
     public IEnumerable<ItemForCollectionView> ItemsView => _itemsView;
     public IEnumerable<PastimeOnLocationType> ActionsList => _actionsOnLocation;
 
@@ -52,7 +53,7 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         _charactersRenderer = charactersPortraitView;
         _timesOfDayServise = timesOfDayServise;
 
-        _itemsView = collectionPanel.CreateItemsView(Items);
+        _itemsView = collectionPanel.CreateItemsView(_itemsOnLocation);
 
         CheckCorrectCharacterOnLocation();
         _isInitialized = true;
@@ -91,7 +92,19 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
     public void Add(ItemForCollection item)
     {
         _itemsOnLocation.Add(item);
-        _itemsView.AddRange(_collectionPanel.CreateItemsView(new List<ItemForCollection>() { item }));
+
+        _itemsView.Add(_collectionPanel.CreateItemsView(item,
+            _artifactPositionVariations[UnityEngine.Random.Range(0, _artifactPositionVariations.Count)]));
+    }
+
+    public void DeleteArtifacts()
+    {
+        _itemsOnLocation.Clear();
+
+        foreach (var itemView in _itemsView)
+            Destroy(itemView.gameObject);
+
+        _itemsView.Clear();
     }
 
     public void Set(Character character)

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc30059b62abb649b0a8c76f102c9cf, type: 3}
   m_Name: Taganrog_Embankment_Day_3
   m_EditorClassIdentifier: 
+  _locationOffsetByDeyTime:
+    _dictionary: []
   _locationSpritesByDeyTime:
     _dictionary:
     - <Key>k__BackingField: 1
@@ -20,7 +22,8 @@ MonoBehaviour:
       <Value>k__BackingField: {fileID: 21300000, guid: 579efc58062fb2e4294a12f6e1c45268, type: 3}
     - <Key>k__BackingField: 3
       <Value>k__BackingField: {fileID: 21300000, guid: 625e765e4f98ee24c85f68f14cb00e42, type: 3}
-  _backgroundSprite: {fileID: 21300000, guid: 9564b6727e993694d9dcd9d53a7a6b05, type: 3}
+  _artifactPositionVariations:
+  - {x: 55, y: 55}
   _itemsOnLocation: []
   _questOnLocation: {fileID: 0}
   _isAvilable: 1

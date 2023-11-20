@@ -2,36 +2,39 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewGameState : BaseState
+namespace MainMenu
 {
-    private ChoiceButton _newGameButton;
-    private GameObject _menuButtons;
-
-    private Action _saveAction;
-    private SaveLoadServise _saveLoadServise;
-
-    public NewGameState(ChoiceButton newGameButton, GameObject menuButtons, SaveLoadServise saveLoadServise, Action saveAction)
+    public class NewGameState : BaseState
     {
-        _newGameButton = newGameButton;
-        _menuButtons = menuButtons;
+        private ChoiceButton _newGameButton;
+        private GameObject _menuButtons;
 
-        _saveAction = saveAction;
-        _saveLoadServise = saveLoadServise;
-    }
+        private Action _saveAction;
+        private SaveLoadServise _saveLoadServise;
 
-    public override void Entry()
-    {
-        _newGameButton.Initialized(new("Новая игра", () =>
+        public NewGameState(ChoiceButton newGameButton, GameObject menuButtons, SaveLoadServise saveLoadServise, Action saveAction)
         {
-            _saveLoadServise.ClearAllSave();
-            _saveAction.Invoke();
-            SceneManager.LoadScene(1);
-        }));
-        _menuButtons.SetActive(true);
-    }
+            _newGameButton = newGameButton;
+            _menuButtons = menuButtons;
 
-    public override void Exit()
-    {
-        _menuButtons.SetActive(false);
+            _saveAction = saveAction;
+            _saveLoadServise = saveLoadServise;
+        }
+
+        public override void Entry()
+        {
+            _newGameButton.Initialized(new("Новая игра", () =>
+            {
+                _saveLoadServise.ClearAllSave();
+                _saveAction.Invoke();
+                SceneManager.LoadScene(1);
+            }));
+            _menuButtons.SetActive(true);
+        }
+
+        public override void Exit()
+        {
+            _menuButtons.SetActive(false);
+        }
     }
 }

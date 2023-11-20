@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc30059b62abb649b0a8c76f102c9cf, type: 3}
   m_Name: Taganrog_Cafe_Morning
   m_EditorClassIdentifier: 
+  _locationOffsetByDeyTime:
+    _dictionary: []
   _locationSpritesByDeyTime:
     _dictionary:
     - <Key>k__BackingField: 0
@@ -20,7 +22,8 @@ MonoBehaviour:
       <Value>k__BackingField: {fileID: 21300000, guid: 38687d9ca4f344440945a56f7c145c21, type: 3}
     - <Key>k__BackingField: 2
       <Value>k__BackingField: {fileID: 21300000, guid: 654e28806241ed448b7a120bfaa38df4, type: 3}
-  _backgroundSprite: {fileID: 21300000, guid: 9d7834f8104667b4db6a830c4b79aad9, type: 3}
+  _artifactPositionVariations:
+  - {x: 55, y: 55}
   _itemsOnLocation: []
   _questOnLocation: {fileID: 0}
   _isAvilable: 1

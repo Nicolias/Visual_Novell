@@ -17,15 +17,21 @@ public class CollectionPanel : MonoBehaviour
 
         foreach (var itemData in itemsData)
         {
-            ItemForCollectionView itemView = Instantiate(itemData.Prefab, transform);
-            itemView.Initialize(itemData);
-            itemView.transform.localPosition = itemData.ItemAfterInstantiatePosition;
-            itemView.gameObject.SetActive(false);
-
+            ItemForCollectionView itemView = CreateItemsView(itemData, itemData.ItemAfterInstantiatePosition);
             itemsView.Add(itemView);
         }
 
         return itemsView;
+    }
+
+    public ItemForCollectionView CreateItemsView(ItemForCollection itemData, Vector2 itemSpawnPosition)
+    {
+        ItemForCollectionView itemView = Instantiate(itemData.Prefab, transform);
+        itemView.Initialize(itemData);
+        itemView.transform.localPosition = itemSpawnPosition;
+        itemView.gameObject.SetActive(false);
+
+        return itemView;
     }
 
     public void Delete(ItemForCollectionView itemView, ItemForCollection itemData)

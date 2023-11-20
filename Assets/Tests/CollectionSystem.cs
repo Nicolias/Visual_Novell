@@ -61,7 +61,7 @@ public class CollectionSystem
         List<ItemForCollection> itemsForCollection = CreateItemsData(1);
         ItemForCollectionView itemViewForQuestCollection = _collectionPanel.CreateItemsView(itemsForCollection)[0];
 
-        CollectionQuest collectionQuest = new CollectionQuest(itemsForCollection, _collectionPanel, _inventory);
+        CollectionItmsQuest collectionQuest = new CollectionItmsQuest(itemsForCollection, _collectionPanel, _inventory);
         _collectionPanel.ShowItems(new List<ItemForCollectionView>() { itemViewForQuestCollection });
         collectionQuest.QuestCompleted += () => isQuestComplete = true;
 

@@ -1,4 +1,5 @@
-﻿using SaveData;
+﻿using StateMachine;
+using SaveData;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +8,10 @@ public class CharacterViewFactory : MonoBehaviour
     [SerializeField] private Transform _containerForFreePosition;
     [SerializeField] private Dictionary.Dictionary<CharacterPortraitPosition, Transform> _positions;
 
-    [SerializeField] private CharacterViewForMeeting _characterViewForMeetingPrefab;
-    [SerializeField] private CharacterViwe _characterViewPrefab;
+    [SerializeField] private CharacterView _characterViewPrefab;
 
     [SerializeField] private Meeting _meeting;
+    [SerializeField] private GameStateMachine _gameStateMachine;
 
     private Color[] _colors = new Color[2] { new Color(1, 1, 1, 1), new Color(1, 1, 1, 0) };
 
@@ -18,7 +19,7 @@ public class CharacterViewFactory : MonoBehaviour
 
     public CharacterPortraitData Create(ICharacterPortraitModel character)
     {
-        ICharacterView newCharacterView = Instantiate(character, _characterViewForMeetingPrefab);
+        ICharacterView newCharacterView = Instantiate(character);
 
         Image newCharacterImage = newCharacterView.Image;
 
@@ -31,13 +32,13 @@ public class CharacterViewFactory : MonoBehaviour
         return newCharacterPortraitData;
     }
 
-    private ICharacterView Instantiate(ICharacterPortraitModel character, ICharacterView characterPrefab)
+    private ICharacterView Instantiate(ICharacterPortraitModel character)
     {
-        ICharacterView newCharacterView = null;
+        CharacterView newCharacterView = null;
 
         if (character.PositionType == CharacterPortraitPosition.FreePosition)
         {
-            newCharacterView = Instantiate(characterPrefab.GameObject, _containerForFreePosition).GetComponent<ICharacterView>();
+            newCharacterView = Instantiate(_characterViewPrefab, _containerForFreePosition);
 
             RectTransform newCharacterTransform = newCharacterView.Image.rectTransform;
             newCharacterTransform.localPosition = character.PositionOffset;
@@ -47,10 +48,10 @@ public class CharacterViewFactory : MonoBehaviour
         else
         {
             if (_positions.TryGet(character.PositionType, out Transform transformForSpawn))
-                newCharacterView = Instantiate(characterPrefab.GameObject, transformForSpawn).GetComponent<ICharacterView>();
+                newCharacterView = Instantiate(_characterViewPrefab, transformForSpawn);
         }
 
-        newCharacterView.Initialize(character, _meeting);
+        newCharacterView.Initialize(character, _meeting, _gameStateMachine);
 
         return newCharacterView;
     }

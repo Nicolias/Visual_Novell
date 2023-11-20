@@ -12,7 +12,20 @@ public class LocationsManager : ISaveLoadObject
 
     private string _saveKey = "locationManagerKey";
 
-    public IEnumerable<Location> Locations => _locations; 
+    public IEnumerable<Location> AvailableLocations
+    {
+        get
+        {
+            List<Location> availableLocations = new List<Location>();
+
+            foreach (var location in _locationsInMap)
+                if (location.IsAvailable)
+                    availableLocations.Add(location);
+
+            return availableLocations;
+        }
+    }
+    public IEnumerable<Location> AllLocations => _locations;
 
     public LocationsManager(TimesOfDayServise timesOfDayServise, SaveLoadServise saveLoadServise, BackgroundView background,
         CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView, Map map, CharactersLibrary charactersLibrary,
@@ -38,19 +51,8 @@ public class LocationsManager : ISaveLoadObject
             location.Initialize(background, collectionPanel, charactersPortraitView, timesOfDayServise);
         }
 
-        ConstructMap();
-    }      
-
-    public void ConstructMap()
-    {
-        List<Location> locations = new List<Location>(_locationsInMap);
-
-        for (int i = 0; i < _locations.Count; i++)
-            if (_locations[i].IsAvilable == false)
-                locations.Remove(_locations[i]);
-
         _map.Add(_locationsInMap);
-    }
+    }      
 
     public void AddToMap(IEnumerable<Location> newLocations)
     {

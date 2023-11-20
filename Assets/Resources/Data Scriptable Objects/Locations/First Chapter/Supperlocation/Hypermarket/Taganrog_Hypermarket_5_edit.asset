@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc30059b62abb649b0a8c76f102c9cf, type: 3}
   m_Name: Taganrog_Hypermarket_5_edit
   m_EditorClassIdentifier: 
+  _locationOffsetByDeyTime:
+    _dictionary: []
   _locationSpritesByDeyTime:
     _dictionary:
     - <Key>k__BackingField: 0
@@ -20,7 +22,8 @@ MonoBehaviour:
       <Value>k__BackingField: {fileID: 21300000, guid: a59874df89473414fa8554d3d75f65e8, type: 3}
     - <Key>k__BackingField: 2
       <Value>k__BackingField: {fileID: 21300000, guid: 35f60c4f8e84bd8419ed4d47548b342a, type: 3}
-  _backgroundSprite: {fileID: 21300000, guid: 6794224ad2cf650488f8cf1887431327, type: 3}
+  _artifactPositionVariations:
+  - {x: 55, y: 55}
   _itemsOnLocation: []
   _questOnLocation: {fileID: 0}
   _isAvilable: 1

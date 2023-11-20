@@ -1,75 +1,78 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuBehaviour : ISaveLoadObject
+namespace MainMenu
 {
-    private readonly SaveLoadServise _saveLoadServise;
-    private readonly List<BaseState> _states;
-    private readonly QuitGamePanel _quitGamePanel;
-    private BaseState _currentState;
-
-    private const string _saveKey = "HasGameProgress";
-
-    public MenuBehaviour(ChoiceButton newOrContinueGameButton, 
-        SettingWindow settingWindow, GameObject menuButtons, 
-        SaveLoadServise saveLoadServise, QuitGamePanel quitGamePanel)
+    public class MenuBehaviour : ISaveLoadObject
     {
-        _saveLoadServise = saveLoadServise;
+        private readonly SaveLoadServise _saveLoadServise;
+        private readonly List<BaseState> _states;
+        private readonly QuitGamePanel _quitGamePanel;
+        private BaseState _currentState;
 
-        _states = new()
+        private const string _saveKey = "HasGameProgress";
+
+        public MenuBehaviour(ChoiceButton newOrContinueGameButton,
+            SettingWindow settingWindow, GameObject menuButtons,
+            SaveLoadServise saveLoadServise, QuitGamePanel quitGamePanel)
         {
-            new NewGameState(newOrContinueGameButton, menuButtons, saveLoadServise, Save),
-            new ContinueGameState(newOrContinueGameButton, menuButtons),
-            new SettingState(settingWindow)
-        };
+            _saveLoadServise = saveLoadServise;
 
-        _quitGamePanel = quitGamePanel;
+            _states = new()
+            {
+                new NewGameState(newOrContinueGameButton, menuButtons, saveLoadServise, Save),
+                new ContinueGameState(newOrContinueGameButton, menuButtons),
+                new SettingState(settingWindow)
+            };
 
-        Load();
-    }
+            _quitGamePanel = quitGamePanel;
 
-    public void OpenMainMenu()
-    {
-        if (_saveLoadServise.HasSave(_saveKey))
-        {
-            Switch<ContinueGameState>();
+            Load();
         }
-        else
+
+        public void OpenMainMenu()
         {
-            Switch<NewGameState>();
+            if (_saveLoadServise.HasSave(_saveKey))
+            {
+                Switch<ContinueGameState>();
+            }
+            else
+            {
+                Switch<NewGameState>();
+            }
         }
-    }
 
-    public void OpenSetting()
-    {
-        Switch<SettingState>();
-    }
+        public void OpenSetting()
+        {
+            Switch<SettingState>();
+        }
 
-    public void Quit()
-    {
-        if (_currentState is SettingState)
+        public void Quit()
+        {
+            if (_currentState is SettingState)
+                OpenMainMenu();
+            else
+                _quitGamePanel.Show();
+        }
+
+        private void Switch<T>() where T : BaseState
+        {
+            if (_currentState != null)
+                _currentState.Exit();
+
+            var state = _states.Find(x => x is T);
+            _currentState = state;
+            _currentState.Entry();
+        }
+
+        public void Load()
+        {
             OpenMainMenu();
-        else
-            _quitGamePanel.Show();
-    }
+        }
 
-    private void Switch<T>() where T : BaseState
-    {
-        if(_currentState != null)
-            _currentState.Exit();
-
-        var state = _states.Find(x => x is T);
-        _currentState = state;
-        _currentState.Entry();
-    }
-
-    public void Load()
-    {
-        OpenMainMenu();
-    }
-
-    public void Save()
-    {
-        _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = true });
+        public void Save()
+        {
+            _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = true });
+        }
     }
 }

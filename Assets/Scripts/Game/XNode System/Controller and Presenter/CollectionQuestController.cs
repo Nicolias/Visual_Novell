@@ -9,7 +9,7 @@ public class CollectionQuestController : IController
     private readonly CollectionQuestView _view;
     private readonly DiContainer _di;
     
-    private CollectionQuest _model;
+    private CollectionItmsQuest _model;
 
     public CollectionQuestController(CollectQuestModel model, DiContainer di, CollectionQuestView view)
     {
@@ -20,7 +20,7 @@ public class CollectionQuestController : IController
 
     public void Execute()
     {
-        _model = _di.Instantiate<CollectionQuest>(new object[] { _data.ItemForCollections });
+        _model = _di.Instantiate<CollectionItmsQuest>(new object[] { _data.ItemForCollections });
         _view.Initialize(_model);
 
         _model.QuestCompleted += CallBack;

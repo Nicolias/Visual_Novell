@@ -7,10 +7,10 @@ public class CollectionQuestView : MonoBehaviour
     [SerializeField] private Transform _questsTextContainer;
     [SerializeField] private QuestText _textTemplate;
 
-    private CollectionQuest _currentQuest;
+    private CollectionItmsQuest _currentQuest;
     private List<QuestText> _itemsNameForCollection = new List<QuestText>();
 
-    public void Initialize(CollectionQuest currentQuest)
+    public void Initialize(CollectionItmsQuest currentQuest)
     {
         gameObject.SetActive(true);
 

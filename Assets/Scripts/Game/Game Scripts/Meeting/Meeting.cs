@@ -17,7 +17,7 @@ public class Meeting : MonoBehaviour
 
     private PastimeSelectionFactory _pastimeSelectionFactory;
     private AbstractPastime _currentPastime;  
-    private CharacterViewForMeeting _characterView;
+    private CharacterView _characterView;
 
     private DialogSpeechPresenter _dialogSpeechPresenter;
 
@@ -38,7 +38,7 @@ public class Meeting : MonoBehaviour
             });
     }
 
-    public void Enter(CharacterViewForMeeting characterView)
+    public void Enter(CharacterView characterView)
     {
         _characterView = characterView;
         characterView.SetInteractable(false);

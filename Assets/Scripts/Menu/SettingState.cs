@@ -1,19 +1,22 @@
-﻿public class SettingState : BaseState
+﻿namespace MainMenu
 {
-    public SettingWindow _settingWindow;
-
-    public SettingState(SettingWindow settingWindow)
+    public class SettingState : BaseState
     {
-        _settingWindow = settingWindow;
-    }
+        public SettingWindow _settingWindow;
 
-    public override void Entry()
-    {
-        _settingWindow.Show();
-    }
+        public SettingState(SettingWindow settingWindow)
+        {
+            _settingWindow = settingWindow;
+        }
 
-    public override void Exit()
-    {
-        _settingWindow.Hide();
+        public override void Entry()
+        {
+            _settingWindow.Show();
+        }
+
+        public override void Exit()
+        {
+            _settingWindow.Hide();
+        }
     }
 }

@@ -8,9 +8,11 @@
     void Visit(IChoiceModel choice);
     void Visit(QuizModel quizModel);
     void Visit(BackgroundModel background);
+    void Visit(GameStateStoryMode gameStateStoryMode);
     void Visit(ChangeLocationModel changeLocationModel);
     void Visit(ICharacterPortraitModel portrait);
     void Visit(RemoveOrAddLocation deleteLocationFromMap);
+    void Visit(GameStateFreePlayMode gameStateFreePlayMode);
     void Visit(SpawnItemModel spawnItemModel);
     void Visit(ChapterCaptionModel chapterCaptionModel);
     void Visit(SwitchSceneModel switchSceneModel);

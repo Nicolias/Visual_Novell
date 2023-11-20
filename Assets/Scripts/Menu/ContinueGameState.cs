@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ContinueGameState : BaseState
+namespace MainMenu
 {
-    private ChoiceButton _newGameButton;
-    private GameObject _menuButtons;
-
-    public ContinueGameState(ChoiceButton newGameButton, GameObject menuButtons)
+    public class ContinueGameState : BaseState
     {
-        _newGameButton = newGameButton;
-        _menuButtons = menuButtons;
-    }
+        private ChoiceButton _newGameButton;
+        private GameObject _menuButtons;
 
-    public override void Entry()
-    {
-        _newGameButton.Initialized(new("Продолжить", () => SceneManager.LoadScene(1)));
-        _menuButtons.SetActive(true);
-    }
+        public ContinueGameState(ChoiceButton newGameButton, GameObject menuButtons)
+        {
+            _newGameButton = newGameButton;
+            _menuButtons = menuButtons;
+        }
 
-    public override void Exit()
-    {
-        _menuButtons.SetActive(false); 
+        public override void Entry()
+        {
+            _newGameButton.Initialized(new("Продолжить", () => SceneManager.LoadScene(1)));
+            _menuButtons.SetActive(true);
+        }
+
+        public override void Exit()
+        {
+            _menuButtons.SetActive(false);
+        }
     }
 }

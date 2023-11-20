@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(Button), typeof(Image))]
 public class ItemForCollectionView : MonoBehaviour
 {
-    [SerializeField] private Image _itemImage;
+    private Image _itemImage;
 
     private ItemForCollection _itemData;
     private Button _selfButton;
@@ -17,6 +17,7 @@ public class ItemForCollectionView : MonoBehaviour
     private void Awake()
     {
         _selfButton = GetComponent<Button>();
+        _itemImage = GetComponent<Image>();
     }
 
     private void OnEnable()

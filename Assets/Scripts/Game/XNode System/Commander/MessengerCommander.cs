@@ -189,4 +189,14 @@ public class MessengerCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(GameStateStoryMode gameStateStoryMode)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Visit(GameStateFreePlayMode gameStateFreePlayMode)
+    {
+        throw new System.NotImplementedException();
+    }
 }

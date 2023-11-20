@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using StateMachine;
+using UnityEngine;
 using XNode;
 using Zenject;
 
 public class GameCommander : Commander, ICommanderVisitor
 {
     [Inject] private AudioServise _audioServise;
+
+    [SerializeField] private GameStateMachine _gameSateMachine;
 
     [SerializeField] private NodeGraph _currentGraph;
 
@@ -213,5 +216,15 @@ public class GameCommander : Commander, ICommanderVisitor
     public void Visit(RemoveOrAddLocation removeOrAddLocationModel)
     {
         _result.command = DI.Instantiate<RemoveAndAddLocationCommand>(new object[] { removeOrAddLocationModel });
+    }
+
+    public void Visit(GameStateStoryMode gameStateStoryMode)
+    {
+        _result.command = new ChangeGameStateCommand<StoryState>(_gameSateMachine);
+    }
+
+    public void Visit(GameStateFreePlayMode gameStateFreePlayMode)
+    {
+        _result.command = new ChangeGameStateCommand<PlayState>(_gameSateMachine);
     }
 }

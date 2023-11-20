@@ -1,4 +1,5 @@
 ﻿using QuizSystem;
+using StateMachine;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,7 @@ public class GameComponentInstaller : MonoInstaller
     [SerializeField] private Battery _battery;
     [SerializeField] private QuizView _quizView;
     [SerializeField] private MiniGameSelector _miniGameSelector;
+    [SerializeField] private GameStateMachine _gameStateMachine;
 
     public override void InstallBindings()
     {        
@@ -15,6 +17,7 @@ public class GameComponentInstaller : MonoInstaller
         Container.Bind<Battery>().FromInstance(_battery).AsSingle();
         Container.Bind<MiniGameSelector>().FromInstance(_miniGameSelector).AsSingle();
         Container.Bind<QuizView>().FromInstance(_quizView).AsSingle();
+        Container.Bind<GameStateMachine>().FromInstance(_gameStateMachine).AsSingle();
         Container.Bind<Quiz>().AsSingle().NonLazy();
     }
 }

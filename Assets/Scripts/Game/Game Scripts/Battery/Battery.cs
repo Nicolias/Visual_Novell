@@ -36,9 +36,6 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
     {
         _chargeLeve += value;
 
-        if (_chargeLeve > 100)
-            _chargeLeve = 100;
-
         AccureCompleted?.Invoke();
         OnValueChanged?.Invoke(_chargeLeve);
     }
