@@ -3,7 +3,7 @@
 [CreateAssetMenu(menuName = "Item/Item")]
 public class Item : ItemForCollection
 {
-    public override void Acсept(IItemCollector itemCollectorVisitor)
+    public override void Acсept(ItemCollector itemCollectorVisitor)
     {
         throw new System.NotImplementedException();
     }

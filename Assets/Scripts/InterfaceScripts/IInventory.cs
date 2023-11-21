@@ -2,5 +2,5 @@
 {
     public Inventory InventoryComponent { get; }
 
-    public void AddItemToInventory(ItemForCollection itemData);
+    public void AddItemToInventory(IItemForInventory itemData);
 }

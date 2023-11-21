@@ -6,6 +6,7 @@
     void Visit(MessengerDialogSpeechModel dialogSpeech);
     void Visit(FAQModel faqModel);
     void Visit(IChoiceModel choice);
+    void Visit(SenderItemToInventoryModel senderItemToInventory);
     void Visit(QuizModel quizModel);
     void Visit(BackgroundModel background);
     void Visit(GameStateStoryMode gameStateStoryMode);

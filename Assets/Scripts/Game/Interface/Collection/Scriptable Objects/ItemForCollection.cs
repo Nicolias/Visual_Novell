@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-public abstract class ItemForCollection : ScriptableObject
-{
-    [field: SerializeField] public Sprite ItemSpriteInInventory { get; private set; }
-    [field: SerializeField] public string Name { get; private set; }
-    [field: SerializeField] public string Discription { get; private set; }
+public abstract class ItemForCollection : AbstractItem
+{    
     [field: SerializeField] public Sprite ItemSpriteInScene { get; private set; }
     [field: SerializeField] public ItemForCollectionView Prefab { get; private set; }
     [field: SerializeField] public Vector2 ItemAfterInstantiatePosition { get; private set; }
@@ -15,5 +12,5 @@ public abstract class ItemForCollection : ScriptableObject
         Prefab = itemView;
     }
 
-    public abstract void Acсept(IItemCollector itemCollectorVisitor);
+    public abstract void Acсept(ItemCollector itemCollectorVisitor);
 }

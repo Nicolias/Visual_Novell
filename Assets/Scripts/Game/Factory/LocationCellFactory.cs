@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -58,7 +57,6 @@ namespace Factory.Cells
             private CellView CreateCellView(Transform cellsContainer, T dataForCell)
             {
                 CellView newCellView = _di.InstantiatePrefabForComponent<CellView>(_cellViewTemplate, cellsContainer);
-                newCellView.Initialize(dataForCell.ToString());
                 return newCellView;
             }
         }

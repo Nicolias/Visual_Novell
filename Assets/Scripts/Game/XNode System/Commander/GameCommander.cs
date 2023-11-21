@@ -227,4 +227,9 @@ public class GameCommander : Commander, ICommanderVisitor
     {
         _result.command = new ChangeGameStateCommand<PlayState>(_gameSateMachine);
     }
+
+    public void Visit(SenderItemToInventoryModel senderItemToInventory)
+    {
+        _result.command = DI.Instantiate<SendeItemToInventoryCommand>(new object[] { senderItemToInventory });
+    }
 }

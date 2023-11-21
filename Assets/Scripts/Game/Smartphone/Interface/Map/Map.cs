@@ -42,8 +42,6 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
     private void Awake()
     {
-        //_locationsManager.ConstructMap();
-
         if (_closeButton != null)
             _closeButton.onClick.AddListener(Hide);
 

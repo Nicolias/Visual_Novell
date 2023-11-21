@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,19 +9,20 @@ using Zenject;
 public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
 {
     [Inject] private SaveLoadServise _saveLoadServise;
-
+    [Inject] private Battery _battery;
     [Inject] private DiContainer _di;
 
     [SerializeField] private Transform _itemCellsContainer;
-    [SerializeField] private InventoryCell _inventoryCell;
+    [SerializeField] private InventoryCellView _inventoryCell;
 
     [SerializeField] private Button _openButton, _closeButton;
 
     [SerializeField] private TMP_Text _itemDiscription;
     [SerializeField] private Image _itamImage;
+    [SerializeField] private Button _useEffectButton;
 
     private Canvas _selfCanvas;
-    private List<ItemForCollection> _items = new();
+    private List<IItemForInventory> _items = new();
 
     private const string _saveKey = "InventorySave";
 
@@ -62,14 +62,20 @@ public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
         _selfCanvas.enabled = false;
     }
 
-    public void AddItemToInventory(ItemForCollection itemData)
+    public void AddItemToInventory(IItemForInventory itemData)
     {
         if (itemData == null) throw new InvalidOperationException();
 
         _items.Add(itemData);
 
-        var itemCell = _di.InstantiatePrefabForComponent<InventoryCell>(_inventoryCell, _itemCellsContainer);
-        itemCell.Initialize(itemData, _itamImage, _itemDiscription);
+        InventoryCellView cellView = Instantiate(_inventoryCell, _itemCellsContainer);
+        cellView.Initialize(_itamImage, _itemDiscription);
+
+
+        if (itemData is IUseableItemForInventory)
+            new UsableInventoryCell(itemData as IUseableItemForInventory, cellView, _useEffectButton, _battery);
+        else
+            new InventoryCell(itemData, cellView);
     }
 
     public void Save()

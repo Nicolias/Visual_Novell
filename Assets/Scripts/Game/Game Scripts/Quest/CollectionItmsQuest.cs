@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class CollectionItmsQuest : CollectionQuest<ItemForCollection>, IItemCollector
+public class CollectionItmsQuest : CollectionQuest<ItemForCollection>, ItemCollector
 {
     private readonly IInventory _inventory;
 
@@ -39,17 +39,17 @@ public class CollectionItmsQuest : CollectionQuest<ItemForCollection>, IItemColl
         }
     }
 
-    public void Visit(BackpackItem backpackItem)
+    void ItemCollector.Visit(BackpackItem backpackItem)
     {
         _inventory.InventoryComponent.enabled = true;
     }
 
-    public void Visit(KeyItem keyItem)
+    void ItemCollector.Visit(KeyItem keyItem)
     {
         _inventory.AddItemToInventory(keyItem);
     }
 
-    public void Visit(StarItem starItem)
+    void ItemCollector.Visit(StarItem starItem)
     {
         _inventory.AddItemToInventory(starItem);
     }
