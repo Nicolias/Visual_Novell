@@ -1487,6 +1487,7 @@ MonoBehaviour:
   _battery: {fileID: 573761176}
   _quizView: {fileID: 1753988287}
   _miniGameSelector: {fileID: 30273716}
+  _gameStateMachine: {fileID: 1914059895}
 --- !u!1 &117508103
 GameObject:
   m_ObjectHideFlags: 0
@@ -4286,9 +4287,9 @@ MonoBehaviour:
       <Value>k__BackingField: {fileID: 1377341204}
     - <Key>k__BackingField: 5
       <Value>k__BackingField: {fileID: 599841764}
-  _characterViewForMeetingPrefab: {fileID: 1410946371429303148, guid: 3fdf374877cd97a489dd6a2ea19f1e3e, type: 3}
-  _characterViewPrefab: {fileID: 4190544936590460193, guid: b2af9c0a873a8124184439fddf0f441f, type: 3}
+  _characterViewPrefab: {fileID: 7940210962545829559, guid: b2af9c0a873a8124184439fddf0f441f, type: 3}
   _meeting: {fileID: 22411512}
+  _gameStateMachine: {fileID: 1914059895}
 --- !u!1 &425287239
 GameObject:
   m_ObjectHideFlags: 0
@@ -17127,7 +17128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSateMachine: {fileID: 1914059895}
-  _currentGraph: {fileID: 11400000, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
+  _currentGraph: {fileID: 11400000, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}
@@ -17832,7 +17833,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _smartphone: {fileID: 68010062}
-  _artifactsManager: {fileID: 1933153247}
 --- !u!4 &1914059896
 Transform:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
     public void Construct(LocationsManager locationsManager, SaveLoadServise saveLoadServise, 
         CollectionPanel collectionPanel, TimesOfDayServise timesOfDayServise, GameStateMachine gameStateMachine)
     {
-        _artifactsFactory = new ArtifactsFactory(locationsManager, saveLoadServise, collectionPanel);
+        _artifactsFactory = new ArtifactsFactory(locationsManager, saveLoadServise, collectionPanel, _artifactData);
         _timesOfDayServise = timesOfDayServise;
         _saveLoadServise = saveLoadServise;
 
@@ -54,7 +54,7 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
     {
         _gameStateVisitor.UnsubsciribeFromGameStateMachine();
         _artifactsFactory.AllArtifactsCollected -= AccureRewards;
-        _artifactsFactory.Save();
+        _artifactsFactory.Dispose();
         Save();
     }
 
@@ -65,7 +65,7 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
             DateTime currentTime = _timesOfDayServise.CurrentTime;
             _nextTimeForResetCollection = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day + 1, 1, 0, 0);
 
-            _artifactsFactory.CreateCollectionQuest(_artifactData);
+            _artifactsFactory.ResetCollection();
         }
     }
 

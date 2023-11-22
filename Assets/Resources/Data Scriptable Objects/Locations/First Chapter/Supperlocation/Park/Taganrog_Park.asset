@@ -33,5 +33,6 @@ MonoBehaviour:
   _characterScale: {x: 0, y: 0, z: 0}
   _characterPoseType: 2
   _actionsOnLocation: 0100000002000000
+  <IsForArtifacts>k__BackingField: 1
   <Name>k__BackingField: "\u0410\u043B\u043B\u0435\u044F 1"
   <Superlocation>k__BackingField: {fileID: 11400000, guid: 83811c24ef18fdb45b2db8fa8a9bdbeb, type: 2}

@@ -16,16 +16,22 @@ MonoBehaviour:
     _dictionary: []
   _locationSpritesByDeyTime:
     _dictionary:
+    - <Key>k__BackingField: 0
+      <Value>k__BackingField: {fileID: 21300000, guid: f7090b0cace6a1242b2748fe9d75e9a5, type: 3}
     - <Key>k__BackingField: 1
       <Value>k__BackingField: {fileID: 21300000, guid: 4f70d2c5a727aae49834756fe2778164, type: 3}
+    - <Key>k__BackingField: 2
+      <Value>k__BackingField: {fileID: 21300000, guid: e9a8574490e6f394e8bb67d31bc8d617, type: 3}
   _artifactPositionVariations:
   - {x: 55, y: 55}
-  _itemsOnLocation: []
+  _itemsOnLocation:
+  - {fileID: 11400000, guid: ee53aa7fb8e0fa34db29f25e2148b9f5, type: 2}
   _questOnLocation: {fileID: 0}
   _isAvilable: 1
   _characterPosition: {x: 0, y: 0}
   _characterScale: {x: 0, y: 0, z: 0}
   _characterPoseType: 2
   _actionsOnLocation: 0100000002000000
+  <IsForArtifacts>k__BackingField: 1
   <Name>k__BackingField: "\u041A\u0430\u043C\u0435\u043D\u043D\u0430\u044F \u041B\u0435\u0441\u0442\u043D\u0438\u0446\u0430"
   <Superlocation>k__BackingField: {fileID: 11400000, guid: a4ed9c845d6189f4e8961832fe184c5d, type: 2}

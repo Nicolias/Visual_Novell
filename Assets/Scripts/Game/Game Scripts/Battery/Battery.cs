@@ -107,7 +107,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 
         int chargeToAdd = (int)(timeSinceLastOpened.TotalMinutes / 8);
 
-        _chargeLeve = Mathf.Clamp(data.ChargeLevel + chargeToAdd, 0, _maxCharge);
+        _chargeLeve =  Mathf.RoundToInt(data.ChargeLevel + chargeToAdd);
 
         OnValueChanged?.Invoke(_chargeLeve);
 

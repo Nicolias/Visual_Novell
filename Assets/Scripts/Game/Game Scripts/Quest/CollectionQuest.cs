@@ -21,6 +21,11 @@ public abstract class CollectionQuest<T> where T : ItemForCollection
     public event Action QuestCompleted;
     public abstract event Action<T> ItemCollected;
 
+    public void Dispose()
+    {
+        CollectionPanel.ItemSelected -= OnItemSelected;
+    }
+
     protected abstract void OnItemSelected(ItemForCollectionView selectdItemView, ItemForCollection selectedItemData);
 
     protected bool TryDeleteItem(ItemForCollectionView selectdItemView, ItemForCollection selectedItemData)

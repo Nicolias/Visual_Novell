@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Factory.Artifacts
@@ -11,6 +12,8 @@ namespace Factory.Artifacts
 
         private readonly CollectionPanel _collectionPanel;
 
+        private readonly Artifact _artifactData;
+
         private readonly int _artifactsForCollectionCount = 5;
         private readonly string _saveKey = "artrifactsSave";
 
@@ -19,44 +22,70 @@ namespace Factory.Artifacts
 
         private List<Artifact> _artifacts = new List<Artifact>();
                 
-        public ArtifactsFactory(LocationsManager locationsManager, SaveLoadServise saveLoadServise, CollectionPanel collectionPanel)
+        public ArtifactsFactory(LocationsManager locationsManager, SaveLoadServise saveLoadServise, CollectionPanel collectionPanel, Artifact artifactData)
         {
             _locationsManager = locationsManager;
             _saveLoadServise = saveLoadServise;
 
             _collectionPanel = collectionPanel;
 
+            _artifactData = artifactData;
+
             if (_saveLoadServise.HasSave(_saveKey))
                 Load();
+
+            for (int i = 0; i < _artifactsForCollectionCount - _collectedArtifactsCount; i++)
+                _artifacts.Add(artifactData);
+
+            CreateCollectionQuest();
         }
 
         public event Action AllArtifactsCollected;
 
-        public void CreateCollectionQuest(Artifact artifactData)
+        public void Dispose()
+        {
+            if (_collectionQuest != null)
+                _collectionQuest.ItemCollected -= OnItemCollected;
+
+            Save();
+        }
+
+        public void ResetCollection()
         {
             _collectedArtifactsCount = 0;
 
-            List<Location> availableLocations = new List<Location>(_locationsManager.AvailableLocations);
+            List<Location> availableLocations = new List<Location>(_locationsManager.AvailableLocations.Where(location => location.IsForArtifacts == true));
 
             if (availableLocations.Count == 0)
                 return;
-
-            for (int i = 0; i < _artifactsForCollectionCount - _collectedArtifactsCount; i++)
-                _artifacts.Add(artifactData);
 
             foreach (var location in _locationsManager.AllLocations)
                 location.DeleteArtifacts();
 
             for (int i = 0; i < _artifactsForCollectionCount - _collectedArtifactsCount; i++)
+                _artifacts.Add(_artifactData);
+
+            for (int i = 0; i < _artifactsForCollectionCount; i++)
             {
                 int locationIndex = UnityEngine.Random.Range(0, availableLocations.Count);
-                availableLocations[locationIndex].Add(artifactData);
+                availableLocations[locationIndex].Add(_artifacts[i]);
                 Debug.Log(availableLocations[locationIndex].Name);
                 availableLocations.RemoveAt(locationIndex);
             }
 
-            _collectionQuest = new CollectionArtifactsQuest(_artifacts, _collectionPanel);
-            _collectionQuest.ItemCollected += OnItemCollected;
+            CreateCollectionQuest();
+        }
+
+        private void CreateCollectionQuest()
+        {
+            if (_collectionQuest != null)
+                _collectionQuest.Dispose();
+
+            if (_collectedArtifactsCount < _artifactsForCollectionCount)
+            {
+                _collectionQuest = new CollectionArtifactsQuest(_artifacts, _collectionPanel);
+                _collectionQuest.ItemCollected += OnItemCollected;
+            }
         }
 
         private void OnItemCollected(Artifact itemForCollection)

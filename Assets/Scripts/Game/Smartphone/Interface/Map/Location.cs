@@ -35,6 +35,7 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
 
     private bool _isInitialized = false;
 
+    [field: SerializeField] public bool IsForArtifacts { get; private set; }
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public Superlocation Superlocation { get; private set; }
 
