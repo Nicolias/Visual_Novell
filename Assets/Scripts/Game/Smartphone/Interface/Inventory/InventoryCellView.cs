@@ -20,7 +20,7 @@ public class InventoryCellView : CellView
         _itemImage.sprite = data.ItemSpriteInInventory;
         _itemDiscription.text = data.Discription;
 
-        _itemImage.color = new(1, 1, 1, 1);
+        _itemImage.color = new Color(1, 1, 1, 1);
     }    
 
     public void Hide()
@@ -50,34 +50,39 @@ public class InventoryCell : AbstractCell<IItemForInventory>
 public class UsableInventoryCell : AbstractCell<IUseableItemForInventory>
 {
     private readonly InventoryCellView _cellView;
+    private readonly Battery _battery;
 
     private readonly Button _useEffectButton;
-    private readonly Battery _battery;
+    private readonly TMP_Text _useCountText;
 
     private int _usableCount;
 
-    public UsableInventoryCell(IUseableItemForInventory data, InventoryCellView cellView, Button useEffectButton, Battery battery) : base(data, cellView)
+    public UsableInventoryCell(IUseableItemForInventory data, InventoryCellView cellView, Button useEffectButton, TMP_Text useCountText, Battery battery) : base(data, cellView)
     {
-        _cellView = cellView;
-
-        _useEffectButton = useEffectButton;
         _battery = battery;
+
+        _cellView = cellView;
+        _useEffectButton = useEffectButton;
+        _useCountText = useCountText;
 
         _usableCount = data.UseCount;
     }
+
+    public int UsableCount => _usableCount;
 
     public override void Dispose()
     {
         base.Dispose();
 
         _useEffectButton.gameObject.SetActive(false);
+        _useCountText.text = "";
         _useEffectButton.onClick.RemoveAllListeners();
     }
 
     protected override void OnCellClicked()
     {
         _cellView.DisplayItemInformation(Data);
-
+        _useCountText.text = "Осталось использований: " + _usableCount.ToString();
         _useEffectButton.gameObject.SetActive(true);
         _useEffectButton.onClick.AddListener(OnClickedUseEffectButton);
     }
@@ -95,6 +100,8 @@ public class UsableInventoryCell : AbstractCell<IUseableItemForInventory>
         if (_usableCount == 0)
         {
             _cellView.Hide();
+            _useEffectButton.gameObject.SetActive(false);
+            _useCountText.text = "";
             _cellView.Destory();
         }
 

@@ -16,6 +16,7 @@ MonoBehaviour:
     \u044D\u043D\u0435\u0440\u0433\u0438\u0438 +60%"
   <ItemSpriteInInventory>k__BackingField: {fileID: 21300000, guid: 6b52f5aa333b8d14cb07071015fcd9e0, type: 3}
   <Discription>k__BackingField: 
-  <HaveEffect>k__BackingField: 0
+  <HaveEffect>k__BackingField: 1
+  <ID>k__BackingField: 2
   <BoostValue>k__BackingField: 20
   <UseCount>k__BackingField: 1

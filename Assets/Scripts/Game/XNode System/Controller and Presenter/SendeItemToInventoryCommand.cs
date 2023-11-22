@@ -15,7 +15,11 @@ public class SendeItemToInventoryCommand : ICommand
 
     public void Execute()
     {
-        _inventory.AddItemToInventory(_model.itemForInventory);
+        if (_model.itemForInventory is IUseableItemForInventory)
+            _inventory.AddItemToInventory(_model.itemForInventory as IUseableItemForInventory);
+        else
+            _inventory.AddItemToInventory(_model.itemForInventory);
+        
         Complete?.Invoke();
     }
 }
