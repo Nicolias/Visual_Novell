@@ -1,8 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveLoadServise : MonoBehaviour
 {
+    private List<ISaveLoadObject> _saveLoaderObjects = new List<ISaveLoadObject>();
+
+    public void Add(ISaveLoadObject saveLoadObject)
+    {
+        _saveLoaderObjects.Add(saveLoadObject);
+    }
+    
     public void Save<T>(string key, T saveData)
     {
         string jsonDataString = JsonUtility.ToJson(saveData, true);
@@ -30,5 +38,11 @@ public class SaveLoadServise : MonoBehaviour
     public bool HasSave(string key)
     {
         return PlayerPrefs.HasKey(key);
+    }
+
+    public void SaveAll()
+    {
+        foreach (ISaveLoadObject saveLoadObject in _saveLoaderObjects)
+            saveLoadObject.Save();
     }
 }

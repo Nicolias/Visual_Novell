@@ -26,20 +26,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="702c94c4-4276-4529-8354-7cdc5ebc8c67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InterfaceScripts/ILocationCellsFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InterfaceScripts/ILocationCellsFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Tests/MapTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Tests/MapTest.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data Scriptable Objects/Dialogs Data/12 In Park.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data Scriptable Objects/Dialogs Data/12 In Park.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data Scriptable Objects/Dialogs Data/13 In Cafe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data Scriptable Objects/Dialogs Data/13 In Cafe.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Game Resorurces/Image/Background/Menu Smartphone/capture_20231122220101044.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Game Resorurces/Image/Background/Menu Smartphone/capture_20231122220101044.bmp.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Game Resorurces/Image/Interface/Smartphone/Icone/ikonka_reklama.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Game Resorurces/Image/Interface/Smartphone/Icone/ikonka_reklama.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Visual Novell/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Visual Novell/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Visual Novell/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Visual Novell/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Data Scriptable Objects/Dialogs Data/Test Dialog Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data Scriptable Objects/Dialogs Data/Test Dialog Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Game Resorurces/Image/Background/Menu Smartphone/capture_20231114185211995.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Game Resorurces/Image/Background/Menu Smartphone/capture_20231114185211995.bmp.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Load.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Load.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prolog.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prolog.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Factory/LocationCellFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Factory/LocationCellFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Interface/Panels/ChoicePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Interface/Panels/ChoicePanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Map/LocationsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Map/LocationsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdsServise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdsServise.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Character/CharactersLibrary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Character/CharactersLibrary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Game Scripts/Battery/Battery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Game Scripts/Battery/Battery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Game Scripts/Wallet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Game Scripts/Wallet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Servises/AudioServise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Servises/AudioServise.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Servises/SaveLoadServise/ISaveLoadObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Servises/SaveLoadServise/ISaveLoadObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Servises/SaveLoadServise/SaveLoadServise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Servises/SaveLoadServise/SaveLoadServise.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Servises/StaticDataSaveLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Servises/StaticDataSaveLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/DUX/DUX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/DUX/DUX.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Inventory/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Inventory/Inventory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Map/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Map/Map.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/MessengerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/MessengerTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Messenger/Messenger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Messenger/Messenger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/MessengeIndicator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/MessengeIndicator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Smartphone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Smartphone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/Commander/Commander.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/Commander/Commander.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Background/BackgroundView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Background/BackgroundView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Character Portrait/CharacterPortraitView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Character Portrait/CharacterPortraitView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Text Input/NameInputView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Text Input/NameInputView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +71,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mobile.notifications@2.2.1/Editor/NotificationSettingsProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Game Scripts/Mini Games/MiniGameSelector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/XNode System/Nodes/PortraitModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Servises/SaveLoadServise/SaveLoadServise.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -65,20 +86,35 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/Interfaces/Character Potrait/ICharacterPortraitView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/Controller and Presenter/CharacterPortraitController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/Nodes/PortraitModelWithOffset.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Character Portrait/CharacterPortraitView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/Enum/CharacterPortraitPosition.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Interface/Panels/ChoicePanel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Map/LocationsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Factory/LocationCellFactory.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InterfaceScripts/IChatWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Map/LocationCell.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Map/Map.cs" />
         <option value="$PROJECT_DIR$/Assets/Tests/MapTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Servises/SaveLoadServise/SaveLoadServise.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/Commander/Commander.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/MessengeIndicator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/MenuBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Inventory/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Smartphone.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Game Scripts/Wallet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Background/BackgroundView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Character Portrait/CharacterPortraitView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Game Scripts/Battery/Battery.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Servises/AudioServise.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Map/Map.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Character/CharactersLibrary.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/DUX/DUX.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Smartphone/Interface/Messenger/Messenger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Servises/SaveLoadServise/ISaveLoadObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/Servises/StaticDataSaveLoader.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="2X6yX5M1cSHt3V4zqjJQ4DGNkUh" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -92,16 +128,15 @@
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30029732" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="RiderCSharpLiveTemplatesSettingsId" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="17692">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="17692" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -133,6 +168,9 @@
       <workItem from="1698204348938" duration="6480000" />
       <workItem from="1698221374158" duration="1350000" />
       <workItem from="1698483171725" duration="3523000" />
+      <workItem from="1700757730696" duration="1214000" />
+      <workItem from="1700759029801" duration="2289000" />
+      <workItem from="1700763842139" duration="10000" />
     </task>
     <servers />
   </component>
@@ -260,12 +298,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="641" y="111" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1697968213629" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1698483521552">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="369" y="86" key="SettingsEditor" timestamp="1700760189358">
+      <screen x="0" y="0" width="2048" height="1240" />
     </state>
     <state x="25" y="-1514" key="SettingsEditor/0.0.1536.824/-344.-1600.2048.1240@-344.-1600.2048.1240" timestamp="1698156101558" />
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-344.-1600.2048.1240@0.0.1536.824" timestamp="1698483521552" />
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1697969405313" />
+    <state x="369" y="86" key="SettingsEditor/0.0.2048.1240@0.0.2048.1240" timestamp="1700760189358" />
+    <state x="874" y="554" key="VCS.ChangelistChooser" timestamp="1700758709838">
+      <screen x="0" y="0" width="2048" height="1240" />
+    </state>
+    <state x="874" y="554" key="VCS.ChangelistChooser/0.0.2048.1240@0.0.2048.1240" timestamp="1700758709838" />
     <state x="-220" y="-1460" width="1800" height="961" key="VCS.FileHistoryDialog" timestamp="1698485198138">
       <screen x="-344" y="-1600" width="2048" height="1240" />
     </state>
@@ -283,11 +326,16 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="415" y="11" width="706" height="801" key="find.popup/0.0.1536.824/-344.-1600.2048.1240@0.0.1536.824" timestamp="1698216000291" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1698219051719">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1700759740235">
+      <screen x="0" y="0" width="2048" height="1240" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.0.2048.1240@0.0.2048.1240" timestamp="1700759740235" />
+    <state x="575" y="218" width="896" height="1021" key="search.everywhere.popup" timestamp="1700760005011">
+      <screen x="0" y="0" width="2048" height="1240" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-344.-1600.2048.1240@0.0.1536.824" timestamp="1698219051719" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1697964848467" />
+    <state x="575" y="218" width="896" height="1021" key="search.everywhere.popup/0.0.2048.1240@0.0.2048.1240" timestamp="1700760005011" />
     <state x="491" y="325" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1698208966575">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -298,13 +346,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Game/XNode System/View/Character Portrait/CharacterPortraitView.cs</url>
-          <line>100</line>
+          <line>101</line>
           <properties documentPath="D:\UnityProject\Visual Novell\Assets\Scripts\Game\XNode System\View\Character Portrait\CharacterPortraitView.cs" initialLine="100">
             <startOffsets>
-              <option value="3084" />
+              <option value="3099" />
             </startOffsets>
             <endOffsets>
-              <option value="3085" />
+              <option value="3100" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />

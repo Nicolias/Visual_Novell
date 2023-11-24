@@ -13,6 +13,8 @@ public class StaticDataSaveLoader : MonoBehaviour, ISaveLoadObject
     {
         _saveLoadServise = saveLoadServise;
         _staticData = staticData;
+        
+        Add();
     }
 
     private void OnEnable()
@@ -30,6 +32,11 @@ public class StaticDataSaveLoader : MonoBehaviour, ISaveLoadObject
     {
         var data = _saveLoadServise.Load<SaveData.BaseData>(_saveKey);
         _staticData.Load(data);
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

@@ -16,6 +16,8 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
 
     private void OnEnable()
     {
+        Add();
+        
         _accureMoneyPanel.OnClosed += CallBack;
 
         if (_saveLoadServise.HasSave(_saveKey))
@@ -31,7 +33,7 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
 
     public void Accure(int money)
     {
-        if (money <= 0) throw new InvalidOperationException("Начисленно 0 денег");
+        if (money <= 0) throw new InvalidOperationException("РќР°С‡РёСЃР»РµРЅРЅРѕ 0 РґРµРЅРµРі");
         _accureMoneyPanel.PrintAccureMoney(money);
 
         _amountMoney += money;
@@ -40,7 +42,7 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
     public void Decreese(int money)
     {
         if (money <= 0) throw new InvalidOperationException();
-        if (_amountMoney <= 0) throw new InvalidOperationException("Недостаточно средств");
+        if (_amountMoney <= 0) throw new InvalidOperationException("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ");
 
         _amountMoney -= money;
     }
@@ -48,6 +50,11 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
     private void CallBack()
     {
         OnAccureCompleted?.Invoke();
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

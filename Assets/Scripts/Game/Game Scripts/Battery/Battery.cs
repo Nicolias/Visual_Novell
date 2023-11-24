@@ -20,6 +20,8 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 
     private void OnEnable()
     {
+        Add();
+        
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
         else
@@ -77,6 +79,11 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         }
 
         _isTimer = false;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

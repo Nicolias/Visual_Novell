@@ -21,6 +21,8 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
 
     private void OnEnable()
     {
+        Add();
+        
         WebApplication.InBackgroundChangeEvent += Silence;
     }
 
@@ -99,6 +101,11 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
     {
         AudioListener.pause = silence;
         AudioListener.volume = silence ? 0 : 1;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

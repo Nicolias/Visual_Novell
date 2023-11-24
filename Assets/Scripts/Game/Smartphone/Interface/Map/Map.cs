@@ -30,13 +30,15 @@ public class Map : MonoBehaviour, ISaveLoadObject
     [SerializeField] private GameObject _guidPanel;
     private bool _guidComplete;
 
-    private List<LocationCell> _locationCells = new();
+    private List<LocationCell> _locationCells = new List<LocationCell>();
     private Location _currentLocation;
 
     private const string _saveKey = "MapSave";
 
     private void Awake()
     {
+        Add();
+        
         for (int i = 0; i < _locations.Count; i++)
             _locations[i].Initialize(_background, _collectionPanel);
     }
@@ -131,9 +133,9 @@ public class Map : MonoBehaviour, ISaveLoadObject
 
     private void OnLocationSelect(Location location, Action action)
     {
-        _choicePanel.Show($"Перейти на локацию {location.Name}", new()
+        _choicePanel.Show($"Перейти на локацию {location.Name}", new List<ChoiseElement>()
         {
-            new("Подвердить", () => 
+            new ChoiseElement("Подвердить",  () => 
             {
                 if (_currentLocation != null)
                     _currentLocation.Dispose();
@@ -143,14 +145,19 @@ public class Map : MonoBehaviour, ISaveLoadObject
                 _choicePanel.Hide();
                 _smartphone.Hide();
                 _currentLocation = location;
-
                 if (_currentLocation.QuestOnLocation != null)
                 {
                     _gameCommander.PackAndExecuteCommand(_currentLocation.QuestOnLocation);
                     _currentLocation.StartQuest();
                 }
+
             })
         });
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

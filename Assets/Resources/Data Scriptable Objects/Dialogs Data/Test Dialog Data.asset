@@ -34,7 +34,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 1346460952919327116}
+        node: {fileID: 893897399598506874}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -57,8 +57,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -6625962740309449323}
-  - {fileID: 1346460952919327116}
---- !u!114 &1346460952919327116
+  - {fileID: 893897399598506874}
+--- !u!114 &893897399598506874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 776c94b67f2600f4c97edf47f0a4ed33, type: 3}
-  m_Name: Background Model
+  m_Script: {fileID: 11500000, guid: f29986ec2d4f16c4aa945c2a9a2f1fec, type: 3}
+  m_Name: Name Input Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 776, y: 8}
@@ -78,7 +78,7 @@ MonoBehaviour:
     - _outPut
     values:
     - _fieldName: _inPut
-      _node: {fileID: 1346460952919327116}
+      _node: {fileID: 893897399598506874}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -90,7 +90,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: _outPut
-      _node: {fileID: 1346460952919327116}
+      _node: {fileID: 893897399598506874}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -100,4 +100,3 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 38547555dfd5ed1499963f4bee9b6a95, type: 3}

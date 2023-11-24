@@ -22,13 +22,14 @@ public class Inventory : MonoBehaviour, ISaveLoadObject
     [SerializeField] private Image _itamImage;
 
     private Canvas _selfCanvas;
-    private List<ItemForCollection> _items = new();
+    private List<ItemForCollection> _items = new List<ItemForCollection>();
 
     private const string _saveKey = "InventorySave";
 
     private void Awake()
     {
         _selfCanvas = GetComponent<Canvas>();
+        Add();
     }
 
     private void OnEnable()
@@ -68,6 +69,11 @@ public class Inventory : MonoBehaviour, ISaveLoadObject
 
         var itemCell = _di.InstantiatePrefabForComponent<InventoryCell>(_inventoryCell, _itemCellsContainer);
         itemCell.Initialize(itemData, _itamImage, _itemDiscription);
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

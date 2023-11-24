@@ -17,6 +17,8 @@ public class DUX : MonoBehaviour, ISaveLoadObject
 
     private void Awake()
     {
+        Add();
+        
         _openDUXButton = GetComponent<Button>();
     }
 
@@ -57,6 +59,11 @@ public class DUX : MonoBehaviour, ISaveLoadObject
     public void SetEnabled(bool enabled)
     {
         _openDUXButton.enabled = enabled;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

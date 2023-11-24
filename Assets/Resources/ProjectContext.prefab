@@ -95,3 +95,4 @@ MonoBehaviour:
   _charactersLibrary: {fileID: 8315552502562017731, guid: 955988d044b2c5a48aa261ca46517603, type: 3}
   _coroutineServise: {fileID: 1376940366168555733, guid: cf0467157a6256d4bbe89b9095894419, type: 3}
   _dUXWindow: {fileID: 1470999570783338434, guid: 031edbb68f34905468dd135bbdfc4abb, type: 3}
+  _adsServise: {fileID: 2238188773494080036, guid: 15cac02e4edb4d249a6ae4002c23e89a, type: 3}

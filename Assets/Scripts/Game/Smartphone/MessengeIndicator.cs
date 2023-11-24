@@ -18,6 +18,7 @@ public class MessengeIndicator : MonoBehaviour, ISaveLoadObject
     private void Awake()
     {
         _indicationSequence = DOTween.Sequence();
+        Add();
     }
 
     private void OnEnable()
@@ -60,6 +61,11 @@ public class MessengeIndicator : MonoBehaviour, ISaveLoadObject
     {
         _indicationSequence.Restart();
         _indicationSequence.Pause();
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

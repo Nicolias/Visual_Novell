@@ -7,6 +7,7 @@ public class ServiseInstaller : MonoInstaller
     [SerializeField] private CharactersLibrary _charactersLibrary;
     [SerializeField] private CoroutineServise _coroutineServise;
     [SerializeField] private DUXWindow _dUXWindow;
+    [SerializeField] private AdsServise _adsServise;
 
     public override void InstallBindings()
     {
@@ -14,5 +15,6 @@ public class ServiseInstaller : MonoInstaller
         Container.Bind<CharactersLibrary>().FromInstance(_charactersLibrary).AsSingle().NonLazy();
         Container.Bind<DUXWindow>().FromComponentsInNewPrefab(_dUXWindow).AsSingle().NonLazy();
         Container.Bind<CoroutineServise>().FromComponentsInNewPrefab(_coroutineServise).AsSingle();
+        Container.Bind<AdsServise>().FromComponentInNewPrefab(_adsServise).AsSingle().NonLazy();
     }
 }

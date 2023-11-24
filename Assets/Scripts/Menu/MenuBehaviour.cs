@@ -16,7 +16,7 @@ public class MenuBehaviour : ISaveLoadObject
     {
         _saveLoadServise = saveLoadServise;
 
-        _states = new()
+        _states = new List<BaseState>()
         {
             new NewGameState(newOrContinueGameButton, menuButtons, saveLoadServise, Save),
             new ContinueGameState(newOrContinueGameButton, menuButtons),
@@ -25,19 +25,8 @@ public class MenuBehaviour : ISaveLoadObject
 
         _quitGamePanel = quitGamePanel;
 
+        Add();
         Load();
-    }
-
-    public void OpenMainMenu()
-    {
-        if (_saveLoadServise.HasSave(_saveKey))
-        {
-            Switch<ContinueGameState>();
-        }
-        else
-        {
-            Switch<NewGameState>();
-        }
     }
 
     public void OpenSetting()
@@ -66,8 +55,25 @@ public class MenuBehaviour : ISaveLoadObject
         OpenMainMenu();
     }
 
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
+    }
+
     public void Save()
     {
         _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = true });
+    }
+
+    private void OpenMainMenu()
+    {
+        if (_saveLoadServise.HasSave(_saveKey))
+        {
+            Switch<ContinueGameState>();
+        }
+        else
+        {
+            Switch<NewGameState>();
+        }
     }
 }

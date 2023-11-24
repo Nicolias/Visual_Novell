@@ -9,6 +9,7 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Adaptive Performance" t="Include">
+          <e p="Provider" t="Include" />
           <e p="Settings" t="Include" />
         </e>
         <e p="Plugins" t="Include">
@@ -18,7 +19,6 @@
                 <e p="Imgs" t="Include" />
               </e>
               <e p="Modules" t="Include">
-                <e p="DOTween.Modules.asmdef" t="Include" />
                 <e p="DOTweenModuleAudio.cs" t="Include" />
                 <e p="DOTweenModuleEPOOutline.cs" t="Include" />
                 <e p="DOTweenModulePhysics.cs" t="Include" />
@@ -28,10 +28,8 @@
                 <e p="DOTweenModuleUnityVersion.cs" t="Include" />
                 <e p="DOTweenModuleUtils.cs" t="Include" />
               </e>
-              <e p="readme.txt" t="Include" />
             </e>
           </e>
-          <e p="dll" t="Include" />
           <e p="TextMesh Pro" t="Include">
             <e p="Documentation" t="Include" />
             <e p="Examples &amp; Extras" t="Include">
@@ -657,6 +655,155 @@
                 <e p="ZenjectTestUtil.cs" t="Include" />
                 <e p="ZenjectUnitTestFixture.cs" t="Include" />
               </e>
+              <e p="UnitTests" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="BindFeatures" t="Include">
+                    <e p="TestBindingInheritanceMethod.cs" t="Include" />
+                    <e p="TestConcreteIdentifier.cs" t="Include" />
+                    <e p="TestIfNotBound.cs" t="Include" />
+                    <e p="TestMoveIntoAllSubContainers.cs" t="Include" />
+                    <e p="TestMoveIntoDirectSubContainers.cs" t="Include" />
+                    <e p="TestMultipleContractTypes.cs" t="Include" />
+                    <e p="TestMultipleContractTypes2.cs" t="Include" />
+                    <e p="TestMultipleContractTypes3.cs" t="Include" />
+                    <e p="TestNonLazy.cs" t="Include" />
+                    <e p="TestRebind.cs" t="Include" />
+                    <e p="TestUnbind.cs" t="Include" />
+                    <e p="TestWithArguments.cs" t="Include" />
+                  </e>
+                  <e p="Bindings" t="Include">
+                    <e p="TestFrom.cs" t="Include" />
+                    <e p="TestFromFactory.cs" t="Include" />
+                    <e p="TestFromGetter.cs" t="Include" />
+                    <e p="TestFromIFactory.cs" t="Include" />
+                    <e p="TestFromIFactory2.cs" t="Include" />
+                    <e p="TestFromInstance.cs" t="Include" />
+                    <e p="TestFromMethod.cs" t="Include" />
+                    <e p="TestFromMethodMultiple.cs" t="Include" />
+                    <e p="TestFromMethodMultipleUntyped.cs" t="Include" />
+                    <e p="TestFromResolve.cs" t="Include" />
+                    <e p="TestFromSubContainerInstaller.cs" t="Include" />
+                    <e p="TestFromSubContainerInstance.cs" t="Include" />
+                    <e p="TestFromSubContainerInstanceGetter.cs" t="Include" />
+                    <e p="TestFromSubContainerMethod.cs" t="Include" />
+                    <e p="TestNonGeneric.cs" t="Include" />
+                    <e p="TestWithKernel.cs" t="Include" />
+                  </e>
+                  <e p="Conditions" t="Include">
+                    <e p="TestConditionsBasic.cs" t="Include" />
+                    <e p="TestConditionsComplex.cs" t="Include" />
+                    <e p="TestConditionsFieldName.cs" t="Include" />
+                    <e p="TestConditionsIdentifier.cs" t="Include" />
+                    <e p="TestConditionsParents.cs" t="Include" />
+                    <e p="TestConditionsTarget.cs" t="Include" />
+                    <e p="TestConditionsTargetInstance.cs" t="Include" />
+                    <e p="TestIdentifiers.cs" t="Include" />
+                    <e p="TestIdentifierTypes.cs" t="Include" />
+                  </e>
+                  <e p="Conventions" t="Include">
+                    <e p="Foo.cs" t="Include" />
+                    <e p="FooMore.cs" t="Include" />
+                    <e p="TestConvention.cs" t="Include" />
+                    <e p="TestConvention2.cs" t="Include" />
+                    <e p="TestConventionNames.cs" t="Include" />
+                  </e>
+                  <e p="Factories" t="Include">
+                    <e p="Bindings" t="Include">
+                      <e p="TestFactoryFrom0.cs" t="Include" />
+                      <e p="TestFactoryFrom1.cs" t="Include" />
+                      <e p="TestFactoryFrom5.cs" t="Include" />
+                      <e p="TestFactoryFromFactory0.cs" t="Include" />
+                      <e p="TestFactoryFromFactory1.cs" t="Include" />
+                      <e p="TestFactoryFromGetter0.cs" t="Include" />
+                      <e p="TestFactoryFromInstance0.cs" t="Include" />
+                      <e p="TestFactoryFromMethod0.cs" t="Include" />
+                      <e p="TestFactoryFromMethod1.cs" t="Include" />
+                      <e p="TestFactoryFromResolve0.cs" t="Include" />
+                      <e p="TestFactoryFromSubContainerInstaller0.cs" t="Include" />
+                      <e p="TestFactoryFromSubContainerInstaller1.cs" t="Include" />
+                      <e p="TestFactoryFromSubContainerMethod0.cs" t="Include" />
+                      <e p="TestFactoryFromSubContainerMethod1.cs" t="Include" />
+                      <e p="TestFactoryWithArguments.cs" t="Include" />
+                    </e>
+                    <e p="IFactory" t="Include">
+                      <e p="TestIFactory.cs" t="Include" />
+                    </e>
+                    <e p="TestFactory.cs" t="Include" />
+                  </e>
+                  <e p="Injection" t="Include">
+                    <e p="TestAllInjectionTypes.cs" t="Include" />
+                    <e p="TestBaseClassPropertyInjection.cs" t="Include" />
+                    <e p="TestCircularDependencies.cs" t="Include" />
+                    <e p="TestConstructorInjection.cs" t="Include" />
+                    <e p="TestConstructorInjectionOptional.cs" t="Include" />
+                    <e p="TestDuplicateInjection.cs" t="Include" />
+                    <e p="TestInjectSources.cs" t="Include" />
+                    <e p="TestListInjection.cs" t="Include" />
+                    <e p="TestNullableValues.cs" t="Include" />
+                    <e p="TestParameters.cs" t="Include" />
+                    <e p="TestPostInjectCall.cs" t="Include" />
+                    <e p="TestPostInjectParameters.cs" t="Include" />
+                    <e p="TestPropertyInjection.cs" t="Include" />
+                    <e p="TestStructInjection.cs" t="Include" />
+                    <e p="TestTestOptional.cs" t="Include" />
+                  </e>
+                  <e p="MemoryPool" t="Include">
+                    <e p="TestArrayPool.cs" t="Include" />
+                    <e p="TestDisposeBlock.cs" t="Include" />
+                    <e p="TestFromPoolableMemoryPoolOne.cs" t="Include" />
+                    <e p="TestFromPoolableMemoryPoolSix.cs" t="Include" />
+                    <e p="TestFromPoolableMemoryPoolValidation.cs" t="Include" />
+                    <e p="TestFromPoolableMemoryPoolZero.cs" t="Include" />
+                    <e p="TestMemoryPool0.cs" t="Include" />
+                    <e p="TestMemoryPoolCustomFactory.cs" t="Include" />
+                    <e p="TestPoolableStaticMemoryPool.cs" t="Include" />
+                    <e p="TestStaticMemoryPool.cs" t="Include" />
+                  </e>
+                  <e p="Other" t="Include">
+                    <e p="TestAllocs.cs" t="Include" />
+                    <e p="TestAsSingle.cs" t="Include" />
+                    <e p="TestBindCallbacks.cs" t="Include" />
+                    <e p="TestCircularDependencies.cs" t="Include" />
+                    <e p="TestClearCacheProvider.cs" t="Include" />
+                    <e p="TestCustomInjectAttribute.cs" t="Include" />
+                    <e p="TestDecorators.cs" t="Include" />
+                    <e p="TestDecoratorValidation.cs" t="Include" />
+                    <e p="TestFacadeSubContainer.cs" t="Include" />
+                    <e p="TestFactoryMemoryPoolCustomInterface.cs" t="Include" />
+                    <e p="TestGenericContract.cs" t="Include" />
+                    <e p="TestKeyedFactoryExample.cs" t="Include" />
+                    <e p="TestLazy.cs" t="Include" />
+                    <e p="TestNestedContainer.cs" t="Include" />
+                    <e p="TestPoolableManager.cs" t="Include" />
+                    <e p="TestResolve.cs" t="Include" />
+                    <e p="TestResolveMany.cs" t="Include" />
+                    <e p="TestSubContainers.cs" t="Include" />
+                    <e p="TestSubContainers4.cs" t="Include" />
+                    <e p="TestTaskUpdater.cs" t="Include" />
+                    <e p="TestTestUtil.cs" t="Include" />
+                    <e p="TestTransientMockProvider.cs" t="Include" />
+                    <e p="TestValidation.cs" t="Include" />
+                    <e p="TestValidationSettings.cs" t="Include" />
+                    <e p="ZenjectProfileTest.cs" t="Include" />
+                  </e>
+                  <e p="Profiling" t="Include">
+                    <e p="TestInstantiateApproaches.cs" t="Include" />
+                  </e>
+                  <e p="Signals" t="Include">
+                    <e p="TestAsyncSignals.cs" t="Include" />
+                    <e p="TestBindSignal.cs" t="Include" />
+                    <e p="TestSignalIdentifiers.cs" t="Include" />
+                    <e p="TestSignalRuntimeDeclaration.cs" t="Include" />
+                    <e p="TestSignals1.cs" t="Include" />
+                    <e p="TestSignalsAdvanced.cs" t="Include" />
+                  </e>
+                  <e p="Util" t="Include">
+                    <e p="TestListComparer.cs" t="Include" />
+                  </e>
+                  <e p="Zenject-UnitTests-Editor.asmdef" t="Include" />
+                </e>
+                <e p="readme.txt" t="Include" />
+              </e>
             </e>
             <e p="package.json" t="Include" />
             <e p="Source" t="Include">
@@ -1037,10 +1184,6 @@
               <e p="Сonstellations" t="Include" />
             </e>
             <e p="Items Scriptable Object" t="Include" />
-            <e p="Locations" t="Include">
-              <e p="First Chapter" t="Include" />
-              <e p="Prolog" t="Include" />
-            </e>
           </e>
           <e p="Game Resorurces" t="Include">
             <e p="Audio" t="Include">
@@ -1051,8 +1194,6 @@
             <e p="Image" t="Include">
               <e p="Background" t="Include">
                 <e p="Menu Smartphone" t="Include" />
-                <e p="Prolog" t="Include" />
-                <e p="Taganrog" t="Include" />
               </e>
               <e p="Character" t="Include">
                 <e p="Avatar" t="Include" />
@@ -1064,12 +1205,6 @@
                     <e p="Tea" t="Include" />
                   </e>
                   <e p="Fortune" t="Include" />
-                  <e p="Liza" t="Include">
-                    <e p="1" t="Include" />
-                    <e p="2" t="Include" />
-                    <e p="3" t="Include" />
-                    <e p="Sits" t="Include" />
-                  </e>
                 </e>
               </e>
               <e p="Interface" t="Include">
@@ -1092,6 +1227,7 @@
         </e>
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="AdsServise.cs" t="Include" />
           <e p="Game" t="Include">
             <e p="ChangerAvatar.cs" t="Include" />
             <e p="Character" t="Include">
@@ -1123,7 +1259,6 @@
                 <e p="MiniGame.cs" t="Include" />
                 <e p="MiniGameSelector.cs" t="Include" />
                 <e p="Rock-Paper-Scissors" t="Include">
-                  <e p="AbstractMiniGame.cs" t="Include" />
                   <e p="RockPaperScissors.cs" t="Include" />
                   <e p="RockPaperScissorsGame.cs" t="Include" />
                   <e p="RockPaperScissorsType.cs" t="Include" />
@@ -1146,14 +1281,13 @@
             </e>
             <e p="Interface" t="Include">
               <e p="Collection" t="Include">
+                <e p="BackpackItem.cs" t="Include" />
                 <e p="CollectionPanel.cs" t="Include" />
+                <e p="ItemForCollection.cs" t="Include" />
                 <e p="ItemForCollectionView.cs" t="Include" />
-                <e p="Scriptable Objects" t="Include">
-                  <e p="BackpackItem.cs" t="Include" />
-                  <e p="ItemForCollection.cs" t="Include" />
-                  <e p="KeyItem.cs" t="Include" />
-                  <e p="StarItem.cs" t="Include" />
-                </e>
+                <e p="ItemView.cs" t="Include" />
+                <e p="KeyItem.cs" t="Include" />
+                <e p="StarItem.cs" t="Include" />
               </e>
               <e p="Item.cs" t="Include" />
               <e p="Panels" t="Include">
@@ -1167,11 +1301,10 @@
               <e p="AudioServise.cs" t="Include" />
               <e p="ClickerZone.cs" t="Include" />
               <e p="CoroutineServise.cs" t="Include" />
+              <e p="FactoryInstaller.cs" t="Include" />
+              <e p="GameComponentInstaller.cs" t="Include" />
               <e p="MonoInstallers" t="Include">
-                <e p="FactoryInstaller.cs" t="Include" />
-                <e p="GameComponentInstaller.cs" t="Include" />
                 <e p="ProjectInstaller.cs" t="Include" />
-                <e p="ServiseInstaller.cs" t="Include" />
                 <e p="UI" t="Include">
                   <e p="UIInstaller.cs" t="Include" />
                 </e>
@@ -1179,6 +1312,7 @@
               <e p="SaveLoadServise" t="Include">
                 <e p="Data" t="Include">
                   <e p="AudioData.cs" t="Include" />
+                  <e p="BaseData.cs" t="Include" />
                   <e p="BatterySaveData.cs" t="Include" />
                   <e p="BoolData.cs" t="Include" />
                   <e p="CharacterData.cs" t="Include" />
@@ -1195,7 +1329,9 @@
                 <e p="ISaveLoadObject.cs" t="Include" />
                 <e p="SaveLoadServise.cs" t="Include" />
               </e>
+              <e p="ServiseInstaller.cs" t="Include" />
               <e p="StaticData.cs" t="Include" />
+              <e p="StaticDataSaveLoader.cs" t="Include" />
               <e p="TellegrammLink.cs" t="Include" />
               <e p="TimesOfDayServise.cs" t="Include" />
               <e p="TimesOfDayType.cs" t="Include" />
@@ -1226,20 +1362,20 @@
                 <e p="Map" t="Include">
                   <e p="Location.cs" t="Include" />
                   <e p="LocationCell.cs" t="Include" />
-                  <e p="LocationsManager.cs" t="Include" />
+                  <e p="LocationType.cs" t="Include" />
                   <e p="Map.cs" t="Include" />
                 </e>
                 <e p="Messenger" t="Include">
                   <e p="Chat.cs" t="Include" />
-                  <e p="ChatWindow.cs" t="Include" />
-                  <e p="ContactData.cs" t="Include" />
-                  <e p="ContactViewInMessenger.cs" t="Include" />
+                  <e p="ChatView.cs" t="Include" />
+                  <e p="ContactElement.cs" t="Include" />
                   <e p="Messege.cs" t="Include" />
                   <e p="MessegeData.cs" t="Include" />
                   <e p="MessegeFactory.cs" t="Include" />
                   <e p="MessegeSenderType.cs" t="Include" />
                   <e p="MessegeView.cs" t="Include" />
                   <e p="Messenger.cs" t="Include" />
+                  <e p="MessengerContact.cs" t="Include" />
                   <e p="MessengerWindow.cs" t="Include" />
                 </e>
               </e>
@@ -1263,6 +1399,7 @@
                 <e p="CharacterPortraitController.cs" t="Include" />
                 <e p="ChoicesPresentar.cs" t="Include" />
                 <e p="CollectionQuestController.cs" t="Include" />
+                <e p="ContinueStoryCommand.cs" t="Include" />
                 <e p="DecreeseStoregeValueCommand.cs" t="Include" />
                 <e p="DialogSpeechPresenter.cs" t="Include" />
                 <e p="EnebledController.cs" t="Include" />
@@ -1272,9 +1409,9 @@
                 <e p="MonologSpeechPresenter.cs" t="Include" />
                 <e p="NameInputPresenter.cs" t="Include" />
                 <e p="QuizPresenter.cs" t="Include" />
-                <e p="RemoveAndAddLocationCommand.cs" t="Include" />
                 <e p="SetQuestOnLocationCommand.cs" t="Include" />
                 <e p="SetTimeOnSmartphoneCommand.cs" t="Include" />
+                <e p="ShowInterstaionCommand.cs" t="Include" />
                 <e p="Smartphone" t="Include">
                   <e p="Messenger" t="Include" />
                   <e p="MessengerDialogPresenter.cs" t="Include" />
@@ -1340,6 +1477,7 @@
                 <e p="ChapterCaptionModel.cs" t="Include" />
                 <e p="ChoiceModel.cs" t="Include" />
                 <e p="CollectQuestModel.cs" t="Include" />
+                <e p="ContinueStoryModel.cs" t="Include" />
                 <e p="DecreeseEnergyModel.cs" t="Include" />
                 <e p="DecreeseMoneyModel.cs" t="Include" />
                 <e p="DialogSpeechModel.cs" t="Include" />
@@ -1350,10 +1488,9 @@
                 <e p="MonologSpeechModel.cs" t="Include" />
                 <e p="NameInputModel.cs" t="Include" />
                 <e p="PortraitModel.cs" t="Include" />
-                <e p="PortraitModelWithOffset.cs" t="Include" />
                 <e p="QuizModel.cs" t="Include" />
-                <e p="RemoveOrAddLocation.cs" t="Include" />
                 <e p="SetQuestOnLocationModel.cs" t="Include" />
+                <e p="ShowInterstationModel.cs" t="Include" />
                 <e p="Smartphone" t="Include">
                   <e p="ChangeDialogDataModel.cs" t="Include" />
                   <e p="NewDialogInSmartphoneModel.cs" t="Include" />
@@ -1398,12 +1535,7 @@
               </e>
             </e>
           </e>
-          <e p="InterfaceScripts" t="Include">
-            <e p="IChatWindow.cs" t="Include" />
-            <e p="IInventory.cs" t="Include" />
-            <e p="ILocationCellsFactory.cs" t="Include" />
-            <e p="IMessengerWindow.cs" t="Include" />
-          </e>
+          <e p="LoadMenuScene.cs" t="Include" />
           <e p="Menu" t="Include">
             <e p="BaseState.cs" t="Include" />
             <e p="ContinueGameState.cs" t="Include" />
@@ -1416,23 +1548,15 @@
             <e p="TimeGetter.cs" t="Include" />
             <e p="WorldTimeAPIManager.cs" t="Include" />
           </e>
-          <e p="Tests" t="Include" />
-          <e p="VisualNovell.asmdef" t="Include" />
         </e>
-        <e p="Tests" t="Include">
-          <e p="CollectionSystem.cs" t="Include" />
-          <e p="MapTest.cs" t="Include" />
-          <e p="MessengerTests.cs" t="Include" />
-          <e p="Tests.asmdef" t="Include" />
+        <e p="WebGLTemplates" t="Include">
+          <e p="FullscreenWindow" t="Include" />
         </e>
       </e>
-      <e p="DOTween.Modules.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
-      <e p="Tests.csproj" t="IncludeRecursive" />
       <e p="Visual Novell.sln" t="IncludeFlat" />
-      <e p="VisualNovell.csproj" t="IncludeRecursive" />
       <e p="XNode.csproj" t="IncludeRecursive" />
       <e p="XNodeEditor.csproj" t="IncludeRecursive" />
       <e p="Zenject-Editor.csproj" t="IncludeRecursive" />
@@ -1441,6 +1565,7 @@
       <e p="Zenject-PoolMonitor-Editor.csproj" t="IncludeRecursive" />
       <e p="Zenject-ReflectionBaking-Editor.csproj" t="IncludeRecursive" />
       <e p="Zenject-TestFramework.csproj" t="IncludeRecursive" />
+      <e p="Zenject-UnitTests-Editor.csproj" t="IncludeRecursive" />
       <e p="Zenject.csproj" t="IncludeRecursive" />
     </e>
   </component>

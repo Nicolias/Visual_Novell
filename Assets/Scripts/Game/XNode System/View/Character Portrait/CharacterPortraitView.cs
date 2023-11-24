@@ -24,6 +24,7 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISav
     private void Awake()
     {
         _colors = new Color[2] { new Color(1, 1, 1, 1), new Color(1, 1, 1, 0) };
+        Add();
     }
 
     private void OnEnable()
@@ -127,6 +128,11 @@ public class CharacterPortraitView : MonoBehaviour, ICharacterPortraitView, ISav
         newCharacterImage.color = _colors[0];
 
         return newCharacterImage;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

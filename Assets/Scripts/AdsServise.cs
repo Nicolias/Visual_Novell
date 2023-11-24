@@ -7,7 +7,6 @@ using System;
 
 public class AdsServise : MonoBehaviour
 {
-    [SerializeField] private Button _showAdsButton;
     [SerializeField] private int _prizeForWatchAds;
 
     private AudioServise _audioServise;
@@ -41,15 +40,8 @@ public class AdsServise : MonoBehaviour
         OnShowStickyAdButtonClick();
     }
 
-    private void OnEnable()
-    {
-        _showAdsButton.onClick.AddListener(() => ShowAdAndAccrue(100));
-    }
-
     private void OnDisable()
     {
-        _showAdsButton.onClick.RemoveAllListeners();
-
         StopAllCoroutines();
     }
 
@@ -58,23 +50,25 @@ public class AdsServise : MonoBehaviour
         PlayerAccount.AuthorizedInBackground -= OnAuthorizedInBackground;
     }
 
-    private void ShowAdAndAccrue(int prize)
+    public void ShowAdAndAccrue()
     {
         _audioServise.Silence(true);
 
         VideoAd.Show(onRewardedCallback: () =>
         {
-            prize = 0;
+            _staticData.OnAdsShowed();
             _audioServise.Silence(false);
         });
     }
 
     public void OnShowInterstitialButtonClick()
-    { 
+    {
+        _audioServise.Silence(true);
+
         InterstitialAd.Show(onCloseCallback: (boo) =>
         {
-            _staticData.OnAdsShowed();
             AdsShowed?.Invoke();
+            _audioServise.Silence(false);
         });
     }
 

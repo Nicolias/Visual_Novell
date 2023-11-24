@@ -16,6 +16,8 @@ public class CharactersLibrary : MonoBehaviour, ISaveLoadObject
     [Inject]
     public void Construct()
     {
+        Add();
+        
         if (_saveLoadServise.HasSave(_saveKey))
         {
             _allCharacters = new();
@@ -47,6 +49,11 @@ public class CharactersLibrary : MonoBehaviour, ISaveLoadObject
     {
         var character = _allCharacters.Find(x => x.CharacterType == characterType);
         character.DecreesSympathyPoints(pointsAmount);
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

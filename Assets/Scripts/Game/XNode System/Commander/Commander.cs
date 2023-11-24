@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using XNode;
 using Zenject;
@@ -18,12 +19,17 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
 
     protected abstract string SaveKey { get; }
 
-    private void OnDisable()
+    private void Start()
+    {
+        Add();
+    }
+
+    private void OnDestroy()
     {
         if (_curent.command != null)
             _curent.command.Completed -= Next;
 
-        Save();
+        //Save();
     }
 
     public void PackAndExecuteCommand(Node node)
@@ -35,10 +41,10 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
 
     private void Next()
     {
+        SaveLoadServise.SaveAll();
+        
         if (_curent.command != null)
-        {
             _curent.command.Completed -= Next;
-        }
 
         NodePort port = _curent.node.GetPort("_outPut").Connection;
 
@@ -52,6 +58,11 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
     }
 
     protected abstract (ICommand, Node) Packing(Node node);
+
+    public void Add()
+    {
+        SaveLoadServise.Add(this);
+    }
 
     public void Save()
     {

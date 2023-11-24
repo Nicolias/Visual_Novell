@@ -31,6 +31,8 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
 
     private void OnEnable()
     {
+        Add();
+        
         _openMesengerButton.onClick.AddListener(() => _messengerWindow.Show());
 
         if (_saveLoadServise.HasSave(_saveKey))
@@ -99,6 +101,11 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
         }
 
         _messegeDatas.Add(_currentMessege);
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

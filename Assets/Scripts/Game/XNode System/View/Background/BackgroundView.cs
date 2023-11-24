@@ -23,6 +23,8 @@ public class BackgroundView : MonoBehaviour, ISaveLoadObject
 
     private void OnEnable()
     {
+        Add();
+        
         if(_saveLoadServise.HasSave(_saveKey))
             Load();
     }
@@ -54,6 +56,11 @@ public class BackgroundView : MonoBehaviour, ISaveLoadObject
                 .AppendCallback(() => OnPicturChanged?.Invoke())
                 .Play();
         }
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()

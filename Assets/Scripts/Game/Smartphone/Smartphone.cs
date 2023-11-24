@@ -12,11 +12,14 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
 
     [Inject] private SaveLoadServise _saveLoadServise;
     [Inject] private Map _map;
+    [Inject] private AdsServise _adsServise;
 
     [SerializeField] private Button _openButton, _closeButton;
     [SerializeField] private Canvas _selfCanvas;
 
     [SerializeField] private DialogSpeechView _dialogSpeechView;
+
+    [SerializeField] private Button _showAdsButton;
 
     [SerializeField] private Messenger _messenger;
     [SerializeField] private DUX _dux;
@@ -37,12 +40,18 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
 
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
+
+        _showAdsButton.onClick.AddListener(() => _adsServise.ShowAdAndAccrue());
+
+        Add();
     }
 
     private void OnDisable()
     {
         _closeButton.onClick.RemoveAllListeners();
         _openButton.onClick.RemoveAllListeners();
+
+        _showAdsButton.onClick.RemoveAllListeners();
 
         Save();
     }
@@ -100,6 +109,11 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
         _openButton.image.color = new(1, 1, 1, 1);
         _dialogSpeechView.gameObject.SetActive(true);
         OnClosed?.Invoke();
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()
