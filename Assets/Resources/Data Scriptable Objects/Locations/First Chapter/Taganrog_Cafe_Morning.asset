@@ -28,7 +28,7 @@ MonoBehaviour:
   _questOnLocation: {fileID: 0}
   _isAvilable: 1
   _characterPosition: {x: 6, y: 90}
-  _characterScale: {x: 0.8, y: 0.8, z: 0.8}
+  _characterScale: {x: 0.32, y: 0.32, z: 0.32}
   _characterPoseType: 1
   _actionsOnLocation: 010000000300000002000000
   <IsForArtifacts>k__BackingField: 1

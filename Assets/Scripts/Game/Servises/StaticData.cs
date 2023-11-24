@@ -13,7 +13,7 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
     private Dictionary<int, int> _needPointsToRichLevel = new()
     {
         {1, 999 },
-        {2, 100},
+        {2, 1999},
         {3, 200 }
     };
 

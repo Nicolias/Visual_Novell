@@ -1978,6 +1978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _smartphoneWindowType: 2
   _openButton: {fileID: 1018865292}
+  _guidPanel: {fileID: 0}
   _map: {fileID: 1062876907}
   _charactersRenderer: {fileID: 415884106}
   _meeting: {fileID: 22411512}
@@ -8953,9 +8954,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _closeButton: {fileID: 182615942}
   _products:
-  - <Name>k__BackingField: "\u0417\u0435\u043B\u0435\u043D\u044B\u0439 \u0447\u0430\u0439"
-    <Price>k__BackingField: 60
-    <SympathyPointsBonus>k__BackingField: 4
+  - {fileID: 11400000, guid: 45656c6e29890f349b834d4aae9b5e73, type: 2}
+  - {fileID: 11400000, guid: 093dc6ce4d6e7e345a1214a5accc4113, type: 2}
+  - {fileID: 11400000, guid: 3ecb1ef5141184e4284605e9c1cdd10d, type: 2}
+  - {fileID: 11400000, guid: 13b890970a66b0540b5423cb51f19b9b, type: 2}
+  - {fileID: 11400000, guid: ce61fb3f34440e240b0701cc5d152a82, type: 2}
+  - {fileID: 11400000, guid: fa881614bcc9bd9489d629c48c1880b0, type: 2}
+  - {fileID: 11400000, guid: b58a3e612592eb740ad1fbccdad63f1d, type: 2}
+  - {fileID: 11400000, guid: daf8f78759d9ba44bafaa30dcdfca4c6, type: 2}
+  - {fileID: 11400000, guid: 8412d2500cce7204d9d4555f1bf8581f, type: 2}
+  - {fileID: 11400000, guid: f2e650716d7ee6844b765c6272723e6f, type: 2}
+  - {fileID: 11400000, guid: c77406a64b9c54442b92469aa217d5bf, type: 2}
   _productsCellsContainer: {fileID: 512754541}
 --- !u!224 &860286787
 RectTransform:
@@ -10746,12 +10755,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _smartphoneWindowType: 0
   _openButton: {fileID: 572216650}
+  _guidPanel: {fileID: 209580086}
   _containerForCells: {fileID: 860184873}
   _gameCommander: {fileID: 1814440475}
   _characterRenderer: {fileID: 415884106}
   _closeButton: {fileID: 655249167}
   _selfCanvas: {fileID: 1062876904}
-  _guidPanel: {fileID: 209580086}
 --- !u!1 &1084765052
 GameObject:
   m_ObjectHideFlags: 0
@@ -17527,7 +17536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSateMachine: {fileID: 1914059895}
-  _currentGraph: {fileID: 11400000, guid: 19fb0d93ccb0ffa449b3148fddf4b367, type: 2}
+  _currentGraph: {fileID: 11400000, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}
@@ -18957,6 +18966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _smartphoneWindowType: 1
   _openButton: {fileID: 1992101979}
+  _guidPanel: {fileID: 0}
 --- !u!1 &2010641881
 GameObject:
   m_ObjectHideFlags: 0

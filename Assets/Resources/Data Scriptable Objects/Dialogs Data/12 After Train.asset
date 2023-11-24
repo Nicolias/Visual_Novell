@@ -346,6 +346,7 @@ MonoBehaviour:
     _dictionary:
     - <Key>k__BackingField: 0
       <Value>k__BackingField: 1
+  <IsShowGuid>k__BackingField: 0
 --- !u!114 &-4011951998206371680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,7 +730,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <LocationsForAdd>k__BackingField:
-  - {fileID: 11400000, guid: 1330c5bf8320c264199c021649382a19, type: 2}
+  - {fileID: 11400000, guid: 44c51856e8193cc4380cef6f683ab070, type: 2}
   <LocationsForRemove>k__BackingField: []
 --- !u!114 &529565622910799852
 MonoBehaviour:
@@ -977,7 +978,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <Quest>k__BackingField: {fileID: -3810660642304138491, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
-  <Location>k__BackingField: {fileID: 11400000, guid: 1330c5bf8320c264199c021649382a19, type: 2}
+  <Location>k__BackingField: {fileID: 11400000, guid: 44c51856e8193cc4380cef6f683ab070, type: 2}
 --- !u!114 &3889553492406239535
 MonoBehaviour:
   m_ObjectHideFlags: 0

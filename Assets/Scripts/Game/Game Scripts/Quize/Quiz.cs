@@ -7,22 +7,26 @@ public class Quiz : ICloseable
     private CharactersLibrary _characterLibrary;
     private Character _currentCharacter;
 
+    private Wallet _wallet;
+
     private CharacterType _characterType;
 
     private QuizView _quizView;
 
-    private int _sympathyPointsByWin = 2;
+    private int _moneyByWin = 5;
 
-    private int _sympathyPointsByLose = 1;
+    private int _sympathyPointsByWin = 2;
+    private int _sympathyPointsByLose = 0;
 
     public event Action<int> CharacterSympathyPointsChanged;
     public event Action Closed;
 
-    public Quiz(CharactersLibrary characterLibrary, QuizView quizView)
+    public Quiz(CharactersLibrary characterLibrary, QuizView quizView, Wallet wallet)
     {
         _characterLibrary = characterLibrary;
-
         _quizView = quizView;
+
+        _wallet = wallet;
 
         _quizView.AnswerCorrected += AccureSympathy;
         _quizView.AnswerUncorrected += DecreesSympathy;
@@ -37,6 +41,9 @@ public class Quiz : ICloseable
 
     public void Enter(CharacterType characterType, bool canBeClose)
     {
+        if (_quizView.CanBeStarted(HideQuiz) == false)
+            return;
+
         if (canBeClose)
         {
             _quizView.ShowCloseButton();
@@ -51,6 +58,7 @@ public class Quiz : ICloseable
     private void AccureSympathy()
     {
         _characterLibrary.AddPointsTo(_characterType, _sympathyPointsByWin);
+        _wallet.Accure(_moneyByWin);
 
         _quizView.ShowQuestion(_currentCharacter);
 

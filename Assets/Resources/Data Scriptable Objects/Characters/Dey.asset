@@ -18,5 +18,14 @@ MonoBehaviour:
     _amountPoints: 0
     _level: 0
   _characterType: 0
+  _dialogSpeech:
+    <Avatar>k__BackingField: {fileID: 0}
+    <IsImmediatelyNextNode>k__BackingField: 0
+    <Text>k__BackingField: 
+    <SpeakerName>k__BackingField: 
+  _favoriteFood: {fileID: 11400000, guid: ce61fb3f34440e240b0701cc5d152a82, type: 2}
+  _favoriteLocation: {fileID: 0}
   <Images>k__BackingField:
-    <SittingBench>k__BackingField: {fileID: 0}
+    _dictionary: []
+  <CurrentLocation>k__BackingField:
+    _dictionary: []

@@ -11,6 +11,13 @@ namespace MiniGameNamespace
         [Inject] protected readonly DiContainer Di;
         [Inject] protected readonly ChoicePanel ChoicePanel;
         [Inject] protected readonly Battery Battery;
+        [Inject] private readonly Wallet _wallet;
+
+        private readonly int _sympathyByWin = 3;
+        private readonly int _sympathyByDraw = 2;
+        private readonly int _sympathyByLose = 1;
+
+        private readonly int _moneyByWin = 5;
 
         [field: SerializeField] public string GameName { get; private set; }
 
@@ -38,22 +45,23 @@ namespace MiniGameNamespace
 
         private void OnGameWin()
         {
-            OnGameResult(WinSpeech);
+            _wallet.Accure(_moneyByWin);
+            OnGameResult(WinSpeech, _sympathyByWin);
         }
 
         private void OnGameLose()
         {
-            OnGameResult(LoseSpeech);
+            OnGameResult(LoseSpeech, _sympathyByLose);
         }
 
         private void OnGameDrawn()
         {
-            OnGameResult(DrawnSpeech);
+            OnGameResult(DrawnSpeech, _sympathyByDraw);
         }
 
-        private void OnGameResult(string resultCharacterSpeech)
+        private void OnGameResult(string resultCharacterSpeech, int sympathyScore)
         {
-            CurrentCharacter.AccureSympathyPoints(1);
+            CurrentCharacter.AccureSympathyPoints(sympathyScore);
 
             ChoicePanel.Show(resultCharacterSpeech, new List<ChoiseElement>()
             { new ChoiseElement( "Дальше...", () => EndGame())});

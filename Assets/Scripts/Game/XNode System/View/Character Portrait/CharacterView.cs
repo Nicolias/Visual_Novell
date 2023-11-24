@@ -39,6 +39,8 @@ public class CharacterView : MonoBehaviour, ICharacterView, IByStateMachineChang
 
         _gameStateVisitor = new GameStateVisitor(gameStateMachine, this);
         enabled = true;
+
+        _gameStateVisitor.RecognizeCurrentGameState();
     }
 
     private void Awake()

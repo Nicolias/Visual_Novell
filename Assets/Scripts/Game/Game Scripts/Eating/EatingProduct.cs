@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public class EatingProduct : IDataForCell
+[CreateAssetMenu(fileName = "Food", menuName = "Foods")]
+public class EatingProduct : ScriptableObject, IDataForCell
 {
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public int Price { get; private set; }

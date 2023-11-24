@@ -17,6 +17,10 @@ public class EnebledController : IController
     {
         _view.ChangeEnabled(_model.Windows);
 
+        if (_model.IsShowGuid)
+            for (int i = 0; i < _model.Windows.Count; i++)
+                _view.ShowGuid( _model.Windows.GetKey(i));
+
         Complete?.Invoke();
     }
 }

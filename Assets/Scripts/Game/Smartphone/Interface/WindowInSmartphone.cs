@@ -7,6 +7,7 @@ public abstract class WindowInSmartphone : MonoBehaviour
     [SerializeField] private SmartphoneWindows _smartphoneWindowType;
 
     [SerializeField] private Button _openButton;
+    [SerializeField] private GameObject _guidPanel;
 
     protected SaveLoadServise SaveLoadServise { get; private set; }
 
@@ -37,6 +38,12 @@ public abstract class WindowInSmartphone : MonoBehaviour
     public virtual void SetOpenButtonEnabled(bool enabled)
     {
         _openButton.enabled = enabled;
+    }
+
+    public void ShowGuid()
+    {
+        if(_guidPanel != null)
+            _guidPanel.SetActive(true);
     }
 
     protected virtual void OnEnabled(){ }

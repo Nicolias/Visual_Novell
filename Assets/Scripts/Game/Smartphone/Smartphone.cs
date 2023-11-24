@@ -85,9 +85,21 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
         {
             SmartphoneWindows appType = windowsEnabled.GetKey(i);
 
-            if (_apps.Exists(app => app.Type == appType))
-                _apps.Find(app => app.Type == appType).SetOpenButtonEnabled(windowsEnabled.GetValue(i));
+            GetWindow(appType).SetOpenButtonEnabled(windowsEnabled.GetValue(i));
         }
+    }
+
+    public void ShowGuid(SmartphoneWindows window)
+    {
+        GetWindow(window).ShowGuid();
+    }
+
+    private WindowInSmartphone GetWindow(SmartphoneWindows type)
+    {
+        if (_apps.Exists(app => app.Type == type))
+            return _apps.Find(app => app.Type == type);
+
+        return null;
     }
 
     private void Show()

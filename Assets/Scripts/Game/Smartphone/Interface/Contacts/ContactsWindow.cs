@@ -17,6 +17,11 @@ public class ContactsWindow : WindowInSmartphone
     [SerializeField] private List<Character> _contacts = new List<Character>();
     [SerializeField] private Transform _characterCellsContainer;
 
+    private Battery _battery;
+
+    private int _startMeetingCost = 10;
+    private int _meetingSympathyBonus = 1;
+
     private Canvas _selfCanvas;
     private ChoicePanel _choicePanel;
 
@@ -25,12 +30,15 @@ public class ContactsWindow : WindowInSmartphone
     private List<Cell<Character>> _characterCells = new List<Cell<Character>>();
 
     [Inject]
-    public void Construct(LocationsManager locationsManager, CellsFactoryCreater cellsFactoryCreater, IChoicePanelFactory choicePanelFactory)
+    public void Construct(LocationsManager locationsManager, CellsFactoryCreater cellsFactoryCreater, 
+        IChoicePanelFactory choicePanelFactory, Battery battery)
     {
          _characterCells = cellsFactoryCreater.CreateCellsFactory<Character>().CreateCellsView(_contacts, _characterCellsContainer);
         _choicePanel = choicePanelFactory.CreateChoicePanel(transform);
 
         _locationsManager = locationsManager;
+
+        _battery = battery;
     }
 
     private void Awake()
@@ -84,15 +92,27 @@ public class ContactsWindow : WindowInSmartphone
 
         foreach (var locationForMeeting in _locationsManager.AvailableLocations)
         {
-            ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => MoveTo(selectedCharacter, locationForMeeting));
+            ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => TryMoveTo(selectedCharacter, locationForMeeting));
             choiseElements.Add(choiseElement);
         }
 
         return choiseElements;
     }
 
-    private void MoveTo(Character character, Location location)
+    private void TryMoveTo(Character character, Location location)
     {
+        if (_battery.ChargeLevel < _startMeetingCost)
+        {
+            _choicePanel.Show("Недостаточно энергии", new List<ChoiseElement>()
+            {
+                new ChoiseElement("Принять", null)
+            });
+            return;
+        }
+
+        character.Invite(location, _meetingSympathyBonus);
+        _battery.Decreese(_startMeetingCost);
+
         _map.ChangeLocation(location);
         _charactersRenderer.Show(location.Get(character));
 

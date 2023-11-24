@@ -16,9 +16,6 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     [SerializeField] private Button _closeButton;
     [SerializeField] private Canvas _selfCanvas;
 
-    [SerializeField] private GameObject _guidPanel;
-    private bool _guidComplete;
-
     private LocationCellsContainer _cellsCreater;
     private SaveLoadServise _saveLoadServise;
 
@@ -70,17 +67,6 @@ public class Map : WindowInSmartphone, ISaveLoadObject
         _cellsCreater.Remove(locations);
     }
 
-    public override void SetOpenButtonEnabled(bool enabled)
-    {
-        base.SetOpenButtonEnabled(enabled);
-
-        if (_guidComplete == false)
-        {
-            _guidPanel.SetActive(true);
-            _guidComplete = true;
-        }
-    }
-
     public void ChangeLocation(Location location)
     {
         if (_currentLocation != null)
@@ -106,7 +92,6 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
         _saveLoadServise.Save(_saveKey, new SaveData.MapData()
         {
-            GuidComplete = _guidComplete,
             CurrentLocationIndex = currentLocatoinIndex
         });
     }
@@ -117,8 +102,6 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
         if (data.CurrentLocationIndex != -1)
             _currentLocation = _locations[data.CurrentLocationIndex];
-
-        _guidComplete = data.GuidComplete;
     }
 
     protected override void OnOpenButtonClicked()

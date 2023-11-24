@@ -15,7 +15,7 @@ public class MiniGameSelector : MonoBehaviour, ICloseable
     [SerializeField] private TMP_Text _sympathyCounter;
     [SerializeField] private TMP_Text _chargeCounter;
     [SerializeField] private List<MiniGame> _miniGames;
-    [SerializeField] private int _startGameCost;
+    [SerializeField] private int _startGameCost = 5;
 
     private Character _currentCharacter;
 

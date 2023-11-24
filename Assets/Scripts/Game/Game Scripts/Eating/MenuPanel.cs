@@ -5,48 +5,51 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class MenuPanel : MonoBehaviour
+namespace EatingSystem
 {
-    [SerializeField] private Button _closeButton;
-
-    [SerializeField] private List<EatingProduct> _products = new List<EatingProduct>();
-    [SerializeField] private Transform _productsCellsContainer;
-
-    private ICellsFactory<EatingProduct> _productCellsFactory;
-    private List<Cell<EatingProduct>> _productCells;
-
-    public event Action<EatingProduct> ProductSelected;
-    public event Action Closed;
-
-    [Inject]
-    public void Construct(CellsFactoryCreater cellsFactory)
+    public class MenuPanel : MonoBehaviour
     {
-        _productCellsFactory = cellsFactory.CreateCellsFactory<EatingProduct>();
-    }
+        [SerializeField] private Button _closeButton;
 
-    public void Open()
-    {
-        if(_productCells == null)
-            _productCells = _productCellsFactory.CreateCellsView(_products, _productsCellsContainer);
+        [SerializeField] private List<EatingProduct> _products = new List<EatingProduct>();
+        [SerializeField] private Transform _productsCellsContainer;
 
-        foreach (var productCell in _productCells)
-            productCell.Clicked += OnProductCellClicked;
+        private ICellsFactory<EatingProduct> _productCellsFactory;
+        private List<Cell<EatingProduct>> _productCells;
 
-        _closeButton.onClick.AddListener(Close);
-    }
+        public event Action<EatingProduct> ProductSelected;
+        public event Action Closed;
 
-    private void Close()
-    {
-        foreach (var productCell in _productCells)
-            productCell.Clicked -= OnProductCellClicked;
+        [Inject]
+        public void Construct(CellsFactoryCreater cellsFactory)
+        {
+            _productCellsFactory = cellsFactory.CreateCellsFactory<EatingProduct>();
+        }
 
-        _closeButton.onClick.RemoveListener(Close);
+        public void Open()
+        {
+            if (_productCells == null)
+                _productCells = _productCellsFactory.CreateCellsView(_products, _productsCellsContainer);
 
-        Closed?.Invoke();
-    }
+            foreach (var productCell in _productCells)
+                productCell.Clicked += OnProductCellClicked;
 
-    private void OnProductCellClicked(EatingProduct product)
-    {
-        ProductSelected?.Invoke(product);
+            _closeButton.onClick.AddListener(Close);
+        }
+
+        private void Close()
+        {
+            foreach (var productCell in _productCells)
+                productCell.Clicked -= OnProductCellClicked;
+
+            _closeButton.onClick.RemoveListener(Close);
+
+            Closed?.Invoke();
+        }
+
+        private void OnProductCellClicked(EatingProduct product)
+        {
+            ProductSelected?.Invoke(product);
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace QuizSystem
     public class QuizView : MonoBehaviour
     {
         [Inject] private QuestionFactory _questionFactory;
+        [Inject] private Battery _battery;
 
         [SerializeField] private TMP_Text _currentSympathyText;
         [SerializeField] private ChoicePanel _choisePanel;
@@ -23,6 +24,8 @@ namespace QuizSystem
         [SerializeField] private Sprite _uncorrectButtonSprite;
 
         [SerializeField] private Button _closeButton;
+
+        private int _startQuizCost = 5;
 
         private Character _currentCharacter;
         private List<ChoiceButton> _uncorrectButtons;
@@ -39,6 +42,20 @@ namespace QuizSystem
             _canvas.enabled = false;
             _choisePanel.Hide();
             _currentCharacter.SympathyPointsChanged -= UpdateSympathyPointsText;
+        }
+
+        public bool CanBeStarted(Action hideCanvas)
+        {
+            if (_battery.ChargeLevel < _startQuizCost)
+            {
+                _choisePanel.Show("Недостаточно энергии", new List<ChoiseElement>()
+                {
+                    new ChoiseElement("Принять", hideCanvas)
+                });
+                return false;
+            }
+
+            return true;
         }
 
         public void ShowQuestion(Character character)

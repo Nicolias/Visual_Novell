@@ -1,4 +1,5 @@
 using Characters;
+using EatingSystem;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -90,7 +91,7 @@ public class Eating : MonoBehaviour, ICloseable
         {
             _wallet.Decreese(product.Price);
 
-            _currentCharacter.AccureSympathyPoints(product.SympathyPointsBonus);
+            _currentCharacter.Feed(product);
             _choicePanel.Hide();
         }
         else

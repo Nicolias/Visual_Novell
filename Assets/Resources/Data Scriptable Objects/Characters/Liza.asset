@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: "\u041B\u0438\u0437\u0430"
   _sympathy:
     _staticData: {fileID: 2296899151798057738, guid: e6db747f68570ce4a812c6df77df7332, type: 3}
-    _amountPoints: 0
+    _amountPoints: 50
     _level: 0
   _characterType: 3
   _dialogSpeech:
@@ -23,6 +23,8 @@ MonoBehaviour:
     <IsImmediatelyNextNode>k__BackingField: 0
     <Text>k__BackingField: "\u041F\u043E\u043A\u0430!"
     <SpeakerName>k__BackingField: "\u041B\u0438\u0437\u0430"
+  _favoriteFood: {fileID: 11400000, guid: c77406a64b9c54442b92469aa217d5bf, type: 2}
+  _favoriteLocation: {fileID: 0}
   <Images>k__BackingField:
     _dictionary:
     - <Key>k__BackingField: 3
