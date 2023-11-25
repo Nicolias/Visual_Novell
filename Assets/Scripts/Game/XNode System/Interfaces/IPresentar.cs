@@ -1,1 +1,4 @@
-﻿public interface IPresentar : ICommand { }
+﻿using System;
+
+public interface IPresentar : ICommand
+{ }

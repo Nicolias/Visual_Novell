@@ -96,7 +96,7 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
         }
     }
 
-    private void Show()
+    public void Show()
     {
         _selfCanvas.enabled = true;
         _openButton.image.color = new(1, 1, 1, 0);

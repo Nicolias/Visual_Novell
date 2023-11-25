@@ -10,6 +10,11 @@ public class SaveLoadServise : MonoBehaviour
     {
         _saveLoaderObjects.Add(saveLoadObject);
     }
+
+    public void ClearAllObjects()
+    {
+        _saveLoaderObjects.Clear();
+    }
     
     public void Save<T>(string key, T saveData)
     {

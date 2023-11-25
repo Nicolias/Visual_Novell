@@ -30,6 +30,8 @@ public class GameCommander : Commander, ICommanderVisitor
 
     [SerializeField] private AccureItemPanel _accureItemPanel;
 
+    [SerializeField] private InterstionPanel _interstionPanel;
+
     private (ICommand command, Node node) _result;
 
     protected override string SaveKey => "GameCommanderSave";
@@ -211,7 +213,7 @@ public class GameCommander : Commander, ICommanderVisitor
 
     public void Visit(ShowInterstationModel showInterstationModel)
     {
-        _result.command = DI.Instantiate<ShowInterstaionCommand>();
+        _result.command = new ShowInterstaionCommand(_interstionPanel);
     }
 
     public void Visit(ContinueStoryModel continueStoryModel)

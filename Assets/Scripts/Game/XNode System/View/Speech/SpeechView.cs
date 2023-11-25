@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -14,21 +15,16 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
     [SerializeField] private float _timeBetweenShowNewCharInDialog;
     [SerializeField] private TMP_Text _speechText;
 
-    private ShowTextStatus _showStatus;
     private WaitForSeconds _waitForSeconds;
+
+    private ShowTextStatus _showStatus;
     private StringBuilder _stringBuilder;
 
+    private string _currentText;
+
+    private List<IEnumerator> _enumerators = new List<IEnumerator>();
+
     public ShowTextStatus ShowStatus => _showStatus;
-
-    private void OnEnable()
-    {
-        _clickerZone.OnClick += OnCallBack;
-    }
-
-    private void OnDisable()
-    {
-        _clickerZone.OnClick -= OnCallBack;
-    }
 
     private void Awake()
     {
@@ -36,23 +32,44 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
         _stringBuilder = new();
     }
 
-    public virtual void Show(ISpeechModel model)
+    private void OnEnable()
     {
-        _selfCanvas.enabled = true;
+        _clickerZone.OnClick += OnCallBack;
 
-        _stringBuilder.Clear();
-        _showStatus = ShowTextStatus.Complete;
+        StartCoroutine(ShowEnumerators());
+    }
 
-        StopAllCoroutines();
+    private void OnDisable()
+    {
+        _clickerZone.OnClick -= OnCallBack;
 
-        _speechText.text = model.Text;
+        StopCoroutine(ShowEnumerators());
+        _enumerators.Clear();
     }
 
     public virtual void ShowSmooth(ISpeechModel model)
     {
-        _selfCanvas.enabled = true;
+        _currentText = model.Text;
 
-        StartCoroutine(ShowingSpeechSmooth(model.Text));
+        if (gameObject.activeInHierarchy)
+            StartCoroutine(ShowingSpeechSmooth());
+        else
+            _enumerators.Add(ShowingSpeechSmooth());
+
+    }
+
+    public virtual void Show(ISpeechModel speechModel)
+    {
+        if (_currentText == null)
+            throw new InvalidOperationException("Сначало нужно показывать текст плавно");
+
+        StopAllCoroutines();
+
+        _selfCanvas.enabled = true;
+        _showStatus = ShowTextStatus.Complete;
+        _stringBuilder.Clear();
+
+        _speechText.text = _currentText;
     }
 
     public void Hide()
@@ -68,11 +85,12 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
         OnClick?.Invoke();
     }
 
-    protected IEnumerator ShowingSpeechSmooth(string speechText)
+    private IEnumerator ShowingSpeechSmooth()
     {
+        _selfCanvas.enabled = true;
         _showStatus = ShowTextStatus.Showing;
 
-        foreach (char charInDialog in speechText)
+        foreach (char charInDialog in _currentText)
         {
             yield return _waitForSeconds;
             _stringBuilder.Append(charInDialog);
@@ -82,5 +100,13 @@ public abstract class SpeechView : MonoBehaviour, ISpeechView
 
         _showStatus = ShowTextStatus.Complete;
         _stringBuilder.Clear();
+    }
+
+    private IEnumerator ShowEnumerators()
+    {
+        for (int i = 0; i < _enumerators.Count; i++)
+            yield return _enumerators[i];
+
+        _enumerators.Clear();
     }
 }

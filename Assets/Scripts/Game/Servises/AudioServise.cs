@@ -16,6 +16,8 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
     private const string _musicSaveKey = "MusicAudioSave";
     private const string _soundSaveKey = "SoundAudioSave";
 
+    private int _isSilensCount = 0;
+
     public AudioSource CurrentMusic { get; private set; }
     public AudioSource CurrentSound { get; private set; }
 
@@ -99,8 +101,17 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
 
     public void Silence(bool silence)
     {
-        AudioListener.pause = silence;
-        AudioListener.volume = silence ? 0 : 1;
+        if (silence == false && _isSilensCount > 0)
+            _isSilensCount--;
+
+        if (_isSilensCount == 0)
+        {
+            AudioListener.pause = silence;
+            AudioListener.volume = silence ? 0 : 1;
+        }
+
+        if (silence == true)
+            _isSilensCount++;
     }
 
     public void Add()

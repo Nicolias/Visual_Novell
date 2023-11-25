@@ -44,6 +44,7 @@ public class BackgroundView : MonoBehaviour, ISaveLoadObject
         {
             sequnce
                 .Append(_image.DOColor(new(1, 1, 1, 0), _closeDuration))
+                .AppendCallback(() => _image.sprite = sprite)
                 .AppendCallback(() => OnPicturChanged?.Invoke())
                 .Play();
         }

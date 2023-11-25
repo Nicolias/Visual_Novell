@@ -2,24 +2,24 @@
 
 public class ShowInterstaionCommand : ICommand
 {
-    private readonly AdsServise _adsServise;
+    private readonly InterstionPanel _interstaialPanel;
 
-    public ShowInterstaionCommand(AdsServise adsServise)
+    public ShowInterstaionCommand(InterstionPanel interstationPanel)
     {
-        _adsServise = adsServise;
+        _interstaialPanel = interstationPanel;
     }
 
     public event Action Completed;
 
     public void Execute()
     {
-        _adsServise.OnShowInterstitialButtonClick();
-        _adsServise.AdsShowed += OnShowed;
+        _interstaialPanel.ShowAds();
+        _interstaialPanel.AdsShowed += OnShowed;
     }
 
     private void OnShowed()
     {
-        _adsServise.AdsShowed -= OnShowed;
+        _interstaialPanel.AdsShowed -= OnShowed;
         Completed?.Invoke();
     }
 }

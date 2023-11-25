@@ -42,7 +42,6 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
     private void OnDisable()
     {
         _openMesengerButton.onClick.RemoveAllListeners();
-        Save();
     }
 
     public void AddNewMessege(MessegeData newMessege)
@@ -110,6 +109,8 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
 
     public void Save()
     {
+        Debug.Log("Save()");
+
         _saveLoadServise.Save(_saveKey, new SaveData.IntData() { Int = _messegeDatas.Count });
 
         for (int i = 0; i < _messegeDatas.Count; i++)
@@ -124,6 +125,9 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
 
     public void Load()
     {
+
+        Debug.Log("Load");
+
         var count = _saveLoadServise.Load<SaveData.IntData>(_saveKey).Int;
 
         for (int i = 0; i < count; i++)

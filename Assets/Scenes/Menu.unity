@@ -1548,7 +1548,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 101.06, y: -0}
+  m_AnchoredPosition: {x: 101.06, y: 0}
   m_SizeDelta: {x: 13.72, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1075419354
@@ -2571,7 +2571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 101.06, y: -0}
+  m_AnchoredPosition: {x: 101.06, y: 0}
   m_SizeDelta: {x: 13.72, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680665117
@@ -2783,7 +2783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.36067918, y: 0.30576557}
   m_AnchorMax: {x: 0.63565445, y: 0.55735785}
-  m_AnchoredPosition: {x: -1.734436, y: -1.0970297}
+  m_AnchoredPosition: {x: -1.734436, y: -1.0970306}
   m_SizeDelta: {x: -2.4973488, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1687794174
@@ -3071,7 +3071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.9110001, y: 0.85800004}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0927124, y: 0.25631714}
+  m_AnchoredPosition: {x: 0.0927124, y: 0.25628662}
   m_SizeDelta: {x: -0.18517303, y: -0.50271034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1848105047
@@ -3233,6 +3233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894053059}
   - component: {fileID: 1894053058}
+  - component: {fileID: 1894053060}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -3253,7 +3254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 1894053060}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -3286,6 +3288,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1894053060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894053057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e4fa81a2d38184a82d8e0c546a0881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1932968431
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,7 +3510,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 159.9
+  m_fontSize: 141.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -22,6 +22,11 @@ public class StaticData : MonoBehaviour
     public List<QuizElement> QuizQuestion => _quizQuestion;
     public bool ShowNextStory => _currentAdsShowCount >= _maxAdsShowCount;
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     public int HowManyPointesNeedForReach(int level)
     {
         return _needPointsToRichLevel[level];
