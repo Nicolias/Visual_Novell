@@ -18241,6 +18241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _smartphone: {fileID: 68010062}
+  _freePlaySound: {fileID: 8300000, guid: 0b995dd42514e984ca69de6ab22ff2b1, type: 3}
 --- !u!4 &1914059896
 Transform:
   m_ObjectHideFlags: 0

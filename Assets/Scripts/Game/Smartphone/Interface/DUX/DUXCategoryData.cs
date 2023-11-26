@@ -8,9 +8,15 @@ public class DUXCategoryData : ScriptableObject
     [SerializeField] private string _discriptoin;
     [field: SerializeField] public string CategoryName { get; private set; }
     [field: SerializeField] public List<DUXCategoryData> Subcategories { get; private set; }
+
     public string Discription => _discriptoin;
 
     public virtual void Accept(IDUXVisitor visitor)
     {
+    }
+
+    public virtual bool IsBlocked(CharactersLibrary charactersLibrary)
+    {
+        return false;
     }
 }

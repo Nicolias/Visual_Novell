@@ -9,6 +9,7 @@ namespace StateMachine
     public class GameStateMachine : MonoBehaviour, ISaveLoadObject
     {
         [SerializeField] private Smartphone _smartphone;
+        [SerializeField] private AudioClip _freePlaySound;
 
         private SaveLoadServise _saveLoadServise;
 
@@ -22,14 +23,14 @@ namespace StateMachine
         public event Action StateChanged;
 
         [Inject]
-        public void Construct(SaveLoadServise saveLoadServise)
+        public void Construct(SaveLoadServise saveLoadServise, AudioServise audioServise)
         {
             _saveLoadServise = saveLoadServise;
 
             _allStates = new List<BaseState>()
             {
                 new StoryState(_smartphone),
-                new PlayState()
+                new PlayState(audioServise, _freePlaySound)
             };
 
             ChangeState<StoryState>();

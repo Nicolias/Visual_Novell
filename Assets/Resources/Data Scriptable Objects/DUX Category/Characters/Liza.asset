@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e5f73ff2b6568488d1a93d8495141d, type: 3}
+  m_Name: Liza
+  m_EditorClassIdentifier: 
+  _discriptoin: "\u0414\u0435\u0432\u0443\u0448\u043A\u0430, \u043D\u0435 \u0434\u0430\u0432\u043D\u043E
+    \u0441\u0442\u0430\u0432\u0448\u0430\u044F \u0418\u0434\u043E\u043B\u043E\u043C.
+    \u041E\u0447\u0435\u043D\u044C \u043B\u044E\u0431\u0438\u0442 \u0447\u0438\u0442\u0430\u0442\u044C
+    \u0438 \u043F\u0440\u0438\u0440\u043E\u0434\u0443. \u0412\u044B\u0433\u043B\u044F\u0434\u0438\u0442
+    \u0441\u043F\u043E\u043A\u043E\u0439\u043D\u043E\u0439, \u0443\u043B\u044B\u0431\u0447\u0438\u0432\u043E\u0439,
+    \u0432\u0441\u0435\u0433\u0434\u0430 \u0433\u043E\u0432\u043E\u0440\u0438\u0442
+    \u043F\u0440\u044F\u043C\u043E. \u042F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
+    \u043F\u0435\u0440\u0432\u044B\u043C \u0438\u0434\u043E\u043B\u043E\u043C \u0443
+    \u0433\u043B\u0430\u0432\u043D\u043E\u0433\u043E \u0433\u0435\u0440\u043E\u044F."
+  <CategoryName>k__BackingField: "\u041B\u0438\u0437\u0430"
+  <Subcategories>k__BackingField:
+  - {fileID: 11400000, guid: d0de8f960c58a924da0cc1087043425d, type: 2}
+  - {fileID: 11400000, guid: 5af6f9ea09a5512438af1e0e7ce35fd2, type: 2}
+  - {fileID: 11400000, guid: 392c92e372890364aa327089895aa471, type: 2}
+  - {fileID: 11400000, guid: efd4c22e90f224e4391980af68b1e3af, type: 2}
+  - {fileID: 11400000, guid: 6513e24421eb292428a73f6e5ec8c126, type: 2}
+  - {fileID: 11400000, guid: 3e348d0950b04214f995f2bec45c7365, type: 2}
+  - {fileID: 11400000, guid: b4790d389c0410a44becfb2a8eb47a81, type: 2}
+  - {fileID: 11400000, guid: fc6de5bf6f49fea409133675494437aa, type: 2}
+  - {fileID: 11400000, guid: 5dfa48e04ede2cb429c642b71901b4c8, type: 2}
+  - {fileID: 11400000, guid: a121dc62fcb63164d8ae0f4b9f351e16, type: 2}
+  - {fileID: 11400000, guid: f29ccb957586cd64eac254a430836719, type: 2}
+  - {fileID: 11400000, guid: 1547fc7519b57374b946fbde11bafd1f, type: 2}
+  - {fileID: 11400000, guid: 085d1c9064077f5448b07256953ab947, type: 2}
+  - {fileID: 11400000, guid: c73022d9713c1404fb4d63d11a4a55b3, type: 2}
+  - {fileID: 11400000, guid: 8b1d9e3ea9e3f704db11241ef3a72fe1, type: 2}
+  - {fileID: 11400000, guid: 8a7171b3b6b368e46836629b7e5d7913, type: 2}
+  - {fileID: 11400000, guid: 6a8dbef6c1aaea742a428becdf5efa19, type: 2}
+  - {fileID: 11400000, guid: c62b0c5b50fefe74294465c93d5d9e34, type: 2}
+  - {fileID: 11400000, guid: bf9a5de49987bce419f17168852d9867, type: 2}
+  - {fileID: 11400000, guid: b6994e1f0352d1744b91ae4e824513a4, type: 2}
+  - {fileID: 11400000, guid: dcd54746e2231cc4ab809103dca384d7, type: 2}
+  - {fileID: 11400000, guid: 3db71a3421f2e4d489318e3c7a99292e, type: 2}
+  <CharacterSprite>k__BackingField: {fileID: 21300000, guid: 142a6f916d2244d4896f9c3014940728, type: 3}
+  <CharacterType>k__BackingField: 3

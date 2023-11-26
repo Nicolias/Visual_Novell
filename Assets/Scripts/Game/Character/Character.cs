@@ -15,6 +15,8 @@ namespace Characters
         [SerializeField] private EatingProduct _favoriteFood;
         [SerializeField] private Location _favoriteLocation;
 
+        [SerializeField] private bool _isMeetingWithPlayer = false;
+
         private int _favoriteFoodModifair = 2;
         private int _favoriteLocationModifair = 3;
 
@@ -27,6 +29,7 @@ namespace Characters
         public string Name => _name;
         public DialogSpeechForMeeting DialogAfterMeeting => _dialogSpeech;
 
+        public bool IsMeetingWithPlayer => _isMeetingWithPlayer;
 
         public event UnityAction<int> SympathyPointsChanged;
 
@@ -63,6 +66,11 @@ namespace Characters
                 sympathyBonus *= _favoriteLocationModifair;
 
             AccureSympathyPoints(sympathyBonus);
+        }
+
+        public void MeetWithPlayer()
+        {
+            _isMeetingWithPlayer = true;
         }
 
         public override string ToString()

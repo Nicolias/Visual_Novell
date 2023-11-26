@@ -204,4 +204,9 @@ public class MessengerCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(MeetWithPlayerModel meetWithPlayerModel)
+    {
+        throw new System.NotImplementedException();
+    }
 }

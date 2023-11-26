@@ -49,3 +49,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c9a26a17f069a94fba36b5932705e81, type: 2}
   - {fileID: 11400000, guid: 4d94f27b7326b684e8aca05b601d8309, type: 2}
   <CharacterSprite>k__BackingField: {fileID: 21300000, guid: 3a60ea95eb6e18042b7ef6c8e08f8272, type: 3}
+  <CharacterType>k__BackingField: 0

@@ -15,20 +15,5 @@ MonoBehaviour:
   _discriptoin: 
   <CategoryName>k__BackingField: "\u041B\u043E\u043A\u0430\u0446\u0438\u0438"
   <Subcategories>k__BackingField:
-  - {fileID: 11400000, guid: 5589444a1280a8a4d9ddc1b4c0389fa7, type: 2}
-  - {fileID: 11400000, guid: fa3b8173fdede1b4b88aae5aec9f3415, type: 2}
-  - {fileID: 11400000, guid: 7e96098be2751cf45a696596e65eaab4, type: 2}
-  - {fileID: 11400000, guid: 6d4ae5031505b9c429daf68aa71c2809, type: 2}
-  - {fileID: 11400000, guid: 6a06ec6275142644bb0c99ca5b087b82, type: 2}
-  - {fileID: 11400000, guid: 71f6baf9cbb5f764db8da1784d0abcc7, type: 2}
-  - {fileID: 11400000, guid: 3344a4d8e2bdb5745aa97a3434de053d, type: 2}
-  - {fileID: 11400000, guid: 6e237300e6ca7fc44809c079843cffd1, type: 2}
-  - {fileID: 11400000, guid: 8b4fc51f9ce6f834fb194d529132cf74, type: 2}
-  - {fileID: 11400000, guid: 0109e7f21cc37cc4c8adbb9859d74632, type: 2}
-  - {fileID: 11400000, guid: 9883f5e1caf97034d8988f354eb7f2cb, type: 2}
-  - {fileID: 11400000, guid: 3c650bd24a19a1f49bbfbfaab2f05c0b, type: 2}
-  - {fileID: 11400000, guid: 8549b501c7fad5647812d33a1d21487a, type: 2}
-  - {fileID: 11400000, guid: 8535b6ec9c5f5c545911191c320d486d, type: 2}
-  - {fileID: 11400000, guid: ae1a98f85608d4c4ea313cae613e1ada, type: 2}
-  - {fileID: 11400000, guid: d90829e26b2392f46b1270d17a5acca3, type: 2}
-  - {fileID: 11400000, guid: 43401c3d264cd0d46a6d5dc91fb40ac4, type: 2}
+  - {fileID: 11400000, guid: 0a110e5eaeeff154081719c85f1761da, type: 2}
+  - {fileID: 11400000, guid: f09e92f65fb5cec4eb80bb11344be09e, type: 2}

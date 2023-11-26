@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Dey_Discontent_1
   m_EditorClassIdentifier: 
   _discriptoin: 
-  <CategoryName>k__BackingField: "\u041D\u0435\u0434\u043E\u0432\u043E\u043B\u044C\u0441\u0442\u0432\u043E_1"
+  <CategoryName>k__BackingField: "\u0421\u043C\u0443\u0449\u0435\u043D\u0438\u0435_1"
   <Subcategories>k__BackingField: []
   <CharacterSprite>k__BackingField: {fileID: 21300000, guid: d13276253e3315e4795adcbcdb6845e0, type: 3}

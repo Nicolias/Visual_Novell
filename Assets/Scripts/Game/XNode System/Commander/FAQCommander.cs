@@ -197,4 +197,9 @@ public class FAQCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(MeetWithPlayerModel meetWithPlayerModel)
+    {
+        throw new System.NotImplementedException();
+    }
 }

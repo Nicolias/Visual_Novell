@@ -8,6 +8,7 @@
     void Visit(IChoiceModel choice);
     void Visit(SenderItemToInventoryModel senderItemToInventory);
     void Visit(QuizModel quizModel);
+    void Visit(MeetWithPlayerModel meetWithPlayerModel);
     void Visit(BackgroundModel background);
     void Visit(GameStateStoryMode gameStateStoryMode);
     void Visit(ChangeLocationModel changeLocationModel);

@@ -16,3 +16,4 @@ MonoBehaviour:
   <CategoryName>k__BackingField: "\u041F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0438"
   <Subcategories>k__BackingField:
   - {fileID: 11400000, guid: b959692bd91297540801e7bd6c4cbfb7, type: 2}
+  - {fileID: 11400000, guid: 561f68a0878d9dc47ad664fc10c5e9b3, type: 2}

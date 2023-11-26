@@ -71,9 +71,10 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
 
         foreach (var category in categories)
         {
-            var newCategory = Instantiate(_categoryButtonTemplate, _categoriesContainer);
+            var newCategoryButton = Instantiate(_categoryButtonTemplate, _categoriesContainer);
+            newCategoryButton.Button.interactable = category.IsBlocked(_charactersLibrary) == false;
 
-            newCategory.Initialized(new(category.CategoryName, () =>
+            newCategoryButton.Initialized(new(category.CategoryName, () =>
             {
                 if (category.Subcategories.Count > 0)
                 {

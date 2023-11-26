@@ -39,7 +39,7 @@ public class GameCommander : Commander, ICommanderVisitor
 
     private void OnEnable()
     {
-        _audioServise.Load();
+        _audioServise.SaveLoader.Load();
 
         if (_currentGraph == null)
             return;
@@ -231,5 +231,10 @@ public class GameCommander : Commander, ICommanderVisitor
     public void Visit(SenderItemToInventoryModel senderItemToInventory)
     {
         _result.command = DI.Instantiate<SendeItemToInventoryCommand>(new object[] { senderItemToInventory });
+    }
+
+    public void Visit(MeetWithPlayerModel meetWithPlayerModel)
+    {
+        _result.command = DI.Instantiate<MeetWithPlayerCommand>(new object[] { meetWithPlayerModel });
     }
 }

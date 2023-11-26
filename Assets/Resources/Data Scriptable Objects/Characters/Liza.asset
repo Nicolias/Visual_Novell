@@ -25,6 +25,7 @@ MonoBehaviour:
     <SpeakerName>k__BackingField: "\u041B\u0438\u0437\u0430"
   _favoriteFood: {fileID: 11400000, guid: c77406a64b9c54442b92469aa217d5bf, type: 2}
   _favoriteLocation: {fileID: 0}
+  _isMeetingWithPlayer: 0
   <Images>k__BackingField:
     _dictionary:
     - <Key>k__BackingField: 3

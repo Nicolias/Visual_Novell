@@ -3,20 +3,25 @@ using UnityEngine;
 using System;
 using Zenject;
 
-public class AudioServise : MonoBehaviour, ISaveLoadObject
+public class AudioServise : MonoBehaviour
 {
-    [Inject] private SaveLoadServise _saveLoadServise;
-
     [SerializeField] private List<AudioSource> _allMusic;
     [SerializeField] private List<AudioSource> _allSound;
 
     [field: SerializeField] public AudioSource CallSound { get; private set; }
 
-    private const string _musicSaveKey = "MusicAudioSave";
-    private const string _soundSaveKey = "SoundAudioSave";
+    private AudioServiseSaveLoader _saveLoader;
 
     public AudioSource CurrentMusic { get; private set; }
     public AudioSource CurrentSound { get; private set; }
+
+    public AudioServiseSaveLoader SaveLoader => _saveLoader;
+
+    [Inject]
+    public void Construct(SaveLoadServise saveLoadServise)
+    {
+        _saveLoader = new AudioServiseSaveLoader(saveLoadServise, _allMusic, _allSound);
+    }
 
     public void PlaySound(AudioClip audioClip)
     {
@@ -82,52 +87,5 @@ public class AudioServise : MonoBehaviour, ISaveLoadObject
 
         foreach (var audio in audioSources)
             audio.volume = valumeLevel;
-    }
-    public void Save()
-    {
-        SaveAudio(_allMusic, _musicSaveKey);
-        SaveAudio(_allSound, _soundSaveKey);
-    }
-
-    public void Load()
-    {
-        if (_saveLoadServise.HasSave(_soundSaveKey))
-        {
-            LoadAudio(_allMusic, _musicSaveKey);
-            LoadAudio(_allSound, _soundSaveKey);
-        }
-    }
-
-    private void SaveAudio(List<AudioSource> audioSources, string saveKey)
-    {
-        _saveLoadServise.Save(saveKey, new SaveData.IntData() { Int = audioSources.Count });
-
-        for (int i = 0; i < audioSources.Count; i++)
-        {
-            _saveLoadServise.Save($"{saveKey}/{i}", new SaveData.AudioData()
-            {
-                IsMute = audioSources[i].mute,
-                IsPlay = audioSources[i].isPlaying,
-                Volume = audioSources[i].volume
-            });
-        }
-    }
-
-    private void LoadAudio(List<AudioSource> audioSources, string saveKey)
-    {
-        int count = _saveLoadServise.Load<SaveData.IntData>(saveKey).Int;
-
-        for (int i = 0; i < count; i++)
-        {
-            var data = _saveLoadServise.Load<SaveData.AudioData>($"{saveKey}/{i}");
-            audioSources[i].mute = data.IsMute;
-
-            if (data.IsPlay)
-                audioSources[i].Play();
-            else
-                audioSources[i].Stop();
-
-            audioSources[i].volume = data.Volume;
-        }
     }
 }

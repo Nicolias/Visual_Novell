@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed11dcf47745b734bbe85ff7556598ac, type: 3}
+  m_Name: Liza Image
+  m_EditorClassIdentifier: 
+  _discriptoin: 
+  <CategoryName>k__BackingField: "\u041B\u0438\u0437\u0430"
+  <Subcategories>k__BackingField:
+  - {fileID: 11400000, guid: 6b13d259735f1be46bd347b57ab3e125, type: 2}
+  - {fileID: 11400000, guid: 689c1602ef90c614d896b0d35af99a00, type: 2}
+  - {fileID: 11400000, guid: 3e2d7865fc560314884b705f130d23a8, type: 2}
+  - {fileID: 11400000, guid: 5a531ea690f2939449258fc4422f8274, type: 2}
+  - {fileID: 11400000, guid: ee6df0a33b72a6940b8ce9c8151ab973, type: 2}
+  - {fileID: 11400000, guid: e0192e3ec635111498d83d07c86a050f, type: 2}
