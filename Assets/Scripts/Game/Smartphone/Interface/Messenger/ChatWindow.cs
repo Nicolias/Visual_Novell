@@ -41,11 +41,15 @@ public class ChatWindow : MonoBehaviour, IChatWindow
 
     public void Recieve(Messege newMessage, Action completeMessage)
     {
-        _curruntChat.Add(newMessage);
 
-        _curruntChat.SaveChatData(newMessage.CurrentNode);
+        StartCoroutine(_messageFactory.Show(newMessage, OnMessageSent));
 
-        StartCoroutine(_messageFactory.Show(newMessage, completeMessage));
+        void OnMessageSent()
+        {
+            completeMessage?.Invoke();
+            _curruntChat.Add(newMessage);
+            _curruntChat.SaveChatData(newMessage.CurrentNode);
+        }
     }
 
     private void ContinueDialog(Node currentNodeInDialog)
@@ -62,4 +66,5 @@ public class ChatWindow : MonoBehaviour, IChatWindow
         _messengerCommander.DialogEnded -= OnDialogFinished;
         ChatRead?.Invoke(_curruntChat);
     }
+
 }

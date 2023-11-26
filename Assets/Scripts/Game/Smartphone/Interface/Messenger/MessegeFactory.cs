@@ -36,6 +36,9 @@ public class MessegeFactory : MonoBehaviour
             else
                 _characterMessagesPool.Enqueue(sentMessage);
         }
+
+        foreach (Transform answerButton in _containerForAnswerButtons)
+            Destroy(answerButton.gameObject);
     }
 
     public void Show(IEnumerable<Messege> messages)
@@ -47,26 +50,28 @@ public class MessegeFactory : MonoBehaviour
     public IEnumerator Show(Messege message, Action messageCreated)
     {
         if (message.SenderType == MessegeSenderType.Player)
-            yield return ShowPlayerMessage(message);
+            yield return ShowPlayerMessage(message, messageCreated);
         else
-            yield return ShowCharacterMessage(message);
-
-        messageCreated?.Invoke();
+            yield return ShowCharacterMessage(message, messageCreated);
     }
 
-    private IEnumerator ShowPlayerMessage(Messege messege)
+    private IEnumerator ShowPlayerMessage(Messege messege, Action messageCreated)
     {
-        bool isMessageSent = false;
         ChoiceButton answerButton = Instantiate(_answerMassegaButtonTemplate, _containerForAnswerButtons);
-        answerButton.Initialized(new ChoiseElement(GetTextForAnswerButton(messege.Text), () => isMessageSent = true));
+        answerButton.Initialized(new ChoiseElement(GetTextForAnswerButton(messege.Text), OnMessageButtonClicked));
 
-        yield return new WaitUntil(() => isMessageSent == true);
+        yield return null;
 
-        ShowMessegeView(MessegeSenderType.Player, messege);
-        Destroy(answerButton.gameObject);
+        void OnMessageButtonClicked()
+        {
+            ShowMessegeView(MessegeSenderType.Player, messege);
+            Destroy(answerButton.gameObject);
+
+            messageCreated?.Invoke();
+        }
     }
 
-    private IEnumerator ShowCharacterMessage(Messege messege)
+    private IEnumerator ShowCharacterMessage(Messege messege, Action messageCreated)
     {
         if (_characterChatingTime <= 0)
             throw new InvalidProgramException("Нулевое время ожидания");
@@ -74,6 +79,7 @@ public class MessegeFactory : MonoBehaviour
         yield return new WaitForSeconds(_characterChatingTime);
 
         ShowMessegeView(MessegeSenderType.Character, messege);
+        messageCreated?.Invoke();
     }
 
     private void ShowMessegeView(MessegeSenderType senderType, Messege message)
