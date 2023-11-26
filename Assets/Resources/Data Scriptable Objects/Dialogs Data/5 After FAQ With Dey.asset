@@ -45,8 +45,11 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  _smartphoneWindows: 01000000
-  _smartphoneWindowsEnabled: 00
+  <Windows>k__BackingField:
+    _dictionary:
+    - <Key>k__BackingField: 1
+      <Value>k__BackingField: 0
+  <IsShowGuid>k__BackingField: 0
 --- !u!114 &-7003993334689113828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +126,9 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _textChoices 0
+        node: {fileID: 1453221358651426426}
+        reroutePoints: []
+      - fieldName: _outPut
         node: {fileID: 1453221358651426426}
         reroutePoints: []
       _direction: 0
@@ -1100,7 +1106,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 1852740440009043482}
+        node: {fileID: -6775565486573107730}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1162,9 +1168,6 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _textChoices 1
-        node: {fileID: 1453221358651426426}
-        reroutePoints: []
-      - fieldName: _outPut
         node: {fileID: 1453221358651426426}
         reroutePoints: []
       _direction: 0
@@ -1235,8 +1238,11 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  _smartphoneWindows: 01000000
-  _smartphoneWindowsEnabled: 01
+  <Windows>k__BackingField:
+    _dictionary:
+    - <Key>k__BackingField: 1
+      <Value>k__BackingField: 1
+  <IsShowGuid>k__BackingField: 0
 --- !u!114 &2958718218808833741
 MonoBehaviour:
   m_ObjectHideFlags: 0

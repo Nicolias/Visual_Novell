@@ -71,7 +71,7 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
 
     private void AccureRewards()
     {
-        _wallet.Accure(_moneyReward);
+        _wallet.AccureWithOutPanel(_moneyReward);
         _battery.Accure(_enargyReward);
 
         _isArtifactsCreated = false;

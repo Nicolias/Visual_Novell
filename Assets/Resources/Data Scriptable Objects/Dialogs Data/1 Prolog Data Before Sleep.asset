@@ -611,6 +611,9 @@ MonoBehaviour:
       - fieldName: _textChoices 0
         node: {fileID: -7205688462900118275}
         reroutePoints: []
+      - fieldName: _outPut
+        node: {fileID: -7205688462900118275}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -1644,7 +1647,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: 5178111844900494498}
+        node: {fileID: -8640518722575621302}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -7571,8 +7574,8 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <NewDialog>k__BackingField:
-    <ContactName>k__BackingField: "\u0424\u043E\u0440\u0442\u0443\u043D\u0430"
+  <NewDialogs>k__BackingField:
+  - <ContactName>k__BackingField: "\u0424\u0430\u0440\u0442\u0443\u043D\u0430"
     <Messege>k__BackingField: {fileID: 11400000, guid: ddd8714396070c34cbbfb1d5c7a20aa0, type: 2}
 --- !u!114 &4945716939278740558
 MonoBehaviour:
@@ -7746,9 +7749,6 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _textChoices 1
-        node: {fileID: -7205688462900118275}
-        reroutePoints: []
-      - fieldName: _outPut
         node: {fileID: -7205688462900118275}
         reroutePoints: []
       _direction: 0

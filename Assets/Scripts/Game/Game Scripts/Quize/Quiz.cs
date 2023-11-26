@@ -58,7 +58,7 @@ public class Quiz : ICloseable
     private void AccureSympathy()
     {
         _characterLibrary.AddPointsTo(_characterType, _sympathyPointsByWin);
-        _wallet.Accure(_moneyByWin);
+        _wallet.AccureWithOutPanel(_moneyByWin);
 
         _quizView.ShowQuestion(_currentCharacter);
 

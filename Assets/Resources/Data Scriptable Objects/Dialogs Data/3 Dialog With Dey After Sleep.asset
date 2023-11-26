@@ -346,7 +346,7 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <LocationType>k__BackingField: 0
+  <Location>k__BackingField: {fileID: 11400000, guid: bf85709b809aff342a7184fad427b132, type: 2}
 --- !u!114 &-6853349164332813844
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,8 +34,13 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
 
     public void Accure(int money)
     {
-        if (money <= 0) throw new InvalidOperationException("Начисленно 0 денег");
         _accureMoneyPanel.PrintAccureMoney(money);
+        AccureWithOutPanel(money);
+    }
+
+    public void AccureWithOutPanel(int money)
+    {
+        if (money <= 0) throw new InvalidOperationException("Начисленно 0 денег");
 
         _amountMoney += money;
 

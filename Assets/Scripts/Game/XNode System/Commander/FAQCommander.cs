@@ -21,7 +21,7 @@ public class FAQCommander : Commander, ICommanderVisitor
     public void Visit(DialogSpeechModel dialogSpeech)
     {
         dialogSpeech.Initialize(StaticData);
-        _result.command =  DI.Instantiate<SpeechPresentar>(new object[] { dialogSpeech, _dialogSpeechView });
+        _result.command =  DI.Instantiate<DialogSpeechPresenter>(new object[] { dialogSpeech, _dialogSpeechView });
     }
     public void Visit(MonologSpeechModel speech)
     {

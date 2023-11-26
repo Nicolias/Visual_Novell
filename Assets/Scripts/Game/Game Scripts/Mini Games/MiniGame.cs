@@ -45,7 +45,7 @@ namespace MiniGameNamespace
 
         private void OnGameWin()
         {
-            _wallet.Accure(_moneyByWin);
+            _wallet.AccureWithOutPanel(_moneyByWin);
             OnGameResult(WinSpeech, _sympathyByWin);
         }
 

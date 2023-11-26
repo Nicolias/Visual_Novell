@@ -556,8 +556,11 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  _smartphoneWindows: 00000000
-  _smartphoneWindowsEnabled: 01
+  <Windows>k__BackingField:
+    _dictionary:
+    - <Key>k__BackingField: 0
+      <Value>k__BackingField: 1
+  <IsShowGuid>k__BackingField: 1
 --- !u!114 &-5139897928160359536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,7 +1631,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <Quest>k__BackingField: {fileID: -875564800253906437, guid: 3a1a55a0956d56e4d83e7e5c49e7577d, type: 2}
-  <LocationType>k__BackingField: 1
+  <Location>k__BackingField: {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
 --- !u!114 &1524062806710594965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2282,8 +2285,8 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  <NewDialog>k__BackingField:
-    <ContactName>k__BackingField: "\u0424\u043E\u0440\u0442\u0443\u043D\u0430"
+  <NewDialogs>k__BackingField:
+  - <ContactName>k__BackingField: "\u0424\u0430\u0440\u0442\u0443\u043D\u0430"
     <Messege>k__BackingField: {fileID: 11400000, guid: 3e44f8ac389a6b042a7c32ed03429e7d, type: 2}
 --- !u!114 &6641980949806602771
 MonoBehaviour:

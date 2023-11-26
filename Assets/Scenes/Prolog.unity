@@ -14734,6 +14734,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7b815c59d8f2f148a3fe56771004062, type: 2}
   - {fileID: 11400000, guid: a364968cf733caf43a09c1a61df7076f, type: 2}
   - {fileID: 11400000, guid: a44af7cbd0277ff458621d12cd1f0cc3, type: 2}
+  - {fileID: 11400000, guid: bf85709b809aff342a7184fad427b132, type: 2}
+  - {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
 --- !u!4 &1501848719
 Transform:
   m_ObjectHideFlags: 0
@@ -17536,7 +17538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSateMachine: {fileID: 1914059895}
-  _currentGraph: {fileID: 11400000, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+  _currentGraph: {fileID: 11400000, guid: aa667466e567e1440a05d94d6c9c09cf, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}
@@ -19306,7 +19308,7 @@ MonoBehaviour:
   _messegeContainer: {fileID: 2123653663}
   _playerMessegeTemplate: {fileID: 7473698522186859136, guid: 2665f2ab02e64c643becdf3931f3aa1d, type: 3}
   _characterMessegeTemplate: {fileID: 2271482311210621175, guid: b7697c640049d8344adfa6c8ed42919a, type: 3}
-  _characterChatingTime: 2
+  _characterChatingTime: 0
   _containerForAnswerButtons: {fileID: 914581353}
   _answerMassegaButtonTemplate: {fileID: 9163958802393510150, guid: 96c3ab2543014eb4f8c9b14588376ba3, type: 3}
 --- !u!4 &2039147384

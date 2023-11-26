@@ -862,7 +862,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <Item>k__BackingField: {fileID: 11400000, guid: 3eb2334c9bb584a48882e33cef19c57d, type: 2}
-  <Location>k__BackingField: 1
+  <Location>k__BackingField: {fileID: 0}
 --- !u!114 &-7022692187538805940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,7 +1166,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <Item>k__BackingField: {fileID: 11400000, guid: 3eb2334c9bb584a48882e33cef19c57d, type: 2}
-  <Location>k__BackingField: 1
+  <Location>k__BackingField: {fileID: 0}
 --- !u!114 &-6169035352489185823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2136,8 +2136,11 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  _smartphoneWindows: 00000000
-  _smartphoneWindowsEnabled: 00
+  <Windows>k__BackingField:
+    _dictionary:
+    - <Key>k__BackingField: 0
+      <Value>k__BackingField: 0
+  <IsShowGuid>k__BackingField: 0
 --- !u!114 &-2778742833277879049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,6 +2397,7 @@ MonoBehaviour:
     - _textChoices 0
     - _textChoices 1
     - _textChoices 2
+    - _textChoices 3
     values:
     - _fieldName: _textChoices
       _node: {fileID: -2635773340623332664}
@@ -2464,6 +2468,18 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: _textChoices 3
+      _node: {fileID: -2635773340623332664}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: 5003604267946640662}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
   _inPut: 0
   _outPut: 0
   _questeText: "\u0427\u0435\u043C \u0443\u0433\u043E\u0441\u0442\u0438\u0442\u044C
@@ -2472,6 +2488,7 @@ MonoBehaviour:
   - "\u0427\u0430\u0439 \u0441 \u043B\u0438\u043C\u043E\u043D\u043E\u043C."
   - "\u0427\u0430\u0439 \u0441 \u043C\u0430\u043B\u0438\u043D\u043E\u0439."
   - "\u0417\u0435\u043B\u0435\u043D\u044B\u0439 \u0447\u0430\u0439."
+  - "\u0427\u0435\u0440\u043D\u044B\u0439 \u0447\u0430\u0439."
 --- !u!114 &-2435829419644864579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3124,8 +3141,11 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  _smartphoneWindows: 00000000
-  _smartphoneWindowsEnabled: 01
+  <Windows>k__BackingField:
+    _dictionary:
+    - <Key>k__BackingField: 0
+      <Value>k__BackingField: 1
+  <IsShowGuid>k__BackingField: 0
 --- !u!114 &-391871093812473731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3589,8 +3609,9 @@ MonoBehaviour:
       _dynamic: 0
   _inPut: 0
   _outPut: 0
-  _smartphoneWindows: 00000000
-  _smartphoneWindowsEnabled: 00
+  <Windows>k__BackingField:
+    _dictionary: []
+  <IsShowGuid>k__BackingField: 0
 --- !u!114 &1186883793108465587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3758,7 +3779,7 @@ MonoBehaviour:
   m_Name: Spawn Item Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1144, y: 552}
+  position: {x: -1144, y: 584}
   ports:
     keys:
     - _inPut
@@ -3794,7 +3815,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <Item>k__BackingField: {fileID: 11400000, guid: 3eb2334c9bb584a48882e33cef19c57d, type: 2}
-  <Location>k__BackingField: 1
+  <Location>k__BackingField: {fileID: 0}
 --- !u!114 &2079171191854372973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4678,7 +4699,10 @@ MonoBehaviour:
       _node: {fileID: 5003604267946640662}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: _textChoices 3
+        node: {fileID: -2635773340623332664}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -4698,7 +4722,7 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   <Item>k__BackingField: {fileID: 11400000, guid: 3eb2334c9bb584a48882e33cef19c57d, type: 2}
-  <Location>k__BackingField: 1
+  <Location>k__BackingField: {fileID: 0}
 --- !u!114 &5272119894728873585
 MonoBehaviour:
   m_ObjectHideFlags: 0
