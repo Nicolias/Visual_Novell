@@ -12,10 +12,10 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
 
     private string _saveKey = "WalletSave";
 
-    public int MoneyCount => _amountMoney;
+    public int CurrentValue => _amountMoney;
 
     public event Action AccureCompleted;
-    public event Action<int> MoneyChanged;
+    public event Action<int> ValueChanged;
 
     private void OnEnable()
     {
@@ -44,7 +44,7 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
 
         _amountMoney += money;
 
-        MoneyChanged?.Invoke(_amountMoney);
+        ValueChanged?.Invoke(_amountMoney);
     }
 
     public void Decreese(int money)
@@ -54,7 +54,7 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
 
         _amountMoney -= money;
 
-        MoneyChanged?.Invoke(_amountMoney);
+        ValueChanged?.Invoke(_amountMoney);
     }
 
     private void CallBack()

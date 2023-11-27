@@ -5,18 +5,18 @@ using Zenject;
 
 public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 {
-    public event Action AccureCompleted;
-    public event Action<int> OnValueChanged;
-
     [Inject] private SaveLoadServise _saveLoadServise;
 
     private bool _isTimer;
     private int _chargeLeve;
     private const int _maxCharge = 100;
 
-    public int ChargeLevel => _chargeLeve;
+    public int CurrentValue => _chargeLeve;
 
     private const string _saveKey = "BatterySave";
+
+    public event Action AccureCompleted;
+    public event Action<int> ValueChanged;
 
     private void OnEnable()
     {
@@ -37,7 +37,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         _chargeLeve += value;
 
         AccureCompleted?.Invoke();
-        OnValueChanged?.Invoke(_chargeLeve);
+        ValueChanged?.Invoke(_chargeLeve);
     }
 
     public void Decreese(int value)
@@ -49,7 +49,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         if (_isTimer == false)
             StartCoroutine(Timer(new(0, 8, 0)));
 
-        OnValueChanged?.Invoke(_chargeLeve);
+        ValueChanged?.Invoke(_chargeLeve);
     }
 
     private IEnumerator Timer(TimeSpan leftTime)
@@ -109,7 +109,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 
         _chargeLeve =  Mathf.RoundToInt(data.ChargeLevel + chargeToAdd);
 
-        OnValueChanged?.Invoke(_chargeLeve);
+        ValueChanged?.Invoke(_chargeLeve);
 
         //var minutes = (timeSinceLastOpened.TotalMinutes / 8);
 

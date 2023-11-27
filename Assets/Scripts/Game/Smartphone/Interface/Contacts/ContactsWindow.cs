@@ -101,7 +101,7 @@ public class ContactsWindow : WindowInSmartphone
 
     private void TryMoveTo(Character character, Location location)
     {
-        if (_battery.ChargeLevel < _startMeetingCost)
+        if (_battery.CurrentValue < _startMeetingCost)
         {
             _choicePanel.Show("Недостаточно энергии", new List<ChoiseElement>()
             {

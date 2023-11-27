@@ -48,18 +48,18 @@ public class Eating : MonoBehaviour, ICloseable
         _currentCharacter = character;
 
         character.SympathyPointsChanged += OnSympathyPointsChanged;
-        _wallet.MoneyChanged += OnMoneyCountChanged;
+        _wallet.ValueChanged += OnMoneyCountChanged;
 
         _selfCanvas.enabled = true;
 
         OnSympathyPointsChanged(character.SympathyPoints);
-        OnMoneyCountChanged(_wallet.MoneyCount);
+        OnMoneyCountChanged(_wallet.CurrentValue);
     }
 
     private void Exit()
     {
         _currentCharacter.SympathyPointsChanged -= OnSympathyPointsChanged;
-        _wallet.MoneyChanged -= OnMoneyCountChanged;
+        _wallet.ValueChanged -= OnMoneyCountChanged;
 
         _selfCanvas.enabled = false;
 
@@ -87,7 +87,7 @@ public class Eating : MonoBehaviour, ICloseable
 
     private void TryBuyProduct(EatingProduct product)
     {
-        if (_wallet.MoneyCount >= product.Price)
+        if (_wallet.CurrentValue >= product.Price)
         {
             _wallet.Decreese(product.Price);
 

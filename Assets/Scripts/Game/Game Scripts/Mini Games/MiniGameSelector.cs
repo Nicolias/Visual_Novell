@@ -35,7 +35,7 @@ public class MiniGameSelector : MonoBehaviour, ICloseable
 
     public void Enter(CharacterType character)
     {
-        if (_battery.ChargeLevel < _startGameCost)
+        if (_battery.CurrentValue < _startGameCost)
         {
             _choicePanel.Show("Недостаточно энергии", new List<ChoiseElement>()
             {
@@ -82,6 +82,6 @@ public class MiniGameSelector : MonoBehaviour, ICloseable
     private void UpdateSympathyView(int sympathyPoints)
     {
         _sympathyCounter.text = $"Симпатия: {sympathyPoints}";
-        _chargeCounter.text = $"Осталось энергии: {_battery.ChargeLevel}%";
+        _chargeCounter.text = $"Осталось энергии: {_battery.CurrentValue}%";
     }
 }

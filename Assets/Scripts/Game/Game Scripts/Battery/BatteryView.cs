@@ -18,13 +18,13 @@ public class BatteryView : MonoBehaviour
 
     private void OnEnable()
     {
-        _battery.OnValueChanged += UpdateUI;
-        UpdateUI(_battery.ChargeLevel);
+        _battery.ValueChanged += UpdateUI;
+        UpdateUI(_battery.CurrentValue);
     }
 
     private void OnDisable()
     {
-        _battery.OnValueChanged -= UpdateUI;
+        _battery.ValueChanged -= UpdateUI;
     }
 
     private void UpdateUI(int chargyValue)
@@ -36,8 +36,8 @@ public class BatteryView : MonoBehaviour
             if (chargeRange.x > chargeRange.y)
                 throw new InvalidProgramException("В диапазоне зарядов минмальный больше максимального");
 
-            if (_battery.ChargeLevel >= chargeRange.x)
-                if(_battery.ChargeLevel <= chargeRange.y)
+            if (_battery.CurrentValue >= chargeRange.x)
+                if(_battery.CurrentValue <= chargeRange.y)
                     _batteryImage.sprite = _batterySprites.GetValue(i);
         }
 

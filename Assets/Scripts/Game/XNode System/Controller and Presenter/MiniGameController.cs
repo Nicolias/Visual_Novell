@@ -24,7 +24,7 @@ public class MiniGameController : IController
 
     private void CallBack()
     {
-        if (_battery.ChargeLevel <= _model.BettaryChargeLevelCondition)
+        if (_battery.CurrentValue <= _model.BettaryChargeLevelCondition)
         {
             _view.Closed -= CallBack;
             _view.Close();

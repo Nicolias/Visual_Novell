@@ -46,7 +46,7 @@ namespace QuizSystem
 
         public bool CanBeStarted(Action hideCanvas)
         {
-            if (_battery.ChargeLevel < _startQuizCost)
+            if (_battery.CurrentValue < _startQuizCost)
             {
                 _choisePanel.Show("Недостаточно энергии", new List<ChoiseElement>()
                 {
