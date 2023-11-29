@@ -139,7 +139,7 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
 
         public Vector3 ScaleOffset { get; private set; }
 
-        public Location Location { get; private set;}
+        public LocationSO Location { get; private set;}
 
         public CharacterModel(CharacterPortraitData characterData)
         {

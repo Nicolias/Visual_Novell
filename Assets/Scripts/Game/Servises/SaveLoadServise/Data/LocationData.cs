@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using XNode;
 
 namespace SaveData
@@ -7,6 +8,6 @@ namespace SaveData
     public class LocationData
     {
         public Node Quest;
-        public ItemForCollection Items;
+        public List<ItemForCollection> Items;
     }
 }

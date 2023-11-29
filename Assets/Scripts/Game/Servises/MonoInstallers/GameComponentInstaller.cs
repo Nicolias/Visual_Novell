@@ -10,7 +10,8 @@ public class GameComponentInstaller : MonoInstaller
     [SerializeField] private QuizView _quizView;
     [SerializeField] private MiniGameSelector _miniGameSelector;
     [SerializeField] private GameStateMachine _gameStateMachine;
-
+    [SerializeField] private LocationsManager _locationsManager;
+    
     public override void InstallBindings()
     {        
         Container.Bind<Wallet>().FromInstance(_wallet).AsSingle();
@@ -19,5 +20,6 @@ public class GameComponentInstaller : MonoInstaller
         Container.Bind<QuizView>().FromInstance(_quizView).AsSingle();
         Container.Bind<GameStateMachine>().FromInstance(_gameStateMachine).AsSingle();
         Container.Bind<Quiz>().AsSingle().NonLazy();
+        Container.Bind<LocationsManager>().FromInstance(_locationsManager).AsSingle();
     }
 }

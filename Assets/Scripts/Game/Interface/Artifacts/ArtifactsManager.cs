@@ -62,8 +62,8 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
     {
         if (_timesOfDayServise.CurrentTime >= _nextTimeForResetCollection)
         {
-            DateTime currentTime = _timesOfDayServise.CurrentTime;
-            _nextTimeForResetCollection = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day + 1, 1, 0, 0);
+            DateTime currentTime = _timesOfDayServise.CurrentTime.AddDays(1);
+            _nextTimeForResetCollection = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 1, 0, 0);
 
             _artifactsFactory.ResetCollection();
         }

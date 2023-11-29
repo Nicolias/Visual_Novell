@@ -2,7 +2,7 @@
 
 public class CharacterOnLocationData : ICharacterPortraitModel
 {
-    public CharacterOnLocationData(CharacterType characterType, string name, Sprite sprite, Location location,
+    public CharacterOnLocationData(CharacterType characterType, string name, Sprite sprite, LocationSO location,
         CharacterPortraitPosition positionType, Vector2 positionOffset, Vector3 scaleOffset)
     {
         CharacterType = characterType;
@@ -26,5 +26,5 @@ public class CharacterOnLocationData : ICharacterPortraitModel
 
     public Vector3 ScaleOffset { get; private set; }
 
-    public Location Location { get; private set; }
+    public LocationSO Location { get; private set; }
 }

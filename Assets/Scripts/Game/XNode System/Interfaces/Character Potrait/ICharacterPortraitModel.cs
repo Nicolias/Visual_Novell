@@ -7,7 +7,7 @@ public interface ICharacterPortraitModel
     public Sprite Sprite { get; }
     public CharacterPortraitPosition PositionType { get; }
 
-    public Location Location { get; }
+    public LocationSO Location { get; }
 
     public Vector2 PositionOffset { get; }
     public Vector3 ScaleOffset { get; }

@@ -12,7 +12,7 @@ public class PortraitModel : XnodeModel, ICharacterPortraitModel
 
     public Vector3 ScaleOffset => new Vector3();
 
-    public Location Location => null;
+    public LocationSO Location => null;
 
     public override void Accept(ICommanderVisitor visitor)
     {

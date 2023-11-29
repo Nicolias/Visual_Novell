@@ -19,7 +19,7 @@ namespace Characters
         public void DecreesSympathyPoints(int points);
 
         public void Feed(EatingProduct product);
-        public void Invite(Location location, int meetingSympathyBonus);
+        public void Invite(LocationSO location, int meetingSympathyBonus);
 
         public void MeetWithPlayer();
     }

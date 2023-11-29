@@ -54,7 +54,7 @@ namespace Factory.Artifacts
         {
             _collectedArtifactsCount = 0;
 
-            List<Location> availableLocations = new List<Location>(_locationsManager.AvailableLocations.Where(location => location.IsForArtifacts == true));
+            List<ILocation> availableLocations = new List<ILocation>(_locationsManager.AvailableLocations.Where(location => location.Data.IsForArtifacts == true));
 
             if (availableLocations.Count == 0)
                 return;

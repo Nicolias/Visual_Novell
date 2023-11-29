@@ -99,7 +99,7 @@ public class ContactsWindow : WindowInSmartphone
         return choiseElements;
     }
 
-    private void TryMoveTo(ICharacter character, Location location)
+    private void TryMoveTo(ICharacter character, ILocation location)
     {
         if (_battery.CurrentValue < _startMeetingCost)
         {
@@ -110,11 +110,11 @@ public class ContactsWindow : WindowInSmartphone
             return;
         }
 
-        character.Invite(location, _meetingSympathyBonus);
+        character.Invite(location.Data, _meetingSympathyBonus);
         _battery.Decreese(_startMeetingCost);
 
         _map.ChangeLocation(location);
-        _charactersRenderer.Show(location.Get(character.ScriptableObject));
+        _charactersRenderer.Show(location.Data.Get(character.ScriptableObject));
 
         Hide();
         _smartphone.Hide();
