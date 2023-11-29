@@ -5,7 +5,7 @@ using System;
 public class Quiz : ICloseable
 {
     private CharactersLibrary _characterLibrary;
-    private Character _currentCharacter;
+    private ICharacter _currentCharacter;
 
     private Wallet _wallet;
 

@@ -8,7 +8,7 @@ public class CharacterStoryCategoryData : CharacterCategoryData
 
     public override bool IsBlocked(CharactersLibrary charactersLibrary)
     {
-        Character character = charactersLibrary.GetCharacter(CharacterType);
+        ICharacter character = charactersLibrary.GetCharacter(CharacterType);
 
         if (character.IsMeetingWithPlayer & character.SympathyLevel >= _levelLimit)
             return false;

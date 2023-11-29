@@ -17,7 +17,7 @@ public class MiniGameSelector : MonoBehaviour, ICloseable
     [SerializeField] private List<MiniGame> _miniGames;
     [SerializeField] private int _startGameCost = 5;
 
-    private Character _currentCharacter;
+    private ICharacter _currentCharacter;
 
     public event Action Closed;
 
@@ -37,9 +37,9 @@ public class MiniGameSelector : MonoBehaviour, ICloseable
     {
         if (_battery.CurrentValue < _startGameCost)
         {
-            _choicePanel.Show("Недостаточно энергии", new List<ChoiseElement>()
+            _choicePanel.Show("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЌРЅРµСЂРіРёРё", new List<ChoiseElement>()
             {
-                new ChoiseElement("Принять", () => Close())
+                new ChoiseElement("РџСЂРёРЅСЏС‚СЊ", () => Close())
             });
             return;
         }
@@ -47,7 +47,7 @@ public class MiniGameSelector : MonoBehaviour, ICloseable
         gameObject.SetActive(true);
 
         _currentCharacter = _charactersLibrary.GetCharacter(character);
-        _choicePanel.Show("Выбери игру", GetChoiceElements());
+        _choicePanel.Show("Р’С‹Р±РµСЂРё РёРіСЂСѓ", GetChoiceElements());
 
         UpdateSympathyView(_currentCharacter.SympathyPoints);
     }
@@ -61,12 +61,12 @@ public class MiniGameSelector : MonoBehaviour, ICloseable
 
     private List<ChoiseElement> GetChoiceElements()
     {
-        List<ChoiseElement> choiseElements = new();
+        List<ChoiseElement> choiseElements = new List<ChoiseElement>();
 
         foreach (var miniGame in _miniGames)
             choiseElements.Add(new ChoiseElement(miniGame.GameName, () => miniGame.StartGame(_currentCharacter)));
 
-        choiseElements.Add(new ChoiseElement("Закончить игры.", Close));
+        choiseElements.Add(new ChoiseElement("Р—Р°РєРѕРЅС‡РёС‚СЊ РёРіСЂС‹.", Close));
 
         return choiseElements;
     }
@@ -81,7 +81,7 @@ public class MiniGameSelector : MonoBehaviour, ICloseable
 
     private void UpdateSympathyView(int sympathyPoints)
     {
-        _sympathyCounter.text = $"Симпатия: {sympathyPoints}";
-        _chargeCounter.text = $"Осталось энергии: {_battery.CurrentValue}%";
+        _sympathyCounter.text = $"РЎРёРјРїР°С‚РёСЏ: {sympathyPoints}";
+        _chargeCounter.text = $"РћСЃС‚Р°Р»РѕСЃСЊ СЌРЅРµСЂРіРёРё: {_battery.CurrentValue}%";
     }
 }

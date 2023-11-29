@@ -21,7 +21,7 @@ namespace MiniGameNamespace
 
         [field: SerializeField] public string GameName { get; private set; }
 
-        protected Character CurrentCharacter { get; private set; }
+        protected ICharacter CurrentCharacter { get; private set; }
 
         protected abstract AbstractMiniGame Game { get; }
         protected abstract string WinSpeech { get; }
@@ -30,7 +30,7 @@ namespace MiniGameNamespace
 
         public event Action GameEnded;
 
-        public void StartGame(Character character)
+        public void StartGame(ICharacter character)
         {
             CurrentCharacter = character;
 

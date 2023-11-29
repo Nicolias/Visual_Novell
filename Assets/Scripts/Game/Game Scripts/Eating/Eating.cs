@@ -18,7 +18,7 @@ public class Eating : MonoBehaviour, ICloseable
     private ChoicePanel _choicePanel;
     private Wallet _wallet;
 
-    private Character _currentCharacter;
+    private ICharacter _currentCharacter;
 
     public event Action Closed;
 
@@ -41,7 +41,7 @@ public class Eating : MonoBehaviour, ICloseable
         _menu.Closed -= Exit;
     }
 
-    public void Enter(Character character)
+    public void Enter(ICharacter character)
     {
         _menu.Open();
 
@@ -68,20 +68,20 @@ public class Eating : MonoBehaviour, ICloseable
 
     private void OnSympathyPointsChanged(int sympathyPoints)
     {
-        _sympathyPointsText.text = "Симпатия: " + sympathyPoints.ToString(); 
+        _sympathyPointsText.text = "РЎРёРјРїР°С‚РёСЏ: " + sympathyPoints.ToString(); 
     }
 
     private void OnMoneyCountChanged(int moneyCount)
     {
-        _moneyInWalletText.text = "Осталось денег: " + moneyCount.ToString();
+        _moneyInWalletText.text = "РћСЃС‚Р°Р»РѕСЃСЊ РґРµРЅРµРі: " + moneyCount.ToString();
     }
 
     private void OnProductSelected(EatingProduct product)
     {
-        _choicePanel.Show($"Вы уверены что хотите купить {product.Name}", new List<ChoiseElement>() 
+        _choicePanel.Show($"Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ РєСѓРїРёС‚СЊ {product.Name}", new List<ChoiseElement>() 
         { 
-            new ChoiseElement("Да", () => TryBuyProduct(product)),
-            new ChoiseElement("Нет", () => _choicePanel.Hide())
+            new ChoiseElement("Р”Р°", () => TryBuyProduct(product)),
+            new ChoiseElement("РќРµС‚", () => _choicePanel.Hide())
         });
     }
 
@@ -96,9 +96,9 @@ public class Eating : MonoBehaviour, ICloseable
         }
         else
         {
-            _choicePanel.Show("Недостаточно средств.", new List<ChoiseElement>()
+            _choicePanel.Show("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ.", new List<ChoiseElement>()
             {
-                new ChoiseElement("Закрыть", () => _choicePanel.Hide())
+                new ChoiseElement("Р—Р°РєСЂС‹С‚СЊ", () => _choicePanel.Hide())
             });
         }
     }

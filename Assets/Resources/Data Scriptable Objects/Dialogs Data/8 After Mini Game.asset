@@ -189,7 +189,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -5784515039932664566}
+        node: {fileID: -4983709240950526533}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Name: Change Enabled Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -104, y: 1704}
+  position: {x: 104, y: 1704}
   ports:
     keys:
     - _inPut
@@ -536,7 +536,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: -8506332400093247422}
+        node: {fileID: -4983709240950526533}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -718,6 +718,54 @@ MonoBehaviour:
     \u0441\u0432\u0435\u0442\u0430 \u0438\u043B\u0438 \u0430\u0432\u0430\u0440\u0438\u044F
     \u043D\u0430 \u043B\u0438\u043D\u0438\u0438 \u0431\u044B\u043B\u0430 \u0441\u043B\u0443\u0447\u0430\u0439\u043D\u0430?\xBB
     - \u041E\u043D\u0430 \u0445\u0438\u0442\u0440\u043E \u0437\u0430\u0443\u043B\u044B\u0431\u0430\u043B\u0430\u0441\u044C."
+--- !u!114 &-4983709240950526533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1323788ae964c5445a60ecc0900bce32, type: 3}
+  m_Name: Remove Or Add Location
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -104, y: 1704}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: -4983709240950526533}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: -8506332400093247422}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: -4983709240950526533}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -5784515039932664566}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  <LocationsForAdd>k__BackingField:
+  - {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
+  <LocationsForRemove>k__BackingField: []
 --- !u!114 &-4305230223413454099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,6 +1581,7 @@ MonoBehaviour:
   - {fileID: 4660307469047072597}
   - {fileID: 379707590186911978}
   - {fileID: -5784515039932664566}
+  - {fileID: -4983709240950526533}
 --- !u!114 &363121938153069814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1598,7 +1647,7 @@ MonoBehaviour:
   m_Name: Set Quest On Location Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 104, y: 1704}
+  position: {x: 312, y: 1704}
   ports:
     keys:
     - _inPut

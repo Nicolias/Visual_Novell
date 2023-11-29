@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8425,10 +8425,10 @@ RectTransform:
   - {fileID: 2060940299}
   m_Father: {fileID: 1813958993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.30247918, y: 0}
-  m_AnchorMax: {x: 0.70160425, y: 0.46}
-  m_AnchoredPosition: {x: 0.2244873, y: 0.17993164}
-  m_SizeDelta: {x: -1.89, y: 0.17993}
+  m_AnchorMin: {x: 0.18874209, y: 0}
+  m_AnchorMax: {x: 0.81700003, y: 0.4258174}
+  m_AnchoredPosition: {x: -0.4463501, y: -2.980774}
+  m_SizeDelta: {x: -2.3585167, y: -2.980776}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &788711629
 MonoBehaviour:
@@ -11013,7 +11013,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 325.08, y: 70}
-  m_Spacing: {x: 113, y: 86}
+  m_Spacing: {x: 80, y: 86}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &1020989240
@@ -11536,7 +11536,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5429552}
   m_HandleRect: {fileID: 5429551}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -11896,7 +11896,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145799212}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -13198,7 +13198,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13221,7 +13221,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -17249,7 +17249,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652980045}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -18744,7 +18744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSateMachine: {fileID: 1914059895}
-  _currentGraph: {fileID: 11400000, guid: aa667466e567e1440a05d94d6c9c09cf, type: 2}
+  _currentGraph: {fileID: 11400000, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}
@@ -20589,7 +20589,7 @@ MonoBehaviour:
   _messegeContainer: {fileID: 2123653663}
   _playerMessegeTemplate: {fileID: 7473698522186859136, guid: 2665f2ab02e64c643becdf3931f3aa1d, type: 3}
   _characterMessegeTemplate: {fileID: 2271482311210621175, guid: b7697c640049d8344adfa6c8ed42919a, type: 3}
-  _characterChatingTime: 0
+  _characterChatingTime: 0.1
   _containerForAnswerButtons: {fileID: 914581353}
   _answerMassegaButtonTemplate: {fileID: 9163958802393510150, guid: 96c3ab2543014eb4f8c9b14588376ba3, type: 3}
 --- !u!4 &2039147384
@@ -21632,12 +21632,12 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 519420032}
-  - {fileID: 1914059896}
+  - {fileID: 1933153246}
   - {fileID: 1480432595}
   - {fileID: 1814440474}
-  - {fileID: 1212958846}
   - {fileID: 965855477}
-  - {fileID: 1356503189}
-  - {fileID: 1933153246}
+  - {fileID: 1212958846}
+  - {fileID: 1914059896}
+  - {fileID: 519420032}
   - {fileID: 50818888}
+  - {fileID: 1356503189}

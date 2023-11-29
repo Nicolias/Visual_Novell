@@ -27,7 +27,7 @@ namespace QuizSystem
 
         private int _startQuizCost = 5;
 
-        private Character _currentCharacter;
+        private ICharacter _currentCharacter;
         private List<ChoiceButton> _uncorrectButtons;
 
         public Button CloseButton => _closeButton;
@@ -58,7 +58,7 @@ namespace QuizSystem
             return true;
         }
 
-        public void ShowQuestion(Character character)
+        public void ShowQuestion(ICharacter character)
         {
             _canvas.enabled = true;
             _currentCharacter = character;
@@ -77,10 +77,10 @@ namespace QuizSystem
 
         private List<(AnswerType, ChoiseElement)> GenerateChoicElements(QuizQuestion quizElement)
         {
-            List<(AnswerType, ChoiseElement)> choiseElements = new();
+            List<(AnswerType, ChoiseElement)> choiseElements = new List<(AnswerType, ChoiseElement)>();
 
             for (int i = 0; i < quizElement.UncorrectedAnswerText.Count; i++)
-                choiseElements.Add((AnswerType.Uncorrect, new(quizElement.UncorrectedAnswerText[i], () =>
+                choiseElements.Add((AnswerType.Uncorrect, new ChoiseElement(quizElement.UncorrectedAnswerText[i], () =>
                 {
                     StartCoroutine(ShowUncorrectButtons(() =>
                     {
@@ -89,7 +89,7 @@ namespace QuizSystem
                     }));
                 })));
 
-            choiseElements.Add((AnswerType.Correct, new(quizElement.CorrectAnswerText, () =>
+            choiseElements.Add((AnswerType.Correct, new ChoiseElement(quizElement.CorrectAnswerText, () =>
             {
                 StartCoroutine(ShowUncorrectButtons(() =>
                 {

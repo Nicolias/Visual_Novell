@@ -32,8 +32,8 @@ public class LocationsManager : ISaveLoadObject
         List<Location> locations)
     {
         foreach (var character in charactersLibrary.AllCharacters)
-            if (character.CurrentLocation.TryGet(timesOfDayServise.GetCurrentTimesOfDay(), out Location location))
-                location.Set(character);
+            if (character.ScriptableObject.CurrentLocation.TryGet(timesOfDayServise.GetCurrentTimesOfDay(), out Location location))
+                location.Set(character.ScriptableObject);
 
         _saveLoadServise = saveLoadServise;
 

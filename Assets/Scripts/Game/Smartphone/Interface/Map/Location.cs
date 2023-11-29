@@ -24,7 +24,7 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
 
     [SerializeField] private List<PastimeOnLocationType> _actionsOnLocation;
 
-    private Character _characterOnLocation;
+    private CharacterSO _characterOnLocation;
 
     private CharacterRenderer _charactersRenderer;
     private BackgroundView _background;
@@ -108,7 +108,7 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         _itemsView.Clear();
     }
 
-    public void Set(Character character)
+    public void Set(CharacterSO character)
     {
         _characterOnLocation = character;
     }
@@ -123,7 +123,7 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         _questOnLocation = null;
     }
 
-    public CharacterOnLocationData Get(Character character)
+    public CharacterOnLocationData Get(CharacterSO character)
     {
         Vector2 characterOffset = _characterPosition;
 

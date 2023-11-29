@@ -81,7 +81,7 @@ public class Meeting : MonoBehaviour
     {
         _choicePanel.Hide();
 
-        _dialogSpeechPresenter = new DialogSpeechPresenter(_charactersLibrary.GetCharacter(_characterView.Type).DialogAfterMeeting, _dialogSpeechView, _staticData);
+        _dialogSpeechPresenter = new DialogSpeechPresenter(_charactersLibrary.GetCharacter(_characterView.Type).ScriptableObject.DialogAfterMeeting, _dialogSpeechView, _staticData);
 
         _dialogSpeechPresenter.Complete += DialogAfterMeetingCompleted;
         _dialogSpeechPresenter.Execute();
