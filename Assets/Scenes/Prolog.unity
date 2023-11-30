@@ -18790,7 +18790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSateMachine: {fileID: 1914059895}
-  _currentGraph: {fileID: 11400000, guid: 0974ccc37d59639448f3902fe16bcfb7, type: 2}
+  _currentGraph: {fileID: 11400000, guid: 3a1a55a0956d56e4d83e7e5c49e7577d, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}
