@@ -33,10 +33,10 @@ public class Map : WindowInSmartphone, ISaveLoadObject
         LocationsManager locationsManager, Smartphone smartphone, IChoicePanelFactory choicePanelFactory)
     {
         _locationManager = locationsManager;
+        _saveLoadServise = saveLoadServise;
         
         _cellsCreater = new LocationCellsContainer(choicePanelFactory.CreateChoicePanel(transform), smartphone);
 
-        _saveLoadServise = saveLoadServise;
         _cellsCreater.SetCellsFactory(cellFactoryCreater, _containerForCells);
     }
 
@@ -51,6 +51,8 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
             if (_currentLocation != null)
                 ChangeLocation(_currentLocation);
+
+            _cellsCreater.Add(_locations);
         }
 
         _cellsCreater.CellClicked += OnCellClicked;
@@ -94,6 +96,11 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
     public void Save()
     {
+        _saveLoadServise.Save(_saveKey + "LocatoinCount", new SaveData.IntData() { Int = _locations.Count });
+
+        for (int i = 0; i < _locations.Count; i++)
+            _saveLoadServise.Save(_saveKey + i, new SaveData.IntData() { Int = _locations[i].ID });
+
         int currentLocatoinIndex = -1;
 
         if (_currentLocation != null)
@@ -107,6 +114,11 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
     public void Load()
     {
+        int locationsCount = _saveLoadServise.Load<SaveData.IntData>(_saveKey + "LocatoinCount").Int;
+
+        for (int i = 0;i < locationsCount;i++)
+            _locations.Add(_locationManager.GetBy(_saveLoadServise.Load<SaveData.IntData>(_saveKey + i).Int));
+
         var data = _saveLoadServise.Load<SaveData.MapData>(_saveKey);
 
         if (data.CurrentLocationIndex != -1)

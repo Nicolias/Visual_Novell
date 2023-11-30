@@ -36,8 +36,6 @@ namespace Factory.Artifacts
 
             for (int i = 0; i < _artifactsForCollectionCount - _collectedArtifactsCount; i++)
                 _artifacts.Add(artifactData);
-
-            CreateCollectionQuest();
         }
 
         public event Action AllArtifactsCollected;

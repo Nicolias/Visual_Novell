@@ -87,6 +87,8 @@ public class Location : ILocation
     private readonly CollectionPanel _collectionPanel;
     private readonly TimesOfDayServise _timesOfDayServise;
 
+    private readonly int _id;
+
     private CharacterSO _characterOnLocation;
     private Node _questOnLocation;
 
@@ -96,7 +98,9 @@ public class Location : ILocation
     public LocationSO Data => _locationSO;
     public bool IsForArtifacts => _locationSO.IsForArtifacts;
     public bool IsAvailable => _locationSO.IsAvailable;
-    
+
+    public int ID => _id;
+
     public string Name => _locationSO.Name;
     public Superlocation Superlocation => _locationSO.Superlocation;
 
@@ -118,6 +122,7 @@ public class Location : ILocation
         _charactersRenderer = charactersPortraitView;
         _timesOfDayServise = timesOfDayServise;
 
+        _id = id;
         _locationSaveLoader = new LocationSaveLoader(saveLoadServise, this, id);
 
         _locationSaveLoader.Load();
@@ -164,13 +169,17 @@ public class Location : ILocation
     {
         if (_collectionPanel != null)
             _collectionPanel.ItemDeleted -= OnItemDelete;
+
+        _locationSaveLoader.Save();
     }
 
     public void Add(ItemForCollection artifact)
     {
         _itemsOnLocation.Add(artifact);
 
-        _itemsView.Add(_collectionPanel.CreateItemsView(artifact, _locationSO.GetRandomArtifactPosition()));
+        Vector2 spawnPosition = artifact is Artifact == true ? _locationSO.GetRandomArtifactPosition() : artifact.ItemAfterInstantiatePosition;
+
+        _itemsView.Add(_collectionPanel.CreateItemsView(artifact, spawnPosition));
     }
 
     public void DeleteArtifacts()
@@ -219,6 +228,8 @@ public interface ILocation : IDataForCell, IDisposable
     public LocationSO Data { get; }
     
     public bool IsAvailable { get; }
+
+    public int ID { get; }
     public IEnumerable<ItemForCollectionView> ItemsView { get; }
 
     public event Action<ILocation, Node> QuestStarted;
