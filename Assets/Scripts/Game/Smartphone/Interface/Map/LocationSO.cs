@@ -72,7 +72,7 @@ public class LocationSO : ScriptableObject, IDataForCell
     public void Destory(IEnumerable<ItemForCollectionView> itemsView)
     {
         foreach (var itemView in itemsView)
-            if(itemView is Artifact)
+            if(itemView.Data is Artifact)
                 Destroy(itemView.gameObject);
     }
 }
@@ -142,7 +142,6 @@ public class Location : ILocation
     {
         _questOnLocation = data.Quest;
         _itemsOnLocation.AddRange(data.Items);
-        _itemsOnLocation.AddRange(_locationSO.ItemsOnLocation);
     }
     
     public void Show()

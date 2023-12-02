@@ -62,6 +62,9 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
     {
         if (_timesOfDayServise.CurrentTime >= _nextTimeForResetCollection)
         {
+            if (_timesOfDayServise.GetCurrentTimesOfDay() == TimesOfDayType.Night)
+                return;
+
             DateTime currentTime = _timesOfDayServise.CurrentTime.AddDays(1);
             _nextTimeForResetCollection = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 1, 0, 0);
 
@@ -99,6 +102,7 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
     void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
     {        
         TryShowArtifacts();
+        _artifactsFactory.CreateCollectionQuest();
     }
 
     void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)

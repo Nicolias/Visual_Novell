@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 namespace StateMachine
 {
@@ -12,9 +11,14 @@ namespace StateMachine
 
         private AudioClip _freePlaySound;
 
-        public PlayState(AudioServise audioServise, AudioClip freePlaySound)
+        public PlayState(AudioServise audioServise, AudioClip freePlaySound, TimesOfDayServise timesOfDayServise,
+            CharactersLibrary charactersLibrary, LocationsManager locationsManager)
         {
+            _charactersLibrary = charactersLibrary;
+            _locationsManager = locationsManager;
             _audioServise = audioServise;
+            _timesOfDayServise = timesOfDayServise;
+
             _freePlaySound = freePlaySound;
         }
 

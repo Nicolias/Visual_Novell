@@ -9,7 +9,7 @@
         _charactersLibrary = charactersLibrary;
     }
 
-    public override void Enter(CharacterType character)
+    protected override void StartPastime(CharacterType character)
     {
         _eating.Enter(_charactersLibrary.GetCharacter(character));
     }

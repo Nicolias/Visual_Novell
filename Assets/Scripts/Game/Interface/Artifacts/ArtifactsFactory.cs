@@ -74,7 +74,7 @@ namespace Factory.Artifacts
             CreateCollectionQuest();
         }
 
-        private void CreateCollectionQuest()
+        public void CreateCollectionQuest()
         {
             if (_collectionQuest != null)
                 _collectionQuest.Dispose();

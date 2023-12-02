@@ -1,6 +1,7 @@
 using Characters;
 using Factory.Cells;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -14,7 +15,9 @@ public class ContactsWindow : WindowInSmartphone
     [SerializeField] private Smartphone _smartphone;
     [SerializeField] private Button _closeButton;
 
+    [SerializeField] private List<LocationSO> _locationsSOForMeeting = new List<LocationSO>();
     [SerializeField] private List<CharacterSO> _contacts = new List<CharacterSO>();
+
     [SerializeField] private Transform _characterCellsContainer;
 
     private Battery _battery;
@@ -25,8 +28,7 @@ public class ContactsWindow : WindowInSmartphone
     private Canvas _selfCanvas;
     private ChoicePanel _choicePanel;
 
-    private LocationsManager _locationsManager;
-
+    private List<ILocation> _locations;
     private List<Cell<ICharacter>> _characterCells = new List<Cell<ICharacter>>();
 
     [Inject]
@@ -36,7 +38,7 @@ public class ContactsWindow : WindowInSmartphone
         _characterCells = cellsFactoryCreater.CreateCellsFactory<ICharacter>().CreateCellsView(charactersLibrary.GetCharacters(_contacts), _characterCellsContainer);
         _choicePanel = choicePanelFactory.CreateChoicePanel(transform);
 
-        _locationsManager = locationsManager;
+        _locations = locationsManager.Get(_locationsSOForMeeting).ToList();
 
         _battery = battery;
     }
@@ -45,12 +47,6 @@ public class ContactsWindow : WindowInSmartphone
     {
         _selfCanvas = GetComponent<Canvas>();
         _closeButton.onClick.AddListener(Hide);
-    }
-
-    private void OnDisable()
-    {
-        ChangeEnableInSmartphone(true);
-        _smartphone.Save();
     }
 
     protected override void OnDisabled()
@@ -83,17 +79,20 @@ public class ContactsWindow : WindowInSmartphone
 
     private void OnCharacterCellClicked(ICharacter character)
     {
-        _choicePanel.Show("Выберите локацию для приглашения", CreateLocationButtons(character));
+        _choicePanel.Show("Выберите локацию для приглашения", CreateLocationsButtons(character));
     }
 
-    private List<ChoiseElement> CreateLocationButtons(ICharacter selectedCharacter)
+    private List<ChoiseElement> CreateLocationsButtons(ICharacter selectedCharacter)
     {
         List<ChoiseElement> choiseElements = new List<ChoiseElement>();
 
-        foreach (var locationForMeeting in _locationsManager.AvailableLocations)
+        foreach (var locationForMeeting in _locations)
         {
-            ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => TryMoveTo(selectedCharacter, locationForMeeting));
-            choiseElements.Add(choiseElement);
+            if (locationForMeeting.IsAvailable)
+            {
+                ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => TryMoveTo(selectedCharacter, locationForMeeting));
+                choiseElements.Add(choiseElement);
+            }
         }
 
         return choiseElements;

@@ -13,6 +13,8 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 
     public int CurrentValue => _chargeLeve;
 
+    private int _rechargeByMinute = 8;
+
     private const string _saveKey = "BatterySave";
 
     public event Action AccureCompleted;
@@ -47,7 +49,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         _chargeLeve -= value;
 
         if (_isTimer == false)
-            StartCoroutine(Timer(new(0, 8, 0)));
+            StartCoroutine(Timer(new(0, _rechargeByMinute, 0)));
 
         ValueChanged?.Invoke(_chargeLeve);
     }
@@ -92,6 +94,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
     public void Load()
     {
         var data = _saveLoadServise.Load<SaveData.BatterySaveData>(_saveKey);
+        _chargeLeve = data.ChargeLevel;
 
         DateTime lastOpenedTime = new(data.LastOpenedYear, 
             data.LastOpenedMonths, 
@@ -105,19 +108,18 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         if (timeSinceLastOpened.TotalSeconds < 0)
             Application.Quit();
 
-        int chargeToAdd = (int)(timeSinceLastOpened.TotalMinutes / 8);
+        double minuts = timeSinceLastOpened.TotalMinutes;
 
-        _chargeLeve =  Mathf.RoundToInt(data.ChargeLevel + chargeToAdd);
+        while (_chargeLeve < _maxCharge)
+        {
+            if (minuts < _rechargeByMinute)
+                break;
+
+            minuts -= _rechargeByMinute;
+            _chargeLeve++;
+        }
 
         ValueChanged?.Invoke(_chargeLeve);
-
-        //var minutes = (timeSinceLastOpened.TotalMinutes / 8);
-
-        //while (minutes > 1)
-        //    minutes /= 10;
-
-        //var totalMinutes = (8 - minutes);
-        //TimeSpan timeSpan = TimeSpan.FromMinutes(totalMinutes);
 
         if (_chargeLeve < _maxCharge && _isTimer == false)
             StartCoroutine(Timer(new(0,8,0)));

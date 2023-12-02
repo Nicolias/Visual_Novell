@@ -9,8 +9,6 @@ public abstract class AbstractPastime
         ChoicePanel = choicePanel;
         Name = name;
         _objectForClose = objectForClose;
-
-        _objectForClose.Closed += Exit;
     }
 
     public event Action Ended;
@@ -18,7 +16,14 @@ public abstract class AbstractPastime
     public string Name { get; private set; }
     protected ChoicePanel ChoicePanel { get; private set; }
 
-    public abstract void Enter(CharacterType character);
+    public void Enter(CharacterType character)
+    {
+        _objectForClose.Closed += Exit;
+
+        StartPastime(character);
+    }
+
+    protected abstract void StartPastime(CharacterType character);
 
     private void Exit()
     {

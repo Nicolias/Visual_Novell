@@ -23,14 +23,15 @@ namespace StateMachine
         public event Action StateChanged;
 
         [Inject]
-        public void Construct(SaveLoadServise saveLoadServise, AudioServise audioServise)
+        public void Construct(SaveLoadServise saveLoadServise, AudioServise audioServise, TimesOfDayServise timesOfDayServise,
+            CharactersLibrary charactersLibrary, LocationsManager locationsManager)
         {
             _saveLoadServise = saveLoadServise;
 
             _allStates = new List<BaseState>()
             {
                 new StoryState(_smartphone),
-                new PlayState(audioServise, _freePlaySound)
+                new PlayState(audioServise, _freePlaySound, timesOfDayServise, charactersLibrary, locationsManager)
             };
 
             ChangeState<StoryState>();

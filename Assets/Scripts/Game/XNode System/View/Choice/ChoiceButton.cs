@@ -20,7 +20,8 @@ public class ChoiceButton : MonoBehaviour
 
     private void OnEnable()
     {
-        _selfButton.onClick.AddListener(() => ActionWhenOnClick.Invoke());
+        _selfButton.onClick.AddListener(() => 
+        ActionWhenOnClick.Invoke());
     }
 
     private void OnDisable()

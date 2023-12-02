@@ -1985,6 +1985,44 @@ MonoBehaviour:
   _meeting: {fileID: 22411512}
   _smartphone: {fileID: 68010062}
   _closeButton: {fileID: 1084765054}
+  _locationsSOForMeeting:
+  - {fileID: 11400000, guid: f9ba862d0b8e8674cbedc8e7dadf5803, type: 2}
+  - {fileID: 11400000, guid: d99975fae8851e9458ea45da1b4b5ea4, type: 2}
+  - {fileID: 11400000, guid: b801bf4722219ba46aab7caf88d3edcc, type: 2}
+  - {fileID: 11400000, guid: 40e50bbd878e49042a410522a45b912b, type: 2}
+  - {fileID: 11400000, guid: 0d928599eb9265c489e73b7b6b3fed09, type: 2}
+  - {fileID: 11400000, guid: 12629ec0b9540ca44b512bfefb9fcd6d, type: 2}
+  - {fileID: 11400000, guid: e3c5c8909142a6545b9c3e25e345fcf0, type: 2}
+  - {fileID: 11400000, guid: 2e2bc2dc2bcd4ae4d8e05f0ea70b5de9, type: 2}
+  - {fileID: 11400000, guid: 7f1d1db986e8dc3419460500c63d44a4, type: 2}
+  - {fileID: 11400000, guid: 6ad7046dd5210c24db7c413fa85824a3, type: 2}
+  - {fileID: 11400000, guid: 0e5adba9e0e453c47a4dbb079b5d1c72, type: 2}
+  - {fileID: 11400000, guid: 7638b69070d9aeb46830331886695653, type: 2}
+  - {fileID: 11400000, guid: 39669fc6b2bb02240b4ad1aa4474a1f5, type: 2}
+  - {fileID: 11400000, guid: c9e7a4f5e8c2b25428668efcd5bcc79a, type: 2}
+  - {fileID: 11400000, guid: 89546989bb71bc14cbea11f39f8f9a5a, type: 2}
+  - {fileID: 11400000, guid: e85c1faff760a254da8ef9d49eef430a, type: 2}
+  - {fileID: 11400000, guid: 71fe3537b16809e4f90dc2c30a4a5758, type: 2}
+  - {fileID: 11400000, guid: b0b37e3e42bca3440854533ad00ff9f8, type: 2}
+  - {fileID: 11400000, guid: 9384048f9867c50438a1ce988a6f98dc, type: 2}
+  - {fileID: 11400000, guid: c59c86381b6672f408e4df88c71a11f5, type: 2}
+  - {fileID: 11400000, guid: e53936db7ddf98b4796c2d202d1934c4, type: 2}
+  - {fileID: 11400000, guid: 7bcc63ffbb20b8f4caa284730631c4e6, type: 2}
+  - {fileID: 11400000, guid: 56b15a3c231d0dd4ba3304e208729e25, type: 2}
+  - {fileID: 11400000, guid: 29276bd6c858c23479af660535153902, type: 2}
+  - {fileID: 11400000, guid: 12354967d2449ba48ab111c81ea6a5f0, type: 2}
+  - {fileID: 11400000, guid: b75c02ea266b5ed419825dbdb3968ce5, type: 2}
+  - {fileID: 11400000, guid: 30ee70cae466c594bbd0e43602d9f554, type: 2}
+  - {fileID: 11400000, guid: 31b481852f893904ca984e8546a59ad3, type: 2}
+  - {fileID: 11400000, guid: 661dee47fe5944d44af5ded2f7e036e2, type: 2}
+  - {fileID: 11400000, guid: 61c152ce61da6e448ad9a00e7f80e1e3, type: 2}
+  - {fileID: 11400000, guid: 44c51856e8193cc4380cef6f683ab070, type: 2}
+  - {fileID: 11400000, guid: a62fba4e2d4f30448ae9b57391f1dee9, type: 2}
+  - {fileID: 11400000, guid: 2acad6a18ee0a6545821e20c524a1c17, type: 2}
+  - {fileID: 11400000, guid: 2c5533a184b79e04ab49078e4767ede8, type: 2}
+  - {fileID: 11400000, guid: d7b815c59d8f2f148a3fe56771004062, type: 2}
+  - {fileID: 11400000, guid: a364968cf733caf43a09c1a61df7076f, type: 2}
+  - {fileID: 11400000, guid: a44af7cbd0277ff458621d12cd1f0cc3, type: 2}
   _contacts:
   - {fileID: 11400000, guid: a44bc97d67ac5964bab047ad1f763c9c, type: 2}
   _characterCellsContainer: {fileID: 542983952}
@@ -5738,6 +5776,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _allLocationsSO:
+  - {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
+  - {fileID: 11400000, guid: bf85709b809aff342a7184fad427b132, type: 2}
   - {fileID: 11400000, guid: f9ba862d0b8e8674cbedc8e7dadf5803, type: 2}
   - {fileID: 11400000, guid: d99975fae8851e9458ea45da1b4b5ea4, type: 2}
   - {fileID: 11400000, guid: b801bf4722219ba46aab7caf88d3edcc, type: 2}
@@ -5775,8 +5815,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7b815c59d8f2f148a3fe56771004062, type: 2}
   - {fileID: 11400000, guid: a364968cf733caf43a09c1a61df7076f, type: 2}
   - {fileID: 11400000, guid: a44af7cbd0277ff458621d12cd1f0cc3, type: 2}
-  - {fileID: 11400000, guid: 9ea3b0894686f5343a251c97270723c5, type: 2}
-  - {fileID: 11400000, guid: bf85709b809aff342a7184fad427b132, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -11621,7 +11659,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5429552}
   m_HandleRect: {fileID: 5429551}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -17174,9 +17212,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1652980046}
   - component: {fileID: 1652980049}
+  - component: {fileID: 1652980051}
   - component: {fileID: 1652980048}
   - component: {fileID: 1652980047}
-  - component: {fileID: 1652980051}
   - component: {fileID: 1652980052}
   - component: {fileID: 1652980054}
   m_Layer: 5
@@ -17295,7 +17333,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652980045}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -18790,7 +18828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSateMachine: {fileID: 1914059895}
-  _currentGraph: {fileID: 11400000, guid: 3a1a55a0956d56e4d83e7e5c49e7577d, type: 2}
+  _currentGraph: {fileID: 11400000, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}

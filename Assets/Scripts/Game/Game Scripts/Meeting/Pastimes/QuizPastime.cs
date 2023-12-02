@@ -8,7 +8,7 @@
         _quiz = quiz;
     }
 
-    public override void Enter(CharacterType character)
+    protected override void StartPastime(CharacterType character)
     {
         _quiz.Enter(character, true);
     }
