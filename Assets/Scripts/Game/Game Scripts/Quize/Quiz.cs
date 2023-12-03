@@ -41,6 +41,8 @@ public class Quiz : ICloseable
 
     public void Enter(CharacterType characterType, bool canBeClose)
     {
+        _characterType = characterType;
+
         if (_quizView.CanBeStarted(HideQuiz) == false)
             return;
 
@@ -50,7 +52,6 @@ public class Quiz : ICloseable
             _quizView.CloseButton.onClick.AddListener(HideQuiz);
         }
 
-        _characterType = characterType;
         _currentCharacter = _characterLibrary.GetCharacter(characterType);
         _quizView.ShowQuestion(_currentCharacter);
     }
