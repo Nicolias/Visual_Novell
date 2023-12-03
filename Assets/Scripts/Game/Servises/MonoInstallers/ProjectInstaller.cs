@@ -10,7 +10,7 @@ public class ProjectInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<SaveLoadServise>().FromComponentsInNewPrefab(_saveLoadServise).AsSingle();
-        Container.Bind<TimesOfDayServise>().FromComponentInNewPrefab(_timesOfDayServise).AsSingle();
+        Container.Bind<TimesOfDayServise>().FromComponentInNewPrefab(_timesOfDayServise).AsSingle().NonLazy();
         Container.Bind<AudioServise>().FromComponentsInNewPrefab(_audioServise).AsSingle().NonLazy();
     }
 }

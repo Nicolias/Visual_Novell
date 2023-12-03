@@ -268,7 +268,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 1405722080872990227}
+        node: {fileID: 4900833964765683020}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -663,7 +663,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _outPut
-        node: {fileID: 1521515590825082319}
+        node: {fileID: 841998424378296607}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8, y: 872}
+  position: {x: -216, y: 856}
   ports:
     keys:
     - _inPut
@@ -887,6 +887,8 @@ MonoBehaviour:
   - {fileID: -3223071686562143950}
   - {fileID: -6839121220099072222}
   - {fileID: -438113414300745123}
+  - {fileID: 4900833964765683020}
+  - {fileID: 841998424378296607}
 --- !u!114 &639675017969848972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,6 +942,61 @@ MonoBehaviour:
       <Value>k__BackingField: 1
     - <Key>k__BackingField: 1
       <Value>k__BackingField: 1
+  <IsShowGuid>k__BackingField: 0
+--- !u!114 &841998424378296607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 632, y: 1384}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 841998424378296607}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 1521515590825082319}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 841998424378296607}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -438113414300745123}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u044D\u044F"
+  _speechText: "\u041D\u0435 \u0437\u0430\u0431\u0443\u0434\u044C \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u0442\u044C
+    \u041B\u0438\u0437\u0435 \u0438\u043B\u0438 \u0432\u0441\u0442\u0440\u0435\u0442\u044C\u0441\u044F
+    \u0441 \u043D\u0435\u0439 \u0438 \u043F\u0440\u0438\u0433\u043B\u0430\u0441\u0438
+    \u0441\u044E\u0434\u0430. \u0423\u0437\u043D\u0430\u0439 \u043E \u043D\u0435\u0439
+    \u043F\u043E \u0431\u043E\u043B\u044C\u0448\u0435, \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0439
+    \u0435\u0451 \u0434\u043E\u0432\u0435\u0440\u0438\u0435."
 --- !u!114 &915836028432083704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,7 +1112,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 216, y: 872}
+  position: {x: 8, y: 872}
   ports:
     keys:
     - _inPut
@@ -1079,7 +1136,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -6430496763439954524}
+        node: {fileID: 4900833964765683020}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1090,14 +1147,11 @@ MonoBehaviour:
   _isImmediatelyNextNode: 0
   _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
   _speakerName: "\u0414\u044D\u044F"
-  _speechText: "\u0410 \u0432\u043E\u0442 \u0435\u0441\u0442\u044C \u0442\u0435,
-    \u043A\u0442\u043E \u043D\u0435 \u0434\u0430\u0451\u0442 \u0448\u0430\u043D\u0441\u0430
-    \u0438 \u0432\u044B\u0431\u043E\u0440\u0430. \u041F\u0440\u043E\u0441\u0442\u043E
-    \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u0442 \u0438 \u0434\u0435\u043B\u0430\u0435\u0442,
-    \u0442\u0430\u043A \u043A\u0430\u043A \u0435\u043C\u0443 \u0445\u043E\u0447\u0435\u0442\u0441\u044F
-    \u0438 \u043F\u0440\u043E\u0441\u0442\u043E\u0439 \u0447\u0435\u043B\u043E\u0432\u0435\u043A,
-    \u0441 \u044D\u0442\u0438\u043C \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435
-    \u0441\u0434\u0435\u043B\u0430\u0435\u0442.d"
+  _speechText: "\u0427\u0442\u043E \u0437\u0430 \u0433\u043B\u0443\u043F\u043E\u0441\u0442\u0438?
+    \u0422\u044B \u0441\u0430\u043C \u0445\u043E\u0437\u044F\u0438\u043D \u0441\u0432\u043E\u0435\u0439
+    \u0441\u0443\u0434\u044C\u0431\u044B. \u041D\u0438\u043A\u043E\u043C\u0443 \u043D\u0435
+    \u0434\u043E\u0437\u0432\u043E\u043B\u0435\u043D\u043E \u0440\u0435\u0448\u0430\u0442\u044C
+    \u0437\u0430 \u0442\u0435\u0431\u044F."
 --- !u!114 &1521515590825082319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,7 +1165,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: 1384}
+  position: {x: 424, y: 1384}
   ports:
     keys:
     - _inPut
@@ -1135,7 +1189,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -438113414300745123}
+        node: {fileID: 841998424378296607}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1563,6 +1617,60 @@ MonoBehaviour:
     \u0438 \u0441\u0447\u0438\u0442\u0430\u044E, \u0447\u0442\u043E \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u044B
     \u043D\u0443\u0436\u043D\u043E \u0440\u0435\u0448\u0430\u0442\u044C, \u043F\u043E
     \u043C\u0435\u0440\u0435 \u0438\u0445 \u043F\u043E\u0441\u0442\u0443\u043F\u043B\u0435\u043D\u0438\u044F."
+--- !u!114 &4900833964765683020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9604183f5bd4b2f449556a11504a5ecf, type: 3}
+  m_Name: Dialog Speech Model
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 216, y: 872}
+  ports:
+    keys:
+    - _inPut
+    - _outPut
+    values:
+    - _fieldName: _inPut
+      _node: {fileID: 4900833964765683020}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 1405722080872990227}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _outPut
+      _node: {fileID: 4900833964765683020}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _inPut
+        node: {fileID: -6430496763439954524}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  _inPut: 0
+  _outPut: 0
+  _isImmediatelyNextNode: 0
+  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
+  _speakerName: "\u0414\u044D\u044F"
+  _speechText: "\u0412\u043E\u0437\u044C\u043C\u0438 \u0434\u0430\u0436\u0435 \u0441\u043B\u0443\u0447\u0430\u0439
+    \u0441 \u0424\u043E\u0440\u0442\u0443\u043D\u043E\u0439, \u043E\u043D\u0430 \u0442\u0435\u0431\u044F
+    \u043F\u0440\u0438\u043D\u0443\u0434\u0438\u043B\u0430 \u043A \u044D\u0442\u043E\u043C\u0443
+    \u0432\u044B\u0431\u043E\u0440\u0443? \u041E\u043D\u0430 \u043F\u0440\u043E\u0441\u0442\u043E
+    \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u043B\u0430 \u0432\u0430\u0440\u0438\u0430\u043D\u0442\u044B.
+    \u0410 \u0442\u044B \u0441\u0434\u0435\u043B\u0430\u043B \u0432\u044B\u0431\u043E\u0440."
 --- !u!114 &4927717276801508270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1922,3 +2030,4 @@ MonoBehaviour:
     _dictionary:
     - <Key>k__BackingField: 0
       <Value>k__BackingField: 0
+  <IsShowGuid>k__BackingField: 0

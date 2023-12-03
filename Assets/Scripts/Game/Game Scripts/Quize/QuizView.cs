@@ -37,6 +37,8 @@ namespace QuizSystem
 
         public void HideCanvas()
         {
+            if (_canvas.enabled == false) return;
+
             _closeButton.gameObject.SetActive(false);
 
             _canvas.enabled = false;

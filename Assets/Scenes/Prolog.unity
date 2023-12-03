@@ -568,7 +568,6 @@ MonoBehaviour:
   _miniGames:
   - {fileID: 918230743}
   - {fileID: 498886663}
-  _startGameCost: 10
 --- !u!114 &30273717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18828,7 +18827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSateMachine: {fileID: 1914059895}
-  _currentGraph: {fileID: 11400000, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+  _currentGraph: {fileID: 11400000, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}
@@ -21716,12 +21715,12 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1933153246}
+  - {fileID: 519420032}
   - {fileID: 1480432595}
   - {fileID: 1814440474}
   - {fileID: 965855477}
   - {fileID: 1212958846}
   - {fileID: 1914059896}
-  - {fileID: 519420032}
+  - {fileID: 1933153246}
   - {fileID: 50818888}
   - {fileID: 1356503189}

@@ -17,7 +17,8 @@ public class MiniGameSelector : MonoBehaviour, ICloseable, IByStateMachineChanga
     [SerializeField] private TMP_Text _sympathyCounter;
     [SerializeField] private TMP_Text _chargeCounter;
     [SerializeField] private List<MiniGame> _miniGames;
-    [SerializeField] private int _startGameCost = 5;
+
+    private int _startGameBatteryCost = 5;
 
     private GameStateVisitor _gameStateVisitor;
 
@@ -62,7 +63,7 @@ public class MiniGameSelector : MonoBehaviour, ICloseable, IByStateMachineChanga
 
     public void Enter(CharacterType character)
     {
-        if (_battery.CurrentValue < _startGameCost)
+        if (_battery.CurrentValue < _startGameBatteryCost)
         {
             _choicePanel.Show("Недостаточно энергии", new List<ChoiseElement>()
             {
@@ -98,7 +99,7 @@ public class MiniGameSelector : MonoBehaviour, ICloseable, IByStateMachineChanga
 
     private void OnGameEnded()
     {
-        _battery.Decreese(_startGameCost);
+        _battery.Decreese(_startGameBatteryCost);
         UpdateSympathyView(_currentCharacter.SympathyPoints);
 
         Enter(_currentCharacter.Type);

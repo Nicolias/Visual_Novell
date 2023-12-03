@@ -1,20 +1,40 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
+using Unity.Services.CloudCode;
+using System.Collections.Generic;
+using Unity.Services.Core;
+using Unity.Services.Authentication;
+using System.Collections;
 
 public class TimesOfDayServise : MonoBehaviour
 {
-    private DateTime _currentTime;
+    private WaitForSeconds _waitOneSecond = new WaitForSeconds(1f);
 
+    private DateTime _currentTime = new DateTime(1970, 1, 1, 3, 0, 0);
     public DateTime CurrentTime => _currentTime;
 
-    private void Awake()
+    private async void Awake()
     {
-        _currentTime = DateTime.Now;
+        await UnityServices.InitializeAsync();
+
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+
+        var a = await CallGetServerEpochTimeEndpoint();
+        _currentTime = _currentTime.AddMilliseconds(a);
+
+        Debug.Log(new DateTime().AddMilliseconds(a));
+        Debug.Log(_currentTime);
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        _currentTime = DateTime.Now;
+        StartCoroutine(Timer());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(Timer());
     }
 
     public TimesOfDayType GetCurrentTimesOfDay()
@@ -31,6 +51,34 @@ public class TimesOfDayServise : MonoBehaviour
                 return TimesOfDayType.Night;
             default:
                 return TimesOfDayType.Night;
+        }
+    }
+
+    private async Task<long> CallGetServerEpochTimeEndpoint()
+    {
+        try
+        {
+            return await CloudCodeService.Instance.CallEndpointAsync<long>(
+                "GetServerTime",
+                new Dictionary<string, object>());
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Problem calling cloud code endpoint: " + e.Message);
+            Debug.LogException(e);
+        }
+
+        return default;
+    }
+
+    private IEnumerator Timer()
+    {
+        while (enabled)
+        {
+            yield return _waitOneSecond;
+            _currentTime = _currentTime.AddSeconds(1);
+
+            Debug.Log(CurrentTime);
         }
     }
 }

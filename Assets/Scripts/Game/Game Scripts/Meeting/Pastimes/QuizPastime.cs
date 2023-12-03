@@ -3,7 +3,7 @@
     private Quiz _quiz;
 
     public QuizPastime(Quiz quiz, ChoicePanel choicePanel) 
-        : base(choicePanel, "Виктарина", quiz)
+        : base(choicePanel, "Викторина", quiz)
     {
         _quiz = quiz;
     }
