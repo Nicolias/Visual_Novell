@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace StateMachine
 {
@@ -9,9 +10,10 @@ namespace StateMachine
         private readonly AudioServise _audioServise;
         private readonly TimesOfDayServise _timesOfDayServise;
 
-        private AudioClip _freePlaySound;
+        private List<AudioClip> _freePlayMusicVariations;
+        private AudioClip _currentMusic;
 
-        public PlayState(AudioServise audioServise, AudioClip freePlaySound, TimesOfDayServise timesOfDayServise,
+        public PlayState(AudioServise audioServise, List<AudioClip> freePlayMusicVariations, TimesOfDayServise timesOfDayServise,
             CharactersLibrary charactersLibrary, LocationsManager locationsManager)
         {
             _charactersLibrary = charactersLibrary;
@@ -19,7 +21,7 @@ namespace StateMachine
             _audioServise = audioServise;
             _timesOfDayServise = timesOfDayServise;
 
-            _freePlaySound = freePlaySound;
+            _freePlayMusicVariations = freePlayMusicVariations;
         }
 
         public override void Accept(IGameStateVisitor gameStateVisitor)
@@ -29,7 +31,9 @@ namespace StateMachine
 
         public override void Enter()
         {
-            _audioServise.PlaySound(_freePlaySound);
+            _currentMusic = _freePlayMusicVariations[Random.Range(0, _freePlayMusicVariations.Count)];
+
+            _audioServise.PlaySound(_currentMusic);
 
             foreach (var character in _charactersLibrary.AllCharacters)
                 if (character.ScriptableObject.CurrentLocation.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out LocationSO locationSO))
@@ -39,7 +43,7 @@ namespace StateMachine
 
         public override void Exit()
         {
-            _audioServise.StopSound(_freePlaySound);
+            _audioServise.StopSound(_currentMusic);
         }
     }
 }

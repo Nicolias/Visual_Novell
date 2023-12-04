@@ -27,12 +27,11 @@ MonoBehaviour:
   _artifactPositionVariations:
   - {x: 55, y: 55}
   _itemsOnLocation: []
-  _questOnLocation: {fileID: 0}
-  _isAvilable: 1
   _characterPosition: {x: 0, y: 0}
   _characterScale: {x: 0, y: 0, z: 0}
   _characterPoseType: 2
   _actionsOnLocation: 0100000002000000
+  <DefultSprite>k__BackingField: {fileID: 21300000, guid: ff9f2a5fe68f75e44bbf3acdd36cf887, type: 3}
   <IsForArtifacts>k__BackingField: 1
   <Name>k__BackingField: "\u0412\u0445\u043E\u0434 \u0432 \u041F\u0430\u0440\u043A"
   <Superlocation>k__BackingField: {fileID: 11400000, guid: 83811c24ef18fdb45b2db8fa8a9bdbeb, type: 2}

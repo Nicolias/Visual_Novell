@@ -1,10 +1,10 @@
 ﻿using Characters;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SaveData;
 using UnityEngine;
 using XNode;
+using StateMachine;
 
 [CreateAssetMenu(fileName = "New location", menuName = "Location/Location")]
 public class LocationSO : ScriptableObject, IDataForCell
@@ -26,6 +26,7 @@ public class LocationSO : ScriptableObject, IDataForCell
     
     private TimesOfDayServise _timesOfDayServise;
 
+    [field: SerializeField] public Sprite DefultSprite { get; private set; }
     [field: SerializeField] public bool IsForArtifacts { get; private set; }
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public Superlocation Superlocation { get; private set; }
@@ -34,6 +35,7 @@ public class LocationSO : ScriptableObject, IDataForCell
 
     public IEnumerable<ItemForCollection> ItemsOnLocation => _itemsOnLocation;
     public IEnumerable<PastimeOnLocationType> ActionsList => _actionsOnLocation;
+
 
     public void Initialize(TimesOfDayServise timesOfDayServise)
     {
@@ -77,7 +79,7 @@ public class LocationSO : ScriptableObject, IDataForCell
     }
 }
 
-public class Location : ILocation
+public class Location : ILocation, IByStateMachineChangable
 {
     private readonly LocationSO _locationSO;
 
@@ -86,8 +88,12 @@ public class Location : ILocation
     private readonly BackgroundView _background;
     private readonly CollectionPanel _collectionPanel;
     private readonly TimesOfDayServise _timesOfDayServise;
+    private readonly GameStateVisitor _gameStateVisitor;
 
     private readonly int _id;
+
+    private bool _isUseDefualtSprite;
+    private Func<bool> _isAvailbaleAction;
 
     private CharacterSO _characterOnLocation;
     private Node _questOnLocation;
@@ -97,7 +103,7 @@ public class Location : ILocation
 
     public LocationSO Data => _locationSO;
     public bool IsForArtifacts => _locationSO.IsForArtifacts;
-    public bool IsAvailable => _locationSO.IsAvailable;
+    public bool IsAvailable => _isAvailbaleAction.Invoke();
 
     public int ID => _id;
 
@@ -109,9 +115,11 @@ public class Location : ILocation
     public IEnumerable<ItemForCollection> ItemsOnLocationData => _itemsOnLocation;
     public IEnumerable<ItemForCollectionView> ItemsView => _itemsView;
 
+    public Sprite DefultSprite => _locationSO.DefultSprite;
+
     public event Action<ILocation, Node> QuestStarted;
 
-    public Location(BackgroundView background, CollectionPanel collectionPanel,
+    public Location(GameStateMachine gameStateMachine, BackgroundView background, CollectionPanel collectionPanel,
         CharacterRenderer charactersPortraitView, TimesOfDayServise timesOfDayServise,
         SaveLoadServise saveLoadServise, LocationSO locationSo, int id)
     {
@@ -122,6 +130,10 @@ public class Location : ILocation
         _charactersRenderer = charactersPortraitView;
         _timesOfDayServise = timesOfDayServise;
 
+        _gameStateVisitor = new GameStateVisitor(gameStateMachine, this);
+        _gameStateVisitor.RecognizeCurrentGameState();
+        _gameStateVisitor.SubscribeOnGameStateMachine();
+
         _id = id;
         _locationSaveLoader = new LocationSaveLoader(saveLoadServise, this, id);
 
@@ -131,6 +143,28 @@ public class Location : ILocation
             _itemsOnLocation.AddRange(_locationSO.ItemsOnLocation);
         
         _itemsView = collectionPanel.CreateItemsView(_itemsOnLocation);
+    }
+
+    public void Dispose()
+    {
+        if (_collectionPanel != null)
+            _collectionPanel.ItemDeleted -= OnItemDelete;
+
+        _locationSaveLoader.Save();
+
+        _gameStateVisitor.UnsubsciribeFromGameStateMachine();
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
+    {
+        _isAvailbaleAction = () => _locationSO.IsAvailable;
+        _isUseDefualtSprite = false;
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    {
+        _isAvailbaleAction = () => true;
+        _isUseDefualtSprite = true;
     }
 
     public override string ToString()
@@ -151,9 +185,17 @@ public class Location : ILocation
         if (_questOnLocation != null)
             QuestStarted?.Invoke(this, _questOnLocation);
 
-        if (_locationSO.TryGetByCurrentTime(out Sprite sprite))
+        if (_isUseDefualtSprite)
         {
-            _background.Replace(sprite);
+            _background.Replace(DefultSprite);
+            CheckCorrectCharacterOnLocation();
+
+            if (_characterOnLocation != null)
+                _charactersRenderer.Show(_locationSO.Get(_characterOnLocation));
+        }
+        else if (_locationSO.TryGetByCurrentTime(out Sprite curretnSprite))
+        {
+            _background.Replace(curretnSprite);
             CheckCorrectCharacterOnLocation();
 
             if (_characterOnLocation != null)
@@ -162,14 +204,6 @@ public class Location : ILocation
 
         _collectionPanel.ShowItems(_itemsView);
         _collectionPanel.ItemDeleted += OnItemDelete;
-    }
-
-    public void Dispose()
-    {
-        if (_collectionPanel != null)
-            _collectionPanel.ItemDeleted -= OnItemDelete;
-
-        _locationSaveLoader.Save();
     }
 
     public void Add(ItemForCollection artifact)
@@ -219,59 +253,5 @@ public class Location : ILocation
             if (locationSO != _locationSO)
                 _characterOnLocation = null;
         }
-    }
-}
-
-public interface ILocation : IDataForCell, IDisposable
-{
-    public LocationSO Data { get; }
-    
-    public bool IsAvailable { get; }
-
-    public int ID { get; }
-    public IEnumerable<ItemForCollectionView> ItemsView { get; }
-
-    public event Action<ILocation, Node> QuestStarted;
-
-    public void Show();
-    
-    public void Add(ItemForCollection artifact);
-
-    public void DeleteArtifacts();
-
-    public void Set(CharacterSO character);
-
-    public void Set(Node questOnLocation);
-
-    public void RemoveQuest();
-}
-
-public class LocationSaveLoader : ISaveLoadObject
-{
-    private SaveLoadServise _saveLoadServise;
-    private Location _location;
-    private string _saveKey;
-
-    public LocationSaveLoader(SaveLoadServise saveLoadServise, Location location, int id)
-    {
-        _saveLoadServise = saveLoadServise;
-        _location = location;
-        _saveKey = $"Location{id}";
-    }
-
-    public void Save()
-    {
-        _saveLoadServise.Save(_saveKey, new SaveData.LocationData()
-        {
-            Quest = _location.CurrentQuest,
-            Items = _location.ItemsOnLocationData.ToList()
-        });
-    }
-
-    public void Load()
-    {
-        if (_saveLoadServise.HasSave(_saveKey) == false) return;
-        
-        _location.Load(_saveLoadServise.Load<SaveData.LocationData>(_saveKey));
     }
 }

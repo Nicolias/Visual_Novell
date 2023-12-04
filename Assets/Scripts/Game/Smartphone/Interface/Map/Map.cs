@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using XNode;
 using Zenject;
+using StateMachine;
 
-public class Map : WindowInSmartphone, ISaveLoadObject
+public class Map : WindowInSmartphone, ISaveLoadObject, IByStateMachineChangable
 {
     [SerializeField] private Transform _containerForCells;
 
@@ -20,6 +21,8 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     private LocationCellsContainer _cellsCreater;
     private SaveLoadServise _saveLoadServise;
 
+    private GameStateVisitor _gameStateVisitor;
+
     private const string _saveKey = "MapSave";
 
     private List<ILocation> _locations = new List<ILocation>();
@@ -30,11 +33,14 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
     [Inject]
     public void Construct(SaveLoadServise saveLoadServise, CellsFactoryCreater cellFactoryCreater,
-        LocationsManager locationsManager, Smartphone smartphone, IChoicePanelFactory choicePanelFactory)
+        LocationsManager locationsManager, Smartphone smartphone, IChoicePanelFactory choicePanelFactory, GameStateMachine gameStateMachine)
     {
         _locationManager = locationsManager;
         _saveLoadServise = saveLoadServise;
-        
+
+        _gameStateVisitor = new GameStateVisitor(gameStateMachine, this);
+        _gameStateVisitor.RecognizeCurrentGameState();
+
         _cellsCreater = new LocationCellsContainer(choicePanelFactory.CreateChoicePanel(transform), smartphone);
 
         _cellsCreater.SetCellsFactory(cellFactoryCreater, _containerForCells);
@@ -56,6 +62,16 @@ public class Map : WindowInSmartphone, ISaveLoadObject
         }
 
         _cellsCreater.CellClicked += OnCellClicked;
+        _gameStateVisitor.SubscribeOnGameStateMachine();
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
+    {
+        _cellsCreater.CheckIntaractable();
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    {
     }
 
     public void Add(IEnumerable<ILocation> locations)
@@ -75,7 +91,7 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     public void ChangeLocation(LocationSO locationSo)
     {    
         if(_locationManager.TryGet(locationSo, out ILocation location))
-        ChangeLocation(location);
+            ChangeLocation(location);
     }
     
     public void ChangeLocation(ILocation location)
@@ -134,7 +150,9 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     {
         _cellsCreater.Dispose();
         _closeButton.onClick.RemoveAllListeners();
+
         _cellsCreater.CellClicked -= OnCellClicked;
+        _gameStateVisitor.UnsubsciribeFromGameStateMachine();
 
         Save();
     }
@@ -205,14 +223,25 @@ public class LocationCellsContainer
             locationCell.Clicked -= OnLocationSelected;
             locationCell.Dispose();
         }
+        _locationCells.Clear();
 
         foreach (var suppercell in _supperlocationCells)
+        {
             suppercell.Value.Clicked -= OnSuppercellCliced;
+            suppercell.Value.Dispose();
+        }
+        _supperlocationCells.Clear();
     }
 
     public void HideChoicePanel()
     {
         _choicePanel.Hide();
+    }
+
+    public void CheckIntaractable()
+    {
+        foreach (var locationCell in _locationCells)
+            locationCell.SetInteractable(locationCell.Data.IsAvailable);
     }
 
     public void HideAllSubcells()
@@ -225,6 +254,9 @@ public class LocationCellsContainer
     {
         foreach (var location in locations)
         {
+            if (_locationCells.Exists(locaitonCell => locaitonCell.Data == location))
+                continue;
+
             TryCreateSupppercell(location);
 
             Cell<ILocation> newLocationCell = CreateCellView(location, location.Data.Superlocation != null ?
