@@ -15,6 +15,7 @@ namespace QuizSystem
         [Inject] private QuestionFactory _questionFactory;
         [Inject] private Battery _battery;
 
+        [SerializeField] private TMP_Text _currentChargeLevelText;
         [SerializeField] private TMP_Text _currentSympathyText;
         [SerializeField] private ChoicePanel _choisePanel;
 
@@ -60,8 +61,13 @@ namespace QuizSystem
             return true;
         }
 
-        public void ShowQuestion(ICharacter character)
+        public void ShowQuestion(ICharacter character, bool isTutorial)
         {
+            if (isTutorial == false)
+                _battery.Decreese(_startQuizCost);
+
+            _currentChargeLevelText.text = "Осталось энергии: " + _battery.CurrentValue.ToString();
+
             _canvas.enabled = true;
             _currentCharacter = character;
 

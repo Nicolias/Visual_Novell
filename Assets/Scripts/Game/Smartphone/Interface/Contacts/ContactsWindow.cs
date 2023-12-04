@@ -30,6 +30,7 @@ public class ContactsWindow : WindowInSmartphone
 
     private List<ILocation> _locations;
     private List<Cell<ICharacter>> _characterCells = new List<Cell<ICharacter>>();
+    private LocationsManager _locationsManager;
 
     [Inject]
     public void Construct(CharactersLibrary charactersLibrary, LocationsManager locationsManager, CellsFactoryCreater cellsFactoryCreater, 
@@ -38,7 +39,7 @@ public class ContactsWindow : WindowInSmartphone
         _characterCells = cellsFactoryCreater.CreateCellsFactory<ICharacter>().CreateCellsView(charactersLibrary.GetCharacters(_contacts), _characterCellsContainer);
         _choicePanel = choicePanelFactory.CreateChoicePanel(transform);
 
-        _locations = locationsManager.Get(_locationsSOForMeeting).ToList();
+        _locationsManager = locationsManager;
 
         _battery = battery;
     }
@@ -47,6 +48,11 @@ public class ContactsWindow : WindowInSmartphone
     {
         _selfCanvas = GetComponent<Canvas>();
         _closeButton.onClick.AddListener(Hide);
+    }
+
+    private void Start()
+    {
+        _locations = _locationsManager.Get(_locationsSOForMeeting).ToList();        
     }
 
     protected override void OnDisabled()

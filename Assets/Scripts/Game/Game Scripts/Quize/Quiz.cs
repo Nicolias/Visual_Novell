@@ -10,6 +10,8 @@ public class Quiz : ICloseable
     private Wallet _wallet;
 
     private CharacterType _characterType;
+    private bool _canBeClose;
+    private bool _isTutorial;
 
     private QuizView _quizView;
 
@@ -29,19 +31,14 @@ public class Quiz : ICloseable
         _wallet = wallet;
 
         _quizView.AnswerCorrected += AccureSympathy;
-        _quizView.AnswerUncorrected += DecreesSympathy;
+        _quizView.AnswerUncorrected += ResturtQuiz;
     }
 
-    public void HideQuiz()
-    {
-        _quizView.HideCanvas();
-        Closed?.Invoke();
-        _quizView.CloseButton.onClick.RemoveListener(HideQuiz);
-    }
-
-    public void Enter(CharacterType characterType, bool canBeClose)
+    public void Enter(CharacterType characterType, bool canBeClose, bool isTuorial = false)
     {
         _characterType = characterType;
+        _canBeClose = canBeClose;
+        _isTutorial = isTuorial;
 
         if (_quizView.CanBeStarted(HideQuiz) == false)
             return;
@@ -53,7 +50,14 @@ public class Quiz : ICloseable
         }
 
         _currentCharacter = _characterLibrary.GetCharacter(characterType);
-        _quizView.ShowQuestion(_currentCharacter);
+        _quizView.ShowQuestion(_currentCharacter, isTuorial);
+    }
+
+    public void HideQuiz()
+    {
+        _quizView.HideCanvas();
+        Closed?.Invoke();
+        _quizView.CloseButton.onClick.RemoveListener(HideQuiz);
     }
 
     private void AccureSympathy()
@@ -61,16 +65,12 @@ public class Quiz : ICloseable
         _characterLibrary.AddPointsTo(_characterType, _sympathyPointsByWin);
         _wallet.AccureWithOutPanel(_moneyByWin);
 
-        _quizView.ShowQuestion(_currentCharacter);
-
-        CharacterSympathyPointsChanged?.Invoke(_currentCharacter.SympathyPoints);
+        ResturtQuiz();
     }
 
-    private void DecreesSympathy()
+    private void ResturtQuiz()
     {
-        _characterLibrary.DecreesPointsFrom(_characterType, _sympathyPointsByLose);
-
-        _quizView.ShowQuestion(_currentCharacter);
+        Enter(_characterType, _canBeClose, _isTutorial);
 
         CharacterSympathyPointsChanged?.Invoke(_currentCharacter.SympathyPoints);
     }

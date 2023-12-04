@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bca068896a015741a66d2bdf8232515, type: 3}
-  m_Name: Question 22
+  m_Name: Question 26
   m_EditorClassIdentifier: 
   <CharacterType>k__BackingField: 3
-  <Qustion>k__BackingField: "\u041A\u0430\u043A\u043E\u0439 \u043C\u043E\u0439 \u0440\u043E\u0441\u0442?"
-  <CorrectAnswerText>k__BackingField: "166\u0441\u043C"
+  <Qustion>k__BackingField: " \u041C\u043E\u0439 \u043B\u044E\u0431\u0438\u043C\u044B\u0439
+    \u0446\u0432\u0435\u0442?"
+  <CorrectAnswerText>k__BackingField: "\u0411\u0438\u0440\u044E\u0437\u043E\u0432\u044B\u0439"
   <UncorrectedAnswerText>k__BackingField:
-  - "160\u0441\u043C"
-  - "168\u0441\u043C"
-  - "170\u0441\u043C"
+  - "\u041A\u0440\u0430\u0441\u043D\u044B\u0439 "
+  - "\u0420\u043E\u0437\u043E\u0432\u044B\u0439"
+  - "\u0417\u0435\u043B\u0435\u043D\u044B\u0439"
