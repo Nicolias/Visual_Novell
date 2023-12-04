@@ -102,6 +102,7 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
             _saveLoadServise.Save($"{_saveKey}/{i}", new SaveData.MessegeData()
             {
                 Messege = _allMessages[i].Messege,
+                MessageName = _allMessages[i].MessageName,
                 ContactName = _allMessages[i].ContactName
             });
         }
@@ -114,7 +115,7 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
         for (int i = 0; i < count; i++)
         {
             var messegeData = _saveLoadServise.Load<SaveData.MessegeData>($"{_saveKey}/{i}");
-            MessegeData messege = new(messegeData.ContactName, messegeData.Messege);
+            MessegeData messege = new(messegeData.ContactName, messegeData.MessageName, messegeData.Messege);
 
             if (_allMessages.Exists(existMessage => existMessage.Messege == messege.Messege) == false)
             {

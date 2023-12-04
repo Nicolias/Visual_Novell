@@ -2,15 +2,18 @@
 using UnityEngine;
 using System;
 using Zenject;
+using System.Collections;
 
 public class AudioServise : MonoBehaviour
 {
     [SerializeField] private List<AudioSource> _allMusic;
     [SerializeField] private List<AudioSource> _allSound;
 
-    [field: SerializeField] public AudioSource CallSound { get; private set; }
+    [SerializeField] private float _changeMusicSpeed;
 
     private AudioServiseSaveLoader _saveLoader;
+
+    [field: SerializeField] public AudioSource CallSound { get; private set; }
 
     public AudioSource CurrentMusic { get; private set; }
     public AudioSource CurrentSound { get; private set; }
@@ -42,10 +45,7 @@ public class AudioServise : MonoBehaviour
 
         if (sound != null)
         {
-            _allMusic.ForEach(x => x.mute = true);
-            sound.mute = false;
-            sound.Play();
-            CurrentMusic = sound;
+            StartCoroutine(Change(sound));
         }
         else
         {
@@ -87,5 +87,31 @@ public class AudioServise : MonoBehaviour
 
         foreach (var audio in audioSources)
             audio.volume = valumeLevel;
+    }
+
+    private IEnumerator Change(AudioSource sound)
+    {
+        while (AudioListener.volume > 0)
+        {
+            AudioListener.volume -= _changeMusicSpeed * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        AudioListener.volume = 0;
+
+        if (CurrentMusic != null)
+            CurrentMusic.mute = true;
+
+        sound.mute = false;
+        sound.Play();
+        CurrentMusic = sound;
+
+        while (AudioListener.volume < 1)
+        {
+            AudioListener.volume += _changeMusicSpeed * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        AudioListener.volume = 1;
     }
 }
