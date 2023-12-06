@@ -8,5 +8,6 @@ namespace SaveData
         public bool IsMute;
         public float Volume;
         public bool IsPlay;
+        public int AudioPosition;
     }
 }

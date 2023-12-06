@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SwitchSceneCommand : ICommand
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private readonly SaveLoadServise _saveLoadServise;
     private int _sceneNumber;

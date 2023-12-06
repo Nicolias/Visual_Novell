@@ -2,7 +2,7 @@
 
 public class CharacterPortraitController : ICommand
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private ICharacterPortraitModel _model;
     private CharacterRenderer _view;
@@ -18,7 +18,7 @@ public class CharacterPortraitController : ICommand
         if (_model.PositionType == CharacterPortraitPosition.Delete)
         {
             _view.Delete(_model);
-            Complete?.Invoke();
+            Completed?.Invoke();
             return;
         }
             
@@ -29,6 +29,6 @@ public class CharacterPortraitController : ICommand
     private void CallBack()
     {
         _view.Complite -= CallBack;
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

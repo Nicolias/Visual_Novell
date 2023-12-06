@@ -2,7 +2,7 @@
 
 public class AccureStoregeValueCommand : ICommand
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private IStorageModel _model;
     private IStorageView _view;
@@ -34,6 +34,6 @@ public class AccureStoregeValueCommand : ICommand
     private void CallBack()
     {
         _view.AccureCompleted -= CallBack;
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

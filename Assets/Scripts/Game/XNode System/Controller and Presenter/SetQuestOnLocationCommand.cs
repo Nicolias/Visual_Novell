@@ -12,12 +12,12 @@ public class SetQuestOnLocationCommand : ICommand
         _locationManager = locationsManager;
     }
 
-    public event Action Complete;
+    public event Action Completed;
 
     public void Execute()
     {
         _locationManager.TryGet(_model.Location, out ILocation location);
         location.Set(_model.Quest);
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

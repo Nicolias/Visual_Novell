@@ -1,22 +1,22 @@
 ﻿public class MonologSpeechPresenter : SpeechPresentar
 {
-    private IMonologSpeechModel _model;
-    private MonologSpeechView _view;
+    private readonly IMonologSpeechModel _model;
+    private readonly MonologSpeechView _view;
 
-    public MonologSpeechPresenter(IMonologSpeechModel model, MonologSpeechView view, StaticData staticData) 
-        : base(model, view, staticData)
+    public MonologSpeechPresenter(IMonologSpeechModel model, MonologSpeechView view) 
+        : base(model, view)
     {
         _model = model;
         _view = view;
     }
 
-    protected override void ShowSpeech()
+    protected override void Show()
     {
         _view.Show(_model);
     }
 
-    protected override void ShowSpeechSmooth()
+    protected override void ShowSmooth()
     {
-        _view.Show(_model);
+        _view.ShowSmooth(_model);
     }
 }

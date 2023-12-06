@@ -9,7 +9,6 @@ public class Meeting : MonoBehaviour
     [SerializeField] private Eating _eating;
 
     [SerializeField] private CharacterRenderer _characterRenderer;
-    [SerializeField] private StaticData _staticData;
     [SerializeField] private Smartphone _smartphone;
     [SerializeField] private DialogSpeechView _dialogSpeechView;
 
@@ -93,15 +92,15 @@ public class Meeting : MonoBehaviour
     {
         _choicePanel.Hide();
 
-        _dialogSpeechPresenter = new DialogSpeechPresenter(_charactersLibrary.GetCharacter(_characterView.Type).ScriptableObject.DialogAfterMeeting, _dialogSpeechView, _staticData);
+        _dialogSpeechPresenter = new DialogSpeechPresenter(_charactersLibrary.GetCharacter(_characterView.Type).ScriptableObject.DialogAfterMeeting, _dialogSpeechView);
 
-        _dialogSpeechPresenter.Complete += DialogAfterMeetingCompleted;
+        _dialogSpeechPresenter.Completed += DialogAfterMeetingCompleted;
         _dialogSpeechPresenter.Execute();
     }
 
     private void DialogAfterMeetingCompleted()
     {
-        _dialogSpeechPresenter.Complete -= DialogAfterMeetingCompleted;
+        _dialogSpeechPresenter.Completed -= DialogAfterMeetingCompleted;
 
         _dialogSpeechView.Hide();
         _characterRenderer.Delete(_characterView.Data);

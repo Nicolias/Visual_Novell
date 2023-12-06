@@ -1,82 +1,44 @@
 ﻿using System;
-using System.Collections;
-using UnityEngine;
 
-public abstract class SpeechPresentar : IPresentar 
+public abstract class SpeechPresentar : IPresentar
 {
-    private StaticData _staticData;
+    private readonly ISpeechModel _model;
+    private readonly SpeechView _view;
 
-    private ISpeechModel _model;
-    private SpeechView _view;
+    public event Action Completed;
 
-    public SpeechPresentar(ISpeechModel model, SpeechView view, StaticData staticData)
+    public SpeechPresentar(ISpeechModel model, SpeechView view)
     {
         _model = model;
         _view = view;
-        _staticData = staticData;
-    }    
-
-    public event Action Complete;
+    }
 
     public void Execute()
     {
-        if (_staticData.IsSkipDialog)
+        _view.Clicked += OnCallBackView;
+        ShowSmooth();
+
+        if (_model.IsImmediatelyNextNode)
         {
-            ShowSpeech();
-            Complete?.Invoke();
-            return;
-        }
-
-        _view.Clicked += OnViewClick;
-
-        if (_view.gameObject.activeInHierarchy)
-        {
-            ShowSpeechSmooth();
-
-            if (_model.IsImmediatelyNextNode)
-                Complete?.Invoke();
-        }
-        else
-        {
-            _staticData.StartCoroutine(WaitUntilAndInvoke(() =>
-            {
-                ShowSpeechSmooth();
-
-                if (_model.IsImmediatelyNextNode)
-                    Complete?.Invoke();
-            }));
+            _view.Clicked -= OnCallBackView;
+            Completed?.Invoke();
         }
     }
 
-    private void OnViewClick()
+    protected abstract void Show();
+
+    protected abstract void ShowSmooth();
+
+    private void OnCallBackView()
     {
         if (_view.ShowStatus == ShowTextStatus.Showing)
         {
-            if (_view.gameObject.activeInHierarchy)
-            {
-                ShowSpeech();
-                return;
-            }
-            else
-            {
-                _staticData.StartCoroutine(WaitUntilAndInvoke(() =>
-                {
-                    ShowSpeech();
-                    return;
-                }));
-            }
+            Show();
         }
-
-        _view.Clicked -= OnViewClick;
-        Complete?.Invoke();
-    }
-
-    protected abstract void ShowSpeechSmooth();
-    protected abstract void ShowSpeech();
-
-    private IEnumerator WaitUntilAndInvoke(Action action)
-    {
-        yield return new WaitUntil(() => _view.gameObject.activeInHierarchy == true);
-        action.Invoke();
+        else
+        {
+            _view.Clicked -= OnCallBackView;
+            Completed?.Invoke();
+        }
     }
 }
