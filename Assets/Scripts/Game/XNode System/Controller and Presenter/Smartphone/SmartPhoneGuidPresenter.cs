@@ -2,7 +2,7 @@
 
 public class SmartPhoneGuidPresenter : IPresentar
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private SmartphoneGuideView _smartphoneGuideView;
 
@@ -20,6 +20,6 @@ public class SmartPhoneGuidPresenter : IPresentar
     private void CallBack()
     {
         _smartphoneGuideView.OnComplete -= CallBack;
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

@@ -398,7 +398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eating: {fileID: 1202948725}
   _characterRenderer: {fileID: 415884106}
-  _staticData: {fileID: 2296899151798057738, guid: e6db747f68570ce4a812c6df77df7332, type: 3}
   _smartphone: {fileID: 68010062}
   _dialogSpeechView: {fileID: 368888865}
   _musicVariation:
@@ -4244,8 +4243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selfCanvas: {fileID: 901472906}
   _clickerZone: {fileID: 368888866}
-  _skipShowAnimationCooldown: 0.5
-  _timeBetweenShowNewCharInDialog: 0.05
+  _timeBetweenShowNewCharInDialog: 0.01
   _speechText: {fileID: 1245203166}
   _speakerName: {fileID: 39517286}
   _speakerAvatar: {fileID: 228675603}
@@ -6406,7 +6404,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selfCanvas: {fileID: 450495088}
   _clickerZone: {fileID: 550145218}
-  _skipShowAnimationCooldown: 0.5
   _timeBetweenShowNewCharInDialog: 0.05
   _speechText: {fileID: 1778246500}
 --- !u!222 &550145216
@@ -14554,8 +14551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cfa83c4f810c9488cafd712a3ea902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nodegraph: {fileID: 0}
-  _name: 
+  _nodegraph: {fileID: 11400000, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+  _name: (G)
   _sprite: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
 --- !u!4 &1356503189
 Transform:
@@ -19246,7 +19243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSateMachine: {fileID: 1914059895}
-  _currentGraph: {fileID: 11400000, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
+  _currentGraph: {fileID: 11400000, guid: 71fccbc6c5438dd4382c3c36dc08d0d9, type: 2}
   _monologSpeechView: {fileID: 550145214}
   _dialogSpeechView: {fileID: 368888865}
   _nameInputView: {fileID: 527931465}

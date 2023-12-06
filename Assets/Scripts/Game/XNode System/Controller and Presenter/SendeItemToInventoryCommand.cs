@@ -11,7 +11,7 @@ public class SendeItemToInventoryCommand : ICommand
         _inventory = inventory;
     }
 
-    public event Action Complete;
+    public event Action Completed;
 
     public void Execute()
     {
@@ -20,6 +20,6 @@ public class SendeItemToInventoryCommand : ICommand
         else
             _inventory.AddItemToInventory(_model.itemForInventory);
         
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

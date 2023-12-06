@@ -6,7 +6,7 @@ public class CharacterCategoryData : DUXCategoryData
     [field: SerializeField] public Sprite CharacterSprite { get; private set; }
     [field: SerializeField] public CharacterType CharacterType { get; private set; }
 
-    public override void Accept(IDUXVisitor visitor)
+    public sealed override void Accept(IDUXVisitor visitor)
     {
         visitor.Visit(this);
     }

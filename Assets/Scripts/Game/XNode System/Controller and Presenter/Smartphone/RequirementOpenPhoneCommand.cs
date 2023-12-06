@@ -2,7 +2,7 @@
 
 public class RequirementOpenPhoneCommand : ICommand
 {
-    public event Action Complete;
+    public event Action Completed;
     private Smartphone _smartphone;
 
     public RequirementOpenPhoneCommand(Smartphone smartphone)
@@ -18,6 +18,6 @@ public class RequirementOpenPhoneCommand : ICommand
     private void CallBack()
     {
         _smartphone.Closed -= CallBack;
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

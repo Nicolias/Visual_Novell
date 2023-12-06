@@ -2,7 +2,7 @@
 
 public class DecreeseStoregeValueCommand : ICommand
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private IStorageModel _model;
     private IStorageView _view;
@@ -16,6 +16,6 @@ public class DecreeseStoregeValueCommand : ICommand
     public void Execute()
     {
         _view.Decreese(_model.Value);
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

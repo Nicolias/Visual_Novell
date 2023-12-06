@@ -2,7 +2,7 @@
 
 public class ShowGuidPresenter : IPresentar
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private ShowGuidModel _guidModel;
     private GuidView _guidView;
@@ -22,6 +22,6 @@ public class ShowGuidPresenter : IPresentar
     private void CallBack()
     {
         _guidView.Closed -= CallBack;
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

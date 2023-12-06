@@ -15,13 +15,13 @@ public class SpawnItemCommand : ICommand
         _locationManager = locationsManager;
     }
 
-    public event Action Complete;
+    public event Action Completed;
 
     public void Execute()
     {
         _locationManager.TryGet(_model.Location, out ILocation location);
         location.Add(_model.Item);
         _collectionPanel.ShowItems(location.ItemsView);
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

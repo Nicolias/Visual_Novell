@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaitForSecondsPresenter : IPresentar
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private CoroutineServise _coroutineServise;
     private WaitForSecondsModel _model;
@@ -24,6 +24,6 @@ public class WaitForSecondsPresenter : IPresentar
     {
         yield return new WaitForSeconds(_model.Seconds);
 
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

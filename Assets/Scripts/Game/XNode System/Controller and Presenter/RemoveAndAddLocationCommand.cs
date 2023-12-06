@@ -13,13 +13,13 @@ public class RemoveAndAddLocationCommand : ICommand
         _map = map;
     }
 
-    public event Action Complete;
+    public event Action Completed;
 
     public void Execute()
     {
         _map.Add(_locationsManager.Get(_model.LocationsForAdd));
         _map.Remove(_locationsManager.Get(_model.LocationsForRemove));
 
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

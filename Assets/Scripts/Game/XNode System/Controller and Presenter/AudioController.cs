@@ -2,7 +2,7 @@
 
 public class AudioController : IController
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private AudioServise _view;
     private AudioModel _model;
@@ -16,7 +16,6 @@ public class AudioController : IController
     public void Execute()
     {
         _view.PlaySound(_model.AudioClip);
-        _view.SaveLoader.Save();
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

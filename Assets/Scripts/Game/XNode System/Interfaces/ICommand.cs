@@ -2,7 +2,7 @@
 
 public interface ICommand
 {
-    public event Action Complete;
+    public event Action Completed;
 
     public void Execute();
 }

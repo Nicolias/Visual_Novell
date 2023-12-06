@@ -7,18 +7,18 @@ public class DialogSpeechView : SpeechView
     [SerializeField] private TMP_Text _speakerName;
     [SerializeField] private Image _speakerAvatar;
 
-    public void Show(IDialogSpeechModel speechModel)
+    public void ShowSmooth(IDialogSpeechModel speechModel)
     {
-        base.Show(speechModel);
+        base.ShowSmooth(speechModel);
 
         _speakerName.text = speechModel.SpeakerName;
 
         ShowAvatar(speechModel);
     }
 
-    public void ShowSmooth(IDialogSpeechModel speechModel)
+    public void Show(IDialogSpeechModel speechModel)
     {
-        base.ShowSmooth(speechModel);
+        base.Show(speechModel);
 
         _speakerName.text = speechModel.SpeakerName;
 

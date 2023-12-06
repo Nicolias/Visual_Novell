@@ -3,7 +3,7 @@ using XNode;
 
 public class NameInputPresenter : IPresentar
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private StaticData _staticData;
     private ITextInputView _view;
@@ -24,6 +24,6 @@ public class NameInputPresenter : IPresentar
     {
         _staticData.SetNickname(newNickname);
         _view.OnTextInput -= OnCallBackView;
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

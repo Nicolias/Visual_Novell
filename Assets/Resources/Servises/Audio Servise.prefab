@@ -324,8 +324,8 @@ MonoBehaviour:
   - {fileID: 8209800610931621947}
   - {fileID: 6244873775395604121}
   - {fileID: 4901397382109920780}
-  _changeMusicSpeed: 0.5
-  <CallSound>k__BackingField: {fileID: 4901397382109920780}
+  _changeMusicSpeed: 1
+  <CallSound>k__BackingField: {fileID: 8300000, guid: 5c3ce553299aa9e4b87f47d375d95de2, type: 3}
 --- !u!1 &1693914306251991842
 GameObject:
   m_ObjectHideFlags: 0
