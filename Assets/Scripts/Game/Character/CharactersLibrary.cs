@@ -9,6 +9,7 @@ public class CharactersLibrary : MonoBehaviour
 {
     [Inject] private StaticData _staticData;
     [Inject] private SaveLoadServise _saveLoadServise;
+    [Inject] private TimesOfDayServise _timesOfDayServise;
     
     [SerializeField] private List<CharacterSO> _allCharactersSO;
 
@@ -63,7 +64,7 @@ public class CharactersLibrary : MonoBehaviour
         List<ICharacter> characters = new List<ICharacter>();
         
         for (int i = 0; i < charactersSO.Count; i++)
-            characters.Add(new Character(charactersSO[i], _staticData, _saveLoadServise, i));
+            characters.Add(new Character(charactersSO[i], _staticData, _saveLoadServise, _timesOfDayServise, i));
 
         return characters;
     }

@@ -17,43 +17,46 @@ public class Eating : MonoBehaviour, ICloseable
 
     private ChoicePanel _choicePanel;
     private Wallet _wallet;
-
+    private TimesOfDayServise _timesOfDayServise;
     private ICharacter _currentCharacter;
 
     public event Action Closed;
 
     [Inject]
-    public void Construct(IChoicePanelFactory choicePanelFactory, Wallet wallet)
+    public void Construct(IChoicePanelFactory choicePanelFactory, Wallet wallet, TimesOfDayServise timesOfDayServise)
     {
         _choicePanel = choicePanelFactory.CreateChoicePanel(transform);
         _wallet = wallet;
-    }
-
-    private void OnEnable()
-    {
-        _menu.ProductSelected += OnProductSelected;
-        _menu.Closed += Exit;
-    }
-
-    private void OnDisable()
-    {
-        _menu.ProductSelected -= OnProductSelected;
-        _menu.Closed -= Exit;
+        _timesOfDayServise = timesOfDayServise;
     }
 
     public void Enter(ICharacter character)
     {
-        _menu.Open();
+        DateTime currentTime = _timesOfDayServise.CurrentTime;
 
+        _menu.Open();  
         _currentCharacter = character;
-
-        character.SympathyPointsChanged += OnSympathyPointsChanged;
-        _wallet.ValueChanged += OnMoneyCountChanged;
-
         _selfCanvas.enabled = true;
+        _menu.Closed += Exit;
 
         OnSympathyPointsChanged(character.SympathyPoints);
         OnMoneyCountChanged(_wallet.CurrentValue);
+
+        if (_timesOfDayServise.GetCurrentTimesOfDay() == character.LastEatingTimeOfDay)
+        {
+            if (currentTime.Year <= character.LastEatingTime.Year &&
+                currentTime.Month <= character.LastEatingTime.Month &&
+                currentTime.Day <= character.LastEatingTime.Day)
+            {
+
+                _menu.ProductSelected += CharacterFeeded;
+                return;
+            }
+        }
+
+        character.SympathyPointsChanged += OnSympathyPointsChanged;
+        _wallet.ValueChanged += OnMoneyCountChanged;
+        _menu.ProductSelected += OnProductSelected;
     }
 
     private void Exit()
@@ -62,6 +65,10 @@ public class Eating : MonoBehaviour, ICloseable
         _wallet.ValueChanged -= OnMoneyCountChanged;
 
         _selfCanvas.enabled = false;
+
+        _menu.ProductSelected -= OnProductSelected;
+        _menu.ProductSelected -= CharacterFeeded;
+        _menu.Closed -= Exit;
 
         Closed?.Invoke();
     }
@@ -101,5 +108,16 @@ public class Eating : MonoBehaviour, ICloseable
                 new ChoiseElement("Закрыть", () => _choicePanel.Hide())
             });
         }
+
+        _menu.Close();
+    }
+
+    private void CharacterFeeded(EatingProduct product)
+    {
+        _choicePanel.Show("Персонаж уже ел в это время суток", new List<ChoiseElement>() { new ChoiseElement("Принять", () =>
+        { 
+            Exit(); 
+            _choicePanel.Hide();
+        }) });
     }
 }

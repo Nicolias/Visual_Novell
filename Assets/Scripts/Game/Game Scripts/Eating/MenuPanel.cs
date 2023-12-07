@@ -37,7 +37,7 @@ namespace EatingSystem
             _closeButton.onClick.AddListener(Close);
         }
 
-        private void Close()
+        public void Close()
         {
             foreach (var productCell in _productCells)
                 productCell.Clicked -= OnProductCellClicked;
