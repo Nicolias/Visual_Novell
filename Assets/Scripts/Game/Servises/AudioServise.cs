@@ -104,27 +104,26 @@ public class AudioServise : MonoBehaviour
         }
     }
 
-    private IEnumerator Change(AudioSource music)
+    private IEnumerator Change(AudioSource newMusic)
     {
         if (CurrentMusic != null)
         {
-            AudioSource previousMusic = CurrentMusic;
-            CurrentMusic = music;
+            CurrentMusic = newMusic;
 
             while (AudioListener.volume > 0)
             {
                 AudioListener.volume -= 0.01f;
                 yield return _changeMusicSpeed * Time.deltaTime;
             }
-
-            previousMusic.mute = true;
         }
 
         AudioListener.volume = 0;
 
-        music.Play();
-        music.mute = false;
-        CurrentMusic = music;
+        foreach (var music in _allMusic)
+            music.Stop();
+
+        CurrentMusic = newMusic;
+        CurrentMusic.Play();
 
         while (AudioListener.volume < 1)
         {

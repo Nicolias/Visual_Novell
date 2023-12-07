@@ -47,7 +47,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -175,7 +175,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -501,7 +501,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -757,7 +757,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1186,7 +1186,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1314,7 +1314,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1442,7 +1442,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1570,7 +1570,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1698,7 +1698,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1826,7 +1826,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1954,7 +1954,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -2082,7 +2082,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -2374,7 +2374,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -2502,7 +2502,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128

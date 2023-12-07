@@ -24,20 +24,22 @@ namespace StateMachine
         public event Action StateChanged;
 
         [Inject]
-        public void Construct(SaveLoadServise saveLoadServise, AudioServise audioServise, TimesOfDayServise timesOfDayServise,
-            CharactersLibrary charactersLibrary, LocationsManager locationsManager)
+        public void Construct(SaveLoadServise saveLoadServise, AudioServise audioServise)
         {
             _saveLoadServise = saveLoadServise;
 
             _allStates = new List<BaseState>()
             {
                 new StoryState(_smartphone),
-                new PlayState(audioServise, _freePlayMusicVariations, timesOfDayServise, charactersLibrary, locationsManager)
-            };
+                new PlayState(audioServise, _freePlayMusicVariations)
+            };            
 
             ChangeState<StoryState>();
+        }
 
-            if (saveLoadServise.HasSave(_saveKay))
+        private void Awake()
+        {
+            if (_saveLoadServise.HasSave(_saveKay))
                 Load();
         }
 
@@ -69,6 +71,7 @@ namespace StateMachine
             lastState.Enter();
 
             _currentState = lastState;
+            StateChanged?.Invoke();
         }
     }    
 }

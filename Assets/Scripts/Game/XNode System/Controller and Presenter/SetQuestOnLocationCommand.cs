@@ -16,7 +16,7 @@ public class SetQuestOnLocationCommand : ICommand
 
     public void Execute()
     {
-        _locationManager.TryGet(_model.Location, out ILocation location);
+        _locationManager.Get(_model.Location, out ILocation location);
         location.Set(_model.Quest);
         Completed?.Invoke();
     }

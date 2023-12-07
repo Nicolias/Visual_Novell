@@ -18,8 +18,8 @@ public class GameComponentInstaller : MonoInstaller
         Container.Bind<Battery>().FromInstance(_battery).AsSingle();
         Container.Bind<MiniGameSelector>().FromInstance(_miniGameSelector).AsSingle();
         Container.Bind<QuizView>().FromInstance(_quizView).AsSingle();
-        Container.Bind<GameStateMachine>().FromInstance(_gameStateMachine).AsSingle();
+        Container.Bind<GameStateMachine>().FromInstance(_gameStateMachine).AsSingle().NonLazy();
         Container.Bind<Quiz>().AsSingle().NonLazy();
-        Container.Bind<LocationsManager>().FromInstance(_locationsManager).AsSingle();
+        Container.Bind<LocationsManager>().FromInstance(_locationsManager).AsSingle().NonLazy();
     }
 }
