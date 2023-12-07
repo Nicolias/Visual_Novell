@@ -31,6 +31,8 @@ namespace QuizSystem
         private ICharacter _currentCharacter;
         private List<ChoiceButton> _uncorrectButtons;
 
+        private bool _isShowUncorrectUnswer;
+
         public Button CloseButton => _closeButton;
 
         public event Action AnswerCorrected;
@@ -90,20 +92,12 @@ namespace QuizSystem
             for (int i = 0; i < quizElement.UncorrectedAnswerText.Count; i++)
                 choiseElements.Add((AnswerType.Uncorrect, new ChoiseElement(quizElement.UncorrectedAnswerText[i], () =>
                 {
-                    StartCoroutine(ShowUncorrectButtons(() =>
-                    {
-                        _choisePanel.Hide();
-                        AnswerUncorrected?.Invoke();
-                    }));
+                    StartCoroutine(OnUncorrectAnswer());
                 })));
 
             choiseElements.Add((AnswerType.Correct, new ChoiseElement(quizElement.CorrectAnswerText, () =>
             {
-                StartCoroutine(ShowUncorrectButtons(() =>
-                {
-                    _choisePanel.Hide();
-                    AnswerCorrected?.Invoke();
-                }));
+                StartCoroutine(OnCorrectAnswer());
             })));
 
             choiseElements.Shuffle();
@@ -116,14 +110,37 @@ namespace QuizSystem
             _currentSympathyText.text = points.ToString();
         }
 
-        private IEnumerator ShowUncorrectButtons(Action action)
+        private IEnumerator OnCorrectAnswer()
         {
+            if (_isShowUncorrectUnswer == false)
+            {
+                yield return ShowUncorrectButtons();
+
+                AnswerCorrected?.Invoke();
+            }
+        }
+
+        private IEnumerator OnUncorrectAnswer()
+        {
+            if (_isShowUncorrectUnswer == false)
+            {
+                yield return ShowUncorrectButtons();
+
+                AnswerUncorrected?.Invoke();
+            }
+        }
+
+        private IEnumerator ShowUncorrectButtons()
+        {
+            _isShowUncorrectUnswer = true;
+
             foreach (var uncorrectButton in _uncorrectButtons)
                 uncorrectButton.Button.image.sprite = _uncorrectButtonSprite;
 
             yield return new WaitForSeconds(_showTime);
 
-            action.Invoke();
+            _choisePanel.Hide();
+            _isShowUncorrectUnswer = false;
         }
     }
 }
