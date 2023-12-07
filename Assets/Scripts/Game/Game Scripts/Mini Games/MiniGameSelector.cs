@@ -27,6 +27,7 @@ public class MiniGameSelector : MonoBehaviour, ICloseable, IByStateMachineChanga
     private List<ChoiseElement> _gameChoises;
 
     public event Action Closed;
+    public event Action GameEnded;
 
     private void Awake()
     {
@@ -103,6 +104,7 @@ public class MiniGameSelector : MonoBehaviour, ICloseable, IByStateMachineChanga
         UpdateSympathyView(_currentCharacter.SympathyPoints);
 
         Enter(_currentCharacter.Type);
+        GameEnded?.Invoke();
     }
 
     private void UpdateSympathyView(int sympathyPoints)

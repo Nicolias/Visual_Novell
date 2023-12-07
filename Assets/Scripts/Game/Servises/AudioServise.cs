@@ -94,6 +94,7 @@ public class AudioServise : MonoBehaviour
 
         if (sound != null)
         {
+            StopAllCoroutines();
             StartCoroutine(Change(sound));
         }
         else

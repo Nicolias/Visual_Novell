@@ -19,14 +19,14 @@ public class MiniGameController : IController
     public void Execute()
     {
         _view.Enter(_model.CharacterType);
-        _view.Closed += CallBack;
+        _view.GameEnded += CallBack;
     }
 
     private void CallBack()
     {
         if (_battery.CurrentValue <= _model.BettaryChargeLevelCondition)
         {
-            _view.Closed -= CallBack;
+            _view.GameEnded -= CallBack;
             _view.Close();
             Completed?.Invoke();
         }

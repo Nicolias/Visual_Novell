@@ -45,6 +45,7 @@ public class DUXWindow : MonoBehaviour, IDUXVisitor
         _selfCanvas.enabled = false;
         _mainImage.color = new(1, 1, 1, 0);
         _discriptionText.text = "";
+        _characterSympathyPoints.text = "";
 
         OnClosed?.Invoke();
         _closeButton.onClick.RemoveAllListeners();
