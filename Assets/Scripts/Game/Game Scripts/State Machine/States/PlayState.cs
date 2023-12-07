@@ -5,21 +5,14 @@ namespace StateMachine
 {
     public class PlayState : BaseState
     {
-        private readonly CharactersLibrary _charactersLibrary;
-        private readonly LocationsManager _locationsManager;
         private readonly AudioServise _audioServise;
-        private readonly TimesOfDayServise _timesOfDayServise;
 
         private List<AudioClip> _freePlayMusicVariations;
         private AudioClip _currentMusic;
 
-        public PlayState(AudioServise audioServise, List<AudioClip> freePlayMusicVariations, TimesOfDayServise timesOfDayServise,
-            CharactersLibrary charactersLibrary, LocationsManager locationsManager)
+        public PlayState(AudioServise audioServise, List<AudioClip> freePlayMusicVariations)
         {
-            _charactersLibrary = charactersLibrary;
-            _locationsManager = locationsManager;
             _audioServise = audioServise;
-            _timesOfDayServise = timesOfDayServise;
 
             _freePlayMusicVariations = freePlayMusicVariations;
         }
@@ -34,11 +27,6 @@ namespace StateMachine
             _currentMusic = _freePlayMusicVariations[Random.Range(0, _freePlayMusicVariations.Count)];
 
             _audioServise.PlaySound(_currentMusic);
-
-            foreach (var character in _charactersLibrary.AllCharacters)
-                if (character.ScriptableObject.CurrentLocation.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out LocationSO locationSO))
-                    if (_locationsManager.TryGet(locationSO, out ILocation location))
-                        location.Set(character.ScriptableObject);
         }
 
         public override void Exit()

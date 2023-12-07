@@ -46,7 +46,7 @@ public class Map : WindowInSmartphone, ISaveLoadObject, IByStateMachineChangable
         _cellsCreater.SetCellsFactory(cellFactoryCreater, _containerForCells);
     }
 
-    private void Awake()
+    private void Start()
     {
         if (_closeButton != null)
             _closeButton.onClick.AddListener(Hide);
@@ -90,7 +90,7 @@ public class Map : WindowInSmartphone, ISaveLoadObject, IByStateMachineChangable
 
     public void ChangeLocation(LocationSO locationSo)
     {    
-        if(_locationManager.TryGet(locationSo, out ILocation location))
+        if(_locationManager.Get(locationSo, out ILocation location))
             ChangeLocation(location);
     }
     

@@ -5,12 +5,16 @@ using UnityEngine;
 using Zenject;
 using StateMachine;
 
-public class LocationsManager : MonoBehaviour
+public class LocationsManager : MonoBehaviour, IByStateMachineChangable
 {
     [SerializeField] private List<LocationSO> _allLocationsSO = new List<LocationSO>();
 
     private List<ILocation> _locations = new List<ILocation>();
+
     private GameStateMachine _gameStateMachine;
+    private GameStateVisitor _gameStateVisitor;
+
+    private CharactersLibrary _characterLibrary;
     private BackgroundView _background;
     private CollectionPanel _collectionPanel;
     private CharacterRenderer _charactersPortraitView;
@@ -35,20 +39,23 @@ public class LocationsManager : MonoBehaviour
 
     [Inject]
     public void Construct(GameStateMachine gameStateMachine, TimesOfDayServise timesOfDayServise, SaveLoadServise saveLoadServise,
-        BackgroundView background, CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView)
+        BackgroundView background, CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView, CharactersLibrary charactersLibrary)
     {
         foreach (var locationSo in _allLocationsSO)
             locationSo.Initialize(timesOfDayServise);
 
+        _timesOfDayServise = timesOfDayServise;
+        _characterLibrary = charactersLibrary;
         _gameStateMachine = gameStateMachine;
         _saveLoadServise = saveLoadServise;
         _background = background;
         _collectionPanel = collectionPanel;
         _charactersPortraitView = charactersPortraitView;
-    }
 
-    private void Awake()
-    {
+        _gameStateVisitor = new GameStateVisitor(gameStateMachine, this);
+        _gameStateVisitor.RecognizeCurrentGameState();
+        _gameStateVisitor.SubscribeOnGameStateMachine();
+
         for (int i = 0; i < _allLocationsSO.Count; i++)
         {
             Location location = new Location(_gameStateMachine, _background, _collectionPanel, _charactersPortraitView, _timesOfDayServise,
@@ -62,6 +69,20 @@ public class LocationsManager : MonoBehaviour
     {
         foreach(var location in _locations)
             location.Dispose();
+
+        _gameStateVisitor.UnsubsciribeFromGameStateMachine();
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
+    {
+        foreach (var character in _characterLibrary.AllCharacters)
+            if (character.ScriptableObject.CurrentLocation.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out LocationSO locationSO))
+                if (Get(locationSO, out ILocation location))
+                    location.Set(character.ScriptableObject);
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    {
     }
 
     public IEnumerable<ILocation> Get(IEnumerable<LocationSO> locationsSO)
@@ -69,13 +90,13 @@ public class LocationsManager : MonoBehaviour
         List<ILocation> locations = new List<ILocation>();
 
         foreach (var locationSO in locationsSO)
-            if (TryGet(locationSO, out ILocation location))
+            if (Get(locationSO, out ILocation location))
                 locations.Add(location);
 
         return locations;
     }
 
-    public bool TryGet(LocationSO locationSo, out ILocation location)
+    public bool Get(LocationSO locationSo, out ILocation location)
     {
         if (_locations.Exists(location => location.Data == locationSo))
         {

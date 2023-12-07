@@ -19,7 +19,7 @@ public class SpawnItemCommand : ICommand
 
     public void Execute()
     {
-        _locationManager.TryGet(_model.Location, out ILocation location);
+        _locationManager.Get(_model.Location, out ILocation location);
         location.Add(_model.Item);
         _collectionPanel.ShowItems(location.ItemsView);
         Completed?.Invoke();

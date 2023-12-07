@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
+
 public class CharactersLibrary : MonoBehaviour
 {
     [Inject] private StaticData _staticData;
