@@ -67,6 +67,9 @@ namespace StateMachine
 
         public void Load()
         {
+            if (_currentState != null)
+                _currentState.Exit();
+
             BaseState lastState = _allStates.ElementAt(_saveLoadServise.Load<SaveData.IntData>(_saveKay).Int);
             lastState.Enter();
 

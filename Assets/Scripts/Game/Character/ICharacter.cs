@@ -9,6 +9,9 @@ namespace Characters
         public int SympathyPoints { get; }
         public int SympathyLevel { get; }
 
+        public TimesOfDayType LastEatingTimeOfDay { get; }
+        public DateTime LastEatingTime { get; }
+
         public bool IsMeetingWithPlayer { get; }
         public CharacterSO ScriptableObject { get; }
 

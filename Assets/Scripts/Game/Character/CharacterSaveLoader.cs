@@ -23,7 +23,11 @@ namespace Characters
             {
                 SympathyPoints = _character.SympathyPoints,
                 SympathyLevel = _character.SympathyLevel,
-                IsMeeting = _character.IsMeetingWithPlayer
+                IsMeeting = _character.IsMeetingWithPlayer,
+                LastEatingTimeYear = _character.LastEatingTime.Year,
+                LastEatingTimeMonth = _character.LastEatingTime.Month,
+                LastEatingTimeDay = _character.LastEatingTime.Day,
+                LastEatingTimeOfDay = (int)_character.LastEatingTimeOfDay
             });
         }
 

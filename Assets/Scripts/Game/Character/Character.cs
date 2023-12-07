@@ -15,7 +15,7 @@ namespace Characters
         private readonly int _favoriteLocationModifair = 3;
         
         private readonly StaticData _staticData;
-
+        private readonly TimesOfDayServise _timesOfDayServise;
         private CharacterSympathy _sympathy;
         
         public bool IsMeetingWithPlayer { get; private set; }
@@ -28,12 +28,16 @@ namespace Characters
         public int SympathyPoints => _sympathy.Points;
         public int SympathyLevel => _sympathy.Level;
 
+        public TimesOfDayType LastEatingTimeOfDay { get; private set; }
+        public DateTime LastEatingTime { get; private set; }
+
         public event UnityAction<int> SympathyPointsChanged;
 
-        public Character(CharacterSO characterSO, StaticData staticData, SaveLoadServise saveLoadServise, int id)
+        public Character(CharacterSO characterSO, StaticData staticData, SaveLoadServise saveLoadServise, TimesOfDayServise timesOfDayServise, int id)
         {
             _characterSo = characterSO;
             _staticData = staticData;
+            _timesOfDayServise = timesOfDayServise;
 
             _favoriteFood = characterSO.FavoriteFood;
             _favoriteLocation = characterSO.FavoriteLocation;
@@ -49,6 +53,9 @@ namespace Characters
         public void Load(SaveData.CharacterData characterData)
         {
             _sympathy = new CharacterSympathy(characterData.SympathyPoints, characterData.SympathyLevel, _staticData);
+
+            LastEatingTime = new DateTime(characterData.LastEatingTimeYear, characterData.LastEatingTimeMonth, characterData.LastEatingTimeDay);
+            LastEatingTimeOfDay = (TimesOfDayType)characterData.LastEatingTimeOfDay;
         }
 
         public void Dispose()
@@ -77,6 +84,9 @@ namespace Characters
 
             if (product == _favoriteFood)
                 sympathyBonus *= _favoriteFoodModifair;
+
+            LastEatingTime = _timesOfDayServise.CurrentTime;
+            LastEatingTimeOfDay = _timesOfDayServise.GetCurrentTimesOfDay();
 
             AccureSympathyPoints(sympathyBonus);
         }
