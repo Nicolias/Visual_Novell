@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prolog.unity
     guid: a03ab6e6c60921b40be2c5a591eebbe1
+  - enabled: 1
+    path: Assets/Scenes/LogIn.unity
+    guid: c495a95aab20d0c48b8b30df37f4fd6a
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d7a70e462e7ec164dad54162c670c55a, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 21bbe873abc11ae458895ac616a8a530, type: 2}
