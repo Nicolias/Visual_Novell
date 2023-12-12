@@ -28,7 +28,7 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
         Add();
     }
 
-    private void OnEnable()
+    public void Initialize()
     {
         if (_saveLoadServise.HasSave(_saveKey))
             Load();

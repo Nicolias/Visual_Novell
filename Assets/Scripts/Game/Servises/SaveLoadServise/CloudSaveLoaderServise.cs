@@ -42,6 +42,9 @@ public class CloudSaveLoaderServise : SaveLoadServise
     {
         foreach (var saveLoadObject in _loadedObjects)
             saveLoadObject.Save();
+
+        if (_isCloudSaved)
+            AsynkSave();
     }
 
     public override void Save<T>(string key, T saveData)
@@ -52,9 +55,6 @@ public class CloudSaveLoaderServise : SaveLoadServise
             _localSaves[key] = jsonDataString;
         else
             _localSaves.Add(key, jsonDataString);
-
-        if (_isCloudSaved)
-            AsynkSave();
     }
 
     public override T Load<T>(string key)

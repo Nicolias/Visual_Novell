@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class Clock : MonoBehaviour, IByStateMachineChangable
+public class Clock : MonoBehaviour, IByStateMachineChangable, ISaveLoadObject
 {
     [SerializeField] private TMP_Text _clockText;
 
@@ -32,11 +32,12 @@ public class Clock : MonoBehaviour, IByStateMachineChangable
     private void OnDisable()
     {
         _gameStateVisitor.UnsubsciribeFromGameStateMachine();
-        Save();
     }
 
     private void Start()
     {
+        _saveLoadServise.Add(this);
+
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
         else
@@ -80,5 +81,10 @@ public class Clock : MonoBehaviour, IByStateMachineChangable
     public void ChangeBehaviourBy(StoryState storyState)
     {
         _timesOfDayServise.TimeChanged -= SetTime;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }
