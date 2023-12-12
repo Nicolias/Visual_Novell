@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Characters
 {
-    public class Character : ICharacter, IDisposable
+    public class Character : ICharacter
     {
         private readonly CharacterSaveLoader _characterSaveLoader;
         private readonly CharacterSO _characterSo;
@@ -47,7 +47,6 @@ namespace Characters
             _sympathy = new CharacterSympathy(0,0, staticData);
 
             _characterSaveLoader = new CharacterSaveLoader(this, saveLoadServise, id);
-            _characterSaveLoader.Load();
         }
 
         public void Load(SaveData.CharacterData characterData)
@@ -56,11 +55,6 @@ namespace Characters
 
             LastEatingTime = new DateTime(characterData.LastEatingTimeYear, characterData.LastEatingTimeMonth, characterData.LastEatingTimeDay);
             LastEatingTimeOfDay = (TimesOfDayType)characterData.LastEatingTimeOfDay;
-        }
-
-        public void Dispose()
-        {
-            _characterSaveLoader.Save();
         }
 
         public void AccureSympathyPoints(int points)
@@ -109,6 +103,21 @@ namespace Characters
         public override string ToString()
         {
             return Name;
+        }
+
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save()
+        {
+            _characterSaveLoader.Save();
+        }
+
+        public void Load()
+        {
+            _characterSaveLoader.Load();
         }
     }
 }

@@ -38,14 +38,14 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
     {
         _closeButton.onClick.AddListener(Hide);
         _openButton.onClick.AddListener(Show);
+
+        Add();
     }
 
     private void OnDisable()
     {
         _closeButton.onClick.RemoveAllListeners();
         _openButton.onClick.RemoveAllListeners();
-
-        Save();
     }
 
     private void Start()
@@ -125,5 +125,10 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
 
         for (int i = 0; i < _apps.Count; i++)
             _apps[i].SetOpenButtonEnabled(_saveLoadServise.Load<SaveData.BoolData>(_saveKey + i).Bool);
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }

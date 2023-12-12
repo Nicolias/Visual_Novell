@@ -64,7 +64,7 @@ public class Location : ILocation, IByStateMachineChangable
         _id = id;
         _locationSaveLoader = new LocationSaveLoader(saveLoadServise, this, id);
 
-        _locationSaveLoader.Load();
+        Load();
         
         if(_itemsOnLocation.Count == 0)
             _itemsOnLocation.AddRange(_locationSO.ItemsOnLocation);
@@ -76,8 +76,6 @@ public class Location : ILocation, IByStateMachineChangable
     {
         if (_collectionPanel != null)
             _collectionPanel.ItemDeleted -= OnItemDelete;
-
-        _locationSaveLoader.Save();
 
         _gameStateVisitor.UnsubsciribeFromGameStateMachine();
     }
@@ -180,5 +178,20 @@ public class Location : ILocation, IByStateMachineChangable
             if (locationSO != _locationSO)
                 _characterOnLocation = null;
         }
+    }
+
+    public void Add()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Save()
+    {
+        _locationSaveLoader.Save();
+    }
+
+    public void Load()
+    {
+        _locationSaveLoader.Load();
     }
 }

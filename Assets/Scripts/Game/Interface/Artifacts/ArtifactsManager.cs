@@ -42,6 +42,7 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
             Load();
 
         _gameStateVisitor.RecognizeCurrentGameState();
+        Add();
     }
 
     private void OnEnable()
@@ -56,6 +57,17 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
         _artifactsFactory.AllArtifactsCollected -= AccureRewards;
         _artifactsFactory.Dispose();
         Save();
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
+    {        
+        TryShowArtifacts();
+        _artifactsFactory.CreateCollectionQuest();
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    {
+
     }
 
     public void TryShowArtifacts()
@@ -99,14 +111,8 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
         _isArtifactsCreated = _saveLoadServise.Load<SaveData.BoolData>(_saveKey + "1").Bool;
     }
 
-    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
-    {        
-        TryShowArtifacts();
-        _artifactsFactory.CreateCollectionQuest();
-    }
-
-    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    public void Add()
     {
-
+        _saveLoadServise.Add(this);
     }
 }

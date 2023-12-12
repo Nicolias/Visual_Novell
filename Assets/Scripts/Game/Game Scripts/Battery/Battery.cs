@@ -22,6 +22,8 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 
     private void OnEnable()
     {
+        Add();
+
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
         else
@@ -31,7 +33,6 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
     private void OnDisable()
     {
         StopAllCoroutines();
-        Save();
     }
 
     public void Accure(int value)
@@ -123,5 +124,10 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 
         if (_chargeLeve < _maxCharge && _isTimer == false)
             StartCoroutine(Timer(new(0,8,0)));
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }

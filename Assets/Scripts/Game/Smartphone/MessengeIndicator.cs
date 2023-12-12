@@ -27,14 +27,14 @@ public class MessengeIndicator : MonoBehaviour, ISaveLoadObject
 
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
+
+        Add();
     }
 
     private void OnDisable()
     {
         _smartphone.NewMessegeRecived -= PlayNewMessegeIndicator;
         _smartphone.AllMessegeRead -= StopPlayIndicator;
-
-        Save();
     }
 
     public void Show()
@@ -71,5 +71,10 @@ public class MessengeIndicator : MonoBehaviour, ISaveLoadObject
     {
         var data = _saveLoadServise.Load<SaveData.BoolData>(_saveKey);
         _selfCanvas.enabled = data.Bool;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }

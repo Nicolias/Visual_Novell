@@ -20,6 +20,8 @@ public class AudioServiseSaveLoader : ISaveLoadObject
 
         _allMusics = allMusic.ToList();
         _allSounds = allSound.ToList();
+
+        Add();
     }
 
     public void Save()
@@ -35,6 +37,11 @@ public class AudioServiseSaveLoader : ISaveLoadObject
             LoadAudio(_allMusics, _musicSaveKey);
             LoadAudio(_allSounds, _soundSaveKey);
         }
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     private void SaveAudio(AudioSource audioSource, List<AudioSource> audios, string saveKey)

@@ -28,4 +28,9 @@ public class LocationSaveLoader : ISaveLoadObject
         
         _location.Load(_saveLoadServise.Load<SaveData.LocationData>(_saveKey));
     }
+
+    public void Add()
+    {
+        throw new System.NotImplementedException();
+    }
 }
