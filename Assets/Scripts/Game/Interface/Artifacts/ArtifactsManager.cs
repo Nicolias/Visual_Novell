@@ -56,7 +56,6 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
         _gameStateVisitor.UnsubsciribeFromGameStateMachine();
         _artifactsFactory.AllArtifactsCollected -= AccureRewards;
         _artifactsFactory.Dispose();
-        Save();
     }
 
     void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)

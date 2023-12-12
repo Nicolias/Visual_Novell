@@ -14,14 +14,16 @@ public class AuntificationServise : MonoBehaviour
 
     private SaveLoadServise _saveLoadServise;
     private TimesOfDayServise _timesOfDayServise;
+    private StaticData _staticData;
 
     public event UnityAction Authorized;
 
     [Inject]
-    public void Construct(SaveLoadServise saveLoadServise, TimesOfDayServise timesOfDayServise)
+    public void Construct(SaveLoadServise saveLoadServise, TimesOfDayServise timesOfDayServise, StaticData staticData)
     {
         _saveLoadServise = saveLoadServise;
         _timesOfDayServise = timesOfDayServise;
+        _staticData = staticData;
     }
 
     public async void Initialize(TMP_InputField userName, TMP_InputField password)
@@ -121,6 +123,7 @@ public class AuntificationServise : MonoBehaviour
 
         await _saveLoadServise.Initialize();
         await _timesOfDayServise.Initialize();
+        _staticData.Initialize();
 
         Authorized?.Invoke();
     }

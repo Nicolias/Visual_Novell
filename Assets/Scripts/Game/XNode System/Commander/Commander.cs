@@ -38,8 +38,6 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
 
     private void Next()
     {
-        SaveLoadServise.SaveAll();
-
         if (_curent.command != null)
         {
             _curent.command.Completed -= Next;
