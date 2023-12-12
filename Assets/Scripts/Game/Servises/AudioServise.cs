@@ -48,8 +48,6 @@ public class AudioServise : MonoBehaviour
         }
 
         Play(audioClip);
-
-        _saveLoader.Save();
     }
 
     public void StopSound(AudioClip audioClip)

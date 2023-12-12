@@ -21,6 +21,8 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
     {
         _accureMoneyPanel.OnClosed += CallBack;
 
+        Add();
+
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
     }
@@ -28,8 +30,6 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
     private void OnDisable()
     {
         _accureMoneyPanel.OnClosed -= CallBack;
-
-        Save();
     }
 
     public void Accure(int money)
@@ -70,5 +70,10 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
     public void Load()
     {
         _amountMoney = _saveLoadServise.Load<SaveData.IntData>(_saveKey).Int;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }

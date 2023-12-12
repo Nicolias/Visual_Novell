@@ -63,6 +63,26 @@ public class Map : WindowInSmartphone, ISaveLoadObject, IByStateMachineChangable
 
         _cellsCreater.CellClicked += OnCellClicked;
         _gameStateVisitor.SubscribeOnGameStateMachine();
+
+        Add();
+    }
+
+    void ISaveLoadObject.Save()
+    {
+        _saveLoadServise.Save(_saveKey + "LocatoinCount", new SaveData.IntData() { Int = _locations.Count });
+
+        for (int i = 0; i < _locations.Count; i++)
+            _saveLoadServise.Save(_saveKey + i, new SaveData.IntData() { Int = _locations[i].ID });
+
+        int currentLocatoinIndex = -1;
+
+        if (_currentLocation != null)
+            currentLocatoinIndex = _locations.IndexOf(_currentLocation);
+
+        _saveLoadServise.Save(_saveKey, new SaveData.MapData()
+        {
+            CurrentLocationIndex = currentLocatoinIndex
+        });
     }
 
     void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
@@ -72,6 +92,24 @@ public class Map : WindowInSmartphone, ISaveLoadObject, IByStateMachineChangable
 
     void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
     {
+    }
+
+    public void Load()
+    {
+        int locationsCount = _saveLoadServise.Load<SaveData.IntData>(_saveKey + "LocatoinCount").Int;
+
+        for (int i = 0; i < locationsCount; i++)
+            _locations.Add(_locationManager.GetBy(_saveLoadServise.Load<SaveData.IntData>(_saveKey + i).Int));
+
+        var data = _saveLoadServise.Load<SaveData.MapData>(_saveKey);
+
+        if (data.CurrentLocationIndex != -1)
+            _currentLocation = _locations[data.CurrentLocationIndex];
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Add(IEnumerable<ILocation> locations)
@@ -110,37 +148,6 @@ public class Map : WindowInSmartphone, ISaveLoadObject, IByStateMachineChangable
         _currentLocation.Show();
     }
 
-    public void Save()
-    {
-        _saveLoadServise.Save(_saveKey + "LocatoinCount", new SaveData.IntData() { Int = _locations.Count });
-
-        for (int i = 0; i < _locations.Count; i++)
-            _saveLoadServise.Save(_saveKey + i, new SaveData.IntData() { Int = _locations[i].ID });
-
-        int currentLocatoinIndex = -1;
-
-        if (_currentLocation != null)
-            currentLocatoinIndex = _locations.IndexOf(_currentLocation);
-
-        _saveLoadServise.Save(_saveKey, new SaveData.MapData()
-        {
-            CurrentLocationIndex = currentLocatoinIndex
-        });
-    }
-
-    public void Load()
-    {
-        int locationsCount = _saveLoadServise.Load<SaveData.IntData>(_saveKey + "LocatoinCount").Int;
-
-        for (int i = 0;i < locationsCount;i++)
-            _locations.Add(_locationManager.GetBy(_saveLoadServise.Load<SaveData.IntData>(_saveKey + i).Int));
-
-        var data = _saveLoadServise.Load<SaveData.MapData>(_saveKey);
-
-        if (data.CurrentLocationIndex != -1)
-            _currentLocation = _locations[data.CurrentLocationIndex];
-    }
-
     protected override void OnOpenButtonClicked()
     {
         Show();
@@ -153,8 +160,6 @@ public class Map : WindowInSmartphone, ISaveLoadObject, IByStateMachineChangable
 
         _cellsCreater.CellClicked -= OnCellClicked;
         _gameStateVisitor.UnsubsciribeFromGameStateMachine();
-
-        Save();
     }
 
     private void Show()

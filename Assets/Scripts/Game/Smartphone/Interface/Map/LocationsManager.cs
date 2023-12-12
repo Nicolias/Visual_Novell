@@ -5,7 +5,7 @@ using UnityEngine;
 using Zenject;
 using StateMachine;
 
-public class LocationsManager : MonoBehaviour, IByStateMachineChangable
+public class LocationsManager : MonoBehaviour, IByStateMachineChangable, ISaveLoadObject
 {
     [SerializeField] private List<LocationSO> _allLocationsSO = new List<LocationSO>();
 
@@ -63,6 +63,8 @@ public class LocationsManager : MonoBehaviour, IByStateMachineChangable
 
             _locations.Add(location);
         }
+
+        Add();
     }
 
     private void OnDestroy()
@@ -110,5 +112,20 @@ public class LocationsManager : MonoBehaviour, IByStateMachineChangable
     public ILocation GetBy(int id)
     {
         return _locations.Find(location => location.ID == id);
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
+    }
+
+    public void Save()
+    {
+        _locations.ForEach(location => location.Save());
+    }
+
+    public void Load()
+    {
+        _locations.ForEach(_location => _location.Load());
     }
 }

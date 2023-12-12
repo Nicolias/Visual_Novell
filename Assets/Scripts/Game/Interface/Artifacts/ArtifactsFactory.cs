@@ -36,6 +36,8 @@ namespace Factory.Artifacts
 
             for (int i = 0; i < _artifactsForCollectionCount - _collectedArtifactsCount; i++)
                 _artifacts.Add(artifactData);
+
+            Add();
         }
 
         public event Action AllArtifactsCollected;
@@ -44,8 +46,6 @@ namespace Factory.Artifacts
         {
             if (_collectionQuest != null)
                 _collectionQuest.ItemCollected -= OnItemCollected;
-
-            Save();
         }
 
         public void ResetCollection()
@@ -108,6 +108,11 @@ namespace Factory.Artifacts
         public void Load()
         {
             _collectedArtifactsCount = _saveLoadServise.Load<SaveData.IntData>(_saveKey).Int;
+        }
+
+        public void Add()
+        {
+            _saveLoadServise.Add(this);
         }
     }
 }

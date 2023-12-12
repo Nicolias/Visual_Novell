@@ -9,24 +9,16 @@ namespace MainMenu
         private ChoiceButton _newGameButton;
         private GameObject _menuButtons;
 
-        private Action _saveAction;
-        private SaveLoadServise _saveLoadServise;
-
-        public NewGameState(ChoiceButton newGameButton, GameObject menuButtons, SaveLoadServise saveLoadServise, Action saveAction)
+        public NewGameState(ChoiceButton newGameButton, GameObject menuButtons)
         {
             _newGameButton = newGameButton;
             _menuButtons = menuButtons;
-
-            _saveAction = saveAction;
-            _saveLoadServise = saveLoadServise;
         }
 
         public override void Entry()
         {
             _newGameButton.Initialized(new("Новая игра", () =>
             {
-                _saveLoadServise.ClearAllSave();
-                _saveAction.Invoke();
                 SceneManager.LoadScene(1);
             }));
             _menuButtons.SetActive(true);

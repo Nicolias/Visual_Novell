@@ -4,6 +4,8 @@ using UnityEngine.Events;
 
 public class PlayerPrefsSaveLoaderServise : SaveLoadServise
 {
+    public override int SaveLoadCount => 0;
+
     public override event UnityAction Initialized;
 
     private void Awake()
@@ -38,5 +40,15 @@ public class PlayerPrefsSaveLoaderServise : SaveLoadServise
     public override bool HasSave(string key)
     {
         return PlayerPrefs.HasKey(key);
+    }
+
+    public override void SaveAll()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Add(ISaveLoadObject audioServiseSaveLoader)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -7,28 +7,42 @@ using UnityEngine.Events;
 
 public class CloudSaveLoaderServise : SaveLoadServise
 {
+    private List<ISaveLoadObject> _loadedObjects = new List<ISaveLoadObject>();
+
     private Dictionary<string, string> _localSaves = new Dictionary<string, string>();
 
     private Dictionary<string, string> _results = new Dictionary<string, string>();
 
     private bool _isCloudSaved = true;
 
+    public override int SaveLoadCount => _results.Count;
+
     public override event UnityAction Initialized;
 
     public override async Task Initialize()
     {
         var dictionary = await CloudSaveService.Instance.Data.Player.LoadAllAsync();
-        string jsonFile = RetrieveSpecificData<string>("CloudSave", dictionary);
+        if (RetrieveSpecificData("CloudSave", dictionary, out string jsonFile)) 
+        {
+            SerializableDictionary serializableDictionary = JsonUtility.FromJson<SerializableDictionary>(jsonFile);
 
-        SerializableDictionary serializableDictionary = JsonUtility.FromJson<SerializableDictionary>(jsonFile);
-
-        if(serializableDictionary != null)
-           for (int i = 0; i < serializableDictionary.keys.Count; i++)
+            for (int i = 0; i < serializableDictionary.keys.Count; i++)
                 _results.Add(serializableDictionary.keys[i], serializableDictionary.values[i]);
+        }
 
         Initialized?.Invoke();
     }
 
+    public override void Add(ISaveLoadObject saveLoadObject)
+    {
+        _loadedObjects.Add(saveLoadObject);
+    }
+
+    public override void SaveAll()
+    {
+        foreach (var saveLoadObject in _loadedObjects)
+            saveLoadObject.Save();
+    }
 
     public override void Save<T>(string key, T saveData)
     {
@@ -118,17 +132,19 @@ public class CloudSaveLoaderServise : SaveLoadServise
         return null;
     }
 
-    private T RetrieveSpecificData<T>(string key, Dictionary<string, Unity.Services.CloudSave.Models.Item> results)
+    private bool RetrieveSpecificData<T>(string key, Dictionary<string, Unity.Services.CloudSave.Models.Item> results, out T jsonFile)
     {
         try
         {
             if (results.TryGetValue(key, out var item))
             {
-                return item.Value.GetAs<T>();
+                jsonFile = item.Value.GetAs<T>();
+                return true;
             }
             else
             {
-                return default;
+                jsonFile = default;
+                return false;
             }
         }
         catch (CloudSaveValidationException e)
@@ -144,7 +160,8 @@ public class CloudSaveLoaderServise : SaveLoadServise
             Debug.LogError(e);
         }
 
-        return default;
+        jsonFile = default;
+        return false;
     }
 
     [Serializable]
