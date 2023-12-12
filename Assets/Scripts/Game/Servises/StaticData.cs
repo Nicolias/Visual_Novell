@@ -7,7 +7,7 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
     private const string _saveKey = "StaticDataSave";
 
     [SerializeField] private List<QuizQuestion> _quizQuestion;
-    [SerializeField] private string _nickname = "Везунчик";
+    private string _nickname;
     [Inject] private SaveLoadServise _saveLoadServise;
 
     private Dictionary<int, int> _needPointsToRichLevel = new()
@@ -27,6 +27,8 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
     {
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
+        else
+            _nickname = "Везунчик";
     }
 
     private void OnDisable()

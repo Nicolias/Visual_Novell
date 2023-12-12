@@ -17,7 +17,7 @@ namespace StateMachine
         private BaseState _currentState;
         private List<BaseState> _allStates;
 
-        private string _saveKay;
+        private string _saveKay = "GameStateMachine";
 
         public BaseState CurrentState => _currentState;
 

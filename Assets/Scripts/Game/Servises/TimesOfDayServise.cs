@@ -3,8 +3,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Unity.Services.CloudCode;
 using System.Collections.Generic;
-using Unity.Services.Core;
-using Unity.Services.Authentication;
 using System.Collections;
 
 public class TimesOfDayServise : MonoBehaviour
@@ -12,19 +10,15 @@ public class TimesOfDayServise : MonoBehaviour
     private WaitForSeconds _waitOneSecond = new WaitForSeconds(1f);
 
     private DateTime _currentTime = new DateTime(1970, 1, 1, 3, 0, 0);
+
     public DateTime CurrentTime => _currentTime;
 
-    private async void Awake()
+    public event Action<int, int> TimeChanged;
+
+    public async Task Initialize()
     {
-        await UnityServices.InitializeAsync();
-
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
-
-        var a = await CallGetServerEpochTimeEndpoint();
-        _currentTime = _currentTime.AddMilliseconds(a);
-
-        Debug.Log(new DateTime().AddMilliseconds(a));
-        Debug.Log(_currentTime);
+        var networkTime = await CallGetServerEpochTimeEndpoint();
+        _currentTime = _currentTime.AddMilliseconds(networkTime);
     }
 
     private void OnEnable()
@@ -73,12 +67,18 @@ public class TimesOfDayServise : MonoBehaviour
 
     private IEnumerator Timer()
     {
+        int previousMinute = _currentTime.Minute;
+
         while (enabled)
         {
             yield return _waitOneSecond;
             _currentTime = _currentTime.AddSeconds(1);
-
-            Debug.Log(CurrentTime);
+            
+            if (_currentTime.Minute != previousMinute)
+            {
+                previousMinute = _currentTime.Minute;
+                TimeChanged?.Invoke(_currentTime.Hour, _currentTime.Minute);
+            }
         }
     }
 }

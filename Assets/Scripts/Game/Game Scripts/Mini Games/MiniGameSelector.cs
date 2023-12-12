@@ -33,21 +33,23 @@ public class MiniGameSelector : MonoBehaviour, ICloseable, IByStateMachineChanga
     {
         _gameStateVisitor = new GameStateVisitor(_gameStateMachine, this);
         _gameStateVisitor.RecognizeCurrentGameState();
+        _gameStateVisitor.SubscribeOnGameStateMachine();
     }
 
     private void OnEnable()
     {
         foreach (var miniGame in _miniGames)
             miniGame.GameEnded += OnGameEnded;
-
-        _gameStateVisitor.SubscribeOnGameStateMachine();
     }
 
     private void OnDisable()
     {
         foreach (var miniGame in _miniGames)
             miniGame.GameEnded -= OnGameEnded;
+    }
 
+    private void OnDestroy()
+    {
         _gameStateVisitor.UnsubsciribeFromGameStateMachine();
     }
 
