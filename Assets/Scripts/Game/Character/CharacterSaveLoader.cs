@@ -37,5 +37,10 @@ namespace Characters
             
             _character.Load(_saveLoaderServise.Load<SaveData.CharacterData>(_saveKey));
         }
+
+        public void Add()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

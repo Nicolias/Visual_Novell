@@ -18,12 +18,15 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
 
     protected abstract string SaveKey { get; }
 
+    private void Awake()
+    {
+        Add();
+    }
+
     private void OnDisable()
     {
         if (_curent.command != null)
             _curent.command.Completed -= Next;
-
-        Save();
     }
 
     public void PackAndExecuteCommand(Node node)
@@ -66,6 +69,11 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
 
         if (data.Node != null)
             PackAndExecuteCommand(_curent.node);
+    }
+
+    public void Add()
+    {
+        SaveLoadServise.Add(this);
     }
 
     private SaveData.NodeData GetSaveSnapshot()

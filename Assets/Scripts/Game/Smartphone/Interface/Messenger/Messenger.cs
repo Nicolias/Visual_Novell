@@ -40,6 +40,8 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
         _chatView = chatWindow;
         _messengerWindow = messengerWindow;
         _unreadChatIndicator = unreadChatIndicator;
+
+        Add();
     }
 
     private void OnEnable()
@@ -55,7 +57,6 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
     {
         _chatView.ChatRead -= OnChatRead;
         _openMesengerButton.onClick.RemoveAllListeners();
-        Save();
     }
 
     public void AddNewMessage(MessegeData newMessage)
@@ -123,5 +124,10 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
                 _allMessages.Add(messege);
             }
         }
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }

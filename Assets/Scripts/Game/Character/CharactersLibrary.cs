@@ -5,7 +5,7 @@ using UnityEngine;
 using Zenject;
 
 
-public class CharactersLibrary : MonoBehaviour
+public class CharactersLibrary : MonoBehaviour, ISaveLoadObject
 {
     [Inject] private StaticData _staticData;
     [Inject] private SaveLoadServise _saveLoadServise;
@@ -20,12 +20,9 @@ public class CharactersLibrary : MonoBehaviour
     private void Awake()
     {
         _characters = GenerateCharacters(_allCharactersSO);
-    }
 
-    private void OnDestroy()
-    {
-        foreach (var character in _characters)
-            character.Dispose();
+        Add();
+        Load();
     }
 
     public ICharacter GetCharacter(CharacterType characterType)
@@ -67,5 +64,20 @@ public class CharactersLibrary : MonoBehaviour
             characters.Add(new Character(charactersSO[i], _staticData, _saveLoadServise, _timesOfDayServise, i));
 
         return characters;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
+    }
+
+    public void Save()
+    {
+        _characters.ForEach(character => character.Save());
+    }
+
+    public void Load()
+    {
+        _characters.ForEach(character => character.Load());
     }
 }

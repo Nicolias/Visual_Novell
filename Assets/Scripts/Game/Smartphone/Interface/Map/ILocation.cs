@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-public interface ILocation : IDataForCell, IDisposable
+public interface ILocation : IDataForCell, IDisposable, ISaveLoadObject
 {
     public LocationSO Data { get; }
     

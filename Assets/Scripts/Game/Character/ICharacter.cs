@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Characters
 {
-    public interface ICharacter : IDataForCell, IDisposable
+    public interface ICharacter : IDataForCell, ISaveLoadObject
     {
         public CharacterType Type { get; }
         public int SympathyPoints { get; }

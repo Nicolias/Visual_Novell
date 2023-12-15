@@ -1,17 +1,14 @@
 ﻿using System.Collections.Generic;
-using Unity.Services.Authentication;
 using UnityEngine;
 
 namespace MainMenu
 {
-    public class MenuBehaviour : ISaveLoadObject
+    public class MenuBehaviour
     {
         private readonly SaveLoadServise _saveLoadServise;
         private readonly List<BaseState> _states;
         private readonly QuitGamePanel _quitGamePanel;
         private BaseState _currentState;
-
-        private const string _saveKey = "HasGameProgress";
 
         public MenuBehaviour(ChoiceButton newOrContinueGameButton,
             SettingWindow settingWindow, GameObject menuButtons,
@@ -21,19 +18,19 @@ namespace MainMenu
 
             _states = new()
             {
-                new NewGameState(newOrContinueGameButton, menuButtons, saveLoadServise, Save),
+                new NewGameState(newOrContinueGameButton, menuButtons),
                 new ContinueGameState(newOrContinueGameButton, menuButtons),
                 new SettingState(settingWindow)
             };
 
             _quitGamePanel = quitGamePanel;
 
-            Load();
+            OpenMainMenu();
         }
 
-        public void OpenMainMenu()
+        private void OpenMainMenu()
         {
-            if (_saveLoadServise.HasSave(_saveKey))
+            if (_saveLoadServise.SaveLoadCount > 0)
             {
                 Switch<ContinueGameState>();
             }
@@ -64,16 +61,6 @@ namespace MainMenu
             var state = _states.Find(x => x is T);
             _currentState = state;
             _currentState.Entry();
-        }
-
-        public void Load()
-        {
-            OpenMainMenu();
-        }
-
-        public void Save()
-        {
-            _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = true });
         }
     }
 }

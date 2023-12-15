@@ -34,6 +34,8 @@ namespace StateMachine
                 new PlayState(audioServise, _freePlayMusicVariations)
             };            
 
+            Add();
+
             ChangeState<StoryState>();
         }
 
@@ -41,11 +43,6 @@ namespace StateMachine
         {
             if (_saveLoadServise.HasSave(_saveKay))
                 Load();
-        }
-
-        private void OnDestroy()
-        {
-            Save();
         }
 
         public void ChangeState<T>() where T : BaseState
@@ -75,6 +72,11 @@ namespace StateMachine
 
             _currentState = lastState;
             StateChanged?.Invoke();
+        }
+
+        public void Add()
+        {
+            _saveLoadServise.Add(this);
         }
     }    
 }

@@ -23,13 +23,10 @@ public class BackgroundView : MonoBehaviour, ISaveLoadObject
 
     private void OnEnable()
     {
+        Add();
+
         if(_saveLoadServise.HasSave(_saveKey))
             Load();
-    }
-
-    private void OnDisable()
-    {
-        Save(); 
     }
 
     public void Replace(Sprite sprite)
@@ -62,5 +59,10 @@ public class BackgroundView : MonoBehaviour, ISaveLoadObject
     {
         var data = _saveLoadServise.Load<SaveData.ImageData>(_saveKey);
         Replace(data.Sprite);
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }

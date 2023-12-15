@@ -23,17 +23,17 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
     public string Nickname => _nickname;
     public IEnumerable<QuizQuestion> QuizQuestion => _quizQuestion;
 
-    private void OnEnable()
+    private void Awake()
+    {
+        Add();
+    }
+
+    public void Initialize()
     {
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
         else
             _nickname = "Везунчик";
-    }
-
-    private void OnDisable()
-    {
-        Save();
     }
 
     public int HowManyPointesNeedForReach(int level)
@@ -55,5 +55,10 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
     {
         var data = _saveLoadServise.Load<SaveData.StringData>(_saveKey);
         _nickname = data.String;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }
