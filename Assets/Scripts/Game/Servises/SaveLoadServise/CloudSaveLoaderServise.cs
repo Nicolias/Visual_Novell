@@ -22,8 +22,9 @@ public class CloudSaveLoaderServise : SaveLoadServise
 
         SerializableDictionary serializableDictionary = JsonUtility.FromJson<SerializableDictionary>(jsonFile);
 
-        for (int i = 0; i < serializableDictionary.keys.Count; i++)
-            _results.Add(serializableDictionary.keys[i], serializableDictionary.values[i]);
+        if(serializableDictionary != null)
+           for (int i = 0; i < serializableDictionary.keys.Count; i++)
+                _results.Add(serializableDictionary.keys[i], serializableDictionary.values[i]);
 
         Initialized?.Invoke();
     }
@@ -127,7 +128,7 @@ public class CloudSaveLoaderServise : SaveLoadServise
             }
             else
             {
-                Debug.Log($"There is no such key as {key}!");
+                return default;
             }
         }
         catch (CloudSaveValidationException e)
