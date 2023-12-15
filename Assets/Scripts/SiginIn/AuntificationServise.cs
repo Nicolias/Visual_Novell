@@ -51,22 +51,22 @@ public class AuntificationServise : MonoBehaviour
 
     public void SignIn()
     {
-        if (IsNicknameValid() == false || IsPasswordValid() == false)
-        {
-            Debug.Log("Некоректный логин или пароль");
-            return;
-        }
+        //if (IsNicknameValid() == false || IsPasswordValid() == false)
+        //{
+        //    Debug.Log("Некоректный логин или пароль");
+        //    return;
+        //}
 
         SignIn(_userName.text, _password.text);
     }
 
     public void SignUp()
     {
-        if (IsNicknameValid() == false || IsPasswordValid() == false)
-        {
-            Debug.Log("Некоректный логин или пароль");
-            return;
-        }
+        //if (IsNicknameValid() == false || IsPasswordValid() == false)
+        //{
+        //    Debug.Log("Некоректный логин или пароль");
+        //    return;
+        //}
 
         SignUp(_userName.text, _password.text);
     }
@@ -111,6 +111,8 @@ public class AuntificationServise : MonoBehaviour
         {
             Debug.Log("Неправильный логин или пароль");
         }
+
+        await InitializeAndLoadScene();
     }
 
     private async Task InitializeAndLoadScene()
