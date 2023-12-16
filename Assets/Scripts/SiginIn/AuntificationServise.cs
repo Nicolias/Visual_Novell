@@ -6,6 +6,7 @@ using TMPro;
 using System.Linq;
 using Zenject;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class AuntificationServise : MonoBehaviour
 {
@@ -53,22 +54,22 @@ public class AuntificationServise : MonoBehaviour
 
     public void SignIn()
     {
-        //if (IsNicknameValid() == false || IsPasswordValid() == false)
-        //{
-        //    Debug.Log("Некоректный логин или пароль");
-        //    return;
-        //}
+        if (IsNicknameValid() == false || IsPasswordValid() == false)
+        {
+            Debug.Log("Некоректный логин или пароль");
+            return;
+        }
 
         SignIn(_userName.text, _password.text);
     }
 
     public void SignUp()
     {
-        //if (IsNicknameValid() == false || IsPasswordValid() == false)
-        //{
-        //    Debug.Log("Некоректный логин или пароль");
-        //    return;
-        //}
+        if (IsNicknameValid() == false || IsPasswordValid() == false)
+        {
+            Debug.Log("Некоректный логин или пароль");
+            return;
+        }
 
         SignUp(_userName.text, _password.text);
     }
@@ -89,7 +90,8 @@ public class AuntificationServise : MonoBehaviour
         {
             // Compare error code to AuthenticationErrorCodes
             // Notify the player with the proper error message
-            Debug.LogException(ex);
+            Debug.Log("Пользователь с таки логином уже существует");
+            return;
         }
         catch (RequestFailedException ex)
         {
@@ -113,8 +115,6 @@ public class AuntificationServise : MonoBehaviour
         {
             Debug.Log("Неправильный логин или пароль");
         }
-
-        await InitializeAndLoadScene();
     }
 
     private async Task InitializeAndLoadScene()
@@ -152,18 +152,14 @@ public class AuntificationServise : MonoBehaviour
     {
         string nickname = _userName.text;
 
-        if (nickname.Any(char.IsLower) == false || nickname.Any(char.IsUpper) == false)
+        if (nickname.Length <= 3 || nickname.Length >= 20)
             return false;
 
-        if (!nickname.Any(char.IsUpper))
-            return false;
-
-        if (!nickname.Any(char.IsDigit))
-            return false;
-
-        char[] allowedSymbols = { '-', '_', '.', '@' };
-        if (!nickname.Any(c => allowedSymbols.Contains(c)))
-            return false;
+        List<char> allowedSymbols = new() { '-', '_', '.', '@' };
+        foreach (var character in nickname)
+            if (char.IsLetterOrDigit(character) == false)
+                if (allowedSymbols.Contains(character) == false)
+                    return false;
 
         return true;
     }
@@ -171,6 +167,9 @@ public class AuntificationServise : MonoBehaviour
     private bool IsPasswordValid()
     {
         string password = _password.text;
+
+        if (password.Length <= 8 || password.Length >= 30)
+            return false;
 
         if (!password.Any(char.IsLower))
             return false;
@@ -181,9 +180,9 @@ public class AuntificationServise : MonoBehaviour
         if (!password.Any(char.IsDigit))
             return false;
 
-        char[] allowedSymbols = { '-', '_', '!' };
-        if (!password.Any(c => allowedSymbols.Contains(c)))
-            return false;
+        //char[] allowedSymbols = { '-', '_', '!' };
+        //if (!password.Any(c => allowedSymbols.Contains(c)))
+        //    return false;
 
         return true;
     }
