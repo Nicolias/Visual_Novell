@@ -11,6 +11,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+        </activity>	
+		
+        <activity
+            android:name="ru.rustore.unitysdk.RuStoreUnityActivity" android:theme="@style/UnityThemeSelector" android:exported="true">
+ 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+ 
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="TheFortune" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>
