@@ -9,20 +9,22 @@ public class Product
         _data = data;
     }
 
-    public event Action<bool> Bought;
+    public ProductSO Data => _data;
+
+    public event Action<ProductSO> Bought;
 
     public void BuyProduct()
     {
-        Bought?.Invoke(_data.IsOnce);
+        Bought?.Invoke(_data);
     }
 }
 
 public class ProductPresenter : IDisposable
 {
-    private readonly ShopItem _view;
+    private readonly ProductView _view;
     private readonly Product _model;
 
-    public ProductPresenter(ShopItem view, Product model)
+    public ProductPresenter(ProductView view, Product model)
     {
         _view = view;
         _model = model;
@@ -37,9 +39,9 @@ public class ProductPresenter : IDisposable
         _model.Bought -= OnProductBought;
     }
 
-    private void OnProductBought(bool isOnce)
+    private void OnProductBought(ProductSO productData)
     {
-        if (isOnce)
+        if (productData.IsOnce)
             _view.Delete();
     }
 
