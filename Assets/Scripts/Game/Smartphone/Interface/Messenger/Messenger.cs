@@ -32,6 +32,7 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
         _saveLoadServise = saveLoadServise;
         _chatView = chatWindow;
         _messengerWindow = messengerWindow;
+        Add();
     }
 
     public void Construct(SaveLoadServise saveLoadServise, IChatWindow chatWindow, IMessengerWindow messengerWindow, GameObject unreadChatIndicator)
@@ -40,8 +41,6 @@ public class Messenger : MonoBehaviour, ISaveLoadObject
         _chatView = chatWindow;
         _messengerWindow = messengerWindow;
         _unreadChatIndicator = unreadChatIndicator;
-
-        Add();
     }
 
     private void OnEnable()
