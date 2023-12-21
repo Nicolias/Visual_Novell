@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,10 +11,29 @@ public class ShopItem : MonoBehaviour
 
     [SerializeField] private Button _buyButton;
 
-    public event UnityAction BuyButtonClicked; 
+    private ProductPresenter _presenter;
 
-    public void SetItem(object item)
+    public event UnityAction BuyButtonClicked;
+
+    public void Initialize(Product product)
     {
+        _presenter = new ProductPresenter(this, product);
+    }
 
+    private void OnEnable()
+    {
+        _buyButton.onClick.AddListener(BuyButtonClicked);
+    }
+
+    private void OnDisable()
+    {
+        _buyButton.onClick.RemoveListener(BuyButtonClicked);
+    }
+
+    public void Delete()
+    {
+        _presenter.Dispose();
+
+        Destroy(gameObject);
     }
 }

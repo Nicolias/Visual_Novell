@@ -6,3 +6,8 @@ public class Shop : MonoBehaviour
 {
    
 }
+
+public class ProductFactory : MonoBehaviour
+{
+    
+}
