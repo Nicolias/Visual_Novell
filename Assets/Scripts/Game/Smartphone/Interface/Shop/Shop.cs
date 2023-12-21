@@ -1,18 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<ProductSO> _productsData;
+    [SerializeField] private ProductFactory _productsFactory;
 
-    // Update is called once per frame
-    void Update()
+    private List<ProductView> _productViews;
+
+    private void Awake()
     {
-        
+        _productViews = _productsFactory.CreatProducts(_productsData);
     }
 }
