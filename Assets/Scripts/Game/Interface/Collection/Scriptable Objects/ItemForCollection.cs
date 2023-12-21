@@ -13,4 +13,9 @@ public abstract class ItemForCollection : AbstractItem
     }
 
     public abstract void Acсept(ItemCollector itemCollectorVisitor);
+
+    public override string ToString()
+    {
+        return Name;
+    }
 }

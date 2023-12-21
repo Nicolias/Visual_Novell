@@ -17,6 +17,7 @@ public class AuntificationServise : MonoBehaviour
     private TimesOfDayServise _timesOfDayServise;
     private StaticData _staticData;
 
+    public event UnityAction Signing;
     public event UnityAction Authorized;
 
     [Inject]
@@ -39,15 +40,15 @@ public class AuntificationServise : MonoBehaviour
         if (AuthenticationService.Instance.PlayerId != "")
             SignOut();
 
-        AuthenticationService.Instance.SignedOut += Instance_SignedOut;
+        AuthenticationService.Instance.SignedOut += OnSignedOut;
     }
 
     private void OnDestroy()
     {
-        AuthenticationService.Instance.SignedOut -= Instance_SignedOut;
+        AuthenticationService.Instance.SignedOut -= OnSignedOut;
     }
 
-    private void Instance_SignedOut()
+    private void OnSignedOut()
     {
         Debug.Log("Выход");
     }
@@ -60,6 +61,8 @@ public class AuntificationServise : MonoBehaviour
             return;
         }
 
+        Signing?.Invoke();
+
         SignIn(_userName.text, _password.text);
     }
 
@@ -71,6 +74,7 @@ public class AuntificationServise : MonoBehaviour
             return;
         }
 
+        Signing?.Invoke();
         SignUp(_userName.text, _password.text);
     }
 

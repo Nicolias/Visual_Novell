@@ -13,7 +13,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 
     public int CurrentValue => _chargeLeve;
 
-    private int _rechargeByMinute = 8;
+    private int _rechargeByMinute = 15;
 
     private const string _saveKey = "BatterySave";
 
@@ -123,7 +123,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         ValueChanged?.Invoke(_chargeLeve);
 
         if (_chargeLeve < _maxCharge && _isTimer == false)
-            StartCoroutine(Timer(new(0,8,0)));
+            StartCoroutine(Timer(new(0,_rechargeByMinute,0)));
     }
 
     public void Add()

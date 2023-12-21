@@ -3,7 +3,7 @@
     private Eating _eating;
     private CharactersLibrary _charactersLibrary;
 
-    public EatingPastime(Eating eating, ChoicePanel choicePanel, CharactersLibrary charactersLibrary) : base(choicePanel, "Заказать еду.", eating)
+    public EatingPastime(Eating eating, ChoicePanel choicePanel, CharactersLibrary charactersLibrary) : base(choicePanel, "Заказать еду", eating)
     {
         _eating = eating;
         _charactersLibrary = charactersLibrary;

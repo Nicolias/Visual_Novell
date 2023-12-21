@@ -55,6 +55,7 @@ namespace Characters
 
             LastEatingTime = new DateTime(characterData.LastEatingTimeYear, characterData.LastEatingTimeMonth, characterData.LastEatingTimeDay);
             LastEatingTimeOfDay = (TimesOfDayType)characterData.LastEatingTimeOfDay;
+            IsMeetingWithPlayer = characterData.IsMeeting;
         }
 
         public void AccureSympathyPoints(int points)

@@ -3,6 +3,7 @@ using Zenject;
 
 public class Regestration : MonoBehaviour
 {
+    [SerializeField] private LoadingWindow _loadingWindow;
     [SerializeField] private GameObject _menuCanvas;
 
     private AuntificationServise _auntificationServise;
@@ -15,17 +16,24 @@ public class Regestration : MonoBehaviour
 
     private void OnEnable()
     {
-        _auntificationServise.Authorized += OnAuthorized;
+        _auntificationServise.Signing += OnSigning;
     }
 
     private void OnDisable()
     {
-        _auntificationServise.Authorized -= OnAuthorized;
+        _auntificationServise.Signing -= OnSigning;
+    }
+
+    private void OnSigning()
+    {
+        _loadingWindow.Show();
+        _loadingWindow.Authorized += OnAuthorized;
     }
 
     private void OnAuthorized()
     {
-        gameObject.SetActive(false);
+        _loadingWindow.Authorized -= OnAuthorized;
         _menuCanvas.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

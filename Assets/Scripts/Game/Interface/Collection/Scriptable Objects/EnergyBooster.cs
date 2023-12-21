@@ -10,9 +10,4 @@ public class EnergyBooster : ItemForInventory, IUseableItemForInventory
     {
         inventoryCell.Visit(this);
     }
-
-    public override string ToString()
-    {
-        return Name;
-    }
 }

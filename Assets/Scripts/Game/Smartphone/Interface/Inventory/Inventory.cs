@@ -154,7 +154,10 @@ public class InventorySaveLoader : ISaveLoadObject
         _saveLoaderServise.Save(_saveKey + "UseCount", new IntData() {Int = useableItemCells.Count});
 
         for (int i = 0; i < itemCells.Count; i++)
-            _saveLoaderServise.Save(_saveKey + i, new IntData() { Int = itemCells.FindIndex(cell => cell.Data == items[i]) });
+        {
+            int cellIndex = items.FindIndex(item => item == itemCells[i].Data);
+            _saveLoaderServise.Save(_saveKey + i, new IntData() { Int = cellIndex });
+        }
 
         for (int i = 0; i < useableItemCells.Count; i++)
         {
