@@ -45,7 +45,7 @@ public class MessengerWindow : MonoBehaviour, IMessengerWindow
         if (TryGetContactView(newMessege.ContactName, out ContactViewInMessenger contactView) == false)
             contactView = CreateContactView(newMessege.ContactName);
 
-        Chat chat = _chatFactory.Create(newMessege.Messege, contactView.ChatsContainer);
+        Chat chat = _chatFactory.Create(newMessege, contactView.ChatsContainer);
         contactView.Add(chat);
 
         return chat;

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Energy
   m_EditorClassIdentifier: 
   _discriptoin: 
-  <CategoryName>k__BackingField: "\u042D\u043D\u0435\u0440\u0433\u0438\u044F"
+  <CategoryName>k__BackingField: "\u042D\u043D\u0435\u0440\u0433\u0438\u044F \u0441\u043C\u0430\u0440\u0442\u0444\u043E\u043D\u0430"
   <Subcategories>k__BackingField: []
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 25020566aaa649c409a400307be3acbb, type: 3}

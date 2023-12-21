@@ -7576,6 +7576,7 @@ MonoBehaviour:
   _outPut: 0
   <NewDialogs>k__BackingField:
   - <ContactName>k__BackingField: "\u0424\u0430\u0440\u0442\u0443\u043D\u0430"
+    <MessageName>k__BackingField: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E\u0435"
     <Messege>k__BackingField: {fileID: 11400000, guid: ddd8714396070c34cbbfb1d5c7a20aa0, type: 2}
 --- !u!114 &4945716939278740558
 MonoBehaviour:

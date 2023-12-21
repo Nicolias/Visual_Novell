@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using XNode;
@@ -10,12 +11,15 @@ public class Chat : MonoBehaviour
 {
     [Inject] private IChatWindow _chatView;
 
+    [SerializeField] private TMP_Text _chatName;
+
     private Button _selfButton;
 
     private List<Messege> _messegasList = new();
     private Node _currentNode;
 
     public virtual NodeGraph Data { get; private set; }
+
     public IEnumerable<Messege> Messages => _messegasList;
     public Node CurrentNode => _currentNode;
 
@@ -39,10 +43,11 @@ public class Chat : MonoBehaviour
         _chatView.ChatRead -= OnChatRead;
     }
 
-    public void Initialize(NodeGraph chat)
+    public void Initialize(MessegeData chat)
     {
-        Data = chat;
-        _currentNode = chat.nodes[0];
+        Data = chat.Messege;
+        _chatName.text = chat.MessageName;
+        _currentNode = chat.Messege.nodes[0];
     }
 
     public void SaveChatData(Node currentNode)

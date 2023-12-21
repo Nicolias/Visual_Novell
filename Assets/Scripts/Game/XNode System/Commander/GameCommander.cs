@@ -22,7 +22,8 @@ public class GameCommander : Commander, ICommanderVisitor
 
     [SerializeField] private BackgroundView _backgroundView;
 
-    [SerializeField] private SmartphoneGuideView _smartphoneGuideView;    
+    [SerializeField] private SmartphoneGuideView _smartphoneGuideView;
+    [SerializeField] private GuidView _guidView;
 
     [SerializeField] private Smartphone _smartPhone;
     [SerializeField] private SmartphoneCallView _callView;
@@ -117,6 +118,12 @@ public class GameCommander : Commander, ICommanderVisitor
     {
         _result.command = DI.Instantiate<SmartPhoneGuidPresenter>(new object[] { _smartphoneGuideView });
     }
+
+    public void Visit(ShowGuidModel showGuidModel)
+    {
+        _result.command = new ShowGuidPresenter(showGuidModel, _guidView);
+    }
+
     public void Visit(WaitForSecondsModel waitModel)
     {
         _result.command = DI.Instantiate<WaitForSecondsPresenter>(new object[] {  waitModel });

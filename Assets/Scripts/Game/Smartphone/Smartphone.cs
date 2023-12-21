@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -17,13 +16,11 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
     [SerializeField] private Messenger _messenger;
     [SerializeField] private DUX _dux;
 
-    [SerializeField] private TMP_Text _clockText;
+    [SerializeField] private Clock _clock;
 
     private SaveLoadServise _saveLoadServise;
-    private Map _map;
 
     private bool _isDUXTutorialShow = false;
-    private DateTime _currentTime = new(1,1,1,23,34,0);
     private const string _saveKey = "SmartphoneSave";
 
     public Messenger Messenger => _messenger;
@@ -32,10 +29,9 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
     public event Action Closed;
 
     [Inject]
-    public void Construct(SaveLoadServise saveLoadServise, Map map)
+    public void Construct(SaveLoadServise saveLoadServise)
     {
         _saveLoadServise = saveLoadServise;
-        _map = map;
     }
 
     private void OnEnable()
@@ -56,18 +52,11 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
     {
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
-
-        if(_saveLoadServise.HasSave(_saveKey) == false)
-            SetTime(_currentTime.Hour, _currentTime.Minute);
     }
 
     public void SetTime(int hour, int minute)
     {
-        _currentTime = DateTime.MinValue;
-        _currentTime = _currentTime.AddHours(hour);
-        _currentTime = _currentTime.AddMinutes(minute);
-        
-        _clockText.text = $"{_currentTime:HH}:{_currentTime:mm}";
+        _clock.SetTime(hour, minute);
     }
 
     public void OpenAccesToDUX()
@@ -121,8 +110,6 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
     {
         _saveLoadServise.Save(_saveKey, new SaveData.SmartphoneData()
         {
-            Hors = _currentTime.Hour,
-            Minuts = _currentTime.Minute,
             IsDuxTutorialComplete = _isDUXTutorialShow
         });
 
@@ -134,7 +121,6 @@ public class Smartphone : MonoBehaviour, ISaveLoadObject
     {
         var data = _saveLoadServise.Load<SaveData.SmartphoneData>(_saveKey);
 
-        SetTime(data.Hors, data.Minuts);
         _isDUXTutorialShow = data.IsDuxTutorialComplete;
 
         for (int i = 0; i < _apps.Count; i++)

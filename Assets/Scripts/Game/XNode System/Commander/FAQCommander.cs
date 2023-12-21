@@ -202,4 +202,9 @@ public class FAQCommander : Commander, ICommanderVisitor
     {
         throw new System.NotImplementedException();
     }
+
+    public void Visit(ShowGuidModel showGuidModel)
+    {
+        throw new System.NotImplementedException();
+    }
 }

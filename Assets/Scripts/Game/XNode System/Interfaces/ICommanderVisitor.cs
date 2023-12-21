@@ -7,6 +7,7 @@
     void Visit(FAQModel faqModel);
     void Visit(IChoiceModel choice);
     void Visit(SenderItemToInventoryModel senderItemToInventory);
+    void Visit(ShowGuidModel showGuidModel);
     void Visit(QuizModel quizModel);
     void Visit(MeetWithPlayerModel meetWithPlayerModel);
     void Visit(BackgroundModel background);

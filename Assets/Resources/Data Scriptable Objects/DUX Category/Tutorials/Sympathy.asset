@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Sympathy
   m_EditorClassIdentifier: 
   _discriptoin: 
-  <CategoryName>k__BackingField: "\u0421\u0438\u043C\u043F\u0430\u0442\u0438\u044F"
+  <CategoryName>k__BackingField: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u0441\u0438\u043C\u043F\u0430\u0442\u0438\u0438"
   <Subcategories>k__BackingField: []
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 5c06009942f98244e8446f8b8ea2cf01, type: 3}

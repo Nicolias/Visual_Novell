@@ -91,7 +91,7 @@ public class MessengerTests
 
         Chat chat = Substitute.For<Chat>();
         chat.Data.Returns(newMessage.Messege);
-        _chatFactory.Create(newMessage.Messege, contactView.ChatsContainer).Returns(chat);
+        _chatFactory.Create(newMessage, contactView.ChatsContainer).Returns(chat);
 
         _messengerWindow.CreateChat(newMessage);
 
@@ -100,7 +100,7 @@ public class MessengerTests
 
     private MessegeData CreateMessage(string contactName)
     {
-        return new MessegeData(contactName, ScriptableObject.CreateInstance<DialogData>());
+        return new MessegeData(contactName,"" , ScriptableObject.CreateInstance<DialogData>());
     }
 
     private T CreateGameObjectWith<T>() where T : MonoBehaviour
