@@ -2,44 +2,49 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using VisualNovell;
 
-public class ProductView : MonoBehaviour
+namespace VisualNovell
 {
-    [SerializeField] private Image _image;
-    [SerializeField] private TMP_Text _name;
 
-    [SerializeField] private Button _buyButton;
-
-    private ProductPresenter _presenter;
-
-    public event UnityAction BuyButtonClicked;
-
-    public void Initialize(Product product)
+    public class ProductView : MonoBehaviour
     {
-        _presenter = new ProductPresenter(this, product);
-        _image.sprite = product.Data.Image;
-        _name.text = product.Data.Name;
-    }
+        [SerializeField] private Image _image;
+        [SerializeField] private TMP_Text _name;
 
-    private void OnEnable()
-    {
-        _buyButton.onClick.AddListener(OnBuyButtonClicked);
-    }
+        [SerializeField] private Button _buyButton;
 
-    private void OnDisable()
-    {
-        _buyButton.onClick.RemoveListener(OnBuyButtonClicked);
-    }
+        private ProductPresenter _presenter;
 
-    public void Delete()
-    {
-        _presenter.Dispose();
+        public event UnityAction BuyButtonClicked;
 
-        Destroy(gameObject);
-    }
+        public void Initialize(Product product)
+        {
+            _presenter = new ProductPresenter(this, product);
+            _image.sprite = product.Data.Image;
+            _name.text = product.Data.Name;
+        }
 
-    private void OnBuyButtonClicked()
-    {
-        BuyButtonClicked?.Invoke();
+        private void OnEnable()
+        {
+            _buyButton.onClick.AddListener(OnBuyButtonClicked);
+        }
+
+        private void OnDisable()
+        {
+            _buyButton.onClick.RemoveListener(OnBuyButtonClicked);
+        }
+
+        public void Delete()
+        {
+            _presenter.Dispose();
+
+            Destroy(gameObject);
+        }
+
+        private void OnBuyButtonClicked()
+        {
+            BuyButtonClicked?.Invoke();
+        }
     }
 }

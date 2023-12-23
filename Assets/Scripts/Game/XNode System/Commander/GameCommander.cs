@@ -1,5 +1,4 @@
-﻿using RuStore.BillingClient;
-using StateMachine;
+﻿using StateMachine;
 using UnityEngine;
 using XNode;
 using Zenject;
@@ -43,7 +42,7 @@ public class GameCommander : Commander, ICommanderVisitor
     {
         _audioServise.SaveLoader.Load();
 
-        RuStoreBillingClient.Instance.Init();
+        //RuStoreBillingClient.Instance.Init();
 
         if (_currentGraph == null)
             return;

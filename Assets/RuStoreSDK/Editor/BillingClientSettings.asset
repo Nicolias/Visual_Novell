@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BillingClientSettings
   m_EditorClassIdentifier: 
   consoleApplicationId: 2063488587
-  deeplinkScheme: TheFortune
-  allowNativeErrorHandling: 0
+  deeplinkScheme: The_Fortune
+  allowNativeErrorHandling: 1
   enableLogs: 0
