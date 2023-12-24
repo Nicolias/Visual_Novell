@@ -128,9 +128,6 @@ MonoBehaviour:
       - fieldName: _textChoices 0
         node: {fileID: 1453221358651426426}
         reroutePoints: []
-      - fieldName: _outPut
-        node: {fileID: 1453221358651426426}
-        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -1106,7 +1103,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -6775565486573107730}
+        node: {fileID: 1852740440009043482}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1168,6 +1165,9 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _textChoices 1
+        node: {fileID: 1453221358651426426}
+        reroutePoints: []
+      - fieldName: _outPut
         node: {fileID: 1453221358651426426}
         reroutePoints: []
       _direction: 0
