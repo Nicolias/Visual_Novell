@@ -31,5 +31,7 @@ public class LoadingWindow : MonoBehaviour
         }
 
         Authorized?.Invoke();
+
+        gameObject.SetActive(false);
     }
 }

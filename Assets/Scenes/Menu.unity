@@ -4717,7 +4717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadSlider: {fileID: 1426074550}
-  _loadTime: 5
+  _loadTime: 3
 --- !u!224 &1695874888
 RectTransform:
   m_ObjectHideFlags: 0

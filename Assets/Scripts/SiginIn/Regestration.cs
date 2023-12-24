@@ -33,7 +33,11 @@ public class Regestration : MonoBehaviour
     private void OnAuthorized()
     {
         _loadingWindow.Authorized -= OnAuthorized;
-        _menuCanvas.SetActive(true);
-        gameObject.SetActive(false);
+
+        if (_auntificationServise.IsAuthorized)
+        {
+            _menuCanvas.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -17,8 +17,9 @@ public class AuntificationServise : MonoBehaviour
     private TimesOfDayServise _timesOfDayServise;
     private StaticData _staticData;
 
+    public bool IsAuthorized { get; private set; }
+
     public event UnityAction Signing;
-    public event UnityAction Authorized;
 
     [Inject]
     public void Construct(SaveLoadServise saveLoadServise, TimesOfDayServise timesOfDayServise, StaticData staticData)
@@ -89,6 +90,7 @@ public class AuntificationServise : MonoBehaviour
         {
             await AuthenticationService.Instance.SignUpWithUsernamePasswordAsync(username, password);
             Debug.Log("Регистрация is successful.");
+            await InitializeAndLoadScene();
         }
         catch (AuthenticationException ex)
         {
@@ -103,8 +105,6 @@ public class AuntificationServise : MonoBehaviour
             // Notify the player with the proper error message
             Debug.LogException(ex);
         }
-
-        await InitializeAndLoadScene();
     }
 
     private async Task SignIn(string username, string password)
@@ -129,7 +129,7 @@ public class AuntificationServise : MonoBehaviour
         await _timesOfDayServise.Initialize();
         _staticData.Initialize();
 
-        Authorized?.Invoke();
+        IsAuthorized = true;
     }
 
     private void SetupEvents()
