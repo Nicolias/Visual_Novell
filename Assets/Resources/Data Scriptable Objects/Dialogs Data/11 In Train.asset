@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 840, y: 8}
+  position: {x: 744, y: -8}
   ports:
     keys:
     - _inPut
@@ -88,7 +88,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -6934486047247468799}
+        node: {fileID: -6500128261946960772}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Name: Background Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1048, y: 8}
+  position: {x: 1160, y: -8}
   ports:
     keys:
     - _inPut
@@ -544,9 +544,6 @@ MonoBehaviour:
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: _outPut
-        node: {fileID: -8697174322628154128}
-        reroutePoints: []
       - fieldName: _outPut
         node: {fileID: -6500128261946960772}
         reroutePoints: []
@@ -631,7 +628,7 @@ MonoBehaviour:
   m_Name: Set Time On Smartphone Watch Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1048, y: 8}
+  position: {x: 952, y: -8}
   ports:
     keys:
     - _inPut
@@ -1238,7 +1235,7 @@ MonoBehaviour:
   m_Name: Dialog Speech Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: 8}
+  position: {x: 520, y: 8}
   ports:
     keys:
     - _inPut

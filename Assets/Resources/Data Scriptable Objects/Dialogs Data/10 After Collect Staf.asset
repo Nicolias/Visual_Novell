@@ -5489,9 +5489,6 @@ MonoBehaviour:
       - fieldName: _outPut
         node: {fileID: 4520193324472130032}
         reroutePoints: []
-      - fieldName: _outPut
-        node: {fileID: 4570662475084083034}
-        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -8260,7 +8257,10 @@ MonoBehaviour:
       _node: {fileID: 4520193324472130032}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: _outPut
+        node: {fileID: 4570662475084083034}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -8354,7 +8354,7 @@ MonoBehaviour:
   m_Name: Set Time On Smartphone Watch Model
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1288, y: -40}
+  position: {x: -1512, y: -40}
   ports:
     keys:
     - _inPut
@@ -8378,7 +8378,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: _inPut
-        node: {fileID: -706935224752915198}
+        node: {fileID: 4520193324472130032}
         reroutePoints: []
       _direction: 1
       _connectionType: 0

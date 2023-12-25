@@ -74,6 +74,8 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
             }
 
             Accure(1);
+
+            leftTime = new TimeSpan(0, _rechargeByMinute, 0);
         }
 
         _isTimer = false;
