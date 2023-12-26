@@ -3,6 +3,7 @@ using UnityEngine;
 using XNode;
 using Zenject;
 
+
 public class GameCommander : Commander, ICommanderVisitor
 {
     [Inject] private AudioServise _audioServise;
@@ -40,6 +41,8 @@ public class GameCommander : Commander, ICommanderVisitor
     private void OnEnable()
     {
         _audioServise.SaveLoader.Load();
+
+        //RuStoreBillingClient.Instance.Init();
 
         if (_currentGraph == null)
             return;

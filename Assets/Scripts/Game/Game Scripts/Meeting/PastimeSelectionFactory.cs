@@ -24,7 +24,7 @@ public class PastimeSelectionFactory
             if (_pastimesVariations.ContainsKey(availablePastimeType))
                 availablePastimes.Add(CreateChoiceElement(_pastimesVariations[availablePastimeType]));
 
-        availablePastimes.Add(new ChoiseElement("Закончить встречю.", () => EndMeetingSelected?.Invoke()));
+        availablePastimes.Add(new ChoiseElement("Закончить встречу.", () => EndMeetingSelected?.Invoke()));
 
         _choicePanel.Show("Чем займемся?", availablePastimes);
     }

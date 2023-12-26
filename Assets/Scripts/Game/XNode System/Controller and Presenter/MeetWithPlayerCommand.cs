@@ -5,7 +5,7 @@ public class MeetWithPlayerCommand : ICommand
     private readonly CharactersLibrary _charactersLibrary;
     private readonly MeetWithPlayerModel _model;
 
-    public event Action Complete;
+    public event Action Completed;
 
     public MeetWithPlayerCommand(CharactersLibrary charactersLibrary, MeetWithPlayerModel model)
     {
@@ -16,6 +16,6 @@ public class MeetWithPlayerCommand : ICommand
     public void Execute()
     {
         _charactersLibrary.GetCharacter(_model.CharacterType).MeetWithPlayer();
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

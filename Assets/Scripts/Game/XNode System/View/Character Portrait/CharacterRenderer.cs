@@ -22,17 +22,13 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
     private void Awake()
     {
          _positions = _characterViewFactory.Positions;
+        Add();
     }
 
     private void OnEnable()
     {
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
-    }
-
-    private void OnDisable()
-    {
-        Save();
     }
 
     public void Show(ICharacterPortraitModel character)
@@ -128,6 +124,11 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
         }
     }
 
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
+    }
+
     private class CharacterModel : ICharacterPortraitModel
     {
         public CharacterType CharacterType { get; private set; }
@@ -139,7 +140,7 @@ public class CharacterRenderer : MonoBehaviour, ISaveLoadObject
 
         public Vector3 ScaleOffset { get; private set; }
 
-        public Location Location { get; private set;}
+        public LocationSO Location { get; private set;}
 
         public CharacterModel(CharacterPortraitData characterData)
         {

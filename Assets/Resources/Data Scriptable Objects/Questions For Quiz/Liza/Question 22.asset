@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Question 22
   m_EditorClassIdentifier: 
   <CharacterType>k__BackingField: 3
-  <Qustion>k__BackingField: Faflafkjaf
-  <CorrectAnswerText>k__BackingField: afafa
+  <Qustion>k__BackingField: "\u041A\u0430\u043A\u043E\u0439 \u043C\u043E\u0439 \u0440\u043E\u0441\u0442?"
+  <CorrectAnswerText>k__BackingField: "166\u0441\u043C"
   <UncorrectedAnswerText>k__BackingField:
-  - fadfa
-  - adfsdf
-  - afsdaf
+  - "160\u0441\u043C"
+  - "168\u0441\u043C"
+  - "170\u0441\u043C"

@@ -46,6 +46,8 @@ public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
         _selfCanvas = GetComponent<Canvas>();
 
         _inventorySaveLoader.Construct(this, _saveLoadServise);
+
+        Add();
     }
 
     private void OnEnable()
@@ -61,8 +63,6 @@ public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
     {
         _openButton.onClick.RemoveAllListeners();
         _closeButton.onClick.RemoveAllListeners();
-
-        Save();
     }
 
     public void Show()
@@ -111,6 +111,11 @@ public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
     {
         enabled = _saveLoadServise.Load<BoolData>(_saveKey).Bool;
         _inventorySaveLoader.Load();
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }
 
@@ -191,7 +196,12 @@ public class InventorySaveLoader : ISaveLoadObject
 
         return itemsForInventorie;
     }
-    
+
+    public void Add()
+    {
+        throw new NotImplementedException();
+    }
+
     public class UsableInventoryItem : IUseableItemForInventory
     {
         private IUseableItemForInventory _item;

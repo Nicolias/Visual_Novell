@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212180771893149256}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1988708908077892785
 MonoBehaviour:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240fc5f1c02c5984f83f0dbbe621acb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _saveLoadServise: {fileID: -648786301470591772, guid: 18f9312634d37074b88eaf79351a012f, type: 3}
+  _saveLoadServise: {fileID: 1649073210396978802, guid: 18f9312634d37074b88eaf79351a012f, type: 3}
   _timesOfDayServise: {fileID: -113376616637251828, guid: 0388d534c0614bd449b1ccf80d8bd84e, type: 3}
   _audioServise: {fileID: 5489979904845633024, guid: 33a28bbc8b6b33f428c993a5ac1d0c1c, type: 3}
 --- !u!114 &-6488452133548788136
@@ -95,3 +95,4 @@ MonoBehaviour:
   _charactersLibrary: {fileID: 8315552502562017731, guid: 955988d044b2c5a48aa261ca46517603, type: 3}
   _coroutineServise: {fileID: 1376940366168555733, guid: cf0467157a6256d4bbe89b9095894419, type: 3}
   _dUXWindow: {fileID: 1470999570783338434, guid: 031edbb68f34905468dd135bbdfc4abb, type: 3}
+  _auntificationServise: {fileID: 5543649305057339759, guid: 0ac3cc4233308c844a857b077dd79e03, type: 3}

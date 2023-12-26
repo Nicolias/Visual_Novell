@@ -1,20 +1,34 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
+using Unity.Services.CloudCode;
+using System.Collections.Generic;
+using System.Collections;
 
 public class TimesOfDayServise : MonoBehaviour
 {
-    private DateTime _currentTime;
+    private WaitForSeconds _waitOneSecond = new WaitForSeconds(1f);
+
+    private DateTime _currentTime = new DateTime(1970, 1, 1, 3, 0, 0);
 
     public DateTime CurrentTime => _currentTime;
 
-    private void Awake()
+    public event Action<int, int> TimeChanged;
+
+    public async Task Initialize()
     {
-        _currentTime = DateTime.Now;
+        var networkTime = await CallGetServerEpochTimeEndpoint();
+        _currentTime = _currentTime.AddMilliseconds(networkTime);
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        _currentTime = DateTime.Now;
+        StartCoroutine(Timer());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(Timer());
     }
 
     public TimesOfDayType GetCurrentTimesOfDay()
@@ -31,6 +45,40 @@ public class TimesOfDayServise : MonoBehaviour
                 return TimesOfDayType.Night;
             default:
                 return TimesOfDayType.Night;
+        }
+    }
+
+    private async Task<long> CallGetServerEpochTimeEndpoint()
+    {
+        try
+        {
+            return await CloudCodeService.Instance.CallEndpointAsync<long>(
+                "GetServerTime",
+                new Dictionary<string, object>());
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Problem calling cloud code endpoint: " + e.Message);
+            Debug.LogException(e);
+        }
+
+        return default;
+    }
+
+    private IEnumerator Timer()
+    {
+        int previousMinute = _currentTime.Minute;
+
+        while (enabled)
+        {
+            yield return _waitOneSecond;
+            _currentTime = _currentTime.AddSeconds(1);
+            
+            if (_currentTime.Minute != previousMinute)
+            {
+                previousMinute = _currentTime.Minute;
+                TimeChanged?.Invoke(_currentTime.Hour, _currentTime.Minute);
+            }
         }
     }
 }

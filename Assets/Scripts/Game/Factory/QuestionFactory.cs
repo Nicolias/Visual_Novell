@@ -18,17 +18,6 @@ namespace Factory.Quiz
             };
         }
 
-        public QuizQuestion GetQuestion(CharacterType characterType)
-        {
-            var result = _charactersQuizQustions[characterType].Dequeue();
-            _charactersQuizQustions[characterType].Enqueue(result);
-
-            if (_random.Next(0, _charactersQuizQustions[characterType].Count) == 0)
-                Shuffle(characterType);
-
-            return result;
-        }
-
         public void AddQuestionElement(QuizQuestion quizElement)
         {
             if (_charactersQuizQustions.ContainsKey(quizElement.CharacterType))
@@ -36,6 +25,16 @@ namespace Factory.Quiz
             else
                 foreach (CharacterType character in _charactersQuizQustions.Keys)
                     _charactersQuizQustions[character].Enqueue(quizElement);
+        }
+
+        public QuizQuestion GetQuestion(CharacterType characterType)
+        {
+            Shuffle(characterType);
+
+            var result = _charactersQuizQustions[characterType].Dequeue();
+            _charactersQuizQustions[characterType].Enqueue(result);
+
+            return result;
         }
 
         private void Shuffle(CharacterType characterType)

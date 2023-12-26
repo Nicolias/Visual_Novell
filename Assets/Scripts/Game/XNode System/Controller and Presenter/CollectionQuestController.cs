@@ -3,7 +3,7 @@ using Zenject;
 
 public class CollectionQuestController : IController
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private readonly CollectQuestModel _data;
     private readonly CollectionQuestView _view;
@@ -30,6 +30,6 @@ public class CollectionQuestController : IController
     {
         _model.QuestCompleted -= CallBack;
 
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

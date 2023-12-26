@@ -17,43 +17,46 @@ public class Eating : MonoBehaviour, ICloseable
 
     private ChoicePanel _choicePanel;
     private Wallet _wallet;
-
-    private Character _currentCharacter;
+    private TimesOfDayServise _timesOfDayServise;
+    private ICharacter _currentCharacter;
 
     public event Action Closed;
 
     [Inject]
-    public void Construct(IChoicePanelFactory choicePanelFactory, Wallet wallet)
+    public void Construct(IChoicePanelFactory choicePanelFactory, Wallet wallet, TimesOfDayServise timesOfDayServise)
     {
         _choicePanel = choicePanelFactory.CreateChoicePanel(transform);
         _wallet = wallet;
+        _timesOfDayServise = timesOfDayServise;
     }
 
-    private void OnEnable()
+    public void Enter(ICharacter character)
     {
-        _menu.ProductSelected += OnProductSelected;
-        _menu.Closed += Exit;
-    }
+        DateTime currentTime = _timesOfDayServise.CurrentTime;
 
-    private void OnDisable()
-    {
-        _menu.ProductSelected -= OnProductSelected;
-        _menu.Closed -= Exit;
-    }
-
-    public void Enter(Character character)
-    {
-        _menu.Open();
-
+        _menu.Open();  
         _currentCharacter = character;
-
-        character.SympathyPointsChanged += OnSympathyPointsChanged;
-        _wallet.ValueChanged += OnMoneyCountChanged;
-
         _selfCanvas.enabled = true;
+        _menu.Closed += Exit;
 
         OnSympathyPointsChanged(character.SympathyPoints);
         OnMoneyCountChanged(_wallet.CurrentValue);
+
+        if (_timesOfDayServise.GetCurrentTimesOfDay() == character.LastEatingTimeOfDay)
+        {
+            if (currentTime.Year <= character.LastEatingTime.Year &&
+                currentTime.Month <= character.LastEatingTime.Month &&
+                currentTime.Day <= character.LastEatingTime.Day)
+            {
+
+                _menu.ProductSelected += CharacterFeeded;
+                return;
+            }
+        }
+
+        character.SympathyPointsChanged += OnSympathyPointsChanged;
+        _wallet.ValueChanged += OnMoneyCountChanged;
+        _menu.ProductSelected += OnProductSelected;
     }
 
     private void Exit()
@@ -63,25 +66,29 @@ public class Eating : MonoBehaviour, ICloseable
 
         _selfCanvas.enabled = false;
 
+        _menu.ProductSelected -= OnProductSelected;
+        _menu.ProductSelected -= CharacterFeeded;
+        _menu.Closed -= Exit;
+
         Closed?.Invoke();
     }
 
     private void OnSympathyPointsChanged(int sympathyPoints)
     {
-        _sympathyPointsText.text = "—ËÏÔ‡ÚËˇ: " + sympathyPoints.ToString(); 
+        _sympathyPointsText.text = "–°–∏–º–ø–∞—Ç–∏—è: " + sympathyPoints.ToString(); 
     }
 
     private void OnMoneyCountChanged(int moneyCount)
     {
-        _moneyInWalletText.text = "ŒÒÚ‡ÎÓÒ¸ ‰ÂÌÂ„: " + moneyCount.ToString();
+        _moneyInWalletText.text = "–û—Å—Ç–∞–ª–æ—Å—å –¥–µ–Ω–µ–≥: " + moneyCount.ToString();
     }
 
     private void OnProductSelected(EatingProduct product)
     {
-        _choicePanel.Show($"¬˚ Û‚ÂÂÌ˚ ˜ÚÓ ıÓÚËÚÂ ÍÛÔËÚ¸ {product.Name}", new List<ChoiseElement>() 
+        _choicePanel.Show($"–í—ã —É–≤–µ—Ä–µ–Ω—ã —á—Ç–æ —Ö–æ—Ç–∏—Ç–µ –∫—É–ø–∏—Ç—å {product.Name}", new List<ChoiseElement>() 
         { 
-            new ChoiseElement("ƒ‡", () => TryBuyProduct(product)),
-            new ChoiseElement("ÕÂÚ", () => _choicePanel.Hide())
+            new ChoiseElement("–î–∞", () => TryBuyProduct(product)),
+            new ChoiseElement("–ù–µ—Ç", () => _choicePanel.Hide())
         });
     }
 
@@ -96,10 +103,21 @@ public class Eating : MonoBehaviour, ICloseable
         }
         else
         {
-            _choicePanel.Show("ÕÂ‰ÓÒÚ‡ÚÓ˜ÌÓ ÒÂ‰ÒÚ‚.", new List<ChoiseElement>()
+            _choicePanel.Show("–ù–µ–¥–æ—Å—Ç–∞—Ç–æ—á–Ω–æ —Å—Ä–µ–¥—Å—Ç–≤.", new List<ChoiseElement>()
             {
-                new ChoiseElement("«‡Í˚Ú¸", () => _choicePanel.Hide())
+                new ChoiseElement("–ó–∞–∫—Ä—ã—Ç—å", () => _choicePanel.Hide())
             });
         }
+
+        _menu.Close();
+    }
+
+    private void CharacterFeeded(EatingProduct product)
+    {
+        _choicePanel.Show("–ü–µ—Ä—Å–æ–Ω–∞–∂ —É–∂–µ –µ–ª –≤ —ç—Ç–æ –≤—Ä–µ–º—è —Å—É—Ç–æ–∫", new List<ChoiseElement>() { new ChoiseElement("–ü—Ä–∏–Ω—è—Ç—å", () =>
+        { 
+            Exit(); 
+            _choicePanel.Hide();
+        }) });
     }
 }

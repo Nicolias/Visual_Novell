@@ -1,6 +1,7 @@
 using Characters;
 using Factory.Cells;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -14,7 +15,9 @@ public class ContactsWindow : WindowInSmartphone
     [SerializeField] private Smartphone _smartphone;
     [SerializeField] private Button _closeButton;
 
-    [SerializeField] private List<Character> _contacts = new List<Character>();
+    [SerializeField] private List<LocationSO> _locationsSOForMeeting = new List<LocationSO>();
+    [SerializeField] private List<CharacterSO> _contacts = new List<CharacterSO>();
+
     [SerializeField] private Transform _characterCellsContainer;
 
     private Battery _battery;
@@ -25,15 +28,15 @@ public class ContactsWindow : WindowInSmartphone
     private Canvas _selfCanvas;
     private ChoicePanel _choicePanel;
 
+    private List<ILocation> _locations;
+    private List<Cell<ICharacter>> _characterCells = new List<Cell<ICharacter>>();
     private LocationsManager _locationsManager;
 
-    private List<Cell<Character>> _characterCells = new List<Cell<Character>>();
-
     [Inject]
-    public void Construct(LocationsManager locationsManager, CellsFactoryCreater cellsFactoryCreater, 
+    public void Construct(CharactersLibrary charactersLibrary, LocationsManager locationsManager, CellsFactoryCreater cellsFactoryCreater, 
         IChoicePanelFactory choicePanelFactory, Battery battery)
     {
-         _characterCells = cellsFactoryCreater.CreateCellsFactory<Character>().CreateCellsView(_contacts, _characterCellsContainer);
+        _characterCells = cellsFactoryCreater.CreateCellsFactory<ICharacter>().CreateCellsView(charactersLibrary.GetCharacters(_contacts), _characterCellsContainer);
         _choicePanel = choicePanelFactory.CreateChoicePanel(transform);
 
         _locationsManager = locationsManager;
@@ -47,10 +50,9 @@ public class ContactsWindow : WindowInSmartphone
         _closeButton.onClick.AddListener(Hide);
     }
 
-    private void OnDisable()
+    private void Start()
     {
-        ChangeEnableInSmartphone(true);
-        _smartphone.Save();
+        _locations = _locationsManager.Get(_locationsSOForMeeting).ToList();        
     }
 
     protected override void OnDisabled()
@@ -81,40 +83,43 @@ public class ContactsWindow : WindowInSmartphone
         _choicePanel.Hide();
     }
 
-    private void OnCharacterCellClicked(Character character)
+    private void OnCharacterCellClicked(ICharacter character)
     {
-        _choicePanel.Show("Выберите локацию для приглашения", CreateLocationButtons(character));
+        _choicePanel.Show("Р’С‹Р±РµСЂРёС‚Рµ Р»РѕРєР°С†РёСЋ РґР»СЏ РїСЂРёРіР»Р°С€РµРЅРёСЏ", CreateLocationsButtons(character));
     }
 
-    private List<ChoiseElement> CreateLocationButtons(Character selectedCharacter)
+    private List<ChoiseElement> CreateLocationsButtons(ICharacter selectedCharacter)
     {
         List<ChoiseElement> choiseElements = new List<ChoiseElement>();
 
-        foreach (var locationForMeeting in _locationsManager.AvailableLocations)
+        foreach (var locationForMeeting in _locations)
         {
-            ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => TryMoveTo(selectedCharacter, locationForMeeting));
-            choiseElements.Add(choiseElement);
+            if (locationForMeeting.IsAvailable)
+            {
+                ChoiseElement choiseElement = new ChoiseElement(locationForMeeting.Name, () => TryMoveTo(selectedCharacter, locationForMeeting));
+                choiseElements.Add(choiseElement);
+            }
         }
 
         return choiseElements;
     }
 
-    private void TryMoveTo(Character character, Location location)
+    private void TryMoveTo(ICharacter character, ILocation location)
     {
         if (_battery.CurrentValue < _startMeetingCost)
         {
-            _choicePanel.Show("Недостаточно энергии", new List<ChoiseElement>()
+            _choicePanel.Show("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЌРЅРµСЂРіРёРё", new List<ChoiseElement>()
             {
-                new ChoiseElement("Принять", null)
+                new ChoiseElement("РџСЂРёРЅСЏС‚СЊ", null)
             });
             return;
         }
 
-        character.Invite(location, _meetingSympathyBonus);
+        character.Invite(location.Data, _meetingSympathyBonus);
         _battery.Decreese(_startMeetingCost);
 
         _map.ChangeLocation(location);
-        _charactersRenderer.Show(location.Get(character));
+        _charactersRenderer.Show(location.Data.Get(character.ScriptableObject));
 
         Hide();
         _smartphone.Hide();

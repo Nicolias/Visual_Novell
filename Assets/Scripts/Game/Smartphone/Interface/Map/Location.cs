@@ -1,85 +1,75 @@
 ﻿using Characters;
 using System;
 using System.Collections.Generic;
+using SaveData;
 using UnityEngine;
 using XNode;
+using StateMachine;
 
-[CreateAssetMenu(fileName = "New location", menuName = "Location/Location")]
-public class Location : ScriptableObject, IDisposable, IDataForCell
+public class Location : ILocation, IByStateMachineChangable
 {
-    [SerializeField] private Dictionary.Dictionary<TimesOfDayType, Vector2> _locationOffsetByDeyTime;
-    [SerializeField] private Dictionary.Dictionary<TimesOfDayType, Sprite> _locationSpritesByDeyTime;
+    private readonly LocationSO _locationSO;
 
-    [SerializeField] private List<Vector2> _artifactPositionVariations;
-    [SerializeField] private List<ItemForCollection> _itemsOnLocation = new List<ItemForCollection>();
+    private readonly LocationSaveLoader _locationSaveLoader;
+    private readonly CharacterRenderer _charactersRenderer;
+    private readonly BackgroundView _background;
+    private readonly CollectionPanel _collectionPanel;
+    private readonly TimesOfDayServise _timesOfDayServise;
+    private readonly GameStateVisitor _gameStateVisitor;
 
-    [SerializeField] private Node _questOnLocation;
-    [SerializeField] private bool _isAvilable = true;
+    private readonly int _id;
 
-    [Header("Настройки положения персонажа на локации")]
-    [SerializeField] private Vector2 _characterPosition;
-    [SerializeField] private Vector3 _characterScale;
+    private bool _isUseDefualtSprite;
+    private Func<bool> _isAvailbaleAction;
 
-    [SerializeField] private CharacterPoseType _characterPoseType;
+    private CharacterSO _characterOnLocation;
+    private Node _questOnLocation;
 
-    [SerializeField] private List<PastimeOnLocationType> _actionsOnLocation;
-
-    private Character _characterOnLocation;
-
-    private CharacterRenderer _charactersRenderer;
-    private BackgroundView _background;
-    private CollectionPanel _collectionPanel;
-    private TimesOfDayServise _timesOfDayServise;
-
+    private List<ItemForCollection> _itemsOnLocation = new List<ItemForCollection>();
     private List<ItemForCollectionView> _itemsView = new List<ItemForCollectionView>();
 
-    private bool _isInitialized = false;
+    public LocationSO Data => _locationSO;
+    public bool IsForArtifacts => _locationSO.IsForArtifacts;
+    public bool IsAvailable => _isAvailbaleAction.Invoke();
 
-    [field: SerializeField] public bool IsForArtifacts { get; private set; }
-    [field: SerializeField] public string Name { get; private set; }
-    [field: SerializeField] public Superlocation Superlocation { get; private set; }
+    public int ID => _id;
 
-    public bool IsAvailable => _locationSpritesByDeyTime.Contains(_timesOfDayServise.GetCurrentTimesOfDay());
+    public string Name => _locationSO.Name;
+    public Superlocation Superlocation => _locationSO.Superlocation;
 
+    public Node CurrentQuest => _questOnLocation;
+
+    public IEnumerable<ItemForCollection> ItemsOnLocationData => _itemsOnLocation;
     public IEnumerable<ItemForCollectionView> ItemsView => _itemsView;
-    public IEnumerable<PastimeOnLocationType> ActionsList => _actionsOnLocation;
 
-    public event Action<Location, Node> QuestStarted;
+    public Sprite DefultSprite => _locationSO.DefultSprite;
 
-    public void Initialize(BackgroundView background, CollectionPanel collectionPanel,
-        CharacterRenderer charactersPortraitView, TimesOfDayServise timesOfDayServise)
+    public event Action<ILocation, Node> QuestStarted;
+
+    public Location(GameStateMachine gameStateMachine, BackgroundView background, CollectionPanel collectionPanel,
+        CharacterRenderer charactersPortraitView, TimesOfDayServise timesOfDayServise,
+        SaveLoadServise saveLoadServise, LocationSO locationSo, int id)
     {
+        _locationSO = locationSo;
+        
         _background = background;
         _collectionPanel = collectionPanel;
         _charactersRenderer = charactersPortraitView;
         _timesOfDayServise = timesOfDayServise;
 
+        _gameStateVisitor = new GameStateVisitor(gameStateMachine, this);
+        _gameStateVisitor.RecognizeCurrentGameState();
+        _gameStateVisitor.SubscribeOnGameStateMachine();
+
+        _id = id;
+        _locationSaveLoader = new LocationSaveLoader(saveLoadServise, this, id);
+
+        Load();
+        
+        if(_itemsOnLocation.Count == 0)
+            _itemsOnLocation.AddRange(_locationSO.ItemsOnLocation);
+        
         _itemsView = collectionPanel.CreateItemsView(_itemsOnLocation);
-
-        CheckCorrectCharacterOnLocation();
-        _isInitialized = true;
-    }
-
-    public void Show()
-    {
-        _charactersRenderer.DeleteAllCharacters();
-
-        if (_questOnLocation != null)
-            QuestStarted?.Invoke(this, _questOnLocation);
-
-        if (_locationSpritesByDeyTime.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out Sprite sprite))
-        {
-            _background.Replace(sprite);
-
-            if (_isInitialized == false)
-                CheckCorrectCharacterOnLocation();
-
-            if (_characterOnLocation != null)
-                _charactersRenderer.Show(Get(_characterOnLocation));
-        }
-
-        _collectionPanel.ShowItems(_itemsView);
-        _collectionPanel.ItemDeleted += OnItemDelete;
     }
 
     public void Dispose()
@@ -87,28 +77,78 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         if (_collectionPanel != null)
             _collectionPanel.ItemDeleted -= OnItemDelete;
 
-        _isInitialized = false;
+        _gameStateVisitor.UnsubsciribeFromGameStateMachine();
     }
 
-    public void Add(ItemForCollection item)
+    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
     {
-        _itemsOnLocation.Add(item);
+        _isAvailbaleAction = () => _locationSO.IsAvailable;
+        _isUseDefualtSprite = false;
+    }
 
-        _itemsView.Add(_collectionPanel.CreateItemsView(item,
-            _artifactPositionVariations[UnityEngine.Random.Range(0, _artifactPositionVariations.Count)]));
+    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    {
+        _isAvailbaleAction = () => true;
+        _isUseDefualtSprite = true;
+    }
+
+    public override string ToString()
+    {
+        return Name;
+    }
+
+    public void Load(LocationData data)
+    {
+        _questOnLocation = data.Quest;
+        _itemsOnLocation.AddRange(data.Items);
+    }
+    
+    public void Show()
+    {
+        _charactersRenderer.DeleteAllCharacters();
+
+        if (_questOnLocation != null)
+            QuestStarted?.Invoke(this, _questOnLocation);
+
+        if (_isUseDefualtSprite)
+        {
+            _background.Replace(DefultSprite);
+            CheckCorrectCharacterOnLocation();
+
+            if (_characterOnLocation != null)
+                _charactersRenderer.Show(_locationSO.Get(_characterOnLocation));
+        }
+        else if (_locationSO.TryGetByCurrentTime(out Sprite curretnSprite))
+        {
+            _background.Replace(curretnSprite);
+            CheckCorrectCharacterOnLocation();
+
+            if (_characterOnLocation != null)
+                _charactersRenderer.Show(_locationSO.Get(_characterOnLocation));
+        }
+
+        _collectionPanel.ShowItems(_itemsView);
+        _collectionPanel.ItemDeleted += OnItemDelete;
+    }
+
+    public void Add(ItemForCollection artifact)
+    {
+        _itemsOnLocation.Add(artifact);
+
+        Vector2 spawnPosition = artifact is Artifact == true ? _locationSO.GetRandomArtifactPosition() : artifact.ItemAfterInstantiatePosition;
+
+        _itemsView.Add(_collectionPanel.CreateItemsView(artifact, spawnPosition));
     }
 
     public void DeleteArtifacts()
     {
         _itemsOnLocation.Clear();
-
-        foreach (var itemView in _itemsView)
-            Destroy(itemView.gameObject);
-
+        
+        _locationSO.Destory(_itemsView);
         _itemsView.Clear();
     }
 
-    public void Set(Character character)
+    public void Set(CharacterSO character)
     {
         _characterOnLocation = character;
     }
@@ -123,25 +163,6 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
         _questOnLocation = null;
     }
 
-    public CharacterOnLocationData Get(Character character)
-    {
-        Vector2 characterOffset = _characterPosition;
-
-        if (_locationOffsetByDeyTime.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out Vector2 characterOffsetByDayTime))
-            characterOffset += characterOffsetByDayTime;
-
-        if (character.Images.TryGet(_characterPoseType, out Sprite characterSprite))
-        {
-            return new CharacterOnLocationData(character.Type, character.Name, characterSprite, this,
-                    _characterPoseType == CharacterPoseType.Staying ? CharacterPortraitPosition.Right : CharacterPortraitPosition.FreePosition,
-                    characterOffset, _characterScale);
-        }
-        else
-        {
-            throw new InvalidOperationException("Эта локация не предназначена для приглашения.");
-        }
-    }
-
     private void OnItemDelete(ItemForCollection itemData)
     {
         _itemsOnLocation.Remove(itemData);
@@ -152,15 +173,25 @@ public class Location : ScriptableObject, IDisposable, IDataForCell
     {
         if (_characterOnLocation != null)
         {
-            _characterOnLocation.CurrentLocation.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out Location location);
+            _characterOnLocation.CurrentLocation.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out LocationSO locationSO);
 
-            if (location != this)
+            if (locationSO != _locationSO)
                 _characterOnLocation = null;
         }
     }
 
-    public override string ToString()
+    public void Add()
     {
-        return Name;
+        throw new NotImplementedException();
+    }
+
+    public void Save()
+    {
+        _locationSaveLoader.Save();
+    }
+
+    public void Load()
+    {
+        _locationSaveLoader.Load();
     }
 }

@@ -9,14 +9,15 @@ namespace StateMachine
     public class GameStateMachine : MonoBehaviour, ISaveLoadObject
     {
         [SerializeField] private Smartphone _smartphone;
-        [SerializeField] private AudioClip _freePlaySound;
+
+        [SerializeField] private List<AudioClip> _freePlayMusicVariations;
 
         private SaveLoadServise _saveLoadServise;
 
         private BaseState _currentState;
         private List<BaseState> _allStates;
 
-        private string _saveKay;
+        private string _saveKay = "GameStateMachine";
 
         public BaseState CurrentState => _currentState;
 
@@ -30,18 +31,18 @@ namespace StateMachine
             _allStates = new List<BaseState>()
             {
                 new StoryState(_smartphone),
-                new PlayState(audioServise, _freePlaySound)
-            };
+                new PlayState(audioServise, _freePlayMusicVariations)
+            };            
+
+            Add();
 
             ChangeState<StoryState>();
-
-            if (saveLoadServise.HasSave(_saveKay))
-                Load();
         }
 
-        private void OnDestroy()
+        private void Awake()
         {
-            Save();
+            if (_saveLoadServise.HasSave(_saveKay))
+                Load();
         }
 
         public void ChangeState<T>() where T : BaseState
@@ -63,10 +64,19 @@ namespace StateMachine
 
         public void Load()
         {
+            if (_currentState != null)
+                _currentState.Exit();
+
             BaseState lastState = _allStates.ElementAt(_saveLoadServise.Load<SaveData.IntData>(_saveKay).Int);
             lastState.Enter();
 
             _currentState = lastState;
+            StateChanged?.Invoke();
+        }
+
+        public void Add()
+        {
+            _saveLoadServise.Add(this);
         }
     }    
 }

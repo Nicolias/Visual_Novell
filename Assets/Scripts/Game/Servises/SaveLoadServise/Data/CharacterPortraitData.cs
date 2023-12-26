@@ -23,6 +23,6 @@ namespace SaveData
 
         public bool IsIntaractable;
 
-        public Location Location;
+        public LocationSO Location;
     }
 }

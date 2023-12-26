@@ -4,22 +4,24 @@ using System.Collections.Generic;
 public class SpawnItemCommand : ICommand
 {
     private CollectionPanel _collectionPanel;
-    private Location _location;
-    private Item _item;
+    private LocationsManager _locationManager;
+    
+    private SpawnItemModel _model;
 
-    public event Action Complete;
-
-    public SpawnItemCommand(CollectionPanel collectionPanel, SpawnItemModel model)
+    public SpawnItemCommand(CollectionPanel collectionPanel, SpawnItemModel model, LocationsManager locationsManager)
     {
         _collectionPanel = collectionPanel;
-        _item = model.Item;
-        _location = model.Location;
+        _model = model;
+        _locationManager = locationsManager;
     }
+
+    public event Action Completed;
 
     public void Execute()
     {
-        _location.Add(_item);
-        _collectionPanel.ShowItems(_location.ItemsView);
-        Complete?.Invoke();
+        _locationManager.Get(_model.Location, out ILocation location);
+        location.Add(_model.Item);
+        _collectionPanel.ShowItems(location.ItemsView);
+        Completed?.Invoke();
     }
 }

@@ -148,8 +148,8 @@ MonoBehaviour:
   _inPut: 0
   _outPut: 0
   _isImmediatelyNextNode: 0
-  _speakerAvatar: {fileID: 21300000, guid: 64cd89436c78845478599c542267d9aa, type: 3}
-  _speakerName: "\u0414\u0435\u044F"
+  _speakerAvatar: {fileID: 21300000, guid: 1fcceadfb5b6cc9459c3e9218fee315d, type: 3}
+  _speakerName: (G)
   _speechText: "\u0425\u043E\u0440\u043E\u0448\u043E, \u044F \u0442\u0435\u0431\u044F
     \u0441\u043B\u0443\u0448\u0430\u044E"
 --- !u!114 &-8491154814232035295

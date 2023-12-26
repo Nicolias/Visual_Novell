@@ -47,7 +47,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -175,7 +175,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -324,7 +324,8 @@ MonoBehaviour:
   - {fileID: 8209800610931621947}
   - {fileID: 6244873775395604121}
   - {fileID: 4901397382109920780}
-  <CallSound>k__BackingField: {fileID: 4901397382109920780}
+  _changeMusicSpeed: 1
+  <CallSound>k__BackingField: {fileID: 8300000, guid: 5c3ce553299aa9e4b87f47d375d95de2, type: 3}
 --- !u!1 &1693914306251991842
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +501,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -756,7 +757,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1185,7 +1186,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1313,7 +1314,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1438,9 +1439,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 719fe36990a3d1148be75c38bc2c1f39, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4837548
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1566,9 +1567,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 097008b9aeaee684cacc93672a96dec3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4837548
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1697,7 +1698,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1825,7 +1826,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1953,7 +1954,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -2081,7 +2082,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -2373,7 +2374,7 @@ AudioSource:
   m_Volume: 0.4837548
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -2498,9 +2499,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5671315e9ea06fe4181a4ee17fe414ec, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4837548
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

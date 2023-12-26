@@ -15,6 +15,7 @@ namespace QuizSystem
         [Inject] private QuestionFactory _questionFactory;
         [Inject] private Battery _battery;
 
+        [SerializeField] private TMP_Text _currentChargeLevelText;
         [SerializeField] private TMP_Text _currentSympathyText;
         [SerializeField] private ChoicePanel _choisePanel;
 
@@ -27,8 +28,10 @@ namespace QuizSystem
 
         private int _startQuizCost = 5;
 
-        private Character _currentCharacter;
+        private ICharacter _currentCharacter;
         private List<ChoiceButton> _uncorrectButtons;
+
+        private bool _isShowUncorrectUnswer;
 
         public Button CloseButton => _closeButton;
 
@@ -37,6 +40,8 @@ namespace QuizSystem
 
         public void HideCanvas()
         {
+            if (_canvas.enabled == false) return;
+
             _closeButton.gameObject.SetActive(false);
 
             _canvas.enabled = false;
@@ -58,8 +63,13 @@ namespace QuizSystem
             return true;
         }
 
-        public void ShowQuestion(Character character)
+        public void ShowQuestion(ICharacter character, bool isTutorial)
         {
+            if (isTutorial == false)
+                _battery.Decreese(_startQuizCost);
+
+            _currentChargeLevelText.text = "Осталось энергии: " + _battery.CurrentValue.ToString();
+
             _canvas.enabled = true;
             _currentCharacter = character;
 
@@ -77,25 +87,17 @@ namespace QuizSystem
 
         private List<(AnswerType, ChoiseElement)> GenerateChoicElements(QuizQuestion quizElement)
         {
-            List<(AnswerType, ChoiseElement)> choiseElements = new();
+            List<(AnswerType, ChoiseElement)> choiseElements = new List<(AnswerType, ChoiseElement)>();
 
             for (int i = 0; i < quizElement.UncorrectedAnswerText.Count; i++)
-                choiseElements.Add((AnswerType.Uncorrect, new(quizElement.UncorrectedAnswerText[i], () =>
+                choiseElements.Add((AnswerType.Uncorrect, new ChoiseElement(quizElement.UncorrectedAnswerText[i], () =>
                 {
-                    StartCoroutine(ShowUncorrectButtons(() =>
-                    {
-                        _choisePanel.Hide();
-                        AnswerUncorrected?.Invoke();
-                    }));
+                    StartCoroutine(OnUncorrectAnswer());
                 })));
 
-            choiseElements.Add((AnswerType.Correct, new(quizElement.CorrectAnswerText, () =>
+            choiseElements.Add((AnswerType.Correct, new ChoiseElement(quizElement.CorrectAnswerText, () =>
             {
-                StartCoroutine(ShowUncorrectButtons(() =>
-                {
-                    _choisePanel.Hide();
-                    AnswerCorrected?.Invoke();
-                }));
+                StartCoroutine(OnCorrectAnswer());
             })));
 
             choiseElements.Shuffle();
@@ -108,14 +110,37 @@ namespace QuizSystem
             _currentSympathyText.text = points.ToString();
         }
 
-        private IEnumerator ShowUncorrectButtons(Action action)
+        private IEnumerator OnCorrectAnswer()
         {
+            if (_isShowUncorrectUnswer == false)
+            {
+                yield return ShowUncorrectButtons();
+
+                AnswerCorrected?.Invoke();
+            }
+        }
+
+        private IEnumerator OnUncorrectAnswer()
+        {
+            if (_isShowUncorrectUnswer == false)
+            {
+                yield return ShowUncorrectButtons();
+
+                AnswerUncorrected?.Invoke();
+            }
+        }
+
+        private IEnumerator ShowUncorrectButtons()
+        {
+            _isShowUncorrectUnswer = true;
+
             foreach (var uncorrectButton in _uncorrectButtons)
                 uncorrectButton.Button.image.sprite = _uncorrectButtonSprite;
 
             yield return new WaitForSeconds(_showTime);
 
-            action.Invoke();
+            _choisePanel.Hide();
+            _isShowUncorrectUnswer = false;
         }
     }
 }

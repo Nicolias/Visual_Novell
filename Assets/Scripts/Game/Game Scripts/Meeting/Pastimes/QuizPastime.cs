@@ -3,12 +3,12 @@
     private Quiz _quiz;
 
     public QuizPastime(Quiz quiz, ChoicePanel choicePanel) 
-        : base(choicePanel, "Виктарина", quiz)
+        : base(choicePanel, "Викторина", quiz)
     {
         _quiz = quiz;
     }
 
-    public override void Enter(CharacterType character)
+    protected override void StartPastime(CharacterType character)
     {
         _quiz.Enter(character, true);
     }

@@ -1,23 +1,23 @@
 ﻿
 public class DialogSpeechPresenter : SpeechPresentar
 {
-    private IDialogSpeechModel _model;
-    private DialogSpeechView _view;
+    private readonly IDialogSpeechModel _model;
+    private readonly DialogSpeechView _view;
 
-    public DialogSpeechPresenter(IDialogSpeechModel model, DialogSpeechView view, StaticData staticData)
-        : base(model, view, staticData)
+    public DialogSpeechPresenter(IDialogSpeechModel model, DialogSpeechView view)
+        : base(model, view)
     {
         _model = model;
         _view = view;
     }
 
-    protected override void ShowSpeech()
-    {
-        _view.ShowSmooth(_model);
-    }
-
-    protected override void ShowSpeechSmooth()
+    protected override void Show()
     {
         _view.Show(_model);
+    }
+
+    protected override void ShowSmooth()
+    {
+        _view.ShowSmooth(_model);
     }
 }

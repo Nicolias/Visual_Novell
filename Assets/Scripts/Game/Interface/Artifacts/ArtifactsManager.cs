@@ -42,6 +42,7 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
             Load();
 
         _gameStateVisitor.RecognizeCurrentGameState();
+        Add();
     }
 
     private void OnEnable()
@@ -55,15 +56,28 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
         _gameStateVisitor.UnsubsciribeFromGameStateMachine();
         _artifactsFactory.AllArtifactsCollected -= AccureRewards;
         _artifactsFactory.Dispose();
-        Save();
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
+    {        
+        TryShowArtifacts();
+        _artifactsFactory.CreateCollectionQuest();
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    {
+
     }
 
     public void TryShowArtifacts()
     {
         if (_timesOfDayServise.CurrentTime >= _nextTimeForResetCollection)
         {
-            DateTime currentTime = _timesOfDayServise.CurrentTime;
-            _nextTimeForResetCollection = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day + 1, 1, 0, 0);
+            if (_timesOfDayServise.GetCurrentTimesOfDay() == TimesOfDayType.Night)
+                return;
+
+            DateTime currentTime = _timesOfDayServise.CurrentTime.AddDays(1);
+            _nextTimeForResetCollection = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 1, 0, 0);
 
             _artifactsFactory.ResetCollection();
         }
@@ -96,13 +110,8 @@ public class ArtifactsManager : MonoBehaviour, ISaveLoadObject, IByStateMachineC
         _isArtifactsCreated = _saveLoadServise.Load<SaveData.BoolData>(_saveKey + "1").Bool;
     }
 
-    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
-    {        
-        TryShowArtifacts();
-    }
-
-    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    public void Add()
     {
-
+        _saveLoadServise.Add(this);
     }
 }

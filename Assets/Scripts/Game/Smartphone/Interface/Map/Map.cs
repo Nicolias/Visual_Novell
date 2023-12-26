@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using XNode;
 using Zenject;
+using StateMachine;
 
-public class Map : WindowInSmartphone, ISaveLoadObject
+public class Map : WindowInSmartphone, ISaveLoadObject, IByStateMachineChangable
 {
     [SerializeField] private Transform _containerForCells;
 
@@ -16,28 +17,36 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     [SerializeField] private Button _closeButton;
     [SerializeField] private Canvas _selfCanvas;
 
+    private LocationsManager _locationManager;
     private LocationCellsContainer _cellsCreater;
     private SaveLoadServise _saveLoadServise;
 
+    private GameStateVisitor _gameStateVisitor;
+
     private const string _saveKey = "MapSave";
 
-    private List<Location> _locations = new List<Location>();
-    private Location _currentLocation;
+    private List<ILocation> _locations = new List<ILocation>();
+    private ILocation _currentLocation;
 
     public int LocationsCount => _locations.Count;
     public int LocationCellsCount => _cellsCreater.CellsCount;
 
     [Inject]
     public void Construct(SaveLoadServise saveLoadServise, CellsFactoryCreater cellFactoryCreater,
-        Smartphone smartphone, IChoicePanelFactory choicePanelFactory)
+        LocationsManager locationsManager, Smartphone smartphone, IChoicePanelFactory choicePanelFactory, GameStateMachine gameStateMachine)
     {
+        _locationManager = locationsManager;
+        _saveLoadServise = saveLoadServise;
+
+        _gameStateVisitor = new GameStateVisitor(gameStateMachine, this);
+        _gameStateVisitor.RecognizeCurrentGameState();
+
         _cellsCreater = new LocationCellsContainer(choicePanelFactory.CreateChoicePanel(transform), smartphone);
 
-        _saveLoadServise = saveLoadServise;
         _cellsCreater.SetCellsFactory(cellFactoryCreater, _containerForCells);
     }
 
-    private void Awake()
+    private void Start()
     {
         if (_closeButton != null)
             _closeButton.onClick.AddListener(Hide);
@@ -48,43 +57,23 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
             if (_currentLocation != null)
                 ChangeLocation(_currentLocation);
+
+            _cellsCreater.Add(_locations);
         }
 
         _cellsCreater.CellClicked += OnCellClicked;
+        _gameStateVisitor.SubscribeOnGameStateMachine();
+
+        Add();
     }
 
-    public void Add(IEnumerable<Location> locations)
+    void ISaveLoadObject.Save()
     {
-        _locations.AddRange(locations);
-        _cellsCreater.Add(locations);
-    }
+        _saveLoadServise.Save(_saveKey + "LocatoinCount", new SaveData.IntData() { Int = _locations.Count });
 
-    public void Remove(IEnumerable<Location> locations)
-    {
-        foreach (var location in locations)
-            _locations.Remove(location);
+        for (int i = 0; i < _locations.Count; i++)
+            _saveLoadServise.Save(_saveKey + i, new SaveData.IntData() { Int = _locations[i].ID });
 
-        _cellsCreater.Remove(locations);
-    }
-
-    public void ChangeLocation(Location location)
-    {
-        if (_currentLocation != null)
-        {
-            _currentLocation.Dispose();
-            _currentLocation.QuestStarted -= OnQuestStarted;
-        }
-
-        Hide();
-
-        _currentLocation = location;
-        _currentLocation.QuestStarted += OnQuestStarted;
-
-        _currentLocation.Show();
-    }
-
-    public void Save()
-    {
         int currentLocatoinIndex = -1;
 
         if (_currentLocation != null)
@@ -96,12 +85,67 @@ public class Map : WindowInSmartphone, ISaveLoadObject
         });
     }
 
+    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
+    {
+        _cellsCreater.CheckIntaractable();
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    {
+    }
+
     public void Load()
     {
+        int locationsCount = _saveLoadServise.Load<SaveData.IntData>(_saveKey + "LocatoinCount").Int;
+
+        for (int i = 0; i < locationsCount; i++)
+            _locations.Add(_locationManager.GetBy(_saveLoadServise.Load<SaveData.IntData>(_saveKey + i).Int));
+
         var data = _saveLoadServise.Load<SaveData.MapData>(_saveKey);
 
         if (data.CurrentLocationIndex != -1)
             _currentLocation = _locations[data.CurrentLocationIndex];
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
+    }
+
+    public void Add(IEnumerable<ILocation> locations)
+    {
+        _locations.AddRange(locations);
+        _cellsCreater.Add(locations);
+    }
+
+    public void Remove(IEnumerable<ILocation> locations)
+    {
+        foreach (var location in locations)
+            _locations.Remove(location);
+
+        _cellsCreater.Remove(locations);
+    }
+
+    public void ChangeLocation(LocationSO locationSo)
+    {    
+        if(_locationManager.Get(locationSo, out ILocation location))
+            ChangeLocation(location);
+    }
+    
+    public void ChangeLocation(ILocation location)
+    {
+        if (_currentLocation != null)
+        {
+            _currentLocation.Dispose();
+            _currentLocation.QuestStarted -= OnQuestStarted;
+        }
+
+        Hide();
+        
+        _currentLocation = location;
+
+        _currentLocation.QuestStarted += OnQuestStarted;
+        _currentLocation.Show();
     }
 
     protected override void OnOpenButtonClicked()
@@ -113,9 +157,9 @@ public class Map : WindowInSmartphone, ISaveLoadObject
     {
         _cellsCreater.Dispose();
         _closeButton.onClick.RemoveAllListeners();
-        _cellsCreater.CellClicked -= OnCellClicked;
 
-        Save();
+        _cellsCreater.CellClicked -= OnCellClicked;
+        _gameStateVisitor.UnsubsciribeFromGameStateMachine();
     }
 
     private void Show()
@@ -134,13 +178,13 @@ public class Map : WindowInSmartphone, ISaveLoadObject
         _cellsCreater.HideChoicePanel();
     }
 
-    private void OnQuestStarted(Location location, Node quest)
+    private void OnQuestStarted(ILocation location, Node quest)
     {
         _gameCommander.PackAndExecuteCommand(quest);
         location.RemoveQuest();
     }
 
-    private void OnCellClicked(Location location)
+    private void OnCellClicked(ILocation location)
     {
         ChangeLocation(location);
     }
@@ -148,12 +192,12 @@ public class Map : WindowInSmartphone, ISaveLoadObject
 
 public class LocationCellsContainer
 {
-    private ICellsFactory<Location> _cellsFactory;
+    private ICellsFactory<ILocation> _cellsFactory;
     private ISuppercellsFactory<Superlocation> _supperCellsFactory;
     private Transform _cellsContainer;
 
     private Dictionary<Superlocation, SupperCell<Superlocation>> _supperlocationCells = new Dictionary<Superlocation, SupperCell<Superlocation>>();
-    private List<Cell<Location>> _locationCells = new List<Cell<Location>>();
+    private List<Cell<ILocation>> _locationCells = new List<Cell<ILocation>>();
 
     private ChoicePanel _choicePanel;
     private Smartphone _smartphone;
@@ -168,11 +212,11 @@ public class LocationCellsContainer
 
     public int CellsCount => _locationCells.Count;
 
-    public event Action<Location> CellClicked;
+    public event Action<ILocation> CellClicked;
 
     public void SetCellsFactory(CellsFactoryCreater cellsFactoryCreater, Transform cellsContainer)
     {
-        _cellsFactory = cellsFactoryCreater.CreateCellsFactory<Location>();
+        _cellsFactory = cellsFactoryCreater.CreateCellsFactory<ILocation>();
         _supperCellsFactory = cellsFactoryCreater.CreateSuppercellsFactory<Superlocation>();
         _cellsContainer = cellsContainer;
     }
@@ -184,14 +228,25 @@ public class LocationCellsContainer
             locationCell.Clicked -= OnLocationSelected;
             locationCell.Dispose();
         }
+        _locationCells.Clear();
 
         foreach (var suppercell in _supperlocationCells)
+        {
             suppercell.Value.Clicked -= OnSuppercellCliced;
+            suppercell.Value.Dispose();
+        }
+        _supperlocationCells.Clear();
     }
 
     public void HideChoicePanel()
     {
         _choicePanel.Hide();
+    }
+
+    public void CheckIntaractable()
+    {
+        foreach (var locationCell in _locationCells)
+            locationCell.SetInteractable(locationCell.Data.IsAvailable);
     }
 
     public void HideAllSubcells()
@@ -200,14 +255,17 @@ public class LocationCellsContainer
             supperLocation.Value.View.ChangeSubcellsEnable(false);
     }
 
-    public void Add(IEnumerable<Location> locations)
+    public void Add(IEnumerable<ILocation> locations)
     {
         foreach (var location in locations)
         {
+            if (_locationCells.Exists(locaitonCell => locaitonCell.Data == location))
+                continue;
+
             TryCreateSupppercell(location);
 
-            Cell<Location> newLocationCell = CreateCellView(location, location.Superlocation != null ?
-                _supperlocationCells[location.Superlocation].View.SubcellsContainer : _cellsContainer);
+            Cell<ILocation> newLocationCell = CreateCellView(location, location.Data.Superlocation != null ?
+                _supperlocationCells[location.Data.Superlocation].View.SubcellsContainer : _cellsContainer);
 
             newLocationCell.SetInteractable(location.IsAvailable);
 
@@ -218,12 +276,12 @@ public class LocationCellsContainer
             locationCell.Clicked += OnLocationSelected;
     }
 
-    public void Remove(IEnumerable<Location> locations)
+    public void Remove(IEnumerable<ILocation> locations)
     {
         foreach (var location in locations)
         {
             location.Dispose();
-            Cell<Location> locationCell = _locationCells.Find(locationCell => locationCell.Data == location);
+            Cell<ILocation> locationCell = _locationCells.Find(locationCell => locationCell.Data == location);
 
             if (locationCell != null)
             {
@@ -235,15 +293,15 @@ public class LocationCellsContainer
         }
     }
 
-    private bool TryCreateSupppercell(Location location)
+    private bool TryCreateSupppercell(ILocation location)
     {
-        if (location.Superlocation != null)
+        if (location.Data.Superlocation != null)
         {
-            if (_supperlocationCells.ContainsKey(location.Superlocation) == false)
+            if (_supperlocationCells.ContainsKey(location.Data.Superlocation) == false)
             {
-                SupperCell<Superlocation> supperCell = _supperCellsFactory.CreateSupperCellView(location.Superlocation, _cellsContainer);
+                SupperCell<Superlocation> supperCell = _supperCellsFactory.CreateSupperCellView(location.Data.Superlocation, _cellsContainer);
 
-                _supperlocationCells.Add(location.Superlocation, supperCell);
+                _supperlocationCells.Add(location.Data.Superlocation, supperCell);
                 supperCell.Clicked += OnSuppercellCliced;
             }
 
@@ -253,9 +311,9 @@ public class LocationCellsContainer
         return false;
     }
 
-    private Cell<Location> CreateCellView(Location location, Transform cellContainer)
+    private Cell<ILocation> CreateCellView(ILocation location, Transform cellContainer)
     {
-        return _cellsFactory.CreateCellsView(new List<Location>() { location }, cellContainer)[0];
+        return _cellsFactory.CreateCellsView(new List<ILocation>() { location }, cellContainer)[0];
     }
 
     private void OnSuppercellCliced(CellView suppercellView)
@@ -272,7 +330,7 @@ public class LocationCellsContainer
         suppercellView.ChangeSubcellsEnable(true);
     }
 
-    private void OnLocationSelected(Location location)
+    private void OnLocationSelected(ILocation location)
     {
         _choicePanel.Show($"Перейти на локацию {location.Name}", new List<ChoiseElement>()
         {

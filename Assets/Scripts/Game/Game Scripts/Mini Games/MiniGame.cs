@@ -10,7 +10,6 @@ namespace MiniGameNamespace
     {
         [Inject] protected readonly DiContainer Di;
         [Inject] protected readonly ChoicePanel ChoicePanel;
-        [Inject] protected readonly Battery Battery;
         [Inject] private readonly Wallet _wallet;
 
         private readonly int _sympathyByWin = 3;
@@ -19,18 +18,18 @@ namespace MiniGameNamespace
 
         private readonly int _moneyByWin = 5;
 
-        [field: SerializeField] public string GameName { get; private set; }
-
-        protected Character CurrentCharacter { get; private set; }
+        protected ICharacter CurrentCharacter { get; private set; }
 
         protected abstract AbstractMiniGame Game { get; }
         protected abstract string WinSpeech { get; }
         protected abstract string LoseSpeech { get; }
         protected abstract string DrawnSpeech { get; }
 
+        [field: SerializeField] public string GameName { get; private set; }
+
         public event Action GameEnded;
 
-        public void StartGame(Character character)
+        public void StartGame(ICharacter character)
         {
             CurrentCharacter = character;
 

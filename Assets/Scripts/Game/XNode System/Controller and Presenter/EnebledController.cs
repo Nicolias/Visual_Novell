@@ -2,7 +2,7 @@
 
 public class EnebledController : IController
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private readonly Smartphone _view;
     private readonly ChangeEnabledModel _model;
@@ -21,6 +21,6 @@ public class EnebledController : IController
             for (int i = 0; i < _model.Windows.Count; i++)
                 _view.ShowGuid( _model.Windows.GetKey(i));
 
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

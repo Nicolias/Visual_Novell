@@ -4,7 +4,7 @@ using XNode;
 
 public class SmartphoneNewMessegePresenter : IPresentar
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private NewDialogInSmartphoneModel _model;
     private Messenger _view;
@@ -36,6 +36,6 @@ public class SmartphoneNewMessegePresenter : IPresentar
             return;
 
         _view.ChatRead -= CallBack;
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

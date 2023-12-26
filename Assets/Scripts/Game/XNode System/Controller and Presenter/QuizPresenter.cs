@@ -2,7 +2,7 @@
 
 public class QuizPresenter : ICommand
 {
-    public event Action Complete;
+    public event Action Completed;
 
     private readonly QuizModel _quizModel;
     private readonly Quiz _quiz;
@@ -15,7 +15,7 @@ public class QuizPresenter : ICommand
 
     public void Execute()
     {
-        _quiz.Enter(_quizModel.CharacterType, false);
+        _quiz.Enter(_quizModel.CharacterType, false, true);
         _quiz.CharacterSympathyPointsChanged += CallBack;
     }
 
@@ -25,7 +25,7 @@ public class QuizPresenter : ICommand
         {
             _quiz.CharacterSympathyPointsChanged -= CallBack;
             _quiz.HideQuiz();
-            Complete?.Invoke();
+            Completed?.Invoke();
         }
     }
 }

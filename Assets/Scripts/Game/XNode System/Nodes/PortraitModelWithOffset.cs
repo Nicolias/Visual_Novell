@@ -10,7 +10,7 @@ public class PortraitModelWithOffset : XnodeModel, ICharacterPortraitModel
     [field: SerializeField] public Vector2 PositionOffset { get; private set; }
     [field: SerializeField] public Vector3 ScaleOffset { get; private set; }
 
-    public Location Location => null;
+    public LocationSO Location => null;
 
     public override void Accept(ICommanderVisitor visitor)
     {

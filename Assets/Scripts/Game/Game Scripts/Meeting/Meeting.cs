@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using StateMachine;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -8,12 +9,16 @@ public class Meeting : MonoBehaviour
     [SerializeField] private Eating _eating;
 
     [SerializeField] private CharacterRenderer _characterRenderer;
-    [SerializeField] private StaticData _staticData;
     [SerializeField] private Smartphone _smartphone;
     [SerializeField] private DialogSpeechView _dialogSpeechView;
 
+    [SerializeField] private List<AudioClip> _musicVariation;
+
     private ChoicePanel _choicePanel;
     private CharactersLibrary _charactersLibrary;
+
+    private GameStateMachine _gameStateMachine;
+    private AudioServise _audioServise;
 
     private PastimeSelectionFactory _pastimeSelectionFactory;
     private AbstractPastime _currentPastime;  
@@ -24,10 +29,14 @@ public class Meeting : MonoBehaviour
     public event UnityAction Ended;
 
     [Inject]
-    public void Construct(MiniGameSelector miniGameSelector, Quiz quiz, ChoicePanel choicePanel, CharactersLibrary charactersLibrary)
+    public void Construct(MiniGameSelector miniGameSelector, Quiz quiz, ChoicePanel choicePanel, CharactersLibrary charactersLibrary,
+        GameStateMachine gameStateMachine, AudioServise audioServise)
     {
         _choicePanel = choicePanel;
         _charactersLibrary = charactersLibrary;
+
+        _gameStateMachine = gameStateMachine;
+        _audioServise = audioServise;
 
         _pastimeSelectionFactory = new PastimeSelectionFactory(choicePanel,
             new Dictionary<PastimeOnLocationType, AbstractPastime>()
@@ -40,6 +49,8 @@ public class Meeting : MonoBehaviour
 
     public void Enter(CharacterView characterView)
     {
+        _audioServise.PlaySound(_musicVariation[Random.Range(0, _musicVariation.Count)]);
+
         _characterView = characterView;
         characterView.SetInteractable(false);
 
@@ -81,19 +92,21 @@ public class Meeting : MonoBehaviour
     {
         _choicePanel.Hide();
 
-        _dialogSpeechPresenter = new DialogSpeechPresenter(_charactersLibrary.GetCharacter(_characterView.Type).DialogAfterMeeting, _dialogSpeechView, _staticData);
+        _dialogSpeechPresenter = new DialogSpeechPresenter(_charactersLibrary.GetCharacter(_characterView.Type).ScriptableObject.DialogAfterMeeting, _dialogSpeechView);
 
-        _dialogSpeechPresenter.Complete += DialogAfterMeetingCompleted;
+        _dialogSpeechPresenter.Completed += DialogAfterMeetingCompleted;
         _dialogSpeechPresenter.Execute();
     }
 
     private void DialogAfterMeetingCompleted()
     {
-        _dialogSpeechPresenter.Complete -= DialogAfterMeetingCompleted;
+        _dialogSpeechPresenter.Completed -= DialogAfterMeetingCompleted;
 
         _dialogSpeechView.Hide();
         _characterRenderer.Delete(_characterView.Data);
 
         Ended?.Invoke();
+
+        _gameStateMachine.ChangeState<PlayState>();
     }
 }

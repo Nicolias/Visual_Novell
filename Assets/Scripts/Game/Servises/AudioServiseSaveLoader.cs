@@ -4,6 +4,7 @@ using System.Linq;
 
 public class AudioServiseSaveLoader : ISaveLoadObject
 {
+    private readonly AudioServise _audioServise;
     private readonly SaveLoadServise _saveLoadServise;
 
     private readonly List<AudioSource> _allMusics;
@@ -12,17 +13,21 @@ public class AudioServiseSaveLoader : ISaveLoadObject
     private readonly string _musicSaveKey = "MusicAudioSave";
     private readonly string _soundSaveKey = "SoundAudioSave";
 
-    public AudioServiseSaveLoader(SaveLoadServise saveLoadServise, IEnumerable<AudioSource> allMusic, IEnumerable<AudioSource> allSound)
+    public AudioServiseSaveLoader(AudioServise audioServise, SaveLoadServise saveLoadServise, IEnumerable<AudioSource> allMusic, IEnumerable<AudioSource> allSound)
     {
+        _audioServise = audioServise;
         _saveLoadServise = saveLoadServise;
+
         _allMusics = allMusic.ToList();
         _allSounds = allSound.ToList();
+
+        Add();
     }
 
     public void Save()
     {
-        SaveAudio(_allMusics, _musicSaveKey);
-        SaveAudio(_allSounds, _soundSaveKey);
+        SaveAudio(_audioServise.CurrentMusic, _allMusics, _musicSaveKey);
+        SaveAudio(_audioServise.CurrentSound, _allSounds, _soundSaveKey);
     }
 
     public void Load()
@@ -34,36 +39,40 @@ public class AudioServiseSaveLoader : ISaveLoadObject
         }
     }
 
-    private void SaveAudio(List<AudioSource> audioSources, string saveKey)
+    public void Add()
     {
-        _saveLoadServise.Save(saveKey, new SaveData.IntData() { Int = audioSources.Count });
+        _saveLoadServise.Add(this);
+    }
 
-        for (int i = 0; i < audioSources.Count; i++)
+    private void SaveAudio(AudioSource audioSource, List<AudioSource> audios, string saveKey)
+    {
+        if (audioSource == null)
         {
-            _saveLoadServise.Save($"{saveKey}/{i}", new SaveData.AudioData()
-            {
-                IsMute = audioSources[i].mute,
-                IsPlay = audioSources[i].isPlaying,
-                Volume = audioSources[i].volume
-            });
+            _saveLoadServise.Save<SaveData.AudioData>(saveKey, null);
+            return;
         }
+
+        _saveLoadServise.Save(saveKey, new SaveData.AudioData()
+        {
+            IsMute = audioSource.mute,
+            IsPlay = true,
+            Volume = audioSource.volume,
+            AudioPosition = audios.IndexOf(audioSource)
+        });
     }
 
     private void LoadAudio(List<AudioSource> audioSources, string saveKey)
     {
-        int count = _saveLoadServise.Load<SaveData.IntData>(saveKey).Int;
+        var data = _saveLoadServise.Load<SaveData.AudioData>(saveKey);
+        if (data == null)
+            return;
 
-        for (int i = 0; i < count; i++)
-        {
-            var data = _saveLoadServise.Load<SaveData.AudioData>($"{saveKey}/{i}");
-            audioSources[i].mute = data.IsMute;
+        AudioSource sound = audioSources[data.AudioPosition];
 
-            if (data.IsPlay)
-                audioSources[i].Play();
-            else
-                audioSources[i].Stop();
+        sound.mute = data.IsMute;
+        sound.volume = data.Volume;
 
-            audioSources[i].volume = data.Volume;
-        }
+        if (data.IsPlay)
+            _audioServise.LoadAudio(sound);
     }
 }

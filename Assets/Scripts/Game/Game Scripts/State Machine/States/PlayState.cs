@@ -1,16 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace StateMachine
 {
     public class PlayState : BaseState
     {
-        private AudioServise _audioServise;
-        private AudioClip _freePlaySound;
+        private readonly AudioServise _audioServise;
 
-        public PlayState(AudioServise audioServise, AudioClip freePlaySound)
+        private List<AudioClip> _freePlayMusicVariations;
+        private AudioClip _currentMusic;
+
+        public PlayState(AudioServise audioServise, List<AudioClip> freePlayMusicVariations)
         {
             _audioServise = audioServise;
-            _freePlaySound = freePlaySound;
+
+            _freePlayMusicVariations = freePlayMusicVariations;
         }
 
         public override void Accept(IGameStateVisitor gameStateVisitor)
@@ -20,12 +24,14 @@ namespace StateMachine
 
         public override void Enter()
         {
-            _audioServise.PlaySound(_freePlaySound);
+            _currentMusic = _freePlayMusicVariations[Random.Range(0, _freePlayMusicVariations.Count)];
+
+            _audioServise.PlaySound(_currentMusic);
         }
 
         public override void Exit()
         {
-            _audioServise.StopSound(_freePlaySound);
+            _audioServise.StopSound(_currentMusic);
         }
     }
 }

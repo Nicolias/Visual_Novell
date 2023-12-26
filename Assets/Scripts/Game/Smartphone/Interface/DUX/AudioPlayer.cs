@@ -26,6 +26,7 @@ public class AudioPlayer : MonoBehaviour
 
             _audioSource.time = _currentProgress * _audioSource.clip.length;
         });
+
         _pauseButton.onClick.AddListener(() => _audioSource.Stop());
 
         _progerssSlider.onValueChanged.AddListener((x) => _currentProgress = x);

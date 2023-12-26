@@ -7,7 +7,7 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
     private const string _saveKey = "StaticDataSave";
 
     [SerializeField] private List<QuizQuestion> _quizQuestion;
-    [SerializeField] private string _nickname = "Везунчик";
+    private string _nickname;
     [Inject] private SaveLoadServise _saveLoadServise;
 
     private Dictionary<int, int> _needPointsToRichLevel = new()
@@ -23,15 +23,17 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
     public string Nickname => _nickname;
     public IEnumerable<QuizQuestion> QuizQuestion => _quizQuestion;
 
-    private void OnEnable()
+    private void Awake()
+    {
+        Add();
+    }
+
+    public void Initialize()
     {
         if (_saveLoadServise.HasSave(_saveKey))
             Load();
-    }
-
-    private void OnDisable()
-    {
-        Save();
+        else
+            _nickname = "Везунчик";
     }
 
     public int HowManyPointesNeedForReach(int level)
@@ -53,5 +55,10 @@ public class StaticData : MonoBehaviour, ISaveLoadObject
     {
         var data = _saveLoadServise.Load<SaveData.StringData>(_saveKey);
         _nickname = data.String;
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 }

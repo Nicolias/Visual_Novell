@@ -5,8 +5,13 @@ namespace SaveData
     [Serializable]
     public class CharacterData
     {
-        public CharacterType CharacterType;
         public int SympathyPoints;
         public int SympathyLevel;
+        public bool IsMeeting;
+
+        public int LastEatingTimeOfDay;
+        public int LastEatingTimeYear;
+        public int LastEatingTimeMonth;
+        public int LastEatingTimeDay;
     }
 }

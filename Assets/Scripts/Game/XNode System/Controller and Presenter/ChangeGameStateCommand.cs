@@ -10,11 +10,11 @@ public class ChangeGameStateCommand<T> : ICommand where T : BaseState
         _gameStateMachine = gameStateMachine;
     }
 
-    public event Action Complete;
+    public event Action Completed;
 
     public void Execute()
     {
         _gameStateMachine.ChangeState<T>();
-        Complete?.Invoke();
+        Completed?.Invoke();
     }
 }

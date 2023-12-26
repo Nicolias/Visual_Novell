@@ -18,4 +18,4 @@ MonoBehaviour:
   <Subcategories>k__BackingField: []
   <CharacterSprite>k__BackingField: {fileID: 0}
   <CharacterType>k__BackingField: 3
-  _levelLimit: 2
+  _levelLimit: 4

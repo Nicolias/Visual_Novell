@@ -5,9 +5,10 @@ using Zenject;
 [Serializable]
 public class CharacterSympathy
 {
-    [SerializeField] private StaticData _staticData;
+    private readonly StaticData _staticData;
 
-    [SerializeField] private int _amountPoints, _level;
+    private int _level;
+    private int _amountPoints;
 
     public int Level => _level;
     public int Points => _amountPoints;
@@ -36,7 +37,7 @@ public class CharacterSympathy
     public void DecreesPoints(int points)
     {
         if(points < 0) throw new InvalidOperationException();
-        if (_amountPoints - points < 0) throw new InvalidOperationException("Ñèìïàòèÿ óøëà â îòðèöàòåëüíîå çíà÷åíèå");
+        if (_amountPoints - points < 0) throw new InvalidOperationException("Ð¡Ð¸Ð¼Ð¿Ð°Ñ‚Ð¸Ñ ÑƒÑˆÐ»Ð° Ð² Ð¾Ñ‚Ñ€Ð¸Ñ†Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ");
 
         _amountPoints -= points;
     }

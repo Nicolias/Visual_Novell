@@ -1,99 +1,131 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
+using UnityEngine;
+using Zenject;
+using StateMachine;
 
-public class LocationsManager : ISaveLoadObject
+public class LocationsManager : MonoBehaviour, IByStateMachineChangable, ISaveLoadObject
 {
-    private readonly SaveLoadServise _saveLoadServise;
+    [SerializeField] private List<LocationSO> _allLocationsSO = new List<LocationSO>();
 
-    private readonly Map _map;
-    private readonly List<Location> _locations;
+    private List<ILocation> _locations = new List<ILocation>();
 
-    private List<Location> _locationsInMap = new List<Location>();
+    private GameStateMachine _gameStateMachine;
+    private GameStateVisitor _gameStateVisitor;
 
-    private string _saveKey = "locationManagerKey";
+    private CharactersLibrary _characterLibrary;
+    private BackgroundView _background;
+    private CollectionPanel _collectionPanel;
+    private CharacterRenderer _charactersPortraitView;
+    private TimesOfDayServise _timesOfDayServise;
+    private SaveLoadServise _saveLoadServise;
 
-    public IEnumerable<Location> AvailableLocations
+    public IEnumerable<ILocation> AvailableLocations
     {
         get
         {
-            List<Location> availableLocations = new List<Location>();
+            List<ILocation> availableLocations = new List<ILocation>();
 
-            foreach (var location in _locationsInMap)
+            foreach (var location in _locations)
                 if (location.IsAvailable)
                     availableLocations.Add(location);
 
             return availableLocations;
         }
     }
-    public IEnumerable<Location> AllLocations => _locations;
 
-    public LocationsManager(TimesOfDayServise timesOfDayServise, SaveLoadServise saveLoadServise, BackgroundView background,
-        CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView, Map map, CharactersLibrary charactersLibrary,
-        List<Location> locations)
+    public IEnumerable<ILocation> AllLocations => _locations;
+
+    [Inject]
+    public void Construct(GameStateMachine gameStateMachine, TimesOfDayServise timesOfDayServise, SaveLoadServise saveLoadServise,
+        BackgroundView background, CollectionPanel collectionPanel, CharacterRenderer charactersPortraitView, CharactersLibrary charactersLibrary)
     {
-        foreach (var character in charactersLibrary.AllCharacters)
-            if (character.CurrentLocation.TryGet(timesOfDayServise.GetCurrentTimesOfDay(), out Location location))
-                location.Set(character);
+        foreach (var locationSo in _allLocationsSO)
+            locationSo.Initialize(timesOfDayServise);
 
+        _timesOfDayServise = timesOfDayServise;
+        _characterLibrary = charactersLibrary;
+        _gameStateMachine = gameStateMachine;
         _saveLoadServise = saveLoadServise;
+        _background = background;
+        _collectionPanel = collectionPanel;
+        _charactersPortraitView = charactersPortraitView;
 
-        _map = map;
-        _locations = locations;
+        _gameStateVisitor = new GameStateVisitor(gameStateMachine, this);
+        _gameStateVisitor.RecognizeCurrentGameState();
+        _gameStateVisitor.SubscribeOnGameStateMachine();
 
-        if(_saveLoadServise.HasSave(_saveKey))
-            Load();
-
-        foreach (var location in _locations)
+        for (int i = 0; i < _allLocationsSO.Count; i++)
         {
-            if (location == null)
-                throw new InvalidOperationException("Локация не проинициализированна");
+            Location location = new Location(_gameStateMachine, _background, _collectionPanel, _charactersPortraitView, _timesOfDayServise,
+                _saveLoadServise, _allLocationsSO[i], i);
 
-            location.Initialize(background, collectionPanel, charactersPortraitView, timesOfDayServise);
+            _locations.Add(location);
         }
 
-        _map.Add(_locationsInMap);
-    }      
-
-    public void AddToMap(IEnumerable<Location> newLocations)
-    {
-        List<Location> locations = new List<Location>();
-
-        foreach (var location in newLocations)
-            if (_locationsInMap.Contains(location) == false)
-                locations.Add(location);
-
-        _map.Add(locations);
-        _locationsInMap.AddRange(locations);
-
-        Save();
+        Add();
     }
 
-    public void RemoveFromMap(IEnumerable<Location> locations)
+    private void OnDestroy()
     {
-        _map.Remove(locations);
+        foreach(var location in _locations)
+            location.Dispose();
 
-        foreach (var location in locations)
-            _locationsInMap.Remove(location);
+        _gameStateVisitor.UnsubsciribeFromGameStateMachine();
+    }
 
-        Save();
+    void IByStateMachineChangable.ChangeBehaviourBy(PlayState playState)
+    {
+        foreach (var character in _characterLibrary.AllCharacters)
+            if (character.ScriptableObject.CurrentLocation.TryGet(_timesOfDayServise.GetCurrentTimesOfDay(), out LocationSO locationSO))
+                if (Get(locationSO, out ILocation location))
+                    location.Set(character.ScriptableObject);
+    }
+
+    void IByStateMachineChangable.ChangeBehaviourBy(StoryState storyState)
+    {
+    }
+
+    public IEnumerable<ILocation> Get(IEnumerable<LocationSO> locationsSO)
+    {
+        List<ILocation> locations = new List<ILocation>();
+
+        foreach (var locationSO in locationsSO)
+            if (Get(locationSO, out ILocation location))
+                locations.Add(location);
+
+        return locations;
+    }
+
+    public bool Get(LocationSO locationSo, out ILocation location)
+    {
+        if (_locations.Exists(location => location.Data == locationSo))
+        {
+            location = _locations.FirstOrDefault(location => location.Data == locationSo);
+            return true;
+        }
+
+        throw new InvalidOperationException();
+    }
+
+    public ILocation GetBy(int id)
+    {
+        return _locations.Find(location => location.ID == id);
+    }
+
+    public void Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Save()
     {
-        _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = true });
-
-        for (int i = 0; i < _locations.Count; i++)
-            _saveLoadServise.Save(_saveKey + i, new SaveData.BoolData() { Bool = _locationsInMap.Contains(_locations[i]) });
+        _locations.ForEach(location => location.Save());
     }
 
     public void Load()
     {
-        for (int i = 0; i < _locations.Count; i++)
-        {
-            bool hasLocation = _saveLoadServise.Load<SaveData.BoolData>(_saveKey + i).Bool;
-
-            if(hasLocation)
-                _locationsInMap.Add(_locations[i]);
-        }            
+        _locations.ForEach(_location => _location.Load());
     }
 }

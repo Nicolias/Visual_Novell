@@ -1,34 +1,25 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class SaveLoadServise : MonoBehaviour
+public abstract class SaveLoadServise : MonoBehaviour
 {
-    public void Save<T>(string key, T saveData)
-    {
-        string jsonDataString = JsonUtility.ToJson(saveData, true);
-        PlayerPrefs.SetString(key, jsonDataString);
-    }
+    public abstract int SaveLoadCount { get; }
 
-    public T Load<T>(string key) where T : new()
-    {
-        if (HasSave(key))
-        {
-            string loadedString = PlayerPrefs.GetString(key);
-            return JsonUtility.FromJson<T>(loadedString);
-        }
-        else
-        {
-            throw new NotImplementedException($"Сохранения не существует {typeof(T)}");
-        }
-    }
+    public abstract event UnityAction Initialized;
 
-    public void ClearAllSave()
-    {
-        PlayerPrefs.DeleteAll();
-    }
+    public virtual async Task Initialize() { }
 
-    public bool HasSave(string key)
-    {
-        return PlayerPrefs.HasKey(key);
-    }
+    public abstract void Save<T>(string key, T saveData);
+
+    public abstract T Load<T>(string key) where T : new();
+
+    public abstract void ClearAllSave();
+
+    public abstract bool HasSave(string key);
+
+    public abstract void SaveAll();
+
+    public abstract void Add(ISaveLoadObject audioServiseSaveLoader);
 }

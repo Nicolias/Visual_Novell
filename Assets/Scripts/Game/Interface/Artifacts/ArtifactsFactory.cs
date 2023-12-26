@@ -37,7 +37,7 @@ namespace Factory.Artifacts
             for (int i = 0; i < _artifactsForCollectionCount - _collectedArtifactsCount; i++)
                 _artifacts.Add(artifactData);
 
-            CreateCollectionQuest();
+            Add();
         }
 
         public event Action AllArtifactsCollected;
@@ -46,15 +46,13 @@ namespace Factory.Artifacts
         {
             if (_collectionQuest != null)
                 _collectionQuest.ItemCollected -= OnItemCollected;
-
-            Save();
         }
 
         public void ResetCollection()
         {
             _collectedArtifactsCount = 0;
 
-            List<Location> availableLocations = new List<Location>(_locationsManager.AvailableLocations.Where(location => location.IsForArtifacts == true));
+            List<ILocation> availableLocations = new List<ILocation>(_locationsManager.AvailableLocations.Where(location => location.Data.IsForArtifacts == true));
 
             if (availableLocations.Count == 0)
                 return;
@@ -76,7 +74,7 @@ namespace Factory.Artifacts
             CreateCollectionQuest();
         }
 
-        private void CreateCollectionQuest()
+        public void CreateCollectionQuest()
         {
             if (_collectionQuest != null)
                 _collectionQuest.Dispose();
@@ -110,6 +108,11 @@ namespace Factory.Artifacts
         public void Load()
         {
             _collectedArtifactsCount = _saveLoadServise.Load<SaveData.IntData>(_saveKey).Int;
+        }
+
+        public void Add()
+        {
+            _saveLoadServise.Add(this);
         }
     }
 }

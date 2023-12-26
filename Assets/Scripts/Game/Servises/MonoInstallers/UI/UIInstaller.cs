@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -19,7 +18,7 @@ public class UIInstaller : MonoInstaller
     [SerializeField] private ChapterCaption _chapterCaption;
 
     [SerializeField] private CharacterRenderer _charactersPortraitView;
-    [SerializeField] private List<Location> _allLocations;
+
     public override void InstallBindings()
     {
         Container.Bind<CollectionQuestView>().FromInstance(_collectionQuestView).AsSingle();
@@ -62,12 +61,5 @@ public class UIInstaller : MonoInstaller
         Container.Bind<ChapterCaption>().FromInstance(_chapterCaption).AsSingle();
 
         Container.Bind<CharacterRenderer>().FromInstance(_charactersPortraitView).AsSingle();
-
-        LocationManagerBind();
-    }
-
-    private void LocationManagerBind()
-    {
-        Container.Bind<LocationsManager>().FromNew().AsSingle().WithArguments(_allLocations).NonLazy();
     }
 }

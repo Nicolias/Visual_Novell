@@ -18,18 +18,21 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
 
     protected abstract string SaveKey { get; }
 
+    private void Awake()
+    {
+        Add();
+    }
+
     private void OnDisable()
     {
         if (_curent.command != null)
-            _curent.command.Complete -= Next;
-
-        Save();
+            _curent.command.Completed -= Next;
     }
 
     public void PackAndExecuteCommand(Node node)
     {
         _curent = Packing(node);
-        _curent.command.Complete += Next;
+        _curent.command.Completed += Next;
         _curent.command.Execute();
     }
 
@@ -37,7 +40,7 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
     {
         if (_curent.command != null)
         {
-            _curent.command.Complete -= Next;
+            _curent.command.Completed -= Next;
         }
 
         NodePort port = _curent.node.GetPort("_outPut").Connection;
@@ -66,6 +69,11 @@ public abstract class Commander : MonoBehaviour, ISaveLoadObject
 
         if (data.Node != null)
             PackAndExecuteCommand(_curent.node);
+    }
+
+    public void Add()
+    {
+        SaveLoadServise.Add(this);
     }
 
     private SaveData.NodeData GetSaveSnapshot()
