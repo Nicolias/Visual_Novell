@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf486ca6e029ee4f96b988e2d6b0162, type: 3}
   m_Name: Backpack
   m_EditorClassIdentifier: 
-  <ItemSpriteInInventory>k__BackingField: {fileID: 21300000, guid: 743fe2ba43345e94192a02511c12163a, type: 3}
   <Name>k__BackingField: "\u0420\u044E\u043A\u0437\u0430\u043A"
-  <Discription>k__BackingField: 
   <ItemSpriteInScene>k__BackingField: {fileID: 21300000, guid: 743fe2ba43345e94192a02511c12163a, type: 3}
   <Prefab>k__BackingField: {fileID: 5296181706733269697, guid: 520c711a0b094494abbebb9b1778998b, type: 3}
   <ItemAfterInstantiatePosition>k__BackingField: {x: -500, y: -241}
   <IsInteractable>k__BackingField: 1
+  <ItemSpriteInInventory>k__BackingField: {fileID: 21300000, guid: 743fe2ba43345e94192a02511c12163a, type: 3}
+  <Discription>k__BackingField: 
+  <HaveEffect>k__BackingField: 0
+  <ID>k__BackingField: 1

@@ -9,9 +9,10 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
 
     private bool _isTimer;
     private int _chargeLeve;
-    private const int _maxCharge = 100;
+    private int _maxCharge = 100;
 
     public int CurrentValue => _chargeLeve;
+    public int MaxValue => _maxCharge;
 
     private int _rechargeByMinute = 8;
 
@@ -84,6 +85,8 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         _saveLoadServise.Save(_saveKey, new SaveData.BatterySaveData()
         {
             ChargeLevel = _chargeLeve,
+            MaxChargeLevel = _maxCharge,
+
             LastOpenedYear = DateTime.Now.Year,
             LastOpenedMonths = DateTime.Now.Month,
             LastOpenedDay = DateTime.Now.Day,
@@ -92,10 +95,21 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         });
     }
 
+    public void Enchance(int value)
+    {
+        if (value <= 0)
+            throw new InvalidOperationException("Попытка уменьшить максимальный заряд");
+
+        _maxCharge += value;
+
+        ValueChanged?.Invoke(_chargeLeve);
+    }
+
     public void Load()
     {
         var data = _saveLoadServise.Load<SaveData.BatterySaveData>(_saveKey);
         _chargeLeve = data.ChargeLevel;
+        _maxCharge = data.MaxChargeLevel;
 
         DateTime lastOpenedTime = new(data.LastOpenedYear, 
             data.LastOpenedMonths, 

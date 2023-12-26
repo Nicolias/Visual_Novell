@@ -6,6 +6,7 @@ namespace SaveData
     public class BatterySaveData
     {
         public int ChargeLevel;
+        public int MaxChargeLevel;
 
         public int LastOpenedYear;
         public int LastOpenedMonths;

@@ -2,5 +2,6 @@
 {
     Map = 0,
     DUX = 1,
-    Contacts = 2
+    Contacts = 2,
+    Shop = 3
 }

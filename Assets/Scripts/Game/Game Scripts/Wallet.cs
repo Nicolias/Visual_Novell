@@ -76,4 +76,9 @@ public class Wallet : MonoBehaviour, IStorageView, ISaveLoadObject
     {
         _saveLoadServise.Add(this);
     }
+
+    public void Accure(object value)
+    {
+        throw new NotImplementedException();
+    }
 }

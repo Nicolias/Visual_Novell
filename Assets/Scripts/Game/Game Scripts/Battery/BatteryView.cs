@@ -36,11 +36,16 @@ public class BatteryView : MonoBehaviour
             if (chargeRange.x > chargeRange.y)
                 throw new InvalidProgramException("В диапазоне зарядов минмальный больше максимального");
 
-            if (_battery.CurrentValue >= chargeRange.x)
-                if(_battery.CurrentValue <= chargeRange.y)
+            if (GetProcent(_battery.CurrentValue, _battery.MaxValue) >= chargeRange.x)
+                if(GetProcent(_battery.CurrentValue, _battery.MaxValue) <= chargeRange.y)
                     _batteryImage.sprite = _batterySprites.GetValue(i);
         }
 
         _chargeValueText.text = $"{chargyValue}%";
+    }
+
+    private int GetProcent(float currentCharge, float maxCharge)
+    {
+        return (int) (currentCharge / maxCharge * 100f);
     }
 }

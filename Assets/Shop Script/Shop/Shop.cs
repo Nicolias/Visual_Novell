@@ -1,74 +1,117 @@
 using RuStore;
 using RuStore.BillingClient;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using Zenject;
 
-public class Shop : MonoBehaviour
+namespace Shop
 {
-    
-
-    private List<ShopItemView> _purchaseViews;
-    private Dictionary<string, Product> _products = new Dictionary<string, Product>();
-
-    public void BuyProduct(string productId)
+    public class Shop : WindowInSmartphone
     {
-        RuStoreBillingClient.Instance.PurchaseProduct(
-            productId: productId,
-            quantity: 1,
-            developerPayload: "test payload",
-            onFailure: (error) => 
-            {
-                OnError(error);
-            },
-            onSuccess: (result) => 
-            {
-                LoadPurchases();
-            });
-    }
+        [Inject] private SaveLoadServise _saveLoadServise;
 
-    private void LoadProducts()
-    {
-        RuStoreBillingClient.Instance.GetProducts(
-            productIds: _productIds,
-            onFailure: (error) => 
-            {
-                OnError(error);
-            },
-            onSuccess: (result) => 
-            {
-                _products.Clear();
-                result.ForEach(p => _products.Add(p.productId, p));
+        [SerializeField] private Canvas _selfCanvas;
+        [SerializeField] private Button _closeButton;
 
-                UpdateProductsData(result);
-                LoadPurchases();
-            });
-    }
+        [SerializeField] private Wallet _wallet;
+        [SerializeField] private Battery _battery;
+        [SerializeField] private Inventory _inventory;
 
-    private void UpdatePurchaseData(List<Purchase> purchases)
-    {
-        foreach (var shopItem in _purchaseViews)
+        [SerializeField] public ProductFactory _productsFactory;
+        [SerializeField] private List<ProductSO> _productsSO;
+
+        private ProductVisiter _productVisiter;
+
+        public event UnityAction<Product> ProductBought;
+
+        private void Awake()
         {
-            shopItem.Data = null;
-            shopItem.gameObject.SetActive(false);
+            RuStoreBillingClient.Instance.Init();
+
+            _productVisiter = new ProductVisiter(_wallet, _battery, _inventory);
+
+            _productsFactory.Initialize(this, _saveLoadServise, _productsSO);
         }
 
-        var viewIndex = 0;
-        foreach (var purchase in purchases)
+        protected override void OnEnabled()
         {
-            if (purchase.purchaseState == Purchase.PurchaseState.PAID)
-            {
-                _purchaseViews[viewIndex].gameObject.SetActive(true);
-                _purchaseViews[viewIndex].Data = purchase;
-                if (++viewIndex >= _purchaseViews.Length)
-                {
-                    break;
-                }
-            }
+            _closeButton.onClick.AddListener(Close);
+        }
+
+
+        protected override void OnDisabled()
+        {
+            _closeButton.onClick.RemoveListener(Close);
+        }
+
+        public void BuyProduct(Product product)
+        {
+            _productVisiter.Visit(product.Data);
+            ProductBought?.Invoke(product);
+
+            //RuStoreBillingClient.Instance.PurchaseProduct(
+            //    productId: product.Data.ID,
+            //    quantity: 1,
+            //    developerPayload: "test payload",
+            //    onFailure: (error) =>
+            //    {
+            //        OnError(error);
+            //    },
+            //    onSuccess: (result) =>
+            //    {
+            //    });
+        }
+
+        protected override void OnOpenButtonClicked()
+        {
+            _selfCanvas.enabled = true;
+        }
+
+        private void OnError(RuStoreError error)
+        {
+            Debug.LogErrorFormat("{0} : {1}", error.name, error.description);
+        }
+
+        private void Close()
+        {
+            _selfCanvas.enabled = false;
         }
     }
 
-    private void OnError(RuStoreError error)
+    public class ProductVisiter
     {
-        Debug.LogErrorFormat("{0} : {1}", error.name, error.description);
+        private readonly Wallet _wallet;
+        private readonly Battery _battery;
+        private readonly Inventory _inventory;
+
+        public ProductVisiter(Wallet wallet, Battery battery, Inventory inventory)
+        {
+            _wallet = wallet;
+            _battery = battery;
+            _inventory = inventory;
+        }
+
+        public void Visit(EnergyAccruerSO energyAccuer)
+        {
+            _inventory.AddItemToInventory(energyAccuer.EnergyBooster);
+        }
+
+        public void Visit(MoneyAccruerSO moneyAccruer)
+        {
+            _wallet.Accure(moneyAccruer.Value);
+        }
+
+        public void Visit(EnergyEnchancerSO energyEnchancer)
+        {
+            _battery.Enchance(energyEnchancer.EnchanceValue);
+        }
+
+        public void Visit(ProductSO product)
+        {
+            product.Accept(this);
+        }
     }
 }

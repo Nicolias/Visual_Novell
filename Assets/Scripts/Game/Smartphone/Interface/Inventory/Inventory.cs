@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
 
         _inventorySaveLoader.Construct(this, _saveLoadServise);
 
-        Add();
+        (this as ISaveLoadObject).Add();
     }
 
     private void OnEnable()
@@ -56,13 +56,30 @@ public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
         _closeButton.onClick.AddListener(Hide);
 
         if (_saveLoadServise.HasSave(_saveKey))
-            Load();
+            (this as ISaveLoadObject).Load();
     }
 
     private void OnDisable()
     {
         _openButton.onClick.RemoveAllListeners();
         _closeButton.onClick.RemoveAllListeners();
+    }
+
+    void ISaveLoadObject.Save()
+    {
+        _saveLoadServise.Save(_saveKey, new BoolData() { Bool = enabled });
+        _inventorySaveLoader.Save();
+    }
+
+    void ISaveLoadObject.Load()
+    {
+        enabled = _saveLoadServise.Load<BoolData>(_saveKey).Bool;
+        _inventorySaveLoader.Load();
+    }
+
+    void ISaveLoadObject.Add()
+    {
+        _saveLoadServise.Add(this);
     }
 
     public void Show()
@@ -87,10 +104,17 @@ public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
 
     public void AddItemToInventory(IUseableItemForInventory itemData)
     {
-        InventoryCellView cellView = CreateItemView(itemData);
-        var item = new UsableInventoryCell(itemData, cellView, _useEffectButton, _usableCountText, _battery);
-        
-        _useableItems.Add(item);
+        if (_useableItems.Exists(item => item.Data.ID == itemData.ID))
+        {
+            _useableItems.Find(item => item.Data.ID == itemData.ID).Add(itemData.UseCount);
+        }
+        else
+        {
+            InventoryCellView cellView = CreateItemView(itemData);
+            var item = new UsableInventoryCell(itemData, cellView, _useEffectButton, _usableCountText, _battery);
+
+            _useableItems.Add(item);
+        }
     }
 
     private InventoryCellView CreateItemView(IItemForInventory itemData)
@@ -99,23 +123,6 @@ public class Inventory : MonoBehaviour, ISaveLoadObject, IInventory
         cellView.Initialize(_itamImage, _itemDiscription);
         
         return cellView;
-    }
-
-    public void Save()
-    {
-        _saveLoadServise.Save(_saveKey, new BoolData() { Bool = enabled });
-        _inventorySaveLoader.Save();
-    }
-
-    public void Load()
-    {
-        enabled = _saveLoadServise.Load<BoolData>(_saveKey).Bool;
-        _inventorySaveLoader.Load();
-    }
-
-    public void Add()
-    {
-        _saveLoadServise.Add(this);
     }
 }
 

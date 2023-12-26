@@ -79,6 +79,19 @@ public class UsableInventoryCell : AbstractCell<IUseableItemForInventory>
         _useEffectButton.onClick.RemoveAllListeners();
     }
 
+    public void Add(int useCount)
+    {
+        if (useCount <= 0)
+            throw new InvalidOperationException();
+
+        _usableCount += useCount;
+    }
+
+    public void Visit(EnergyBooster energyBooster)
+    {
+        _battery.Accure(energyBooster.BoostValue);
+    }
+
     protected override void OnCellClicked()
     {
         _cellView.DisplayItemInformation(Data);
@@ -87,15 +100,11 @@ public class UsableInventoryCell : AbstractCell<IUseableItemForInventory>
         _useEffectButton.onClick.AddListener(OnClickedUseEffectButton);
     }
 
-    internal void Visit(EnergyBooster energyBooster)
-    {
-        _battery.Accure(energyBooster.BoostValue);
-    }
-
     private void OnClickedUseEffectButton()
     {
         Data.Accept(this);
         _usableCount--;
+        _useCountText.text = _useCountText.text = "Осталось использований: " + _usableCount.ToString();
 
         if (_usableCount == 0)
         {

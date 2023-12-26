@@ -11,16 +11,16 @@ namespace RuStore.Example.UI {
         [SerializeField]
         private Button _consumeButton;
 
-        protected override void OnDataUpdate() {
-            base.OnDataUpdate();
+        //protected override void OnDataUpdate() {
+        //    base.OnDataUpdate();
 
-            _title.text = ExampleController.Instance.GetProductName(Data.productId);
+        //    _title.text = ExampleController.Instance.GetProductName(Data.productId);
 
-            _consumeButton.gameObject.SetActive(Data.productType == Product.ProductType.CONSUMABLE);
-        }
+        //    _consumeButton.gameObject.SetActive(Data.productType == Product.ProductType.CONSUMABLE);
+        //}
 
-        public void ConsumePurchase() {
-            ExampleController.Instance.ConsumePurchase(Data.orderId);
-        }
+        //public void ConsumePurchase() {
+        //    ExampleController.Instance.ConsumePurchase(Data.orderId);
+        //}
     }
 }
