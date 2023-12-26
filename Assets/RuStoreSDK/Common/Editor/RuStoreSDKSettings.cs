@@ -32,6 +32,12 @@ namespace RuStore.Editor {
             GenerateSettingsLibrary();
         }
 
+        [MenuItem("Build/Update Settings")]
+        public static void UpdateSettingsLibrary() { 
+            var p = new RuStoreSDKSettings();
+            p.GenerateSettingsLibrary();
+        }
+
         private void GenerateSettingsLibrary() {
             var baseType = typeof(RuStoreModuleSettings);
             var subclassTypes = Assembly.GetAssembly(baseType).GetTypes().Where(t => t.IsSubclassOf(baseType)).ToArray();

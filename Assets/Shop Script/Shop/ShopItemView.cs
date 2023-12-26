@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ShopItem : MonoBehaviour
+public class ShopItemView : MonoBehaviour
 {
     [SerializeField] private Image _image;
     [SerializeField] private TMP_Text _name;
