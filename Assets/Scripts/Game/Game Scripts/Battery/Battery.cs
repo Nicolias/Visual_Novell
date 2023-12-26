@@ -76,6 +76,7 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
             Accure(1);
 
             leftTime = new TimeSpan(0, _rechargeByMinute, 0);
+            yield return null;
         }
 
         _isTimer = false;
@@ -111,21 +112,21 @@ public class Battery : MonoBehaviour, IStorageView, ISaveLoadObject
         if (timeSinceLastOpened.TotalSeconds < 0)
             Application.Quit();
 
-        double minuts = timeSinceLastOpened.TotalMinutes;
+        double minutes = timeSinceLastOpened.TotalMinutes;
 
         while (_chargeLeve < _maxCharge)
         {
-            if (minuts < _rechargeByMinute)
+            if (minutes < _rechargeByMinute)
                 break;
 
-            minuts -= _rechargeByMinute;
+            minutes -= _rechargeByMinute;
             _chargeLeve++;
         }
 
         ValueChanged?.Invoke(_chargeLeve);
 
         if (_chargeLeve < _maxCharge && _isTimer == false)
-            StartCoroutine(Timer(new(0,_rechargeByMinute,0)));
+            StartCoroutine(Timer(new(0, (int)minutes, 0)));
     }
 
     public void Add()

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: xNode
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 6069
+  controlID: 190
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -131,24 +131,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: NodeEditorWindow
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1006.4
+    width: 652
     height: 730.8
-  m_MinSize: {x: 101, y: 121}
+  m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 12}
   - {fileID: 11}
   - {fileID: 13}
-  m_Selected: 2
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 2
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,14 +166,14 @@ MonoBehaviour:
   - {fileID: 9}
   m_Position:
     serializedVersion: 2
-    x: 1006.4
+    x: 652
     y: 0
-    width: 378.40002
+    width: 395.19995
     height: 730.8
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 6070
+  controlID: 142
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,10 +191,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 378.40002
+    width: 395.19995
     height: 376.8
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -217,7 +217,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 376.8
-    width: 378.40002
+    width: 395.19995
     height: 354
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
@@ -241,12 +241,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1384.8
+    x: 1047.2
     y: 0
-    width: 151.19995
+    width: 488.80005
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -274,7 +274,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 1005.4
+    width: 651
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -328,10 +328,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1005.4
+      width: 651
       height: 688.8
-    m_Scale: {x: 0.6545573, y: 0.6545573}
-    m_Translation: {x: 502.7, y: 344.4}
+    m_Scale: {x: 0.42382812, y: 0.42382812}
+    m_Translation: {x: 325.5, y: 344.4}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -339,12 +339,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -768
-      y: -526.15717
+      y: -812.5935
       width: 1536
-      height: 1052.3143
+      height: 1625.187
     m_MinimalGUI: 1
-  m_defaultScale: 0.6545573
-  m_LastWindowPixelSize: {x: 1256.75, y: 887.25}
+  m_defaultScale: 0.42382812
+  m_LastWindowPixelSize: {x: 813.75, y: 887.25}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000001000000000000
@@ -833,7 +833,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 1005.4
+    width: 651
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1551,10 +1551,6 @@ MonoBehaviour:
   - _node: {fileID: -7866674563881041417, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
     _name: _outPut
   - _node: {fileID: -7866674563881041417, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
-    _name: _inPut
-  - _node: {fileID: 0}
-    _name: _outPut
-  - _node: {fileID: 0}
     _name: _inPut
   - _node: {fileID: -3242735865646773557, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
     _name: _outPut
@@ -4097,9 +4093,9 @@ MonoBehaviour:
   - _node: {fileID: -5248010153788258718, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
     _name: _inPut
   - _node: {fileID: -4875580825389411702, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
-    _name: _inPut
-  - _node: {fileID: -4875580825389411702, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
     _name: _outPut
+  - _node: {fileID: -4875580825389411702, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
   - _node: {fileID: 1773435721614806171, guid: 5f1e24a88b3cafd41b56aefc9fba2ec8, type: 2}
     _name: _outPut
   - _node: {fileID: 1773435721614806171, guid: 5f1e24a88b3cafd41b56aefc9fba2ec8, type: 2}
@@ -4277,9 +4273,9 @@ MonoBehaviour:
   - _node: {fileID: -2704818913467886734, guid: 3a1a55a0956d56e4d83e7e5c49e7577d, type: 2}
     _name: _inPut
   - _node: {fileID: 8647362906610111632, guid: 3a1a55a0956d56e4d83e7e5c49e7577d, type: 2}
-    _name: _inPut
+    _name: _outPut
   - _node: {fileID: 8647362906610111632, guid: 3a1a55a0956d56e4d83e7e5c49e7577d, type: 2}
-    _name: _outPut
+    _name: _inPut
   - _node: {fileID: -761248025633307071, guid: 3a1a55a0956d56e4d83e7e5c49e7577d, type: 2}
     _name: _outPut
   - _node: {fileID: -761248025633307071, guid: 3a1a55a0956d56e4d83e7e5c49e7577d, type: 2}
@@ -4343,6 +4339,444 @@ MonoBehaviour:
   - _node: {fileID: 2245791238336054868, guid: 5f1e24a88b3cafd41b56aefc9fba2ec8, type: 2}
     _name: _outPut
   - _node: {fileID: 2245791238336054868, guid: 5f1e24a88b3cafd41b56aefc9fba2ec8, type: 2}
+    _name: _inPut
+  - _node: {fileID: 942477505070720692, guid: 5f1e24a88b3cafd41b56aefc9fba2ec8, type: 2}
+    _name: _outPut
+  - _node: {fileID: 942477505070720692, guid: 5f1e24a88b3cafd41b56aefc9fba2ec8, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6500128261946960772, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6500128261946960772, guid: e4c957e92bd3026439db8d4aa2660ab1, type: 2}
+    _name: _inPut
+  - _node: {fileID: -5861813161759309067, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -5861813161759309067, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: -861994398051617145, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _outPut
+  - _node: {fileID: -861994398051617145, guid: cf0f2ac3a65236341b82d8b4195ad011, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8228443664281394507, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8228443664281394507, guid: 0182116ddef36c946a3f984ca4cdf46f, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8716199292204818224, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8716199292204818224, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 7290940189484706225, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 7290940189484706225, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 7260148152729621368, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 7260148152729621368, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 7251309009486363781, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 7251309009486363781, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6949843463816980506, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6949843463816980506, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3615594069609038127, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3615594069609038127, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8403420002338548437, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8403420002338548437, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7215893234410947863, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7215893234410947863, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -4995133793652301812, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4995133793652301812, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1628189145431388839, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1628189145431388839, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1788559622011723945, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1788559622011723945, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8145106874721834897, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8145106874721834897, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5725133766400179816, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5725133766400179816, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5286347744683835825, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5286347744683835825, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 9122778467512558357, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 9122778467512558357, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -5454018930336878506, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -5454018930336878506, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 7800349926562350612, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 7800349926562350612, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2758144640134095563, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2758144640134095563, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2686091634082921772, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2686091634082921772, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2983429950852723451, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2983429950852723451, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6414584684883806118, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6414584684883806118, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8778370200958985711, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8778370200958985711, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2413375555057710795, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2413375555057710795, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 7646100933957475737, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 7646100933957475737, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3422401492704235162, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3422401492704235162, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8701317639112456693, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8701317639112456693, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1649293478904878644, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1649293478904878644, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1252730889912404692, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1252730889912404692, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1177962647092144873, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1177962647092144873, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8992446784229666847, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8992446784229666847, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -105377110314485367, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -105377110314485367, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -105377110314485367, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _textChoices 0
+  - _node: {fileID: -105377110314485367, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _textChoices 1
+  - _node: {fileID: -105377110314485367, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _textChoices 2
+  - _node: {fileID: -1370099755766740465, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1370099755766740465, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1583306268995946055, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1583306268995946055, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 4046559072680544924, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4046559072680544924, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2849195236549845899, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2849195236549845899, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1077995418785669455, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -1077995418785669455, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8549684380639800235, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8549684380639800235, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -273174999668130426, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -273174999668130426, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7855539766921901167, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7855539766921901167, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -5864271315810606949, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -5864271315810606949, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8014859706460477577, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8014859706460477577, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -5524778574394272531, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -5524778574394272531, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 9023567134375399698, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 9023567134375399698, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8663942873499648161, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8663942873499648161, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2536762883905079116, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2536762883905079116, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3048818023493190177, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3048818023493190177, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6054576853577006253, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6054576853577006253, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -14573060149448366, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -14573060149448366, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -9078747423751694904, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -9078747423751694904, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7451185009553748685, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7451185009553748685, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1057709180295214575, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1057709180295214575, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4521936957443577129, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4521936957443577129, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -9092982205745785575, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -9092982205745785575, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5691124111216452598, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5691124111216452598, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7501560597636153702, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7501560597636153702, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8207602490761490351, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8207602490761490351, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 153552265031990468, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 153552265031990468, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 7693940801732650372, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 7693940801732650372, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 2273656823864478917, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2273656823864478917, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6949239458932695954, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6949239458932695954, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -295125892082365592, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -295125892082365592, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -960102044178170405, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -960102044178170405, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6534524596363776870, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6534524596363776870, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3934132396939118850, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3934132396939118850, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8384397716599387266, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8384397716599387266, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8652722911060162296, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8652722911060162296, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8800695826619385113, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8800695826619385113, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 9195072552777494406, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 9195072552777494406, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -4910374318384425381, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4910374318384425381, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8973296060553307867, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8973296060553307867, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3647804790191792530, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3647804790191792530, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5011618858239742393, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5011618858239742393, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -5212850865838603124, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -5212850865838603124, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 406241434330041329, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 406241434330041329, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8832188186145873171, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8832188186145873171, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 6281574964886684570, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 6281574964886684570, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3442662831394421874, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 3442662831394421874, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3582231029444443267, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 3582231029444443267, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -2942118709345773351, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -2942118709345773351, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8583587573341209876, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8583587573341209876, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1991247578583059224, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1991247578583059224, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4498099800177250619, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 4498099800177250619, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8604660852964358883, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8604660852964358883, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 1910803615864841664, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 1910803615864841664, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -6438103109995430837, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -6438103109995430837, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 5514532562556383371, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 5514532562556383371, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1112645193006340968, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -1112645193006340968, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -9115611278685055845, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -9115611278685055845, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2314889475169066788, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 2314889475169066788, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -4793808579763779786, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4793808579763779786, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3127907529064373685, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3127907529064373685, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -7480398657096081768, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -7480398657096081768, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 7616249490545449061, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 7616249490545449061, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -3565022342920596809, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -3565022342920596809, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -4125514201575672136, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4125514201575672136, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -756029757453626104, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -756029757453626104, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 565510346732716386, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 565510346732716386, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -8730814263215390991, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -8730814263215390991, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -572154352846351578, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -572154352846351578, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -4660363762642081878, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -4660363762642081878, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8417290589723184013, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8417290589723184013, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: -9094540578625325092, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: -9094540578625325092, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _inPut
+  - _node: {fileID: 8715329547486475874, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
+    _name: _outPut
+  - _node: {fileID: 8715329547486475874, guid: 68c9535c9e64dee47a101c35fc1d7c2a, type: 2}
     _name: _inPut
   _rects:
   - serializedVersion: 2
@@ -5216,12 +5650,12 @@ MonoBehaviour:
     width: 16
     height: 16
   - serializedVersion: 2
-    x: -2712
+    x: -2920
     y: 672
     width: 16
     height: 16
   - serializedVersion: 2
-    x: -2904
+    x: -3112
     y: 652
     width: 16
     height: 16
@@ -5546,12 +5980,12 @@ MonoBehaviour:
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 408
+    x: 200
     y: 976
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 216
+    x: 8
     y: 956
     width: 16
     height: 16
@@ -6111,43 +6545,33 @@ MonoBehaviour:
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 616
+    x: 712
     y: 64
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 424
+    x: 520
     y: 44
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 824
-    y: 64
+    x: 936
+    y: 48
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 632
-    y: 44
+    x: 744
+    y: 28
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 1032
-    y: 64
+    x: 1352
+    y: 48
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 840
-    y: 44
-    width: 16
-    height: 16
-  - serializedVersion: 2
-    x: 1448
-    y: 64
-    width: 16
-    height: 16
-  - serializedVersion: 2
-    x: 1256
-    y: 44
+    x: 1160
+    y: 28
     width: 16
     height: 16
   - serializedVersion: 2
@@ -11321,12 +11745,12 @@ MonoBehaviour:
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 1240
+    x: 824
     y: 1696
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 1048
+    x: 632
     y: 1676
     width: 16
     height: 16
@@ -12471,13 +12895,13 @@ MonoBehaviour:
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 3464
-    y: 1644
+    x: 3656
+    y: 1664
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 3656
-    y: 1664
+    x: 3464
+    y: 1644
     width: 16
     height: 16
   - serializedVersion: 2
@@ -12921,13 +13345,13 @@ MonoBehaviour:
     width: 16
     height: 16
   - serializedVersion: 2
-    x: -2904
-    y: 652
+    x: -2712
+    y: 672
     width: 16
     height: 16
   - serializedVersion: 2
-    x: -2712
-    y: 672
+    x: -2904
+    y: 652
     width: 16
     height: 16
   - serializedVersion: 2
@@ -12941,22 +13365,22 @@ MonoBehaviour:
     width: 16
     height: 16
   - serializedVersion: 2
-    x: -1096
+    x: -1320
     y: 16
     width: 16
     height: 16
   - serializedVersion: 2
-    x: -1288
+    x: -1512
     y: -4
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 1784
+    x: 1272
     y: 5760
     width: 16
     height: 16
   - serializedVersion: 2
-    x: 1592
+    x: 1080
     y: 5740
     width: 16
     height: 16
@@ -13090,7 +13514,1102 @@ MonoBehaviour:
     y: 6236
     width: 16
     height: 16
-  graph: {fileID: 11400000, guid: 5f1e24a88b3cafd41b56aefc9fba2ec8, type: 2}
+  - serializedVersion: 2
+    x: 2824
+    y: 5744
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 2632
+    y: 5724
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1144
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 952
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 1032
+    y: -192
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 840
+    y: -212
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 808
+    y: 864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 616
+    y: 844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 200
+    y: 48
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 8
+    y: 28
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3624
+    y: 2864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3432
+    y: 2844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3864
+    y: 1664
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3672
+    y: 1644
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4072
+    y: 1664
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3880
+    y: 1644
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3640
+    y: 2016
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3448
+    y: 1996
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3848
+    y: 2016
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3656
+    y: 1996
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4056
+    y: 2016
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3864
+    y: 1996
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4264
+    y: 2016
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4072
+    y: 1996
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3640
+    y: 2288
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3448
+    y: 2268
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3848
+    y: 2288
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3656
+    y: 2268
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4056
+    y: 2288
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3864
+    y: 2268
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4264
+    y: 2288
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4072
+    y: 2268
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3640
+    y: 2592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3448
+    y: 2572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3848
+    y: 2592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3656
+    y: 2572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4056
+    y: 2592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3864
+    y: 2572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4264
+    y: 2592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4072
+    y: 2572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3832
+    y: 2864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3640
+    y: 2844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4040
+    y: 2864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3848
+    y: 2844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4248
+    y: 2864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4056
+    y: 2844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4440
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4632
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4472
+    y: 2016
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4280
+    y: 1996
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4472
+    y: 2592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4280
+    y: 2572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4456
+    y: 2864
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4264
+    y: 2844
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3848
+    y: 3136
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3656
+    y: 3116
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4056
+    y: 3136
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3864
+    y: 3116
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4472
+    y: 3120
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4280
+    y: 3100
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4264
+    y: 3136
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4072
+    y: 3116
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4472
+    y: 2288
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4280
+    y: 2268
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4648
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4840
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4856
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5048
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5064
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5256
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5080
+    y: 892
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5272
+    y: 912
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5271
+    y: 976
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5271
+    y: 1029
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5271
+    y: 1082
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5144
+    y: 1328
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4952
+    y: 1308
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3624
+    y: 3392
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3432
+    y: 3372
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3832
+    y: 3392
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 3640
+    y: 3372
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5048
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4856
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5256
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5064
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5032
+    y: 1984
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4840
+    y: 1964
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5240
+    y: 1984
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5048
+    y: 1964
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5032
+    y: 2256
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4840
+    y: 2236
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5240
+    y: 2256
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5048
+    y: 2236
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5032
+    y: 2560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4840
+    y: 2540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5240
+    y: 2560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5048
+    y: 2540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5016
+    y: 2832
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4824
+    y: 2812
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5224
+    y: 2832
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5032
+    y: 2812
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5240
+    y: 3104
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5048
+    y: 3084
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5016
+    y: 3360
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4824
+    y: 3340
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5224
+    y: 3360
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5032
+    y: 3340
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5096
+    y: 3792
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 4904
+    y: 3772
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5272
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5464
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5480
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5672
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5160
+    y: 1308
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5352
+    y: 1328
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5464
+    y: 1632
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5272
+    y: 1612
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5448
+    y: 1984
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5256
+    y: 1964
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5656
+    y: 1984
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5464
+    y: 1964
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5448
+    y: 2256
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5256
+    y: 2236
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5656
+    y: 2256
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5464
+    y: 2236
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5448
+    y: 2560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5256
+    y: 2540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5656
+    y: 2560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5464
+    y: 2540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5432
+    y: 2832
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5240
+    y: 2812
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5640
+    y: 2832
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5448
+    y: 2812
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5448
+    y: 3104
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5256
+    y: 3084
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5656
+    y: 3104
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5464
+    y: 3084
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5320
+    y: 3792
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5128
+    y: 3772
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5528
+    y: 3792
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5336
+    y: 3772
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5688
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5880
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5896
+    y: 572
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6088
+    y: 592
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5864
+    y: 1984
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5672
+    y: 1964
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5864
+    y: 2560
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5672
+    y: 2540
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5848
+    y: 2832
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5656
+    y: 2812
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5864
+    y: 3088
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5672
+    y: 3068
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6584
+    y: 1952
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6392
+    y: 1932
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6584
+    y: 2224
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6392
+    y: 2204
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6584
+    y: 2528
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6392
+    y: 2508
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6568
+    y: 2800
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6376
+    y: 2780
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6568
+    y: 3328
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6376
+    y: 3308
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5736
+    y: 3792
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5544
+    y: 3772
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5864
+    y: 2256
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 5672
+    y: 2236
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6504
+    y: 1276
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6696
+    y: 1296
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6408
+    y: 1580
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6600
+    y: 1600
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6616
+    y: 1580
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6808
+    y: 1600
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6600
+    y: 1932
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6792
+    y: 1952
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6792
+    y: 2224
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6600
+    y: 2204
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6792
+    y: 2528
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6600
+    y: 2508
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6776
+    y: 2800
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6584
+    y: 2780
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6792
+    y: 3072
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6600
+    y: 3052
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6776
+    y: 3328
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6584
+    y: 3308
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6712
+    y: 1276
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6904
+    y: 1296
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6824
+    y: 1580
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7016
+    y: 1600
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7000
+    y: 1952
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6808
+    y: 1932
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7000
+    y: 2224
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6808
+    y: 2204
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7000
+    y: 2528
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6808
+    y: 2508
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6984
+    y: 2800
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6792
+    y: 2780
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7000
+    y: 3072
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 6808
+    y: 3052
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7208
+    y: 1952
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7016
+    y: 1932
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7416
+    y: 1952
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7224
+    y: 1932
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7208
+    y: 2224
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7016
+    y: 2204
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7208
+    y: 2528
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7016
+    y: 2508
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7416
+    y: 2528
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7224
+    y: 2508
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7192
+    y: 2800
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7000
+    y: 2780
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7400
+    y: 2800
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7208
+    y: 2780
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7416
+    y: 3056
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7224
+    y: 3036
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7208
+    y: 3072
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7016
+    y: 3052
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7416
+    y: 2224
+    width: 16
+    height: 16
+  - serializedVersion: 2
+    x: 7224
+    y: 2204
+    width: 16
+    height: 16
+  graph: {fileID: 11400000, guid: 71fccbc6c5438dd4382c3c36dc08d0d9, type: 2}
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -13111,9 +14630,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1006.4
+    x: 652
     y: 73.6
-    width: 376.40002
+    width: 393.19995
     height: 355.8
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -13128,9 +14647,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 0c420000
       m_LastClickedID: 0
-      m_ExpandedIDs: 409affff749affffce9effff0e9fffffd29fffff22a0ffff60a0ffffeaa8ffff1ea9ffffdeacffffecadffff34aeffffb8bafffff0baffffe8befffff4bfffff3ac0ffffb6f6ffff76f7ffff4ef8ffff16fbffff188e00000a900000
+      m_ExpandedIDs: 16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -13174,9 +14693,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1006.4
+    x: 652
     y: 450.4
-    width: 376.40002
+    width: 393.19995
     height: 333
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -13189,7 +14708,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: Batter
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -13198,23 +14717,25 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/Resources/Data Scriptable Objects/Dialogs Data
     m_Globs: []
-    m_OriginalText: 
+    m_OriginalText: Batter
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 0
   m_StartGridSize: 64
-  m_LastFolders: []
+  m_LastFolders:
+  - Assets/Resources/Data Scriptable Objects/Dialogs Data
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProject\Visual Novell
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 84820000
-    m_LastClickedID: 33412
-    m_ExpandedIDs: ffffffff00000000cc7500006676000084780000cc7b0000dc7b0000ea7b00003a7c0000427d0000627d0000807d0000827d0000847d00009c7d0000b07d0000b48200005083000066830000b6830000cc8300000e8400008a840000288500002a8500002c8500002e85000030850000328500003485000036850000388500003a8500003c85000040850000428500004485000046850000488500004a8500004c8500004e85000050850000528500005485000056850000588500005a8500005c8500005e850000628500006485000066850000688500006a8500006c8500006e85000070850000728500007485000076850000788500007a8500007c8500007e85000080850000828500008485000086850000888500008a8500008c8500008e85000090850000928500009485000096850000988500009a8500009c8500009e850000a0850000a2850000a8850000aa850000ac850000ae850000b0850000fe850000208600002486000030860000cc880000ee970000f6970000
+    m_SelectedIDs: c2850000
+    m_LastClickedID: 34242
+    m_ExpandedIDs: 00000000cc750000667600006a78000084780000e67b0000f67b0000047c0000547c00005c7d00007c7d00009a7d00009c7d00009e7d0000b67d0000ca7d0000d28200006e83000084830000d4830000ea8300002c840000ac8400004a8500004c8500004e85000050850000528500005485000056850000588500005a8500005c8500005e85000060850000628500006485000066850000688500006a8500006c8500006e85000070850000728500007485000076850000788500007a8500007c8500007e85000080850000828500008485000086850000888500008a8500008c8500008e85000090850000928500009485000096850000988500009a8500009c8500009e850000a0850000a2850000a4850000a6850000a8850000aa850000ac850000ae850000b0850000b2850000b4850000b8850000ba850000bc850000be850000c0850000c2850000c4850000c6850000c8850000ca850000cc850000ce850000d2850000d6850000d8850000da850000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -13239,24 +14760,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 1877}
+    scrollPos: {x: 0, y: 10897}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000cc750000667600006a78000084780000cc7b0000dc7b0000ea7b00003a7c0000427d0000627d0000807d0000827d0000847d00009c7d0000b07d0000b48200005083000066830000b6830000cc8300000e8400008a840000288500002a8500002c8500002e85000030850000328500003485000036850000388500003a8500003c85000040850000428500004485000046850000488500004a8500004c8500004e85000050850000528500005485000056850000588500005a8500005c8500005e850000628500006485000066850000688500006a8500006c8500006e85000070850000728500007485000076850000788500007a8500007c8500007e85000080850000828500008485000086850000888500008a8500008c8500008e85000090850000928500009485000096850000988500009a8500009c8500009e850000a0850000a2850000a4850000a8850000aa850000ac850000ae850000b0850000fe8500002086000024860000cc880000ec970000ee970000f6970000
+    m_ExpandedIDs: ffffffff0000000064730000cc75000066760000807700006a78000084780000427a0000e67b0000f67b0000f87b0000047c0000547c00005c7d00007c7d00009a7d00009c7d00009e7d0000b67d0000d28200006e83000084830000d4830000ea8300002c840000ac8400004a8500004c8500004e85000050850000528500005485000056850000588500005a8500005c8500005e85000060850000628500006485000066850000688500006a8500006c8500006e85000070850000728500007485000076850000788500007a8500007c8500007e85000080850000828500008485000086850000888500008a8500008c8500008e85000090850000928500009485000096850000988500009a8500009c8500009e850000a0850000a2850000a4850000a6850000a8850000aa850000ac850000ae850000b0850000b2850000b4850000b6850000b8850000ba850000bc850000be850000c0850000c2850000c4850000c6850000c8850000ca850000cc850000ce850000d0850000d2850000d4850000d6850000d8850000da85000050860000ec880000028900000689000010890000128900004e8900005c890000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: 3 Dialog With Dey After Sleep
+      m_OriginalName: 3 Dialog With Dey After Sleep
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 30040
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
@@ -13269,8 +14790,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c623000064730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -13318,9 +14839,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1384.8
+    x: 1047.2001
     y: 73.6
-    width: 150.19995
+    width: 487.80005
     height: 709.8
   m_SerializedDataModeController:
     m_DataMode: 0
