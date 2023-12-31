@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BillingClientSettings
   m_EditorClassIdentifier: 
   consoleApplicationId: 2063488587
-  deeplinkScheme: rustoreunitysdksample
+  deeplinkScheme: thefortune
   allowNativeErrorHandling: 1
   enableLogs: 1

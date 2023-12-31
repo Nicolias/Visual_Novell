@@ -35,33 +35,28 @@ namespace Shop
             _saveLoadServise = saveLoadServise;
         }
 
+        public Product Product => _model;
+
         public void Dispose()
         {
             _view.BuyButtonClicked -= OnBuyButtonClicked;
-            _shop.ProductBought -= OnProudcrtBought;
-
         }
 
-        private void OnBuyButtonClicked()
+        public void Buy()
         {
-            _shop.ProductBought += OnProudcrtBought;
-            _shop.BuyProduct(_model);
-        }
-
-        private void OnProudcrtBought(Product product)
-        {
-            if (product != _model)
-                throw new InvalidOperationException("Не правильный продукт");
-
             _isBought = true;
             _saveLoadServise.Save(_saveKey, new SaveData.BoolData() { Bool = _isBought });
-            _shop.ProductBought -= OnProudcrtBought;
 
-            if (product.Data.IsOnce)
+            if (_model.Data.IsOnce)
             {
                 Dispose();
                 _view.Delete();
             }
+        }
+
+        private void OnBuyButtonClicked()
+        {
+            _shop.BuyProduct(this);
         }
     }
 }
